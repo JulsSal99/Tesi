@@ -1,3 +1,9 @@
+---
+title: "Tesi"
+bibliography: biblio.bib
+link-citations: true
+---
+
 MAIN:
 ============
 
@@ -22,12 +28,9 @@ restituisca tanti file quanti parlanti ci sono (nomi dei file di output costruit
 suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come si possono manipolare file audio in python con queste librerie veda: https://github.com/Kuig/SNDfunc
 
 
-
-DOMANDE:
+Tempi di risposta:
 ============
-- la persona fa una domanda ad un altro? Ma facendo così non esce una catena un po' irrealistica?
-- Un unico intervistatore che fa più domande separate? Potrebbe essere utile per capire se la persona riesce a capirlo anche separato da uno spazio diverso (per evitare l'effetto ABX-test).
-- Le persone devono usare dei nomi? Perché se usiamo dei nomi, si differenziano tra maschi e femmine. Potrebbe essere interessante vedere anche la correlazione tra nomi e pronunce (gli ascoltatori potrebbero venire ingannati per alcune caratteristiche della persona e non il livello vocale).
+Nel documento di [^1]
 
 
 
@@ -47,3 +50,15 @@ NOMENCLATURA FILES
 <br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt. 
 <br> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?
 
+
+DOMANDE:
+============
+- la persona fa una domanda ad un altro? Ma facendo così non esce una catena un po' irrealistica?
+- Un unico intervistatore che fa più domande separate? Potrebbe essere utile per capire se la persona riesce a capirlo anche separato da uno spazio diverso (per evitare l'effetto ABX-test).
+- Le persone devono usare dei nomi? Perché se usiamo dei nomi, si differenziano tra maschi e femmine. Potrebbe essere interessante vedere anche la correlazione tra nomi e pronunce (gli ascoltatori potrebbero venire ingannati per alcune caratteristiche della persona e non il livello vocale).
+
+<div id="refs"></div>
+
+# Citazioni: {-}
+[^1]:[Vedi, *pp. 1*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Pavese et al*.](DOC/aia2014_pavese_et_al.pdf)
+[^2]:[Vedi "Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.", pp. 1, Pavese et al.](DOC/aia2014_pavese_et_al.pdf)
