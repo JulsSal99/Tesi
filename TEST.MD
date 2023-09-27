@@ -30,8 +30,10 @@ suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come s
 
 Tempi di risposta:
 ============
-Nel documento di [^1]
-
+Riguardo alle pause in diverse stanze:
+> I risultati mostrano che la distribuzione dei periodi di pausa non varia nelle diverse camere; in particolare, il maggior numero di occorrenze si ha per periodi della durata pari a 90 ms. Viceversa, il tipo di camera influenza la durata dei periodi di voce.
+Nel caso dei monitoraggi in camera anecoica (figura 1A), il maggior numero di occorrenze si ha per tratti di lunghezza pari a 90 ms; tale valore aumenta con la riverberazione della camera: il picco di occorrenze è a 120 ms per la camera semi riverberante (figura 1B) e a 150 ms per la camera riverberante (figura 1C). [^1]
+> "per i non professionisti della voce [...] i picchi delle occorrenze medie si attestano a 60 ms per i tratti di pausa e a 90 ms per la voce." e "50 ms per i tratti di pausa e a 100 ms per la voce." con un "periodo base dei due dispositivi, che è pari a 30 ms e 50 ms rispettivamente." [^2]
 
 
 
@@ -60,5 +62,5 @@ DOMANDE:
 <div id="refs"></div>
 
 # Citazioni: {-}
-[^1]:[Vedi, *pp. 1*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Pavese et al*.](DOC/aia2014_pavese_et_al.pdf)
-[^2]:[Vedi "Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.", pp. 1, Pavese et al.](DOC/aia2014_pavese_et_al.pdf)
+[^1]:[Vedi, *pp. 3-4*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
+[^2]:[Vedi, *pp. 6-7*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
