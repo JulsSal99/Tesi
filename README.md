@@ -1,1 +1,1 @@
-[test]: .github/TEST.MD
+[test]: /TEST.MD
