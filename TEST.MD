@@ -96,10 +96,10 @@ NOMENCLATURA FILES
 | cartella      | LETTERA_SOGGETTO | _ | NUMERO_PORTAMENTO_VOCE_DISTANZA | _ | TIPO_CONGIUNZIONE | .wav |
 | ------        | ---------------- | - | ------------------------------- | - | ----------------- | ---- |
 | \dialoghi     | A                | _ | 1                               |   |                   | .wav |
-|               | A                | _ | 2                               |   |                   | .wav |
+|               | B                | _ | 2                               |   |                   | .wav |
 |               |                  |   |                                 |   |                   |      |
 | \congiunzioni | A                | _ | 1                               | _ | A                 | .wav |
-|               | A                | _ | 2                               | _ | B                 | .wav |
+|               | B                | _ | 2                               | _ | B                 | .wav |
 
 - il nome del file potrebbe essere fatto per esempio    "LETTERA_SOGGETTO"_"NUMERO_PORTAMENTO_VOCE_DISTANZA".wav   
 <br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt. 
