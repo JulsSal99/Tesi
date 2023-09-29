@@ -1,1 +1,1 @@
-[test]: /TEST.MD
+[test]: TEST.MD
