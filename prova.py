@@ -104,28 +104,42 @@ def audioinfo( infile ):
     return info
 
 
-def concatenate(filename1, filename2, frames=-1, start=0 ):
+def concatenate(filename1, filename2):
     data1, samplerate1 = audioread(filename1)
     data2, samplerate2 = audioread(filename2)
 
     if samplerate1 != samplerate2:
         raise ValueError("I due file audio hanno frequenze di campionamento diverse.")
-
-    if len(data1.shape) > 1 or len(data2.shape) > 1:
-        raise ValueError("I due file audio non sono mono.")
     
     # Definiamo la durata del silenzio in secondi
     duration = 0.9
 
     # Creiamo un array numpy di zeri per rappresentare il silenzio
-    silence = np.zeros(int(duration * samplerate1))
+    if len(data1.shape) > 1 or len(data2.shape) > 1:
+        # Calcola il numero di campioni necessari per 0.2 secondi di silenzio
+        n_campioni_silenzio = int(samplerate1 * duration)
 
-    data = np.concatenate((data1, silence, data2))
+        # Crea un array di campioni di audio vuoti
+        silence = np.zeros((n_campioni_silenzio, 2))
+        data = np.concatenate((data1, silence, data2), axis=0)
+    else:
+        silence = np.zeros(int(duration * samplerate1))
+        data = np.concatenate((data1, silence, data2))
 
     sf.write('OUTPUT/merged.wav', data, samplerate1)
-
+        
 if __name__ == '__main__':
-    testfile1 = 'C:/Users/giuli/Documents/GitHub/Tesi/Sample.wav'
-    testfile2 = 'C:/Users/giuli/Documents/GitHub/Tesi/Sample.wav'
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    
+    testfile1 = input("Inserisci il nome del primo file: ")
+    file_path = os.path.join(dir_path, testfile1)
+    testfile2 = input("Inserisci il nome del secondo file: ")
+    file_path = os.path.join(dir_path, testfile2)
     '''Run concatenate (file1, file2)'''
+    # sarebbe utile generare dialoghi in base a: 
+    # voci femminili? 
+    # voci maschili? 
+    # random?
+    # quante domande e risposte? 
+    # Pause irrealistiche? 
     concatenate(testfile1, testfile2)
