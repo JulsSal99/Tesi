@@ -142,4 +142,5 @@ if __name__ == '__main__':
     # random?
     # quante domande e risposte? 
     # Pause irrealistiche? 
+    # possibilità aggiunta rumore di fondo? 
     concatenate(testfile1, testfile2)
