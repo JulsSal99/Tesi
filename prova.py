@@ -113,10 +113,16 @@ def concatenate(filename1, filename2, frames=-1, start=0 ):
 
     if len(data1.shape) > 1 or len(data2.shape) > 1:
         raise ValueError("I due file audio non sono mono.")
+    
+    # Definiamo la durata del silenzio in secondi
+    duration = 0.9
 
-    data = np.concatenate((data1, data2))
+    # Creiamo un array numpy di zeri per rappresentare il silenzio
+    silence = np.zeros(int(duration * samplerate1))
 
-    sf.write('merged.wav', data, samplerate1)
+    data = np.concatenate((data1, silence, data2))
+
+    sf.write('OUTPUT/merged.wav', data, samplerate1)
 
 if __name__ == '__main__':
     testfile1 = 'C:/Users/giuli/Documents/GitHub/Tesi/Sample.wav'
