@@ -93,7 +93,7 @@ Inoltre, riguardo ai riverberi:
 NOMENCLATURA FILES
 ============
 
-| cartella      | LETTERA_SOGGETTO | _ | NUMERO_PORTAMENTO_VOCE_DISTANZA | _ | TIPO_CONGIUNZIONE | .wav |
+| cartella      | LETTERA_SOGGETTO | _ | NUMERO_PORTAMENTO_VOCE_DISTANZA | _ | TIPO_SUONO        | .wav |
 | ------        | ---------------- | - | ------------------------------- | - | ----------------- | ---- |
 | \dialoghi     | A                | _ | 1                               |   |                   | .wav |
 |               | B                | _ | 2                               |   |                   | .wav |
@@ -102,7 +102,8 @@ NOMENCLATURA FILES
 |               | B                | _ | 2                               | _ | B                 | .wav |
 
 - il nome del file potrebbe essere fatto per esempio    "LETTERA_SOGGETTO"_"NUMERO_PORTAMENTO_VOCE_DISTANZA".wav   
-<br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt. 
+<br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt.
+<br> 
 <br> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?
 
 
@@ -111,6 +112,7 @@ DOMANDE:
 - la persona fa una domanda ad un altro? Ma facendo così non esce una catena un po' irrealistica?
 - Un unico intervistatore che fa più domande separate? Potrebbe essere utile per capire se la persona riesce a capirlo anche separato da uno spazio diverso (per evitare l'effetto ABX-test).
 - Le persone devono usare dei nomi? Perché se usiamo dei nomi, si differenziano tra maschi e femmine. Potrebbe essere interessante vedere anche la correlazione tra nomi e pronunce (gli ascoltatori potrebbero venire ingannati per alcune caratteristiche della persona e non il livello vocale).
+- come capiamo i tempi di risposta, visto che dipendono dal tipo di domanda e dalla reazione?
 
 <div id="refs"></div>
 

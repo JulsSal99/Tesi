@@ -110,31 +110,46 @@ def concatenate(filename1, filename2):
 
     if samplerate1 != samplerate2:
         raise ValueError("I due file audio hanno frequenze di campionamento diverse.")
-    
+
+    #calcolo il numero di canali e campionamento
+    channels = data1.shape[1]    
+    sample_rate = samplerate1
     # Definiamo la durata del silenzio in secondi
     duration = 0.9
 
+    # Calcola il numero di campioni necessari per 0.2 secondi di silenzio
+    n_campioni_silenzio = sample_rate * duration
+
     # Creiamo un array numpy di zeri per rappresentare il silenzio
+    data1_length = len(data1)
+    data2_length = len(data2)
+    # Crea un array di campioni di audio vuoti con n canali (shape)
+    silence = np.zeros((int(n_campioni_silenzio), channels))
+    data1_silence = np.zeros((int(data1_length), channels))
+    data2_silence = np.zeros((int(data2_length), channels))
+
     if len(data1.shape) > 1 or len(data2.shape) > 1:
-        # Calcola il numero di campioni necessari per 0.2 secondi di silenzio
-        n_campioni_silenzio = int(samplerate1 * duration)
-
-        # Crea un array di campioni di audio vuoti
-        silence = np.zeros((n_campioni_silenzio, 2))
-        data = np.concatenate((data1, silence, data2), axis=0)
+        OUTPUT1 = np.concatenate((data1_silence, silence, data2), axis=0)
+        OUTPUT2 = np.concatenate((data1, silence, data2_silence), axis=0)
     else:
-        silence = np.zeros(int(duration * samplerate1))
-        data = np.concatenate((data1, silence, data2))
+        OUTPUT1 = np.concatenate((data1_silence, silence, data2))
+        OUTPUT2 = np.concatenate((data1, silence, data2_silence))
 
-    sf.write('OUTPUT/merged.wav', data, samplerate1)
+    sf.write('OUTPUT/merged1.wav', OUTPUT1, samplerate1)
+    sf.write('OUTPUT/merged2.wav', OUTPUT2, samplerate1)
         
+def find_file(name, path):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if name in file and (file.endswith(".wav") or file.endswith(".mp3")):
+                return os.path.join(root, file)
+    raise Exception(f"File {name}.wav or {name}.mp3 not found in {path}")
+
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
     
     testfile1 = input("Inserisci il nome del primo file: ")
-    file_path = os.path.join(dir_path, testfile1)
     testfile2 = input("Inserisci il nome del secondo file: ")
-    file_path = os.path.join(dir_path, testfile2)
     '''Run concatenate (file1, file2)'''
     # sarebbe utile generare dialoghi in base a: 
     # voci femminili? 
@@ -142,5 +157,11 @@ if __name__ == '__main__':
     # random?
     # quante domande e risposte? 
     # Pause irrealistiche? 
-    # possibilità aggiunta rumore di fondo? 
+    file_names = [testfile1, testfile2]
+    for i in range(2):
+        try:
+            file_names[i] = find_file(file_names[i], dir_path)
+        except Exception:
+            print("il file non esiste")
+
     concatenate(testfile1, testfile2)
