@@ -108,16 +108,24 @@ def find_file(name, path):
                 return os.path.join(root, file)
     raise Exception(f"File {name}.wav or {name}.mp3 not found in {path}")
 
+def folder_info(folder_path):
+    '''count the number of audio files in a folder'''
+    mp3_wav_count = 0
+    for filename in os.listdir(folder_path):
+        if filename.endswith('.mp3') or filename.endswith('.wav'):
+            mp3_wav_count += 1
+    return mp3_wav_count
+
 def concatenate(filename1, filename2):
-    data1, samplerate1 = audioread(filename1)
+    data1, sample_rate = audioread(filename1)
     data2, samplerate2 = audioread(filename2)
 
-    if samplerate1 != samplerate2:
+    if sample_rate != samplerate2:
         raise Exception("I due file audio hanno frequenze di campionamento diverse.")
 
-    #calcolo il numero di canali e campionamento
-    channels = data1.shape[1]    
-    sample_rate = samplerate1
+    #calcolo il numero di canali
+    channels = data1.shape[1]
+
     # Definiamo la durata del silenzio in secondi
     duration = 0.9
 
@@ -139,23 +147,32 @@ def concatenate(filename1, filename2):
         OUTPUT1 = np.concatenate((data1_silence, silence, data2))
         OUTPUT2 = np.concatenate((data1, silence, data2_silence))
 
-    sf.write('OUTPUT/merged1.wav', OUTPUT1, samplerate1)
-    sf.write('OUTPUT/merged2.wav', OUTPUT2, samplerate1)
+    sf.write('OUTPUT/merged1.wav', OUTPUT1, sample_rate)
+    sf.write('OUTPUT/merged2.wav', OUTPUT2, sample_rate)
 
 if __name__ == '__main__':
+    dir_path = os.path.dirname(os.path.realpath(__file__))+"\INPUT"
+    max_participants = folder_info(dir_path)
+
+    print("\nGeneratore di dialoghi realistici.\n")
+
+    n_participants = int(input("Numero di partecipanti al dialogo: "))
+    if n_participants <= 1 or n_participants > max_participants:
+        raise Exception(f"Non abbastanza files o numero errato!")
 
     '''Ask file1, file2'''
-    testfile1 = input("Inserisci il nome del primo file: ")
-    testfile2 = input("Inserisci il nome del secondo file: ")
+    file_names = []
+    for i in range(n_participants):
+        file = input("Inserisci il nome del {}o audio: ".format(i+1))
+        file_names.append(file)
     
     '''Check paths (file1, file2)'''
-    file_names = [testfile1, testfile2]
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    for i in range(2):
+    for i in range(len(file_names)):
         file_names[i] = find_file(file_names[i], dir_path)
 
     '''Run concatenate (file1, file2)'''
     concatenate(file_names[0], file_names[1])
+    print("\n COMPLETED!")
     os.startfile(dir_path + "\output")
     # sarebbe utile generare dialoghi in base a: 
     # voci femminili? 
