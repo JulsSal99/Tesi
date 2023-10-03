@@ -103,13 +103,19 @@ def audioinfo( infile ):
     info.bit = int(re.search('bits_per_sample=(.*)\\r',ffout).group(1))   
     return info
 
+def find_file(name, path):
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            if name in file and (file.endswith(".wav") or file.endswith(".mp3")):
+                return os.path.join(root, file)
+    raise Exception(f"File {name}.wav or {name}.mp3 not found in {path}")
 
 def concatenate(filename1, filename2):
     data1, samplerate1 = audioread(filename1)
     data2, samplerate2 = audioread(filename2)
 
     if samplerate1 != samplerate2:
-        raise ValueError("I due file audio hanno frequenze di campionamento diverse.")
+        raise Exception("I due file audio hanno frequenze di campionamento diverse.")
 
     #calcolo il numero di canali e campionamento
     channels = data1.shape[1]    
@@ -137,31 +143,24 @@ def concatenate(filename1, filename2):
 
     sf.write('OUTPUT/merged1.wav', OUTPUT1, samplerate1)
     sf.write('OUTPUT/merged2.wav', OUTPUT2, samplerate1)
-        
-def find_file(name, path):
-    for root, dirs, files in os.walk(path):
-        for file in files:
-            if name in file and (file.endswith(".wav") or file.endswith(".mp3")):
-                return os.path.join(root, file)
-    raise Exception(f"File {name}.wav or {name}.mp3 not found in {path}")
 
 if __name__ == '__main__':
-    dir_path = os.path.dirname(os.path.realpath(__file__))
-    
+
+    '''Ask file1, file2'''
     testfile1 = input("Inserisci il nome del primo file: ")
     testfile2 = input("Inserisci il nome del secondo file: ")
+    
+    '''Check paths (file1, file2)'''
+    file_names = [testfile1, testfile2]
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    for i in range(2):
+        file_names[i] = find_file(file_names[i], dir_path)
+
     '''Run concatenate (file1, file2)'''
+    concatenate(file_names[0], file_names[1])
     # sarebbe utile generare dialoghi in base a: 
     # voci femminili? 
     # voci maschili? 
     # random?
     # quante domande e risposte? 
     # Pause irrealistiche? 
-    file_names = [testfile1, testfile2]
-    for i in range(2):
-        try:
-            file_names[i] = find_file(file_names[i], dir_path)
-        except Exception:
-            print("il file non esiste")
-
-    concatenate(testfile1, testfile2)
