@@ -9,17 +9,13 @@ import numpy as np
 
 This library has some functions from DSPfunc by G.Presti
 
-General Purpose Audio DSP functions
-
-Should work on both Python 2.7.x and 3.x
+Should work on both Python 3.x (tested on Python 3.11.6)
 Look at the test() function for some examples...
 
 This collection is based upon the following packages:
   - numpy
-  - scipy
   - pysoundfile
   - spectrum
-  - matplotlib (for visualization)
 
 This collection also requires the following software:
   - ffmpeg (optional, for mp3 handling)
@@ -104,6 +100,8 @@ def audioinfo( infile ):
     return info
 
 def find_file(name, path):
+    '''Search for the file by its name with and without the extension'''
+    '''and return the first file found with the exact path of the file.'''
     for root, dirs, files in os.walk(path):
         for file in files:
             if name in file and (file.endswith(".wav") or file.endswith(".mp3")):
@@ -158,6 +156,7 @@ if __name__ == '__main__':
 
     '''Run concatenate (file1, file2)'''
     concatenate(file_names[0], file_names[1])
+    os.startfile(dir_path + "\output")
     # sarebbe utile generare dialoghi in base a: 
     # voci femminili? 
     # voci maschili? 
