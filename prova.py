@@ -99,6 +99,15 @@ def audioinfo( infile ):
     info.bit = int(re.search('bits_per_sample=(.*)\\r',ffout).group(1))   
     return info
 
+def audio_file(path_file, length_file: float, data_file):
+    '''crea una classe contenente i dati per la concatenazione'''
+    class File: pass
+    file = File()
+    file.path = path_file
+    file.length = length_file
+    file.data = data_file
+    return file
+
 def find_file(name, path):
     '''Search for the file by its name with and without the extension'''
     '''and return the first file found with the exact path of the file.'''
@@ -155,15 +164,6 @@ def read_write_file(filename1, filename2):
     sf.write('OUTPUT/merged1.wav', OUTPUT1, samplerate1)
     sf.write('OUTPUT/merged2.wav', OUTPUT2, samplerate1)
 
-def audio_file(path_file, length_file: float, data_file):
-    
-    class File: pass
-    file = File()
-    file.path = path_file
-    file.length = length_file
-    file.data = data_file
-    return file
-
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
     max_participants = folder_info(dir_path+"\INPUT")
@@ -175,17 +175,17 @@ if __name__ == '__main__':
         raise Exception(f"Non abbastanza files o numero errato!")
 
     '''Ask file1, file2'''
+    ''' and check/fix paths (file1, file2)'''
     file_names = []
     for i in range(n_participants):
         file = input("Inserisci il nome del {}o audio: ".format(i+1))
-        file1 = audio_file(file, 0, 0)
-        file_names.append(file1)
-
-    '''Check paths (file1, file2)'''
-    for i in range(len(file_names)):
-        file_names[i].path = find_file(file_names[i].path, dir_path+"\INPUT")
+        file = find_file(file, dir_path+"\INPUT")
+        # crea un array costituito da elementi della classe File da audio_file
+        file_names.append((audio_file(file, 0, 0)))
 
     '''Run concatenate (file1, file2)'''
     read_write_file(file_names[0].path, file_names[1].path)
     print("\n COMPLETED!")
     os.startfile(dir_path + "\output")
+
+# manca il controllo che nella cartella non ci siano più files con lo stesso nome
