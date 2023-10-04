@@ -113,6 +113,12 @@ DOMANDE:
 - Un unico intervistatore che fa più domande separate? Potrebbe essere utile per capire se la persona riesce a capirlo anche separato da uno spazio diverso (per evitare l'effetto ABX-test).
 - Le persone devono usare dei nomi? Perché se usiamo dei nomi, si differenziano tra maschi e femmine. Potrebbe essere interessante vedere anche la correlazione tra nomi e pronunce (gli ascoltatori potrebbero venire ingannati per alcune caratteristiche della persona e non il livello vocale).
 - come capiamo i tempi di risposta, visto che dipendono dal tipo di domanda e dalla reazione?
+- sarebbe utile generare dialoghi in base a: 
+  - voci femminili? 
+  - voci maschili? 
+  - random?
+  - quante domande e risposte? 
+  - Pause irrealistiche? 
 
 <div id="refs"></div>
 

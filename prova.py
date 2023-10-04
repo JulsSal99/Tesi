@@ -116,27 +116,20 @@ def folder_info(folder_path):
             mp3_wav_count += 1
     return mp3_wav_count
 
-def concatenate(filename1, filename2):
-    data1, sample_rate = audioread(filename1)
-    data2, samplerate2 = audioread(filename2)
-
-    if sample_rate != samplerate2:
-        raise Exception("I due file audio hanno frequenze di campionamento diverse.")
-
+def concatenate(data1, data2, pause_lenght, sample_rate):
+    '''generate 2 audio files, one with the first audio muted,'''
+    ''' the second with the second audio muted.'''
     #calcolo il numero di canali
     channels = data1.shape[1]
 
-    # Definiamo la durata del silenzio in secondi
-    duration = 0.9
-
     # Calcola il numero di campioni necessari per 0.2 secondi di silenzio
-    n_campioni_silenzio = sample_rate * duration
+    n_sample_silence = sample_rate * pause_lenght
 
     # Creiamo un array numpy di zeri per rappresentare il silenzio
     data1_length = len(data1)
     data2_length = len(data2)
     # Crea un array di campioni di audio vuoti con n canali (shape)
-    silence = np.zeros((int(n_campioni_silenzio), channels))
+    silence = np.zeros((int(n_sample_silence), channels))
     data1_silence = np.zeros((int(data1_length), channels))
     data2_silence = np.zeros((int(data2_length), channels))
 
@@ -146,13 +139,34 @@ def concatenate(filename1, filename2):
     else:
         OUTPUT1 = np.concatenate((data1_silence, silence, data2))
         OUTPUT2 = np.concatenate((data1, silence, data2_silence))
+    
+    return(OUTPUT1, OUTPUT2)
 
-    sf.write('OUTPUT/merged1.wav', OUTPUT1, sample_rate)
-    sf.write('OUTPUT/merged2.wav', OUTPUT2, sample_rate)
+def read_write_file(filename1, filename2):
+    data1, samplerate1 = audioread(filename1)
+    data2, samplerate2 = audioread(filename2)
+
+    pause_lenght = 0.9 #seconds
+
+    if samplerate1 != samplerate2:
+        raise Exception("I due file audio hanno frequenze di campionamento diverse.")
+
+    OUTPUT1, OUTPUT2 = concatenate(data1, data2, pause_lenght, samplerate1)
+    sf.write('OUTPUT/merged1.wav', OUTPUT1, samplerate1)
+    sf.write('OUTPUT/merged2.wav', OUTPUT2, samplerate1)
+
+def audio_file(path_file, length_file: float, data_file):
+    
+    class File: pass
+    file = File()
+    file.path = path_file
+    file.length = length_file
+    file.data = data_file
+    return file
 
 if __name__ == '__main__':
-    dir_path = os.path.dirname(os.path.realpath(__file__))+"\INPUT"
-    max_participants = folder_info(dir_path)
+    dir_path = os.path.dirname(os.path.realpath(__file__))
+    max_participants = folder_info(dir_path+"\INPUT")
 
     print("\nGeneratore di dialoghi realistici.\n")
 
@@ -164,19 +178,14 @@ if __name__ == '__main__':
     file_names = []
     for i in range(n_participants):
         file = input("Inserisci il nome del {}o audio: ".format(i+1))
-        file_names.append(file)
-    
+        file1 = audio_file(file, 0, 0)
+        file_names.append(file1)
+
     '''Check paths (file1, file2)'''
     for i in range(len(file_names)):
-        file_names[i] = find_file(file_names[i], dir_path)
+        file_names[i].path = find_file(file_names[i].path, dir_path+"\INPUT")
 
     '''Run concatenate (file1, file2)'''
-    concatenate(file_names[0], file_names[1])
+    read_write_file(file_names[0].path, file_names[1].path)
     print("\n COMPLETED!")
     os.startfile(dir_path + "\output")
-    # sarebbe utile generare dialoghi in base a: 
-    # voci femminili? 
-    # voci maschili? 
-    # random?
-    # quante domande e risposte? 
-    # Pause irrealistiche? 
