@@ -11,7 +11,7 @@ Cartella in INPUT per il programma:
 
 
 Cartella di OUTPUT del il programma:
-[Python](OUTPUT/)
+[Python](/OUTPUT)
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
