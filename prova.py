@@ -194,27 +194,45 @@ def read_write_file(file_names):
                 OUTPUT = concatenate(OUTPUT, file_silence, silences[j], sample_rate, channels)
         sf.write(f'OUTPUT/merged{i}{name_element}.wav', OUTPUT, sample_rate)
 
+def user_input(dir_path,max_participants):
+    '''Ask file1, file2'''
+    ''' and check/fix paths (file1, file2)'''
+    file_names = []
+
+    for i in range(max_participants):
+        file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants}): ")
+        if file != "FINE":
+            while True:
+                try:
+                    if file == "FINE":
+                        return file_names
+                    file = find_file(file, dir_path+"\INPUT")
+                    filename_without_extension = os.path.splitext(os.path.basename(file))[0]
+                    # crea un array costituito da elementi della classe File da audio_file
+                    file_names.append((audio_file(file, 0, filename_without_extension)))
+                    break
+                except Exception as e:
+                    print(f"\t{e}")
+                    file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants}): ")
+        else:
+            break
+    return file_names
+
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
     max_participants = folder_info(dir_path+"\INPUT")
 
     print("\nGeneratore di dialoghi realistici.\n")
 
-    '''Ask file1, file2'''
-    ''' and check/fix paths (file1, file2)'''
-    file_names = []
-    for i in range(30):
-        file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max 30): ")
-        if file != "FINE":
-            file = find_file(file, dir_path+"\INPUT")
-            filename_without_extension = os.path.splitext(os.path.basename(file))[0]
-            # crea un array costituito da elementi della classe File da audio_file
-            file_names.append((audio_file(file, 0, filename_without_extension)))
-        else:
-            break
+    '''ask for user input'''
+    file=user_input(dir_path,max_participants)
 
     '''Run concatenate (file1, file2)'''
-    read_write_file(file_names)
+    try:
+        read_write_file(file)
+    except Exception as e:
+        print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
+        exit()
     print("\n COMPLETED! (folder opened)")
     os.startfile(dir_path + "\output")
 
