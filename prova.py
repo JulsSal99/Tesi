@@ -7,7 +7,7 @@ import numpy as np
 
 '''
 
-This library has some functions from DSPfunc by G.Presti
+This library has some functions (audioread, mp32wav and audioinfo) from DSPfunc by G.Presti
 
 Should work on both Python 3.x (tested on Python 3.11.6)
 Look at the test() function for some examples...
@@ -125,11 +125,9 @@ def folder_info(folder_path):
             mp3_wav_count += 1
     return mp3_wav_count
 
-def concatenate(data1, data2, pause_lenght, sample_rate):
+def concatenate(data1, data2, pause_lenght, sample_rate, channels):
     '''generate 2 audio files, one with the first audio muted,'''
     ''' the second with the second audio muted.'''
-    #calcolo il numero di canali
-    channels = data1.shape[1]
 
     # Calcola il numero di campioni necessari per 0.2 secondi di silenzio
     n_sample_silence = sample_rate * pause_lenght
@@ -151,18 +149,38 @@ def concatenate(data1, data2, pause_lenght, sample_rate):
     
     return(OUTPUT1, OUTPUT2)
 
-def read_write_file(filename1, filename2):
-    data1, samplerate1 = audioread(filename1)
-    data2, samplerate2 = audioread(filename2)
+def get_channels(data):
+    if len(np.shape(data)) == 1:
+        return 1
+    else:
+        return np.shape(data)[1]
+    
+def read_write_file(file_names):
+
+    # Get sample rate
+    data_temp, sample_rate = audioread(file_names[0].path)
+    # Get channels number
+    channels = get_channels(data_temp)
+
+    # Get sampled data from files and check sample rate and channels
+    for i in range(len(file_names)):
+        file_names[i].data, sample_rate_temp = audioread(file_names[i].path)
+        channels_temp = get_channels(file_names[i].data)
+        if i == 0:
+            sample_rate = sample_rate_temp
+        elif sample_rate != sample_rate_temp:
+            raise Exception(f"\nIl file audio n{i+1} ha frequenza di campionamento diversa ({sample_rate_temp} hz).")
+        elif channels != channels_temp:
+            raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
+
 
     pause_lenght = 0.9 #seconds
 
-    if samplerate1 != samplerate2:
-        raise Exception("I due file audio hanno frequenze di campionamento diverse.")
+    # ciclo for che
 
-    OUTPUT1, OUTPUT2 = concatenate(data1, data2, pause_lenght, samplerate1)
-    sf.write('OUTPUT/merged1.wav', OUTPUT1, samplerate1)
-    sf.write('OUTPUT/merged2.wav', OUTPUT2, samplerate1)
+    OUTPUT1, OUTPUT2 = concatenate(file_names[0].data, file_names[1].data, pause_lenght, sample_rate, channels)
+    sf.write('OUTPUT/merged1.wav', OUTPUT1, sample_rate)
+    sf.write('OUTPUT/merged2.wav', OUTPUT2, sample_rate)
 
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -184,8 +202,8 @@ if __name__ == '__main__':
         file_names.append((audio_file(file, 0, 0)))
 
     '''Run concatenate (file1, file2)'''
-    read_write_file(file_names[0].path, file_names[1].path)
-    print("\n COMPLETED!")
+    read_write_file(file_names)
+    print("\n COMPLETED! (folder opened)")
     os.startfile(dir_path + "\output")
 
 # manca il controllo che nella cartella non ci siano più files con lo stesso nome
