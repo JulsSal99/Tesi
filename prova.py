@@ -1,3 +1,5 @@
+import libsinstall
+libsinstall.install_libraries()
 
 import re
 import os
