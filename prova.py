@@ -152,7 +152,8 @@ def get_channels(data):
     else:
         return np.shape(data)[1]
     
-def check_sample_rate(file_names, sample_rate, channels):
+def check_SR_CH(file_names, sample_rate, channels):
+    '''Check sample rate and channels of the audio files'''
     for i in range(len(file_names)):
         file_names[i].data, sample_rate_temp = audioread(file_names[i].path)
         channels_temp = get_channels(file_names[i].data)
@@ -168,10 +169,10 @@ def read_write_file(file_names):
     data_temp, sample_rate = audioread(file_names[0].path)
     # Get channels number
     channels = get_channels(data_temp)
-    
+
     # Get sampled data from files and check sample rate and channels
     _, sample_rate = audioread(file_names[0].path)
-    check_sample_rate(file_names, sample_rate, channels)
+    check_SR_CH(file_names, sample_rate, channels)
 
     pause_lenght = 0.9 #seconds
 
@@ -205,22 +206,26 @@ def user_input(dir_path,max_participants):
     file_names = []
 
     for i in range(max_participants):
+        # Prova a trovare il file e aggiungerlo, altrimenti ritenta e alla fine inoltra il risultato
         file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants}): ")
         if file != "FINE":
             while True:
                 try:
-                    if file == "FINE":
+                    if file == "FINE" and i > 1:
                         return file_names
+                    elif file == "FINE" and i < 2:
+                        raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
                     file = find_file(file, dir_path+"\INPUT")
                     filename_without_extension = os.path.splitext(os.path.basename(file))[0]
                     # crea un array costituito da elementi della classe File da audio_file
                     file_names.append((audio_file(file, 0, filename_without_extension)))
+                    print(f'\tAggiunto "{file}" con successo.')
                     break
                 except Exception as e:
                     print(f"\t{e}")
                     file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants}): ")
-        else:
-            break
+        elif file == "FINE" and i < 2:
+            raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
     return file_names
 
 if __name__ == '__main__':
@@ -230,11 +235,11 @@ if __name__ == '__main__':
 
     print("\nGeneratore di dialoghi realistici.\n")
 
-    '''ask for user input'''
-    file=user_input(dir_path,max_participants)
-
-    '''Run concatenate (file1, file2) and open the folder'''
     try:
+        '''ask for user input'''
+        file=user_input(dir_path,max_participants)
+
+        '''Run concatenate (file1, file2) and open the folder'''
         read_write_file(file)
         print("\n COMPLETED! (folder opened)")
         os.startfile(dir_path + "\output")
@@ -242,4 +247,4 @@ if __name__ == '__main__':
         print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
         exit()
 
-# manca il controllo che nella cartella non ci siano più files con lo stesso nome
+# manca il controllo che nella cartella non ci siano più files con lo stesso nome (posso dichiarare che prende il primo file)
