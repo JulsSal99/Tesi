@@ -99,13 +99,14 @@ def audioinfo( infile ):
     info.bit = int(re.search('bits_per_sample=(.*)\\r',ffout).group(1))   
     return info
 
-def audio_file(path_file, length_file: float, data_file):
+def audio_file(path_file, data_file, file_name):
     '''crea una classe contenente i dati per la concatenazione'''
     class File: pass
     file = File()
     file.path = path_file
-    file.length = length_file
     file.data = data_file
+    file.name = file_name
+    #file.length = length_file
     return file
 
 def find_file(name, path):
@@ -175,11 +176,12 @@ def read_write_file(file_names):
         silences.append(pause_lenght)
     
     for i in range(len(file_names)):
+        name_element = file_names[i].name
         print_element = file_names[i].path
         for j in range(len(file_names)-1):
             # gestisce il primo elemento e lo mette vuoto se non è lui
             if j == 0:
-                if file_names[i].path == file_names[j].path:
+                if file_names[j].path == print_element:
                     OUTPUT = file_names[0].data
                 else:
                     OUTPUT = np.zeros(( int( len( file_names[0].data ) ), channels ))
@@ -190,7 +192,7 @@ def read_write_file(file_names):
             else:
                 file_silence = np.zeros(( int( len( file_names[j+1].data ) ), channels ))
                 OUTPUT = concatenate(OUTPUT, file_silence, silences[j], sample_rate, channels)
-        sf.write(f'OUTPUT/merged{i}.wav', OUTPUT, sample_rate)
+        sf.write(f'OUTPUT/merged{i}{name_element}.wav', OUTPUT, sample_rate)
 
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -198,18 +200,18 @@ if __name__ == '__main__':
 
     print("\nGeneratore di dialoghi realistici.\n")
 
-    n_participants = int(input("Numero di partecipanti al dialogo: "))
-    if n_participants <= 1 or n_participants > max_participants:
-        raise Exception(f"Non abbastanza files o numero errato!")
-
     '''Ask file1, file2'''
     ''' and check/fix paths (file1, file2)'''
     file_names = []
-    for i in range(n_participants):
-        file = input("Inserisci il nome del {}o audio: ".format(i+1))
-        file = find_file(file, dir_path+"\INPUT")
-        # crea un array costituito da elementi della classe File da audio_file
-        file_names.append((audio_file(file, 0, 0)))
+    for i in range(30):
+        file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max 30): ")
+        if file != "FINE":
+            file = find_file(file, dir_path+"\INPUT")
+            filename_without_extension = os.path.splitext(os.path.basename(file))[0]
+            # crea un array costituito da elementi della classe File da audio_file
+            file_names.append((audio_file(file, 0, filename_without_extension)))
+        else:
+            break
 
     '''Run concatenate (file1, file2)'''
     read_write_file(file_names)
