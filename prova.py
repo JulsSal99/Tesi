@@ -132,22 +132,15 @@ def concatenate(data1, data2, pause_lenght, sample_rate, channels):
     # Calcola il numero di campioni necessari per 0.2 secondi di silenzio
     n_sample_silence = sample_rate * pause_lenght
 
-    # Creiamo un array numpy di zeri per rappresentare il silenzio
-    data1_length = len(data1)
-    data2_length = len(data2)
     # Crea un array di campioni di audio vuoti con n canali (shape)
     silence = np.zeros((int(n_sample_silence), channels))
-    data1_silence = np.zeros((int(data1_length), channels))
-    data2_silence = np.zeros((int(data2_length), channels))
 
     if len(data1.shape) > 1 or len(data2.shape) > 1:
-        OUTPUT1 = np.concatenate((data1_silence, silence, data2), axis=0)
-        OUTPUT2 = np.concatenate((data1, silence, data2_silence), axis=0)
+        OUTPUT = np.concatenate((data1, silence, data2), axis=0)
     else:
-        OUTPUT1 = np.concatenate((data1_silence, silence, data2))
-        OUTPUT2 = np.concatenate((data1, silence, data2_silence))
+        OUTPUT = np.concatenate((data1, silence, data2))
     
-    return(OUTPUT1, OUTPUT2)
+    return(OUTPUT)
 
 def get_channels(data):
     if len(np.shape(data)) == 1:
@@ -176,11 +169,28 @@ def read_write_file(file_names):
 
     pause_lenght = 0.9 #seconds
 
-    # ciclo for che
-
-    OUTPUT1, OUTPUT2 = concatenate(file_names[0].data, file_names[1].data, pause_lenght, sample_rate, channels)
-    sf.write('OUTPUT/merged1.wav', OUTPUT1, sample_rate)
-    sf.write('OUTPUT/merged2.wav', OUTPUT2, sample_rate)
+    # ciclo for che genera un array delle LUNGHEZZE delle pause tra file e file
+    silences = []
+    for i in range(len(file_names)-1):
+        silences.append(pause_lenght)
+    
+    for i in range(len(file_names)):
+        print_element = file_names[i].path
+        for j in range(len(file_names)-1):
+            # gestisce il primo elemento e lo mette vuoto se non è lui
+            if j == 0:
+                if file_names[i].path == file_names[j].path:
+                    OUTPUT = file_names[0].data
+                else:
+                    OUTPUT = np.zeros(( int( len( file_names[0].data ) ), channels ))
+            
+            # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
+            if file_names[j+1].path == print_element:
+                OUTPUT = concatenate(OUTPUT, file_names[j+1].data, silences[j], sample_rate, channels)
+            else:
+                file_silence = np.zeros(( int( len( file_names[j+1].data ) ), channels ))
+                OUTPUT = concatenate(OUTPUT, file_silence, silences[j], sample_rate, channels)
+        sf.write(f'OUTPUT/merged{i}.wav', OUTPUT, sample_rate)
 
 if __name__ == '__main__':
     dir_path = os.path.dirname(os.path.realpath(__file__))
