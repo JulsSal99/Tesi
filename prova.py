@@ -207,13 +207,13 @@ def user_input(dir_path,max_participants):
 
     for i in range(max_participants):
         # Prova a trovare il file e aggiungerlo, altrimenti ritenta e alla fine inoltra il risultato
-        file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants}): ")
+        file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants - i}): ")
         if file != "FINE":
             while True:
                 try:
                     if file == "FINE" and i > 1:
                         return file_names
-                    elif file == "FINE" and i < 2:
+                    elif file == "FINE" and i <= 1:
                         raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
                     file = find_file(file, dir_path+"\INPUT")
                     filename_without_extension = os.path.splitext(os.path.basename(file))[0]
@@ -223,9 +223,11 @@ def user_input(dir_path,max_participants):
                     break
                 except Exception as e:
                     print(f"\t{e}")
-                    file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants}): ")
+                    file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants - i}): ")
         elif file == "FINE" and i < 2:
             raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
+        else:
+            return file_names
     return file_names
 
 if __name__ == '__main__':
