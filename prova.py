@@ -146,19 +146,13 @@ def concatenate(data1, data2, pause_lenght, sample_rate, channels):
     return(OUTPUT)
 
 def get_channels(data):
+    '''Get the number of channels in an audio file'''
     if len(np.shape(data)) == 1:
         return 1
     else:
         return np.shape(data)[1]
     
-def read_write_file(file_names):
-
-    # Get sample rate
-    data_temp, sample_rate = audioread(file_names[0].path)
-    # Get channels number
-    channels = get_channels(data_temp)
-
-    # Get sampled data from files and check sample rate and channels
+def check_sample_rate(file_names, sample_rate, channels):
     for i in range(len(file_names)):
         file_names[i].data, sample_rate_temp = audioread(file_names[i].path)
         channels_temp = get_channels(file_names[i].data)
@@ -169,6 +163,15 @@ def read_write_file(file_names):
         elif channels != channels_temp:
             raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
+def read_write_file(file_names):
+    # Get sample rate
+    data_temp, sample_rate = audioread(file_names[0].path)
+    # Get channels number
+    channels = get_channels(data_temp)
+    
+    # Get sampled data from files and check sample rate and channels
+    _, sample_rate = audioread(file_names[0].path)
+    check_sample_rate(file_names, sample_rate, channels)
 
     pause_lenght = 0.9 #seconds
 
@@ -221,6 +224,7 @@ def user_input(dir_path,max_participants):
     return file_names
 
 if __name__ == '__main__':
+    '''Important path of input files'''
     dir_path = os.path.dirname(os.path.realpath(__file__))
     max_participants = folder_info(dir_path+"\INPUT")
 
@@ -229,13 +233,13 @@ if __name__ == '__main__':
     '''ask for user input'''
     file=user_input(dir_path,max_participants)
 
-    '''Run concatenate (file1, file2)'''
+    '''Run concatenate (file1, file2) and open the folder'''
     try:
         read_write_file(file)
+        print("\n COMPLETED! (folder opened)")
+        os.startfile(dir_path + "\output")
     except Exception as e:
         print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
         exit()
-    print("\n COMPLETED! (folder opened)")
-    os.startfile(dir_path + "\output")
 
 # manca il controllo che nella cartella non ci siano più files con lo stesso nome
