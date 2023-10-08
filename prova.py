@@ -249,4 +249,5 @@ if __name__ == '__main__':
         print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
         exit()
 
+
 # manca il controllo che nella cartella non ci siano più files con lo stesso nome (posso dichiarare che prende il primo file)
