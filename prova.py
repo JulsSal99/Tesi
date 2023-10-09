@@ -6,6 +6,7 @@ import os
 import subprocess
 import soundfile as sf
 import numpy as np
+import random
 
 '''
 
@@ -176,32 +177,31 @@ def read_write_file(file_names):
     _, sample_rate = audioread(file_names[0].path)
     check_SR_CH(file_names, sample_rate, channels)
 
-    pause_lenght = 0.9 #seconds
-
     # ciclo for che genera un array delle LUNGHEZZE delle pause tra file e file
     silences = []
     for i in range(len(file_names)-1):
-        silences.append(pause_lenght)
+        pause_length = random.uniform(0.7, 0.9) #seconds
+        silences.append(pause_length)
     
     # i è l'elemento da stampare con i dati, mentre j è l'elemento attuale
     for i in range(len(file_names)):
         print_person = file_names[i].person
         if file_names[i].duplicated == False:
             print_name = file_names[i].name
-            for j in range(len(file_names)-1):
-                # gestisce il primo elemento e lo mette vuoto se non è lui
+            for j in range(len(file_names)):
                 if j == 0:
+                    # gestisce il primo elemento e lo mette vuoto se non è lui
                     if file_names[j].person == print_person:
                         OUTPUT = file_names[0].data
                     else:
                         OUTPUT = np.zeros(( int( len( file_names[0].data ) ), channels ))
-                
-                # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
-                if file_names[j+1].person == print_person:
-                    OUTPUT = concatenate(OUTPUT, file_names[j+1].data, silences[j], sample_rate, channels)
                 else:
-                    file_silence = np.zeros(( int( len( file_names[j+1].data ) ), channels ))
-                    OUTPUT = concatenate(OUTPUT, file_silence, silences[j], sample_rate, channels)
+                    # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
+                    if file_names[j].person == print_person:
+                        OUTPUT = concatenate(OUTPUT, file_names[j].data, silences[j-1], sample_rate, channels)
+                    else:
+                        file_silence = np.zeros(( int( len( file_names[j].data ) ), channels ))
+                        OUTPUT = concatenate(OUTPUT, file_silence, silences[j-1], sample_rate, channels)
             sf.write(f'OUTPUT/merged{i}{print_name}.wav', OUTPUT, sample_rate)
 
 def user_input(dir_path,max_participants):
@@ -230,7 +230,7 @@ def user_input(dir_path,max_participants):
                     print(f'\tAggiunto "{file}" con successo.')
                     break
                 except Exception as e:
-                    print(f"\t{e}")
+                    print(f"\tERRORE: {e}")
                     file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants - i}): ")
         elif file == "FINE" and i < 2:
             raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
