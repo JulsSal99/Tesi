@@ -101,13 +101,15 @@ def audioinfo( infile ):
     info.bit = int(re.search('bits_per_sample=(.*)\\r',ffout).group(1))   
     return info
 
-def audio_file(path_file, data_file, file_name):
+def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
     '''crea una classe contenente i dati per la concatenazione'''
     class File: pass
     file = File()
     file.path = path_file
     file.data = data_file
-    file.name = file_name
+    file.name = name_file
+    file.person = person_file
+    file.duplicated = duplicated
     #file.length = length_file
     return file
 
@@ -181,24 +183,26 @@ def read_write_file(file_names):
     for i in range(len(file_names)-1):
         silences.append(pause_lenght)
     
+    # i è l'elemento da stampare con i dati, mentre j è l'elemento attuale
     for i in range(len(file_names)):
-        name_element = file_names[i].name
-        print_element = file_names[i].path
-        for j in range(len(file_names)-1):
-            # gestisce il primo elemento e lo mette vuoto se non è lui
-            if j == 0:
-                if file_names[j].path == print_element:
-                    OUTPUT = file_names[0].data
+        print_person = file_names[i].person
+        if file_names[i].duplicated == False:
+            print_name = file_names[i].name
+            for j in range(len(file_names)-1):
+                # gestisce il primo elemento e lo mette vuoto se non è lui
+                if j == 0:
+                    if file_names[j].person == print_person:
+                        OUTPUT = file_names[0].data
+                    else:
+                        OUTPUT = np.zeros(( int( len( file_names[0].data ) ), channels ))
+                
+                # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
+                if file_names[j+1].person == print_person:
+                    OUTPUT = concatenate(OUTPUT, file_names[j+1].data, silences[j], sample_rate, channels)
                 else:
-                    OUTPUT = np.zeros(( int( len( file_names[0].data ) ), channels ))
-            
-            # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
-            if file_names[j+1].path == print_element:
-                OUTPUT = concatenate(OUTPUT, file_names[j+1].data, silences[j], sample_rate, channels)
-            else:
-                file_silence = np.zeros(( int( len( file_names[j+1].data ) ), channels ))
-                OUTPUT = concatenate(OUTPUT, file_silence, silences[j], sample_rate, channels)
-        sf.write(f'OUTPUT/merged{i}{name_element}.wav', OUTPUT, sample_rate)
+                    file_silence = np.zeros(( int( len( file_names[j+1].data ) ), channels ))
+                    OUTPUT = concatenate(OUTPUT, file_silence, silences[j], sample_rate, channels)
+            sf.write(f'OUTPUT/merged{i}{print_name}.wav', OUTPUT, sample_rate)
 
 def user_input(dir_path,max_participants):
     '''Ask file1, file2'''
@@ -217,8 +221,12 @@ def user_input(dir_path,max_participants):
                         raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
                     file = find_file(file, dir_path+"\INPUT")
                     filename_without_extension = os.path.splitext(os.path.basename(file))[0]
+                    person = filename_without_extension.split("_")[1]
+                    duplicated = False
+                    if person in [file_names[i].person for i in range(len(file_names))]:
+                        duplicated = True
                     # crea un array costituito da elementi della classe File da audio_file
-                    file_names.append((audio_file(file, 0, filename_without_extension)))
+                    file_names.append((audio_file(file, 0, filename_without_extension, person, duplicated)))
                     print(f'\tAggiunto "{file}" con successo.')
                     break
                 except Exception as e:
@@ -239,10 +247,9 @@ if __name__ == '__main__':
 
     try:
         '''ask for user input'''
-        file=user_input(dir_path,max_participants)
-
+        file_names=user_input(dir_path,max_participants)
         '''Run concatenate (file1, file2) and open the folder'''
-        read_write_file(file)
+        read_write_file(file_names)
         print("\n COMPLETED! (folder opened)")
         os.startfile(dir_path + "\output")
     except Exception as e:
