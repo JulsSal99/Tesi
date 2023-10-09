@@ -3,15 +3,14 @@ Lavoro di tesi:
 Documentazione
 [Documento](TEST.MD)
 
-Programma in python:
-[Python](prova.py)
+[Programma in Python](prova.py)
 
 Cartella in INPUT per il programma:
-[Python](/INPUT)
+[/INPUT](/INPUT)
 
 
 Cartella di OUTPUT del il programma:
-[Python](/OUTPUT)
+[/OUTPUT](/OUTPUT)
 
 <br><br><br><br><br><br><br><br><br><br><br>
 
