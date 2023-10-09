@@ -103,7 +103,7 @@ def audioinfo( infile ):
     return info
 
 def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
-    '''crea una classe contenente i dati per la concatenazione'''
+    '''Create a class audio_file that contains infos/data about that audio file'''
     class File: pass
     file = File()
     file.path = path_file
@@ -134,18 +134,12 @@ def folder_info(folder_path):
 def concatenate(data1, data2, pause_lenght, sample_rate, channels):
     '''generate 2 audio files, one with the first audio muted,'''
     ''' the second with the second audio muted.'''
-
-    # Calcola il numero di campioni necessari per 0.2 secondi di silenzio
     n_sample_silence = sample_rate * pause_lenght
-
-    # Crea un array di campioni di audio vuoti con n canali (shape)
     silence = np.zeros((int(n_sample_silence), channels))
-
     if len(data1.shape) > 1 or len(data2.shape) > 1:
         OUTPUT = np.concatenate((data1, silence, data2), axis=0)
     else:
         OUTPUT = np.concatenate((data1, silence, data2))
-    
     return(OUTPUT)
 
 def get_channels(data):
@@ -168,6 +162,9 @@ def check_SR_CH(file_names, sample_rate, channels):
             raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
 def read_write_file(file_names):
+    ''' MAIN FUNCTION: create the ending file'''
+    ''' create the class inside file_names and return to concatenate()'''
+    ''' check channels, sample_rate'''
     # Get sample rate
     data_temp, sample_rate = audioread(file_names[0].path)
     # Get channels number
@@ -177,7 +174,7 @@ def read_write_file(file_names):
     _, sample_rate = audioread(file_names[0].path)
     check_SR_CH(file_names, sample_rate, channels)
 
-    # ciclo for che genera un array delle LUNGHEZZE delle pause tra file e file
+    # create an array of pause_length for each (between) file
     silences = []
     for i in range(len(file_names)-1):
         pause_length = random.uniform(0.7, 0.9) #seconds
@@ -207,36 +204,31 @@ def read_write_file(file_names):
 def user_input(dir_path,max_participants):
     '''Ask file1, file2'''
     ''' and check/fix paths (file1, file2)'''
+    ''' handle the errors'''
     file_names = []
-
     for i in range(max_participants):
-        # Prova a trovare il file e aggiungerlo, altrimenti ritenta e alla fine inoltra il risultato
-        file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants - i}): ")
-        if file != "FINE":
-            while True:
-                try:
-                    if file == "FINE" and i > 1:
-                        return file_names
-                    elif file == "FINE" and i <= 1:
-                        raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
-                    file = find_file(file, dir_path+"\INPUT")
-                    filename_without_extension = os.path.splitext(os.path.basename(file))[0]
-                    person = filename_without_extension.split("_")[1]
-                    duplicated = False
-                    if person in [file_names[i].person for i in range(len(file_names))]:
-                        duplicated = True
-                    # crea un array costituito da elementi della classe File da audio_file
-                    file_names.append((audio_file(file, 0, filename_without_extension, person, duplicated)))
-                    print(f'\tAggiunto "{file}" con successo.')
-                    break
-                except Exception as e:
-                    print(f"\tERRORE: {e}")
-                    file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants - i}): ")
-        elif file == "FINE" and i < 2:
-            raise Exception("\n\tATTENZIONE: Non abbastanza files!!!\n")
-        else:
-            return file_names
-    return file_names
+        while True:
+            try:
+                file = input(f"Inserisci il nome del {i+1}o audio (scrivi FINE per terminare, max {max_participants - i}): ")
+                if file == "FINE" and i > 1:
+                    return file_names
+                elif file == "FINE" and i <= 1:
+                    raise Exception("Non abbastanza files!!!")
+                file = find_file(file, dir_path+"\INPUT")
+                filename_without_extension = os.path.splitext(os.path.basename(file))[0]
+                person = filename_without_extension.split("_")[1]
+                duplicated = False
+                if person in [file_names[i].person for i in range(len(file_names))]:
+                    duplicated = True
+                # crea un array costituito da elementi della classe File da audio_file
+                file_names.append((audio_file(file, 0, filename_without_extension, person, duplicated)))
+                print(f'\tAggiunto "{file}" con successo.')
+                break
+            except EOFError:
+                print("\n\tProgramma terminato senza successo. Chiusura del programma.")
+                exit()
+            except Exception as e:
+                print(f"\tERRORE: {e}")
 
 if __name__ == '__main__':
     '''Important path of input files'''
@@ -246,7 +238,7 @@ if __name__ == '__main__':
     print("\nGeneratore di dialoghi realistici.\n")
 
     try:
-        '''ask for user input'''
+        '''ask for user input, if more than one file with same name, return the first file'''
         file_names=user_input(dir_path,max_participants)
         '''Run concatenate (file1, file2) and open the folder'''
         read_write_file(file_names)
