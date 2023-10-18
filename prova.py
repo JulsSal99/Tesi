@@ -111,7 +111,7 @@ def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
     file.name = name_file
     file.person = person_file
     file.duplicated = duplicated
-    #file.length = length_file
+    #file.used = used
     return file
 
 def find_file(name, path):
