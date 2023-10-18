@@ -120,6 +120,8 @@ DOMANDE:
   - quante domande e risposte? 
   - Pause irrealistiche? 
 
+- correlazione tra pause, complessità delle domande e velocità di parlato
+
 <div id="refs"></div>
 
 # Citazioni: {-}
