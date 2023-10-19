@@ -3,6 +3,8 @@ Lavoro di tesi:
 Documentazione
 [Documento](TEST.MD)
 
+[Modulo per il test](PER_PARTECIPANTI.MD)
+
 [Programma in Python](prova.py)
 
 Cartella in INPUT per il programma:
@@ -15,4 +17,4 @@ Cartella di OUTPUT del il programma:
 <br><br><br><br><br><br><br><br><br><br><br>
 
 REMINDER di fare il backup:
-![Backup](20231008_130333.jpg)
+![Backup](IMG/20231008_130333.jpg)

@@ -67,21 +67,45 @@ Per le domande:
   - verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni tra le registrazioni delle domande e risposte
     - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
 
-<span style="color:red">  (rischio che il partecipante cominci già subito a pensare alla risposta alla domanda, quindi risulti irrealistica? Proviamo a porgli le domande con le in-ear?) </span>
+<br>
+Per i suoni non verbali che:
+
+- ad ogni partecipante verrà data la cuffia in-ear e fatto ascoltare un audio completo, se eseguito con le in-ear e verrà chiesto di produrre dei suoni di sottofondo.
+- viene chiesto al partecipante di pronunciare dei versi basandosi su alcuni prestabiliti come "a-hem, coff, a-ha, aah!, hm-hm, ecc.").
 
 ## Il programma
 Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
 I files audio singoli manterranno le pause e anche il silenzio quando parlano gli altri partecipanti.
+Le domande, le risposte e le pause saranno organizzati in modo da seguire una struttura
+> Domanda_N_P &rarr; Risposta_N_P &rarr; Pausa
+
+, ma che si 
+> Domanda_A_1 &rarr; Risposta_B_1 &rarr; Pausa_1 &rarr; Domanda_D_2 &rarr; Risposta_A_2 &rarr; Pausa_2 &rarr; Domanda_A_2 &rarr; Risposta_C_2
+
+
 
 ## Numenclatura dei files
+Per meglio spiegare l'organizzazione dei files stabiliamo:
+ - **T** = "tipologia: domanda, risposta o suono non verbale"
+ - **N** = *numero della domanda o risposta*
+ - **P** = *numero del partecipante al test*
+ - **V** = *tipo di suono non verbale*
 
-| cartella      | LETTERA_SOGGETTO | _ | NUMERO_PORTAMENTO_VOCE_DISTANZA | _ | TIPO_SUONO        | .wav |
-| ------        | ---------------- | - | ------------------------------- | - | ----------------- | ---- |
-| \dialoghi     | A                | _ | 1                               |   |                   | .wav |
-|               | B                | _ | 2                               |   |                   | .wav |
-|               |                  |   |                                 |   |                   |      |
-| \congiunzioni | A                | _ | 1                               | _ | A                 | .wav |
-|               | B                | _ | 2                               | _ | B                 | .wav |
+I nomi dei files da dare in input al programma saranno organizzati così:
+- Per le domande e risposte: *T_P_N_PORTAMENTO*
+- Per i suoni non verbali: *T_P_V*
+
+Esempio dei nomi dei files in input:
+
+| cartella      | T_P               | _N_PORTAMENTO      | _V          | .wav |
+| ------        | -:                | :-:                | :-          | :-   |
+| \INPUT        | Domanda_Giovanni  | _1_ALTO            |             | .wav |
+| \INPUT        | Risposta_Giovanni | _1_ALTO            |             | .wav |
+| \INPUT        | Suono_Giovanni    |                    | _UH         | .wav |
+| | | | | |
+| \INPUT        | Domanda_Mario     | _1_ALTO            |             | .wav |
+| \INPUT        | Risposta_Mario    | _1_ALTO            |             | .wav |
+| \INPUT        | Suono_Mario       |                    | _UH         | .wav |
 
 - il nome del file potrebbe essere fatto per esempio    "LETTERA_SOGGETTO"_"NUMERO_PORTAMENTO_VOCE_DISTANZA".wav   
 <br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt.

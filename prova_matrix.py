@@ -1,68 +1,14 @@
 import libsinstall
 libsinstall.install_libraries()
 
-import re
 import os
-import subprocess
 import soundfile as sf
 import numpy as np
 import random
 
 def audioread(filename, frames=-1, start=0, fill_val=None):
-    if filename.lower().endswith('mp3'):
-        file_do_exist = True
-        while file_do_exist:
-            temp_id = str(np.random.randint(100000, 999999))
-            temp_file = filename[:-4] + '_' + temp_id + '.wav'
-            file_do_exist = os.path.isfile(temp_file)
-        mp32wav(filename, temp_file, frames, start)
-        data, Fs = sf.read(temp_file)
-        os.remove(temp_file)
-    else:
-        data, Fs = sf.read(filename, frames, start, fill_value=fill_val)
+    data, Fs = sf.read(filename, frames, start, fill_value=fill_val)
     return data, Fs
-
-def mp32wav(infile, outfile, frames=-1, start=0):
-    if not os.path.isfile(infile):
-        raise Exception(f"Cannot find {infile}")
-
-    if frames + start <= 0:
-        cmd = f'ffmpeg -nostdin -y -i "{infile}" "{outfile}"'
-    else:
-        Fs = audioinfo(infile).Fs
-        t = float(frames) / Fs
-        ss = float(start) / Fs
-        cmd = f'ffmpeg -nostdin -y -ss {ss} -t {t} -i "{infile}" "{outfile}"'
-
-    try:
-        err = 0
-        subprocess.call(cmd, shell=True)
-    except subprocess.CalledProcessError as e:
-        err = e.returncode
-    if err != 0:
-        raise Exception(f"Error executing {cmd}\nffmpeg may be missing")
-
-def audioinfo(infile):
-    if not os.path.isfile(infile):
-        raise Exception(f"Cannot find {infile}")
-
-    try:
-        err = 0
-        cmd = f'ffprobe -show_streams "{infile}"'
-        ffout = subprocess.check_output(cmd, shell=True).decode("utf-8")
-    except subprocess.CalledProcessError as e:
-        err = e.returncode
-    if err != 0:
-        raise Exception(f"Error executing {cmd}\nffprobe may be missing")
-
-    info = {}
-    info['Fs'] = float(re.search('sample_rate=(.*)\\r', ffout).group(1))
-    info['ch'] = int(re.search('channels=(.*)\\r', ffout).group(1))
-    info['duration'] = float(re.search('duration=(.*)\\r', ffout).group(1))
-    info['length'] = int(re.search('duration_ts=(.*)\\r', ffout).group(1))
-    info['codec'] = re.search('codec_name=(.*)\\r', ffout).group(1)
-    info['bit'] = int(re.search('bits_per_sample=(.*)\\r', ffout).group(1))
-    return info
 
 def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
     file = {}

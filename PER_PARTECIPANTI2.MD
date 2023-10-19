@@ -19,12 +19,11 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 - Bisognerà posizionarsi a 1 metro di distanza dal microfono e con il viso diretto verso il microfono.
 - Inizialmente verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato) e a questa domanda bisognerà rispondere nel modo più naturale possibile
   - alternativa, le risposte verranno poste in modo normale, MA la risposta dovrà essere data al segnale (che verrà dato dopo un numero prestabilito di secondi)
-- Alla fine di ogni risposta bisogna zittirsi e fare un gesto all'operatore di procedere con la nuova domanda, nel mentre, si richiede il più completo silenzio fino all'inizio della nuova domanda.
+- Alla fine di ogni risposta bisogna zittirsi e fare un gesto all'operatore.
+- L'operatore poi farà un gesto dopo un tot di secondi: questo gesto serve per indicare che bisogna ripronunciare la domanda fatta in partenza "a proprie parole" e alla fine della domanda bisognerà far silenzio in attesa che venga riprodotta la domanda successiva. 
+
 <br>
-- Alla fine di questo primo ciclo verranno proposte una serie di argomenti e l'intervistato dovrà porre l'argomento sotto forma di domanda immaginandosi di chiederla a qualcun altro.
-- Anche quà la domanda dovrà essere data al segnale (o gesto) dell'operatore e dovrà essere indicato all'operatore in maniera gestuale (e non vocale) all'operatore, a meno che l'operatore non indichi la necessità di interrompere il parlato.
-<br>
-- nell'ultima parte il partecipante ascolterà un dialogo e viene chiesto nel mentre di fare dei suoni non verbali, come se partecipasse alla conversazione. (verranno proposti degli esempi come "a-hem, coff, a-ha, aah!, hm-hm, ecc."). 
+- nell'ultima parte, alla fine delle domande, il partecipante ascolterà un dialogo e viene chiesto nel mentre di fare dei suoni non verbali, come se partecipasse alla conversazione. (verranno proposti degli esempi come "a-hem, coff, a-ha, aah!, hm-hm, ecc."). 
 
 
 ## Note per l'operatore:
