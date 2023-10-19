@@ -29,9 +29,70 @@ Riguardo allo script python, l'obiettivo è avere una funzione che dato in ingre
 restituisca tanti file quanti parlanti ci sono (nomi dei file di output costruiti concatenando la stringa del nome in ingresso con l'id del parlante), tutti lunghi uguali, che se sovrapposti generano il dialogo desiderato.
 suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come si possono manipolare file audio in python con queste librerie veda: https://github.com/Kuig/SNDfunc
 
+# Procedimento:
 
-Tempi di risposta:
-============
+## Attrezzatura e locazione:
+
+Verrà usata la stanza insonorizzata anecoica di celoria 22 (Malcangi).
+Il partecipante all'esperimento verrà piazzato al centro stanza. Verranno usati due microfoni, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a 1 metro di distanza all'altezza della bocca. 
+... per ricreare una impostazione ambisonic del secondo ordine.
+<span style="color:red"> (eventuali registrazioni aggiuntive in spazi reali?) </span>
+E' stata usata inoltre usata una scheda audio Motu M3 con gain a ... e due microfoni ...
+La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav 24bit-192kHz.
+
+## Procedimento in stanza con i partecipanti
+
+Abbiamo stabilito la struttura dell'organizzazione delle domande e risposte:
+Per le risposte:
+
+- ad ogni partecipante verrà posta una domanda (<span style="color:red">  in-ear? in modo che non avvenga del ritorno verso il microfono, però se usiamo delle cuffie, l'effetto è che l'ascoltatore tenderà ad avere un volume di voce maggiore perché non si sentirà correttamente. Potremmo eseguire dei test con delle cuffie e misurare il volume medio del parlato. Inoltre ascoltare il volume delle cuffie rispetto al volume del parlato in db. 
+In generale: se volume cuffia a 1mt tappata <<< volume del parlato && volume parlato CON cuffia ≃ volume parlato SENZA cuffia --> procedere
+E per le latenze in DAW per misurare il ritardo? </span>)
+    - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
+
+Alternativa:
+
+- ad ogni partecipante verrà posta una domanda
+  - verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni tra le registrazioni delle domande e risposte
+    - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
+  <br><br>
+
+
+  - Questa sequenza verrà riproposta per ogni partecipante in maniera che ogni partecipante risponderà ad una serie di domande che saranno le medesime degli altri partecipanti.
+
+<br>
+Per le domande:
+
+- ad ogni partecipante verrà poi dato un prompt che consiste in una domanda che lui stesso dovrà riproporre in maniera simile.
+  - verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni tra le registrazioni delle domande e risposte
+    - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
+
+<span style="color:red">  (rischio che il partecipante cominci già subito a pensare alla risposta alla domanda, quindi risulti irrealistica? Proviamo a porgli le domande con le in-ear?) </span>
+
+## Il programma
+Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
+I files audio singoli manterranno i vari  degli altri partecipanti.
+
+## Numenclatura dei files
+
+| cartella      | LETTERA_SOGGETTO | _ | NUMERO_PORTAMENTO_VOCE_DISTANZA | _ | TIPO_SUONO        | .wav |
+| ------        | ---------------- | - | ------------------------------- | - | ----------------- | ---- |
+| \dialoghi     | A                | _ | 1                               |   |                   | .wav |
+|               | B                | _ | 2                               |   |                   | .wav |
+|               |                  |   |                                 |   |                   |      |
+| \congiunzioni | A                | _ | 1                               | _ | A                 | .wav |
+|               | B                | _ | 2                               | _ | B                 | .wav |
+
+- il nome del file potrebbe essere fatto per esempio    "LETTERA_SOGGETTO"_"NUMERO_PORTAMENTO_VOCE_DISTANZA".wav   
+<br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt.
+<br> 
+<br> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?
+
+# Cos'è Ambisonic?
+Ambisonics non invia il segnale audio a un numero particolare di altoparlanti; È "indipendente dal parlante". Invece, Ambisonics può essere decodificato in qualsiasi array di altoparlanti (maggiori informazioni di seguito). L'audio ambisonico rappresenta una sfera sonora completa e ininterrotta, senza essere limitata dalle limitazioni di uno specifico sistema di riproduzione. 
+
+# Analisi dei tempi di risposta:
+
 **Sacks et al. (1974)** hanno distinto tre tipi di silenzi acustici nelle conversazioni: *pausa*, *gap* e *interruzioni* ("lapses") [^1]. 
 Questa classificazione si basava su ciò che precedeva e seguiva il silenzio nella conversazione e sulla lunghezza percepita del silenzio. 
 Le *pause*, in questo contesto, si riferivano ai silenzi all’interno dei turni; 
@@ -76,8 +137,8 @@ C'è da sottolineare però un particolare: sebbene possa sembrare che i tempi di
 
 Levinson (2016) [^10] ha affermato che i turni durano tipicamente circa due secondi, il che offrirebbe ampio tempo di pianificazione. Inoltre, Levinson e Torreira riportano una durata media del turno di 1680 ms e una mediana di 1227 ms per il corpus NXT-Switchboard [^11] [^9]. 
 
-Tempi di Pausa:
-============
+# Tempi di Pausa:
+
 Riguardo ai periodi di pausa in un discorso:
 - Nel testo di Pavese et al è stata analizzato il tempo di pausa e  professionisti è composto da 5 docenti universitari madre lingua inglesi della London South Bank University e 6 soggetti madre lingua italiani monitorati in stanze con diverse condizioni di riverberazione.
 > "I risultati mostrano che la distribuzione dei periodi di pausa non varia nelle diverse camere; in particolare, il maggior numero di occorrenze si ha per periodi della durata pari a 90 ms. Viceversa, il tipo di camera influenza la durata dei periodi di voce.
@@ -87,24 +148,6 @@ Nel caso dei monitoraggi in camera anecoica (figura 1A), il maggior numero di oc
 Inoltre, riguardo ai riverberi:
 > "la maggiore lunghezza della coda sonora potrebbe portare il parlatore “professionista” ad allungare i periodi di fonazione per migliorare l’intelligibilità del messaggio che deve trasmettere. ", ed è stato osservato che sussiste "un incremento della lunghezza media più occorrente dei periodi di voce in 18 insegnanti che parlavano in aule maggiormente riverberanti rispetto a 24 insegnanti che esercitavano la loro attività didattica in aule con tempi di riverberazione conformi ai requisiti acustici stabiliti per questi ambienti.".
 "per i professionisti della voce il periodo più ricorrente è pari a 90 ms, mentre per i non professionisti è molto più corto, pari a 60 e 50 ms", "indice di un parlato molto veloce e probabilmente indipendente dalle caratteristiche acustiche dell’ambiente, ma dipendente invece dal modo di esporre un discorso nel caso di non professionista della voce. Infatti, il parlato di un insegnante potrebbe appartenere al “clear speech” che prevede un incremento della pause e un allungamento dei singoli segmenti di parlato" [^p3]
-
--
-
-NOMENCLATURA FILES
-============
-
-| cartella      | LETTERA_SOGGETTO | _ | NUMERO_PORTAMENTO_VOCE_DISTANZA | _ | TIPO_SUONO        | .wav |
-| ------        | ---------------- | - | ------------------------------- | - | ----------------- | ---- |
-| \dialoghi     | A                | _ | 1                               |   |                   | .wav |
-|               | B                | _ | 2                               |   |                   | .wav |
-|               |                  |   |                                 |   |                   |      |
-| \congiunzioni | A                | _ | 1                               | _ | A                 | .wav |
-|               | B                | _ | 2                               | _ | B                 | .wav |
-
-- il nome del file potrebbe essere fatto per esempio    "LETTERA_SOGGETTO"_"NUMERO_PORTAMENTO_VOCE_DISTANZA".wav   
-<br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt.
-<br> 
-<br> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?
 
 
 DOMANDE:
@@ -120,7 +163,9 @@ DOMANDE:
   - quante domande e risposte? 
   - Pause irrealistiche? 
 
+
 - correlazione tra pause, complessità delle domande e velocità di parlato
+- possiamo porre le domande in cuffia e osservarne i tempi di risposta.
 
 <div id="refs"></div>
 
@@ -142,6 +187,3 @@ DOMANDE:
 [^p1]:[/////////////////////////Vedi, *pp. 3-4*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
 [^p2]:[Vedi, *pp. 6-7*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
 [^p3]:[Vedi, *pp. 7-8*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
-
-
-1 metro
