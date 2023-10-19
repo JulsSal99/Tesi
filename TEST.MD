@@ -71,7 +71,7 @@ Per le domande:
 
 ## Il programma
 Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
-I files audio singoli manterranno i vari  degli altri partecipanti.
+I files audio singoli manterranno le pause e anche il silenzio quando parlano gli altri partecipanti.
 
 ## Numenclatura dei files
 
