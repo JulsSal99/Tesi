@@ -35,8 +35,12 @@ suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come s
 
 Verrà usata la stanza insonorizzata anecoica di celoria 22 (Malcangi).
 Il partecipante all'esperimento verrà piazzato al centro stanza. Verranno usati due microfoni, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a 1 metro di distanza. 
+... per ricreare una impostazione ambisonic del secondo ordine.
 <span style="color:red"> (eventuali registrazioni aggiuntive in spazi reali?) </span>
-Verrà
+E' stata usata inoltre usata una scheda audio Motu M3 con gain a ... e due microfoni ...
+
+# Cos'è Ambisonic?
+Ambisonics non invia il segnale audio a un numero particolare di altoparlanti; È "indipendente dal parlante". Invece, Ambisonics può essere decodificato in qualsiasi array di altoparlanti (maggiori informazioni di seguito). L'audio ambisonico rappresenta una sfera sonora completa e ininterrotta, senza essere limitata dalle limitazioni di uno specifico sistema di riproduzione. 
 
 ## Procedimento in stanza con i partecipanti
 
