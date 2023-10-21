@@ -29,16 +29,47 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 ## Note per l'operatore:
 Le domande sono su:
   - musica:
+    - Qual è il tuo genere di musica preferita?
+  - cibo:
+    - Vorrei proporre una cena tutti assieme, qual è il tuo cibo preferito? Carne, pesce, sushi, pizza,...?
+  - hobbies:
+    - L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
+  - Luoghi:
+    - Il prossimo inverno voglio andare in vacanza sciare a Bornio. Te andrai in vacanza da qualche parte questo inverno?
+  - Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)
+  - ultimo programma visto in TV:
+    - Ieri hanno pubblicato l'ultimo episodio di ... . Quali sono le tue serie preferite? 
+  - Occupazione:
+    - L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
+  - Sport:
+    - Pratichi qualche sport?
+  - Animali:
+    - Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
+
+- **Musica**: Qual è il tuo genere musicale preferito? Qual è la tua canzone preferita? Qual è l'ultimo concerto a cui hai assistito?
+- **Cibo**: Qual è il tuo piatto preferito? Qual è il tuo ristorante preferito? Qual è l'ultimo pasto che hai cucinato?
+- **Hobbies**: Qual è il tuo hobby preferito? Quanto tempo dedichi al tuo hobby ogni settimana? Qual è l'ultimo progetto che hai completato?
+- **Luoghi**: Qual è il tuo luogo preferito in cui sei stato? Qual è il luogo più bello che hai visitato? Qual è il luogo in cui ti piacerebbe andare in vacanza?
+- **Programma/serie TV**: Qual è la tua serie TV preferita? Qual è l'ultimo film che hai visto? Qual è il personaggio televisivo che ti piace di più?
+- **Occupazione**: Che lavoro fai? Ti piace il tuo lavoro? Cosa ti piace del tuo lavoro?
+- **Sport**: Quale sport pratichi? Quale squadra tifi? Hai mai assistito ad una partita dal vivo?
+- **Animali**: Hai un animale domestico e come si chiama? Ti piacciono gli animali?
+
+Le domande informali sono su:
+  - musica:
     - Quel ragazzo/a sta ascoltando della musica dal suo Walkman, riusciresti a scoprire che genere di musica gli piace?
   - cibo:
-    - Vorrei proporre una cena tutti assieme, riusciresti a scoprire quale cibo preferisce?
+    - Vorrei proporre una cena tutti assieme, chiedile che genere di cibo preferisce? Carne, pesce, sushi, pizza,...?
   - hobbies:
   - Luoghi da visitare:
   - Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)
     - Chiedile se è andato/a fuori o ha fatto/a qualcosa nella giornata di ieri.
   - ultimo programma visto in TV:
+    - 
   - Occupazione:
   - Sport:
+    - 
   - Animali:
+    - Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. A voi piacciono i gatti? 
 
 I suoni non verbali possono essere di approvazione, neutri o disapprovazione (eviterei).

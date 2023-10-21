@@ -45,7 +45,8 @@ La registrazione dei due microfoni avviene in formato stereo. Con come uscita un
 Abbiamo stabilito la struttura dell'organizzazione delle domande e risposte:
 Per le risposte:
 
-- ad ogni partecipante verrà posta una domanda (<span style="color:red">  in-ear? in modo che non avvenga del ritorno verso il microfono, però se usiamo delle cuffie, l'effetto è che l'ascoltatore tenderà ad avere un volume di voce maggiore perché non si sentirà correttamente. Potremmo eseguire dei test con delle cuffie e misurare il volume medio del parlato. Inoltre ascoltare il volume delle cuffie rispetto al volume del parlato in db. 
+- ad ogni partecipante verrà posta una domanda (<span style="color:red">  in-ear? in modo che non avvenga del ritorno verso il microfono, però se usiamo delle cuffie, l'effetto è che l'ascoltatore tenderà ad avere un volume di voce maggiore perché non si sentirà correttamente. Potremmo eseguire dei test con delle cuffie e misurare il volume medio del parlato. Inoltre ascoltare il volume delle cuffie rispetto al volume del parlato in db.
+QUINDI dobbiamo evitare l'effetto Lombard: "L'effetto Lombard (Lombard effect o Lombard reflex) è la tendenza involontaria dei parlanti ad aumentare l'intensità della loro voce in presenza di un rumore di fondo che interferisce con la comprensione della voce umana." [^12]
 In generale: se volume cuffia a 1mt tappata <<< volume del parlato && volume parlato CON cuffia ≃ volume parlato SENZA cuffia --> procedere
 E per le latenze in DAW per misurare il ritardo? </span>)
     - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
@@ -91,6 +92,20 @@ Per meglio spiegare l'organizzazione dei files stabiliamo:
  - **P** = *numero del partecipante al test*
  - **V** = *tipo di suono non verbale*
 
+### Nomi dei files durante la registrazione
+Verranno generati due audio per ogni speaker:
+- Per le domande e risposte: 
+> *T_P.wav*
+- Per i suoni non verbali: 
+> *T_P.wav*
+
+Esempio: 
+> "DR_A" indica la traccia con tutte le domande e le risposte della persona A
+> "S_F" indica la traccia con tutti i suoni non verbali della persona A
+
+Le tracce verranno poi tagliati per suddividere singolarmente le domande e le risposte secondo il seguente ordine:
+
+### Nomi dei files nel programma
 I nomi dei files da dare in input al programma saranno organizzati così:
 - Per le domande e risposte: *T_P_N_PORTAMENTO*
 - Per i suoni non verbali: *T_P_V*
@@ -107,10 +122,8 @@ Esempio dei nomi dei files in input:
 | \INPUT        | Risposta_Mario    | _1_ALTO            |             | .wav |
 | \INPUT        | Suono_Mario       |                    | _UH         | .wav |
 
-- il nome del file potrebbe essere fatto per esempio    "LETTERA_SOGGETTO"_"NUMERO_PORTAMENTO_VOCE_DISTANZA".wav   
-<br> dove: "LETTERA_SOGGETTO" e "NUMERO_PORTAMENTO_VOCE_DISTANZA" vengono indicati nel dataset in un file .nfo o txt.
-<br> 
-<br> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?
+<br>
+<span style="color:red"> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?</span>
 
 # Cos'è Ambisonic?
 Ambisonics non invia il segnale audio a un numero particolare di altoparlanti; È "indipendente dal parlante". Invece, Ambisonics può essere decodificato in qualsiasi array di altoparlanti (maggiori informazioni di seguito). L'audio ambisonico rappresenta una sfera sonora completa e ininterrotta, senza essere limitata dalle limitazioni di uno specifico sistema di riproduzione. 
@@ -207,6 +220,7 @@ DOMANDE:
 [^9]:[pp. 3, "*Overrated gaps: Inter-speaker gaps provide limited information about the timing of turns in conversation*"](DOC/1-s2.0-S0010027722000257-main.pdf)
 [^10]:[Barthel, M., Sauppe, S., Levinson, S. C., & Meyer, A. S. (2016). "*The timing of utterance planning in task-oriented dialogue: Evidence from a novel list-completion paradigm*". Frontiers in Psychology, 7.](https://doi.org/10.3389/fpsyg.2016.01858)
 [^11]:[The NXT-format Switchboard Corpus: a rich resource for investigating the syntax, semantics, pragmatics and prosody of dialogue](DOC/The_NXT_format_Switchboard_Corpus_a_rich_resource_for_investigating_the_syntax_semantics_pragmatics_and_prosody_of_dialogue.pdf)
+[^12]:[Lane H, Tranel B, The Lombard sign and the role of hearing in speech, in J Speech Hear Res, vol. 14, n. 4, 1971, pp. 677-709.]
 
 [^p1]:[/////////////////////////Vedi, *pp. 3-4*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
 [^p2]:[Vedi, *pp. 6-7*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)

@@ -6,7 +6,27 @@ import soundfile as sf
 import numpy as np
 import random
 
+'''
+
+Should work on both Python 3.x (tested on Python 3.11.6)
+Look at the test() function for some examples...
+
+This collection is based upon the following packages (auto-installation):
+  - numpy
+  - pysoundfile
+
+'''
+
+__version__ = "0.02"
+__author__  = "G.Salada"
+
+'''
+------------------------
+'''
+
 def audioread(filename, frames=-1, start=0, fill_val=None):
+    '''Returns audio data in range -1:1 together with sample rate'''
+    '''Additional params: start, frames, fill_value'''
     data, Fs = sf.read(filename, frames, start, fill_value=fill_val)
     return data, Fs
 
@@ -20,20 +40,32 @@ def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
     return file
 
 def find_file(name, path):
+    '''Search for the file by its name with and without the extension'''
+    '''and return the first file found with the exact path of the file.'''
     for root, dirs, files in os.walk(path):
         for file in files:
-            if name in file and (file.endswith(".wav") or file.endswith(".mp3")):
+            if name in file and (file.lower().endswith(".wav")):
                 return os.path.join(root, file)
-    raise Exception(f"File {name}.wav or {name}.mp3 not found in {path}")
+    raise Exception(f"File {name}.wav not found in {path}")
 
 def folder_info(folder_path):
-    mp3_wav_count = 0
+    '''count the number of audio files in a folder'''
+    count = 0
     for filename in os.listdir(folder_path):
-        if filename.endswith('.mp3') or filename.endswith('.wav'):
-            mp3_wav_count += 1
-    return mp3_wav_count
+        if filename.endswith('.wav'):
+            count += 1
+    return count
+
+def get_channels(data):
+    '''Get the number of channels in an audio file'''
+    if len(np.shape(data)) == 1:
+        return 1
+    else:
+        return np.shape(data)[1]
 
 def concatenate(data1, data2, pause_length, sample_rate, channels):
+    '''generate 2 audio files, one with the first audio muted,'''
+    ''' the second with the second audio muted.'''
     n_sample_silence = sample_rate * pause_length
     silence = np.zeros((int(n_sample_silence), channels))
     if len(data1.shape) > 1 or len(data2.shape) > 1:
@@ -42,13 +74,8 @@ def concatenate(data1, data2, pause_length, sample_rate, channels):
         OUTPUT = np.concatenate((data1, silence, data2))
     return OUTPUT
 
-def get_channels(data):
-    if len(np.shape(data)) == 1:
-        return 1
-    else:
-        return np.shape(data)[1]
-
 def check_SR_CH(file_names, sample_rate, channels):
+    '''Check sample rate and channels of the audio files'''
     for i in range(len(file_names)):
         file_names[i]['data'], sample_rate_temp = audioread(file_names[i]['path'])
         channels_temp = get_channels(file_names[i]['data'])
@@ -60,25 +87,38 @@ def check_SR_CH(file_names, sample_rate, channels):
             raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
 def read_write_file(file_names):
+    ''' MAIN FUNCTION: create the ending file'''
+    ''' create the class inside file_names and return to concatenate()'''
+    ''' check channels, sample_rate'''
+    # Get sample rate
     data_temp, sample_rate = audioread(file_names[0]['path'])
+    # Get channels number
     channels = get_channels(data_temp)
+    
+    # Get sampled data from files and check sample rate and channels
     _, sample_rate = audioread(file_names[0]['path'])
     check_SR_CH(file_names, sample_rate, channels)
+    
+    # create an array of pause_length for each (between) file
     silences = []
     for i in range(len(file_names) - 1):
         pause_length = random.uniform(0.7, 0.9)  # seconds
         silences.append(pause_length)
+    
+    # i è l'elemento da stampare con i dati, mentre j è l'elemento attuale
     for i in range(len(file_names)):
         print_person = file_names[i]['person']
         if not file_names[i]['duplicated']:
             print_name = file_names[i]['name']
             for j in range(len(file_names)):
                 if j == 0:
+                    # gestisce il primo elemento e lo mette vuoto se non è lui
                     if file_names[j]['person'] == print_person:
                         OUTPUT = file_names[0]['data']
                     else:
                         OUTPUT = np.zeros((int(len(file_names[0]['data'])), channels))
                 else:
+                    # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
                     if file_names[j]['person'] == print_person:
                         OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], sample_rate, channels)
                     else:
@@ -87,6 +127,9 @@ def read_write_file(file_names):
             sf.write(f'OUTPUT/merged{i}{print_name}.wav', OUTPUT, sample_rate)
 
 def user_input(dir_path, max_participants):
+    '''Ask file1, file2'''
+    ''' and check/fix paths (file1, file2)'''
+    ''' handle the errors'''
     file_names = []
     for i in range(max_participants):
         while True:
@@ -121,6 +164,7 @@ if __name__ == '__main__':
     try:
         '''ask for user input, if more than one file with same name, return the first file'''
         file_names = user_input(dir_path, max_participants)
+        print(file_names)
         '''Run concatenate (file1, file2) and open the folder'''
         read_write_file(file_names)
         print("\n COMPLETED! (folder opened)")
