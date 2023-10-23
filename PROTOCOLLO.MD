@@ -46,22 +46,25 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 
 Nell'**ultima parte**:
  - alla fine delle domande, il partecipante ascolterà un dialogo e viene chiesto nel mentre di fare dei suoni non verbali, come se partecipasse alla conversazione.
- - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione) allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti.
+   - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione) allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti.
 
-   - Degli *esempi corretti* sono:
-     - A-hem: Questo suono è spesso usato per attirare l’attenzione di qualcuno o per indicare che si vuole parlare. È un suono breve e secco, simile a una tosse leggera.
-     - Coff: Questo suono è simile ad una tosse più forte e può essere usato per indicare che si vuole attirare l’attenzione di qualcuno o per chiarire la propria voce.
-     - A-ha: Questo suono viene spesso usato per esprimere sorpresa o comprensione improvvisa. È un suono breve e acuto, simile ad una risata soffocata.
-     - Aah!: Questo suono viene spesso usato per esprimere sollievo o piacere. È un suono lungo e aperto, simile ad un sospiro di sollievo.
-     - Hm-hm: Questo suono viene spesso usato per indicare disapprovazione o per negare qualcosa. È un suono breve e secco, simile ad un grugnito.
+     - Degli *esempi corretti* sono:
+       - A-hem: Questo suono è spesso usato per attirare l’attenzione di qualcuno o per indicare che si vuole parlare. È un suono breve e secco, simile a una tosse leggera.
+       - Coff: Questo suono è simile ad una tosse più forte e può essere usato per indicare che si vuole attirare l’attenzione di qualcuno o per chiarire la propria voce.
+       - A-ha: Questo suono viene spesso usato per esprimere sorpresa o comprensione improvvisa. È un suono breve e acuto, simile ad una risata soffocata.
+       - Aah!: Questo suono viene spesso usato per esprimere sollievo o piacere. È un suono lungo e aperto, simile ad un sospiro di sollievo.
+       - Hm-hm: Questo suono viene spesso usato per indicare disapprovazione o per negare qualcosa. È un suono breve e secco, simile ad un grugnito.
 
-   - Degli *esempi errati* sono:
-     - Hmmm: Questo suono può essere utilizzato per esprimere incertezza o per indicare che si sta pensando a qualcosa.
-     - Tsk: Questo suono può essere utilizzato per esprimere disapprovazione o frustrazione.
-     - Sigh: Questo suono può essere utilizzato per esprimere noia, stanchezza o frustrazione.
-     - Grrr: Questo suono può essere utilizzato per esprimere rabbia o frustrazione.
-     - Eh?: Questo suono può essere utilizzato per chiedere a qualcuno di ripetere ciò che ha detto o per esprimere incertezza.
+     - Degli *esempi errati* sono:
+       - Hmmm: Questo suono può essere utilizzato per esprimere incertezza o per indicare che si sta pensando a qualcosa.
+       - Tsk: Questo suono può essere utilizzato per esprimere disapprovazione o frustrazione.
+       - Sigh: Questo suono può essere utilizzato per esprimere noia, stanchezza o frustrazione.
+       - Grrr: Questo suono può essere utilizzato per esprimere rabbia o frustrazione.
+       - Eh?: Questo suono può essere utilizzato per chiedere a qualcuno di ripetere ciò che ha detto o per esprimere incertezza.
 
+  - <span style="color:red">  Inoltre è possibile registrare una serie di domande in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
+    - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
+    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "e tu, cosa ne pensi?"** con diverso *portamento*.
 
 ## Note per l'operatore:
 Tipi di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante
