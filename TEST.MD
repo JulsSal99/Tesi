@@ -131,7 +131,7 @@ Esempio dei nomi dei files in input:
 | \INPUT        | Suono_Giovanni    |                    | _UH         | .wav |
 | | | | | |
 | \INPUT        | Domanda_Mario     | _1_ALTO            |             | .wav |
-| \INPUT        | Risposta_Mario    | _1_ALTO            |             | .wav |
+| \INPUT        | Risposta_Mario    | _1_BASSO            |             | .wav |
 | \INPUT        | Suono_Mario       |                    | _UH         | .wav |
 
 <br>
@@ -221,7 +221,6 @@ DOMANDE:
 
 <div id="refs"></div>
 
-# Citazioni: {-}
 [^1]:[Sacks, H., Schegloff, E. A., & Jefferson, G. (1974). A simplest systematics for the organization of turn-taking for conversation. Language, 50, 696–735.]
 [^2]:[Vedi Sacks et al., 1974, p. 700]
 [^3]:[Jefferson, 1984, p. 8]
