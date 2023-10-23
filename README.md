@@ -3,7 +3,7 @@ Lavoro di tesi:
 Documentazione
 [Documento](TEST.MD)
 
-[Modulo per il test](PROTOCOLLO.MD)
+[Protocollo per il test](PROTOCOLLO.MD)
 
 [Programma in Python](prova.py)
 
