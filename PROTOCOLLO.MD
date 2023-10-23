@@ -3,8 +3,25 @@ title: "Tesi - Registrazioni e generazione linee di dialogo "
 bibliography: biblio.bib
 link-citations: true
 ---
+# Protocollo
+MAIN:
+============
+Protocollo sperimentale per le registrazioni
+- <span style="color:green">Spiegazione iniziale a ogni soggetto
+   -> Obiettivi della registrazione
+   -> Come bisogna parlare durante la registrazione: non sovrapporti,</span>
+conta fino a 5, ecc.
+   -> ... altro
+- Parte A. Un tot di argomenti/domande. Per ciascuna domanda il soggetto
+     1) fornisce la sua risposta
+     2) fa lui la stessa domanda rifrasandola
+- Parte B. Un tot di suoni non verbali: a-hem, coff, a-ha, aah!, hm-hm, ecc.
 
-# Il test:
+Setup<span style="color:green">
+- Registrazione stereo con due mic a 1 metro
+- In cabina Malcangi</span>
+- Per parte B: eventualmente il soggetto ascolta un parlatore
+- .... da pensare
 
 ## Per l'ospite:
 ### Qual è lo scopo?
@@ -17,13 +34,33 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 - gli argomenti delle domande possono venire forniti solo in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
 - la risposta deve essere il più naturale possibile
 - Bisognerà posizionarsi a 1 metro di distanza dal microfono e con il viso diretto verso il microfono.
-- Inizialmente verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato) e a questa domanda bisognerà rispondere nel modo più naturale possibile
+<br>
+
+**Inizialmente**:
+ - verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato) e a questa domanda bisognerà rispondere nel modo più naturale possibile
   - alternativa, le risposte verranno poste in modo normale, MA la risposta dovrà essere data al segnale (che verrà dato dopo un numero prestabilito di secondi)
 - Alla fine di ogni risposta bisogna zittirsi e fare un gesto all'operatore.
 - L'operatore poi farà un gesto dopo un tot di secondi: questo gesto serve per indicare che bisogna ripronunciare la domanda fatta in partenza "a proprie parole" e alla fine della domanda bisognerà far silenzio in attesa che venga riprodotta la domanda successiva. 
 
 <br>
-- nell'ultima parte, alla fine delle domande, il partecipante ascolterà un dialogo e viene chiesto nel mentre di fare dei suoni non verbali, come se partecipasse alla conversazione. (verranno proposti degli esempi come "a-hem, coff, a-ha, aah!, hm-hm, ecc."). 
+
+Nell'**ultima parte**:
+ - alla fine delle domande, il partecipante ascolterà un dialogo e viene chiesto nel mentre di fare dei suoni non verbali, come se partecipasse alla conversazione.
+ - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione) allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti.
+
+   - Degli *esempi corretti* sono:
+     - A-hem: Questo suono è spesso usato per attirare l’attenzione di qualcuno o per indicare che si vuole parlare. È un suono breve e secco, simile a una tosse leggera.
+     - Coff: Questo suono è simile ad una tosse più forte e può essere usato per indicare che si vuole attirare l’attenzione di qualcuno o per chiarire la propria voce.
+     - A-ha: Questo suono viene spesso usato per esprimere sorpresa o comprensione improvvisa. È un suono breve e acuto, simile ad una risata soffocata.
+     - Aah!: Questo suono viene spesso usato per esprimere sollievo o piacere. È un suono lungo e aperto, simile ad un sospiro di sollievo.
+     - Hm-hm: Questo suono viene spesso usato per indicare disapprovazione o per negare qualcosa. È un suono breve e secco, simile ad un grugnito.
+
+   - Degli *esempi errati* sono:
+     - Hmmm: Questo suono può essere utilizzato per esprimere incertezza o per indicare che si sta pensando a qualcosa.
+     - Tsk: Questo suono può essere utilizzato per esprimere disapprovazione o frustrazione.
+     - Sigh: Questo suono può essere utilizzato per esprimere noia, stanchezza o frustrazione.
+     - Grrr: Questo suono può essere utilizzato per esprimere rabbia o frustrazione.
+     - Eh?: Questo suono può essere utilizzato per chiedere a qualcuno di ripetere ciò che ha detto o per esprimere incertezza.
 
 
 ## Note per l'operatore:
@@ -72,4 +109,3 @@ Le domande sono su:
 Dividere le domande che hanno yes/no quindi veloci, da quelle complicate. 
 Equivocazione. 
 
-I suoni non verbali devono essere di neutri (no disapprovazione o approvazione per evitare che siano inadatti al senso della frase).

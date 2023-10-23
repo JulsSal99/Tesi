@@ -29,6 +29,18 @@ Riguardo allo script python, l'obiettivo è avere una funzione che dato in ingre
 restituisca tanti file quanti parlanti ci sono (nomi dei file di output costruiti concatenando la stringa del nome in ingresso con l'id del parlante), tutti lunghi uguali, che se sovrapposti generano il dialogo desiderato.
 suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come si possono manipolare file audio in python con queste librerie veda: https://github.com/Kuig/SNDfunc
 
+
+Assemblaggio dialoghi
+- Struttura (dom)->(risp+dom)->(risp+dom)-> ... ->(risp)
+- Non serve che la prima domanda sia diversa dalle altre
+- Il dialogo può essere con n persone ordinate a caso: (i-1) chiede a
+(i), che risponde e chiede a (i+1), ecc.
+- Numero n di persone e lunghezza del dialogo definibili a piacere
+- A una risposta possono venire sovrapposti suoni non verbali di altre
+persone
+- Ogni persona ha il suo array di domande shuffle-ato (si può ripetere
+la stessa domanda in un dialogo)
+
 # Procedimento:
 
 ## Attrezzatura e locazione:
