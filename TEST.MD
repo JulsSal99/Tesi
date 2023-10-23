@@ -12,16 +12,16 @@ MAIN:
 serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
 
 Riguardo al protocollo, quello da definire le ricordo che consiste in:
-- Posizionamento dello speaker e dei microfoni (centro stanza? entrambi i mic a 1mt, uno frontale e l'altro a 90°? registrazioni aggiuntive in spazi reali?)
+- Posizionamento dello speaker e dei microfoni (centro stanza? entrambi i mic a 1mt, uno frontale e l'altro a 90°? <span style="color:red">registrazioni aggiuntive in spazi reali?)</span>
 - Impostazione e calibrazione dell'hardware (ovviamente questo campo lo si compila solo quando avremo di nuovo accesso al dipartimento)
 - Reclutamento dei soggetti: per ora definirei quanti e con che caratteristiche, una volta fissati questi due punti procediamo tutti insieme al reperimento delle persone
-- Modalità di svolgimento dell'intervista: briefing, argomenti, tecnica di stimolazione, durata. forse varrebbe la pena fare 3 sessioni per ogni soggetti: una a un volume di voce normale; una a voce più portata, come se fossero lontani e dovessero parlare con noi; e una con dei suoni non verbali tipo "hm, eh, si, hem, uh uh?, ah!"
+- Modalità di svolgimento dell'intervista: briefing, argomenti, tecnica di stimolazione, durata. forse varrebbe la pena fare 3 sessioni per ogni soggetti: <span style="color:red"> una a un volume di voce normale; una a voce più portata, come se fossero lontani e dovessero parlare con noi; </span> e una con dei suoni non verbali tipo "hm, eh, si, hem, uh uh?, ah!"
 - Modalità di salvataggio dei file raw (direi 1 solo wav per ogni take, con left e right corrispondenti ai 2 microfoni, quindi se si fanno 3 sessioni per soggetto ci saranno 3 file per soggetto) e protocollo di nominazione dei file raw
 - Modalità di salvataggio dei file tagliati e relativa nomenclatura e organizzazione nel file system
 - Compilazione di un foglio di calcolo che riporti tutti i dati del caso
 Riguardo allo script python, l'obiettivo è avere una funzione che dato in ingresso 
 - path delle registrazioni, 
-- array con id degli speaker da usare, (visto che c'è la possibilità di fare dialoghi a 3 forse farei registrare anche un "e tu?" a ogni soggetto, in modo da poterlo infilare tra le risposte di più soggetti)
+<span style="color:red">- array con id degli speaker da usare, (visto che c'è la possibilità di fare dialoghi a 3 forse farei registrare anche un "e tu?" a ogni soggetto, in modo da poterlo infilare tra le risposte di più soggetti)</span>
 - numero di domande per persona
 - stringa per il nome di file di output
 - tempo tra domanda e risposta, 
@@ -36,43 +36,43 @@ suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come s
 Verrà usata la stanza insonorizzata anecoica di celoria 22 (Malcangi).
 Il partecipante all'esperimento verrà piazzato al centro stanza. Verranno usati due microfoni, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a 1 metro di distanza all'altezza della bocca. 
 ... per ricreare una impostazione ambisonic del secondo ordine.
-<span style="color:red"> (eventuali registrazioni aggiuntive in spazi reali?) </span>
+<span style="color:red"> (eventuali registrazioni aggiuntive della camera?) </span>
 E' stata usata inoltre usata una scheda audio Motu M3 con gain a ... e due microfoni ...
 La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav 24bit-192kHz.
 
 ## Procedimento in stanza con i partecipanti
 
-Abbiamo stabilito la struttura dell'organizzazione delle domande e risposte:
-Per le risposte:
+Uno dei problemi principali nell'esecuzione del nostro test è stata l'identificazione delle metodologie di registrazione in modo che: 
+ - Non ci fossero **sovrapposizioni** tra audio dell'intervistatore e dell'intervistato (dalle ricerche [Analisi dei tempi di risposta](#analisi-dei-tempi-di-risposta) è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta) 
+ - Non ci fosse ritorno, se non isolabile nel microfono di ulteriori possibili suoni (al di fuori del partecipante all'esperimento)
+ - Le risposte fossero realistiche
+ - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati
 
-- ad ogni partecipante verrà posta una domanda (<span style="color:red">  in-ear? in modo che non avvenga del ritorno verso il microfono, però se usiamo delle cuffie, l'effetto è che l'ascoltatore tenderà ad avere un volume di voce maggiore perché non si sentirà correttamente. Potremmo eseguire dei test con delle cuffie e misurare il volume medio del parlato. Inoltre ascoltare il volume delle cuffie rispetto al volume del parlato in db.
-QUINDI dobbiamo evitare l'effetto Lombard: "L'effetto Lombard (Lombard effect o Lombard reflex) è la tendenza involontaria dei parlanti ad aumentare l'intensità della loro voce in presenza di un rumore di fondo che interferisce con la comprensione della voce umana." [^12]
-In generale: se volume cuffia a 1mt tappata <<< volume del parlato && volume parlato CON cuffia ≃ volume parlato SENZA cuffia --> procedere
-E per le latenze in DAW per misurare il ritardo? </span>)
-    - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
+<span style="color:red"> <br> 
+Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato. </span>
+   - *problema 1*: possibile sovrapposizione di voci
+     - *soluzione 1*: far attendere un tempo in secondi alll'intervistato prima di dare una risposta;
+       - problema: non si possono osservare i tempi di risposta.
+     - *soluzione 2*: utilizzare delle cuffie in-ear/aperte/chiuse;
+       - *problema 1*: l'ascoltatore tenderà ad avere un volume di voce maggiore perché non si sentirà correttamente: questo è l'[effetto Lombard](#effetto-lombard);
+         - *soluzione*: Potremmo eseguire dei test con delle **cuffie** e misurare il volume medio del parlato. Inoltre ascoltare il volume delle cuffie rispetto al volume del parlato in db. In generale: se volume cuffia a 1mt tappata <<< volume del parlato && volume parlato CON cuffia ≃ volume parlato SENZA cuffia --> procedere.
+         Il volume in cuffia sarà deciso prima dell'esperimento dall'operatore e rimarrà invariato per non influenzare l'esperimento
+       - *problema 2*: le latenze del DAW devono essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale;
+   - *problema 2*: le domande registrate potrebbero risultare tutte troppo uguali poiché l'intervistato sarà tentato a ripetere parola per parola la domanda originale;
+     - *soluzione 1*: L'intervistato ripete la domanda **dopo** aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta;
+       - *problema 1*: l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente;
+         - *Soluzione*: sta all'operatore *eventualmente* intervenire valutandone la coerenza con la domanda originale.
+     - *soluzione 2*: viene dato all'intervistato un **prompt generico** il più lontano possibile dalla domanda originale e verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni (dopo una durata in secondi prestabilita)
 
-Alternativa:
+<span style="color:red"> <br> 
+Inoltre è possibile registrare una serie di domande in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
+ - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
+ - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "e tu, cosa ne pensi?"** con diverso *portamento*.
 
-- ad ogni partecipante verrà posta una domanda
-  - verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni tra le registrazioni delle domande e risposte
-    - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
-  <br><br>
-
-
-  - Questa sequenza verrà riproposta per ogni partecipante in maniera che ogni partecipante risponderà ad una serie di domande che saranno le medesime degli altri partecipanti.
-
-<br>
-Per le domande:
-
-- ad ogni partecipante verrà poi dato un prompt che consiste in una domanda che lui stesso dovrà riproporre in maniera simile.
-  - verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni tra le registrazioni delle domande e risposte
-    - il tempo di attesa del gesto sarà una durata in secondi prestabilita per permetterne il taglio in post
-
-<br>
-Per i suoni non verbali che:
-
-- ad ogni partecipante verrà data la cuffia in-ear e fatto ascoltare un audio completo, se eseguito con le in-ear e verrà chiesto di produrre dei suoni di sottofondo.
-- viene chiesto al partecipante di pronunciare dei versi basandosi su alcuni prestabiliti come "a-hem, coff, a-ha, aah!, hm-hm, ecc.").
+<span style="color:red"> <br> 
+Per i suoni non verbali: </span>
+  - *soluzione 1*: ad ogni partecipante verrà data la cuffia in-ear e fatto ascoltare un audio completo, se eseguito con le in-ear e verrà chiesto di produrre dei suoni di sottofondo.
+  - *soluzione 2*: viene chiesto al partecipante di pronunciare con diverso *portamento* dei versi basandosi su alcuni prestabiliti come **"a-hem, coff, a-ha, aah!, hm-hm, ecc."**).
 
 ## Il programma
 Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
@@ -128,7 +128,10 @@ Esempio dei nomi dei files in input:
 # Cos'è Ambisonic?
 Ambisonics non invia il segnale audio a un numero particolare di altoparlanti; È "indipendente dal parlante". Invece, Ambisonics può essere decodificato in qualsiasi array di altoparlanti (maggiori informazioni di seguito). L'audio ambisonico rappresenta una sfera sonora completa e ininterrotta, senza essere limitata dalle limitazioni di uno specifico sistema di riproduzione. 
 
-# Analisi dei tempi di risposta:
+# Effetto Lombard
+"L'effetto Lombard (Lombard effect o Lombard reflex) è la tendenza involontaria dei parlanti ad aumentare l'intensità della loro voce in presenza di un rumore di fondo che interferisce con la comprensione della voce umana." [^12]
+
+# Analisi dei tempi di risposta
 
 **Sacks et al. (1974)** hanno distinto tre tipi di silenzi acustici nelle conversazioni: *pausa*, *gap* e *interruzioni* ("lapses") [^1]. 
 Questa classificazione si basava su ciò che precedeva e seguiva il silenzio nella conversazione e sulla lunghezza percepita del silenzio. 
