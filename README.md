@@ -17,4 +17,4 @@ Cartella di OUTPUT del il programma:
 <br><br><br><br><br><br><br><br><br><br><br>
 
 REMINDER di fare il backup:
-![Backup](IMG/backup.jpg)
+![Backup](img/backup.jpg)
