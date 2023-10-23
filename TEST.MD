@@ -102,6 +102,7 @@ Per meglio spiegare l'organizzazione dei files stabiliamo:
  - **T** = "tipologia: domanda, risposta o suono non verbale"
  - **N** = *numero della domanda o risposta*
  - **P** = *numero del partecipante al test*
+ - **S** = *sesso (M/F) del partecipante al test*
  - **V** = *tipo di suono non verbale*
 
 ### Nomi dei files durante la registrazione
@@ -119,20 +120,20 @@ Le tracce verranno poi tagliati per suddividere singolarmente le domande e le ri
 
 ### Nomi dei files nel programma
 I nomi dei files da dare in input al programma saranno organizzati così:
-- Per le domande e risposte: *T_P_N_PORTAMENTO*
+- Per le domande e risposte: *T_P_S_N_PORTAMENTO*
 - Per i suoni non verbali: *T_P_V*
 
 Esempio dei nomi dei files in input:
 
-| cartella      | T_P               | _N_PORTAMENTO      | _V          | .wav |
-| ------        | -:                | :-:                | :-          | :-   |
-| \INPUT        | Domanda_Giovanni  | _1_ALTO            |             | .wav |
-| \INPUT        | Risposta_Giovanni | _1_ALTO            |             | .wav |
-| \INPUT        | Suono_Giovanni    |                    | _UH         | .wav |
+| cartella      | T_P_S               | _N_PORTAMENTO      | _V          | .wav |
+| ------        | -:                  | :-:                | :-          | :-   |
+| \INPUT        | Domanda_Giovanni_M  | _1_ALTO            |             | .wav |
+| \INPUT        | Risposta_Giovanni_M | _1_ALTO            |             | .wav |
+| \INPUT        | Suono_Giovanni_M    |                    | _UH         | .wav |
 | | | | | |
-| \INPUT        | Domanda_Mario     | _1_ALTO            |             | .wav |
-| \INPUT        | Risposta_Mario    | _1_BASSO            |             | .wav |
-| \INPUT        | Suono_Mario       |                    | _UH         | .wav |
+| \INPUT        | Domanda_Elena_F     | _1_ALTO            |             | .wav |
+| \INPUT        | Risposta_Elena_F    | _1_BASSO            |             | .wav |
+| \INPUT        | Suono_Mario         |                    | _UH         | .wav |
 
 <br>
 <span style="color:red"> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?</span>
@@ -204,8 +205,6 @@ Inoltre, riguardo ai riverberi:
 
 DOMANDE:
 ============
-- la persona fa una domanda ad un altro? Ma facendo così non esce una catena un po' irrealistica?
-- Un unico intervistatore che fa più domande separate? Potrebbe essere utile per capire se la persona riesce a capirlo anche separato da uno spazio diverso (per evitare l'effetto ABX-test).
 - Le persone devono usare dei nomi? Perché se usiamo dei nomi, si differenziano tra maschi e femmine. Potrebbe essere interessante vedere anche la correlazione tra nomi e pronunce (gli ascoltatori potrebbero venire ingannati per alcune caratteristiche della persona e non il livello vocale).
 - come capiamo i tempi di risposta, visto che dipendono dal tipo di domanda e dalla reazione?
 - sarebbe utile generare dialoghi in base a: 
@@ -221,6 +220,7 @@ DOMANDE:
 
 <div id="refs"></div>
 
+<!-- Citazioni -->
 [^1]:[Sacks, H., Schegloff, E. A., & Jefferson, G. (1974). A simplest systematics for the organization of turn-taking for conversation. Language, 50, 696–735.]
 [^2]:[Vedi Sacks et al., 1974, p. 700]
 [^3]:[Jefferson, 1984, p. 8]
