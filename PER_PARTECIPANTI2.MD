@@ -27,49 +27,49 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 
 
 ## Note per l'operatore:
+Tipi di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante
 Le domande sono su:
-  - musica:
-    - Qual è il tuo genere di musica preferita?
-  - cibo:
-    - Vorrei proporre una cena tutti assieme, qual è il tuo cibo preferito? Carne, pesce, sushi, pizza,...?
-  - hobbies:
-    - L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
-  - Luoghi:
-    - Il prossimo inverno voglio andare in vacanza sciare a Bornio. Te andrai in vacanza da qualche parte questo inverno?
-  - Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)
-  - ultimo programma visto in TV:
-    - Ieri hanno pubblicato l'ultimo episodio di ... . Quali sono le tue serie preferite? 
-  - Occupazione:
-    - L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
-  - Sport:
-    - Pratichi qualche sport?
-  - Animali:
-    - Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
+  - **musica**:
+    - (Generica, corta) Qual è il tuo genere di musica preferita?
+    - (Generica, corta) Qual è la tua canzone preferita? 
+    - (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è l'ultimo concerto a cui hai assistito?
+    - (Indiretta) Quel ragazzo/a sta ascoltando della musica dal suo Walkman, riusciresti a scoprire che genere di musica gli piace?
+  - **cibo**:
+    - (Specifica, lunga) Es. L'altra settimana sono stato in un all You Can Eat cinese, ma non mi è piaciuta la cucina. A te piacciono? 
+    - (Generica, corta) Ti piace cucinare? Qual è il tuo piatto preferito? 
+    - (Indiretta) Vorrei proporre una cena tutti assieme, qual è il tuo cibo o ristorante preferito? Carne, pesce, sushi, pizza,...?
+  - **hobbies**:
+    - (Generica, lunga) L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
+    - (Generica, lunga) Es. Io è da qualche mese che mi sto approccia do ai giochi da tavolo oltre ai videogiochi. Te hai qualche Hobbie o passione? 
+    - (Generica, corta) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
+  - **Luoghi**:
+    - (Generica, lunga) Il prossimo inverno voglio andare in vacanza sciare a Bornio. Te andrai in vacanza da qualche parte questo inverno?
+    - (generica, lunga) Es. La prossima estate vorrei andare a Cuba a farmi un bel giro per visitare i posti locali e per stare in mezzo alla musica. Quali sono i generi di vacanza che ti piacciono di più? 
+    - (Generica, corta) Qual è il luogo più bello che hai visitato o in cui ti piacerebbe andare in vacanza?
+  - **Programma/serie TV**:
+    - (Generica, lunga) Ieri hanno pubblicato l'ultimo episodio di ... . Quali sono le tue serie preferite? 
+    - (Specifica, lunga) Es. Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro? 
+    - (Generica, corta) Qual è l'ultimo film o serie che hai visto? 
+    - (Generica, corta) Qual è il tuo attore preferito?
+  - **Occupazione**:
+    - (Generica, lunga) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
+    - (Generica, corta) Che lavoro o studi fai? Cosa ti piace del tuo lavoro o studio?
+  - **Sport**:
+    - (Generica, corta) Pratichi qualche sport?
+    - (Generica, lunga) Es: Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport? 
+    - (Generica, corta) Quale sport pratichi?
+    - (Generica, corta) Quale squadra tifi? 
+  - **Animali**:
+    - (Generica, lunga) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
+    - (Generica, corta) Ti piacciono gli animali? Hai un animale domestico e come si chiama? 
+  - **Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)**
+    - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa nella giornata di ieri.
+  - **problemi sociali**
+    - (Specifica, lunga, debole) Es. Ieri un mio amico ha festeggiato il compleanno, ma invece che ricevere un regalo gli hanno dato una gift card. Preferisci ricevere dei soldi in denaro o un regalo anche se magari non apprezzato? 
+    - (Specifico, lunga, scottante) Es. Stamattina ho visto un gruppo di signori al bar e stavano parlando di politica, ma io non ne capivo molto. Secondo te perché noi giovani siamo sempre meno interessati verso la politica? 
 
-- **Musica**: Qual è il tuo genere musicale preferito? Qual è la tua canzone preferita? Qual è l'ultimo concerto a cui hai assistito?
-- **Cibo**: Qual è il tuo piatto preferito? Qual è il tuo ristorante preferito? Qual è l'ultimo pasto che hai cucinato?
-- **Hobbies**: Qual è il tuo hobby preferito? Quanto tempo dedichi al tuo hobby ogni settimana? Qual è l'ultimo progetto che hai completato?
-- **Luoghi**: Qual è il tuo luogo preferito in cui sei stato? Qual è il luogo più bello che hai visitato? Qual è il luogo in cui ti piacerebbe andare in vacanza?
-- **Programma/serie TV**: Qual è la tua serie TV preferita? Qual è l'ultimo film che hai visto? Qual è il personaggio televisivo che ti piace di più?
-- **Occupazione**: Che lavoro fai? Ti piace il tuo lavoro? Cosa ti piace del tuo lavoro?
-- **Sport**: Quale sport pratichi? Quale squadra tifi? Hai mai assistito ad una partita dal vivo?
-- **Animali**: Hai un animale domestico e come si chiama? Ti piacciono gli animali?
 
-Le domande informali sono su:
-  - musica:
-    - Quel ragazzo/a sta ascoltando della musica dal suo Walkman, riusciresti a scoprire che genere di musica gli piace?
-  - cibo:
-    - Vorrei proporre una cena tutti assieme, chiedile che genere di cibo preferisce? Carne, pesce, sushi, pizza,...?
-  - hobbies:
-  - Luoghi da visitare:
-  - Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)
-    - Chiedile se è andato/a fuori o ha fatto/a qualcosa nella giornata di ieri.
-  - ultimo programma visto in TV:
-    - 
-  - Occupazione:
-  - Sport:
-    - 
-  - Animali:
-    - Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. A voi piacciono i gatti? 
+Dividere le domande che hanno yes/no quindi veloci, da quelle complicate. 
+Equivocazione. 
 
-I suoni non verbali possono essere di approvazione, neutri o disapprovazione (eviterei).
+I suoni non verbali devono essere di neutri (no disapprovazione o approvazione per evitare che siano inadatti al senso della frase).
