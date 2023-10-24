@@ -15,7 +15,7 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 - Verrà fatta una serie di registrazioni di domanda e risposta
 - gli argomenti delle domande possono venire forniti solo in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
 - la risposta deve essere il più naturale possibile
-- Bisognerà posizionarsi a 1 metro di distanza dal microfono e con il viso diretto verso il microfono.
+- Bisognerà posizionarsi a 1 metro di distanza dal microfono e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
 <br>
 
 **Inizialmente**:
@@ -49,7 +49,10 @@ Nell'**ultima parte**:
     - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "e tu, cosa ne pensi?"** con diverso *portamento*.
 
 ## Note per l'operatore:
-Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante
+Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante, Requivocabile
+Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe ALTAMENTE essere diversa dall'originale. Per esempio:
+  - L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
+  - Anche io adoro i Lego! Ho appena finito di costruire il set del Millennium Falcon.
 Le domande sono su:
   - **musica**:
     - (Generica, corta) Qual è il tuo genere di musica preferita?
@@ -62,29 +65,28 @@ Le domande sono su:
     - (Indiretta) Vorrei proporre una cena tutti assieme, riusciresti a sapere che cibo o preferisce? Carne, pesce, sushi, pizza,...?
   - **Hobbies**:
     - (Generica, corta) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
-    - (Generica, lunga) L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
-    - (Generica, lunga) Es. Io è da qualche mese che mi sto approccia do ai giochi da tavolo oltre ai videogiochi. Te hai qualche Hobbie o passione? 
+    - (Generica, lunga, Alto-Requivocabile) L'altro giorno mi hanno regalato un modellino della Rokr di legno da costruire: ne sto facendo la collezione. Anche te hai qualche hobbie?
+    - (Generica, lunga, Basso-Requivocabile) Io è da qualche mese che mi sto approccia do ai giochi da tavolo oltre ai videogiochi. Te hai qualche Hobbie o passione? 
   - **Viaggi**:
     - (Generica, corta) Qual è il luogo più bello che hai visitato o in cui ti piacerebbe andare in vacanza?
-    - (Generica, lunga) Il prossimo inverno voglio andare in vacanza sciare a Bornio. Te andrai in vacanza da qualche parte questo inverno?
-    - (generica, lunga) Es. La prossima estate vorrei andare a Cuba a farmi un bel giro per visitare i posti locali e per stare in mezzo alla musica. Quali sono i generi di vacanza che ti piacciono di più? 
+    - (Generica, lunga, Basso-Requivocabile) Il prossimo inverno voglio andare in vacanza sciare a Temu. Te andrai in vacanza da qualche parte questo inverno?
+    - (generica, lunga, Basso-Requivocabile) La prossima estate vorrei andare a Cuba a farmi un bel giro per visitare i posti locali e per stare in mezzo alla musica. Quali sono i generi di vacanza che ti piacciono di più? 
   - **Programma/serie TV**:
     - (Generica, corta) Qual è l'ultimo film o serie che hai visto? 
-    - (Generica, corta) Qual è il tuo attore preferito?
-    - (Generica, lunga) Ieri hanno pubblicato l'ultimo episodio di ... . Quali sono invece le tue serie preferite? 
-    - (Specifica, lunga) Es. Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro? 
+    - (Generica, corta, debole) Qual è il tuo attore preferito?
+    - (Generica, lunga, Basso-Requivocabile) Ieri hanno pubblicato l'ultimo episodio di Orville e mi è piaciuto molto. Quali sono invece le tue serie preferite? 
+    - (Specifica, lunga) Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro? 
   - **Occupazione**:
     - (Generica, corta) Che lavoro o studi fai? Cosa ti piace del tuo lavoro o studio?
-    - (Generica, lunga) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
+    - (Generica, lunga, Basso-Requivocabile) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
   - **Sport**:
     - (Generica, corta) Pratichi qualche sport?
-    - (Generica, lunga) Es: Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport? 
-    - (Generica, corta) Quale sport pratichi?
-    - (Generica, corta) Quale squadra tifi? 
+    - (Generica, corta) Quale squadra tifi?
+    - (Specifica, lunga, Basso-Requivocabile) Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport?  
   - **Natura**:
-    - (Generica, lunga) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
     - (Generica, corta) Ti piacciono gli animali? Hai un animale domestico e come si chiama?
-    - (Corta, generica) Qual è il tuo rapporto con la natura?
+    - (Corta, generica) Qual è il tuo rapporto con la natura? Ti piace stare all'aperto o preferisci stare in casa?
+    - (Generica, lunga, Basso-equivocabile) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
   - **Social media**:
     - (Generica, corta) Usi molto i social media e quali?
     - (Specifica, lunga, scottante) Ormai moltissime persone influenti stanno sempre più usando i social media per parlare col proprio pubblico. Cosa ne pensi di questa contaminazione tra TV e social media?
@@ -96,18 +98,16 @@ Le domande sono su:
     - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa in questa settimana.
   - **Educazione**
     - (Generica, corta) Qual è stata la tua materia scolastica preferita a scuola?
-  - **problemi sociali**
-    - (Specifica, lunga, debole) Es. Ieri un mio amico ha festeggiato il compleanno, ma invece che ricevere un regalo gli hanno dato una gift card. Preferisci ricevere dei soldi in denaro o un regalo anche se magari non apprezzato? 
-    - (Specifico, lunga, scottante) Es. Stamattina ho visto un gruppo di signori al bar e stavano parlando di politica, ma io non ne capivo molto. Secondo te perché noi giovani siamo sempre meno interessati verso la politica? 
-  - **ipotesi storica**
-    - (specifica, corta) Se dovessi scegliere un periodo storico in cui vivere, quale sceglieresti?
   - CORTA: **lingue**
     - (specifica, corta)  Quante lingue parli e quale lingua straniera vorresti imparare?
   - **futuro**
     - (generica, corta) Dove ti vedi in futuro?
   - **famiglie**:
     - (Corto, generica) Hai fratelli e sorelle?
-
+  - **ipotesi storica**
+    - (specifica, corta) Se dovessi scegliere un periodo storico in cui vivere, quale sceglieresti?
+  - **problemi sociali**
+    - (Specifico, lunga, scottante) Es. Stamattina ho visto un gruppo di signori al bar e stavano parlando di politica, ma io non ne capivo molto. Secondo te perché noi giovani siamo sempre meno interessati verso la politica? 
 Dividere le domande che hanno yes/no quindi veloci, da quelle complicate. 
 Equivocazione. 
 
