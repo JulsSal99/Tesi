@@ -4,28 +4,10 @@ bibliography: biblio.bib
 link-citations: true
 ---
 # Protocollo
-MAIN:
-============
-Protocollo sperimentale per le registrazioni
-- <span style="color:green">Spiegazione iniziale a ogni soggetto
-   -> Obiettivi della registrazione
-   -> Come bisogna parlare durante la registrazione: non sovrapporti,</span>
-conta fino a 5, ecc.
-   -> ... altro
-- Parte A. Un tot di argomenti/domande. Per ciascuna domanda il soggetto
-     1) fornisce la sua risposta
-     2) fa lui la stessa domanda rifrasandola
-- Parte B. Un tot di suoni non verbali: a-hem, coff, a-ha, aah!, hm-hm, ecc.
-
-Setup<span style="color:green">
-- Registrazione stereo con due mic a 1 metro
-- In cabina Malcangi</span>
-- Per parte B: eventualmente il soggetto ascolta un parlatore
-- .... da pensare
 
 ## Per l'ospite:
 ### Qual è lo scopo?
-Lo scopo di questo test, sarà la generazione di dialoghi realistici tramite la composizione di più linee di dialogo.
+Lo scopo di questo test, sarà la generazione di dialoghi realistici tramite la composizione di più linee di dialogo di più partecipanti.
 Per semplificare: verranno registrate una serie di domande e di risposte da ogni partecipante e queste domande e risposte verranno composte via software in un processo automatizzato per comporre dei dialoghi continui.
 Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futuro per esempio per un test prossimo al LIM sulla riverberazione in realtà aumentata.
 
@@ -67,47 +49,64 @@ Nell'**ultima parte**:
     - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "e tu, cosa ne pensi?"** con diverso *portamento*.
 
 ## Note per l'operatore:
-Tipi di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante
+Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante
 Le domande sono su:
   - **musica**:
     - (Generica, corta) Qual è il tuo genere di musica preferita?
     - (Generica, corta) Qual è la tua canzone preferita? 
     - (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è l'ultimo concerto a cui hai assistito?
     - (Indiretta) Quel ragazzo/a sta ascoltando della musica dal suo Walkman, riusciresti a scoprire che genere di musica gli piace?
-  - **cibo**:
-    - (Specifica, lunga) Es. L'altra settimana sono stato in un all You Can Eat cinese, ma non mi è piaciuta la cucina. A te piacciono? 
+  - **cucina**:
     - (Generica, corta) Ti piace cucinare? Qual è il tuo piatto preferito? 
-    - (Indiretta) Vorrei proporre una cena tutti assieme, qual è il tuo cibo o ristorante preferito? Carne, pesce, sushi, pizza,...?
-  - **hobbies**:
+    - (Specifica, lunga) Es. L'altra settimana sono stato in un all You Can Eat cinese, ma non mi è piaciuta la cucina. A te piacciono? 
+    - (Indiretta) Vorrei proporre una cena tutti assieme, riusciresti a sapere che cibo o preferisce? Carne, pesce, sushi, pizza,...?
+  - **Hobbies**:
+    - (Generica, corta) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
     - (Generica, lunga) L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
     - (Generica, lunga) Es. Io è da qualche mese che mi sto approccia do ai giochi da tavolo oltre ai videogiochi. Te hai qualche Hobbie o passione? 
-    - (Generica, corta) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
-  - **Luoghi**:
+  - **Viaggi**:
+    - (Generica, corta) Qual è il luogo più bello che hai visitato o in cui ti piacerebbe andare in vacanza?
     - (Generica, lunga) Il prossimo inverno voglio andare in vacanza sciare a Bornio. Te andrai in vacanza da qualche parte questo inverno?
     - (generica, lunga) Es. La prossima estate vorrei andare a Cuba a farmi un bel giro per visitare i posti locali e per stare in mezzo alla musica. Quali sono i generi di vacanza che ti piacciono di più? 
-    - (Generica, corta) Qual è il luogo più bello che hai visitato o in cui ti piacerebbe andare in vacanza?
   - **Programma/serie TV**:
-    - (Generica, lunga) Ieri hanno pubblicato l'ultimo episodio di ... . Quali sono le tue serie preferite? 
-    - (Specifica, lunga) Es. Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro? 
     - (Generica, corta) Qual è l'ultimo film o serie che hai visto? 
     - (Generica, corta) Qual è il tuo attore preferito?
+    - (Generica, lunga) Ieri hanno pubblicato l'ultimo episodio di ... . Quali sono invece le tue serie preferite? 
+    - (Specifica, lunga) Es. Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro? 
   - **Occupazione**:
-    - (Generica, lunga) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
     - (Generica, corta) Che lavoro o studi fai? Cosa ti piace del tuo lavoro o studio?
+    - (Generica, lunga) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
   - **Sport**:
     - (Generica, corta) Pratichi qualche sport?
     - (Generica, lunga) Es: Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport? 
     - (Generica, corta) Quale sport pratichi?
     - (Generica, corta) Quale squadra tifi? 
-  - **Animali**:
+  - **Natura**:
     - (Generica, lunga) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
-    - (Generica, corta) Ti piacciono gli animali? Hai un animale domestico e come si chiama? 
+    - (Generica, corta) Ti piacciono gli animali? Hai un animale domestico e come si chiama?
+    - (Corta, generica) Qual è il tuo rapporto con la natura?
+  - **Social media**:
+    - (Generica, corta) Usi molto i social media e quali?
+    - (Specifica, lunga, scottante) Ormai moltissime persone influenti stanno sempre più usando i social media per parlare col proprio pubblico. Cosa ne pensi di questa contaminazione tra TV e social media?
+    - (Specifica, lunga) Hai visto che Elon Musk ha cambiato Twitter in X? Pensi che le persone possano avere un cambio di idea su qualcosa semplicemente cambiandone il nome?
+  - **musei/arte**
+    - (Specifica, lunga) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla? 
   - **Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)**
-    - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa nella giornata di ieri.
+    - (Generica, corta) Hai fatto qualcosa di interessante durante la settimana?
+    - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa in questa settimana.
+  - **Educazione**
+    - (Generica, corta) Qual è stata la tua materia scolastica preferita a scuola?
   - **problemi sociali**
     - (Specifica, lunga, debole) Es. Ieri un mio amico ha festeggiato il compleanno, ma invece che ricevere un regalo gli hanno dato una gift card. Preferisci ricevere dei soldi in denaro o un regalo anche se magari non apprezzato? 
     - (Specifico, lunga, scottante) Es. Stamattina ho visto un gruppo di signori al bar e stavano parlando di politica, ma io non ne capivo molto. Secondo te perché noi giovani siamo sempre meno interessati verso la politica? 
-
+  - **ipotesi storica**
+    - (specifica, corta) Se dovessi scegliere un periodo storico in cui vivere, quale sceglieresti?
+  - CORTA: **lingue**
+    - (specifica, corta)  Quante lingue parli e quale lingua straniera vorresti imparare?
+  - **futuro**
+    - (generica, corta) Dove ti vedi in futuro?
+  - **famiglie**:
+    - (Corto, generica) Hai fratelli e sorelle?
 
 Dividere le domande che hanno yes/no quindi veloci, da quelle complicate. 
 Equivocazione. 

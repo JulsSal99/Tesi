@@ -161,17 +161,23 @@ def check_SR_CH(file_names, sample_rate, channels):
         elif channels != channels_temp:
             raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
+def read_write_complete(file_names, sample_rate, channels, silences):
+    for j in range(len(file_names)):
+        if j == 0:
+            OUTPUT = file_names[0].data
+        else:
+            # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
+            OUTPUT = concatenate(OUTPUT, file_names[j].data, silences[j-1], sample_rate, channels)
+    sf.write(f'OUTPUT/mergedCOMPLETE.wav', OUTPUT, sample_rate)
+
 def read_write_file(file_names):
     ''' MAIN FUNCTION: create the ending file'''
     ''' create the class inside file_names and return to concatenate()'''
     ''' check channels, sample_rate'''
-    # Get sample rate
+    # Get sample rate and check sample rate and channels
     data_temp, sample_rate = audioread(file_names[0].path)
     # Get channels number
-    channels = get_channels(data_temp)
-
-    # Get sampled data from files and check sample rate and channels
-    _, sample_rate = audioread(file_names[0].path)
+    channels = get_channels(data_temp)    
     check_SR_CH(file_names, sample_rate, channels)
 
     # create an array of pause_length for each (between) file
@@ -200,6 +206,7 @@ def read_write_file(file_names):
                         file_silence = np.zeros(( int( len( file_names[j].data ) ), channels ))
                         OUTPUT = concatenate(OUTPUT, file_silence, silences[j-1], sample_rate, channels)
             sf.write(f'OUTPUT/merged{i}{print_name}.wav', OUTPUT, sample_rate)
+    read_write_complete(file_names, sample_rate, channels, silences)
 
 def user_input(dir_path,max_participants):
     '''Ask file1, file2'''

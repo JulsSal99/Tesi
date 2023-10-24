@@ -29,6 +29,22 @@ Riguardo allo script python, l'obiettivo è avere una funzione che dato in ingre
 restituisca tanti file quanti parlanti ci sono (nomi dei file di output costruiti concatenando la stringa del nome in ingresso con l'id del parlante), tutti lunghi uguali, che se sovrapposti generano il dialogo desiderato.
 suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come si possono manipolare file audio in python con queste librerie veda: https://github.com/Kuig/SNDfunc
 
+Protocollo sperimentale per le registrazioni
+- <span style="color:green">Spiegazione iniziale a ogni soggetto
+   -> Obiettivi della registrazione
+   -> Come bisogna parlare durante la registrazione: non sovrapporti,</span>
+conta fino a 5, ecc.
+   -> ... altro
+- Parte A. Un tot di argomenti/domande. Per ciascuna domanda il soggetto
+     1) fornisce la sua risposta
+     2) fa lui la stessa domanda rifrasandola
+- Parte B. Un tot di suoni non verbali: a-hem, coff, a-ha, aah!, hm-hm, ecc.
+
+Setup<span style="color:green">
+- Registrazione stereo con due mic a 1 metro
+- In cabina Malcangi</span>
+- Per parte B: eventualmente il soggetto ascolta un parlatore
+- .... da pensare
 
 Assemblaggio dialoghi
 - Struttura (dom)->(risp+dom)->(risp+dom)-> ... ->(risp)
