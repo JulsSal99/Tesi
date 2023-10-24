@@ -92,7 +92,7 @@ Le domande sono su:
     - (Specifica, lunga, scottante) Ormai moltissime persone influenti stanno sempre più usando i social media per parlare col proprio pubblico. Cosa ne pensi di questa contaminazione tra TV e social media?
     - (Specifica, lunga) Hai visto che Elon Musk ha cambiato Twitter in X? Pensi che le persone possano avere un cambio di idea su qualcosa semplicemente cambiandone il nome?
   - **musei/arte**
-    - (Specifica, lunga) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla? 
+    - (Specifica, lunga, Alto-Requivocabile) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla? 
   - **Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)**
     - (Generica, corta) Hai fatto qualcosa di interessante durante la settimana?
     - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa in questa settimana.
@@ -108,6 +108,6 @@ Le domande sono su:
     - (specifica, corta) Se dovessi scegliere un periodo storico in cui vivere, quale sceglieresti?
   - **problemi sociali**
     - (Specifico, lunga, scottante) Es. Stamattina ho visto un gruppo di signori al bar e stavano parlando di politica, ma io non ne capivo molto. Secondo te perché noi giovani siamo sempre meno interessati verso la politica? 
+
 Dividere le domande che hanno yes/no quindi veloci, da quelle complicate. 
-Equivocazione. 
 
