@@ -82,8 +82,10 @@ Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte
      - *soluzione 1*: far attendere un tempo in secondi alll'intervistato prima di dare una risposta;
        - problema: non si possono osservare i tempi di risposta.
      - *soluzione 2*: utilizzare delle cuffie in-ear/aperte/chiuse;
-       - *problema 1*: l'ascoltatore tenderà ad avere un volume di voce maggiore perché non si sentirà correttamente: questo è l'[effetto Lombard](#effetto-lombard);
+       - *problema 1*: l'ascoltatore tenderà ad avere un volume di voce errato perché non si sentirà correttamente: questo è l'[effetto Lombard](#effetto-lombard);
          - *soluzione*: Potremmo eseguire dei test con delle **cuffie** e misurare il volume medio del parlato. Inoltre ascoltare il volume delle cuffie rispetto al volume del parlato in db. In generale: se volume cuffia a 1mt tappata <<< volume del parlato && volume parlato CON cuffia ≃ volume parlato SENZA cuffia --> procedere.
+         Nello specifico, ho provato ad eseguire un test con delle cuffie in-ear ed il risultato è stato di un volume del parlato inferiore, probabilmente generato dalla conduzione ossea della voce causato dalla cuffia. Un ulteriore test è stato eseguito tra un solo padiglione e entrambi i padiglioni della cuffia ed il risultato è stato di un volume minore quando entrambe i padiglioni sono indossati.
+         La soluzione quindi ipotetica è una cuffia chiusa sopra-aurale per evitare il ritorno nel microfono che dovrà essere indossata ogni volta dal partecipante all'esperimento, ma esclusivamente per ascoltare la domanda e non per fornirne la risposta.
          Il volume in cuffia sarà deciso prima dell'esperimento dall'operatore e rimarrà invariato per non influenzare l'esperimento
        - *problema 2*: le latenze del DAW devono essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale;
    - *problema 2*: le domande registrate potrebbero risultare tutte troppo uguali poiché l'intervistato sarà tentato a ripetere parola per parola la domanda originale;

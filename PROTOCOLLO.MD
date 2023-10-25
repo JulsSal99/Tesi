@@ -12,25 +12,25 @@ Per semplificare: verranno registrate una serie di domande e di risposte da ogni
 Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futuro per esempio per un test prossimo al LIM sulla riverberazione in realtà aumentata.
 
 ### Come avviene il test? 
-- Verrà fatta una serie di registrazioni di domanda e risposta
-- gli argomenti delle domande possono venire forniti solo in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
+- Verrà fatta una serie di registrazioni di domande e risposte
+- gli argomenti delle domande possono essere forniti solo in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
 - la risposta deve essere il più naturale possibile
-- Bisognerà posizionarsi a 1 metro di distanza dal microfono e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
+- Bisognerà posizionarsi a **1 metro di distanza dal microfono** e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
 <br>
 
 **Inizialmente**:
- - verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato) e a questa domanda bisognerà rispondere nel modo più naturale possibile
-  - alternativa, le risposte verranno poste in modo normale, MA la risposta dovrà essere data al segnale (che verrà dato dopo un numero prestabilito di secondi)
-- Alla fine di ogni risposta bisogna zittirsi e fare un gesto all'operatore.
-- L'operatore poi farà un gesto dopo un tot di secondi: questo gesto serve per indicare che bisogna ripronunciare la domanda fatta in partenza "a proprie parole" e alla fine della domanda bisognerà far silenzio in attesa che venga riprodotta la domanda successiva. 
+ - verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato della cuffia) e a questa domanda la persona dovrà fornire una **risposta** nella maniera più naturale possibile
+   - <span style="color:red">   alternativa, le risposte verranno poste in modo normale, MA la risposta dovrà essere data al segnale (che verrà dato dopo un numero prestabilito di secondi) </span>
+- Alla fine di ogni risposta il partecipante dovrà fare una pausa di **5 secondi in completo silenzio**.
+- In seguito dovrà ripronunciare la **domanda** fatta in partenza *usando le proprie parole*
+- Dopo aver pronunciato la domanda il partecipante dovrà fare un'ulteriore **pausa** in attesa di ascoltare in cuffia la domanda seguente
 
 <br>
 
 Nell'**ultima parte**:
- - alla fine delle domande, il partecipante ascolterà un dialogo e viene chiesto nel mentre di fare dei suoni non verbali, come se partecipasse alla conversazione.
-   - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione) allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti.
-
-     - Degli *esempi corretti* sono:
+ - alla fine delle domande, il partecipante ascolterà un dialogo in cuffia e verrà chiesto di fare dei suoni non verbali, come se partecipasse alla conversazione.
+   - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti).
+     - Degli ***esempi corretti* di suoni non verbali** sono:
        - A-hem: Questo suono è spesso usato per attirare l’attenzione di qualcuno o per indicare che si vuole parlare. È un suono breve e secco, simile a una tosse leggera.
        - Coff: Questo suono è simile ad una tosse più forte e può essere usato per indicare che si vuole attirare l’attenzione di qualcuno o per chiarire la propria voce.
        - A-ha: Questo suono viene spesso usato per esprimere sorpresa o comprensione improvvisa. È un suono breve e acuto, simile ad una risata soffocata.
@@ -52,7 +52,7 @@ Nell'**ultima parte**:
 
 ## ESEMPIO:
  - **partecipante**: *indossa una sola cuffia sinistra/destra*
- - **Operatore**: Qual è il tuo genere di musica preferita?
+ - **audio in cuffia**: Qual è il tuo genere di musica preferita?
  - **partecipante**: *si toglie la cuffia*
  - **partecipante**: Mi piace molto la musica rock, ma ultimamente sto passando un po' anche alla musica metal
  - ***attesa di 5 secondi***
@@ -72,6 +72,7 @@ Nell'**ultima parte**:
 ***Il precedente ciclo di domande si ripete per tutte le frasi***
 
 ## Note per l'operatore:
+
 Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante, Requivocabile
 Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe ALTAMENTE essere diversa dall'originale. Per esempio:
   - L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
@@ -131,6 +132,3 @@ Le domande sono su:
     - (specifica, corta) Se dovessi scegliere un periodo storico in cui vivere, quale sceglieresti?
   - **problemi sociali**
     - (Specifico, lunga, scottante) Es. Stamattina ho visto un gruppo di signori al bar e stavano parlando di politica, ma io non ne capivo molto. Secondo te perché noi giovani siamo sempre meno interessati verso la politica? 
-
-Dividere le domande che hanno yes/no quindi veloci, da quelle complicate. 
-
