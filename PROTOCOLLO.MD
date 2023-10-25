@@ -46,7 +46,30 @@ Nell'**ultima parte**:
 
   - <span style="color:red">  Inoltre è possibile registrare una serie di domande in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
     - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
-    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "e tu, cosa ne pensi?"** con diverso *portamento*.
+      - *problema 1*: così facendo abbiamo molti più files 
+    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?"** con diverso *portamento*.
+      - *problema 1*: il tono può variare?
+
+## ESEMPIO:
+ - **partecipante**: *indossa una sola cuffia sinistra/destra*
+ - **Operatore**: Qual è il tuo genere di musica preferita?
+ - **partecipante**: *si toglie la cuffia*
+ - **partecipante**: Mi piace molto la musica rock, ma ultimamente sto passando un po' anche alla musica metal
+ - ***attesa di 5 secondi***
+ - **partecipante**: Quale genere di musica preferisci?
+ - ***indossa nuovamente la cuffia e attende la prossima domanda***
+
+***Il precedente ciclo di domande si ripete per N volte***
+
+ - **partecipante**: fa un suono non verbale. eg. "ah-ah"
+ - ***attesa di 5 secondi***
+
+***Il precedente ciclo di domande si ripete per tutti i suoni non verbali***
+
+ - **partecipante**: pronuncia una frase. eg. "e tu?".
+ - ***attesa di 5 secondi***
+
+***Il precedente ciclo di domande si ripete per tutte le frasi***
 
 ## Note per l'operatore:
 Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante, Requivocabile
@@ -57,7 +80,7 @@ Le domande sono su:
   - **musica**:
     - (Generica, corta) Qual è il tuo genere di musica preferita?
     - (Generica, corta) Qual è la tua canzone preferita? 
-    - (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è l'ultimo concerto a cui hai assistito?
+    - (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è invece l'ultimo concerto a cui hai assistito te?
     - (Indiretta) Quel ragazzo/a sta ascoltando della musica dal suo Walkman, riusciresti a scoprire che genere di musica gli piace?
   - **cucina**:
     - (Generica, corta) Ti piace cucinare? Qual è il tuo piatto preferito? 
