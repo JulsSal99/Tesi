@@ -95,9 +95,13 @@ Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte
      - *soluzione 2*: viene dato all'intervistato un **prompt generico** il più lontano possibile dalla domanda originale e verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni (dopo una durata in secondi prestabilita)
 
 <span style="color:red"> <br> 
-Inoltre è possibile registrare una serie di domande in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
- - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
- - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "e tu, cosa ne pensi?"** con diverso *portamento*.
+Inoltre è possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
+  - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
+      - *problema 1*: così facendo la prima domanda del ciclo avrà sempre un'interrogazione come se fosse la seconda domanda
+  - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "quindi?", "Allora", "eee..."** con diverso *portamento*.
+      - *problema 1*: il tono può variare?
+        - *soluzione 2*: il partecipante dopo aver risposto conta 5 secondi con le dita e poi legge la domanda introduttiva ("eh tu?"), poi conta 5 secondi e dopo pronuncia la domanda effettiva ("come è stata la tua giornata?")
+      - *problema 2*: TANTI TANTI files....
 
 <span style="color:red"> <br> 
 Per i suoni non verbali: </span>

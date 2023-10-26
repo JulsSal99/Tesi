@@ -22,7 +22,9 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
  - verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato della cuffia) e a questa domanda la persona dovrà fornire una **risposta** nella maniera più naturale possibile
    - <span style="color:red">   alternativa, le risposte verranno poste in modo normale, MA la risposta dovrà essere data al segnale (che verrà dato dopo un numero prestabilito di secondi) </span>
 - Alla fine di ogni risposta il partecipante dovrà fare una pausa di **5 secondi in completo silenzio**.
-- In seguito dovrà ripronunciare la **domanda** fatta in partenza *usando le proprie parole*
+- In seguito dovrà pronunciare una domanda introduttiva (eg. "e tu?", "invece te?", "quindi?", "Allora", "eee...")
+- In seguito il partecipante dovrà fare un'ulteriore pausa di **5 secondi in completo silenzio**.
+- Poi dovrà ripronunciare la **domanda** fatta in partenza *usando le proprie parole*
 - Dopo aver pronunciato la domanda il partecipante dovrà fare un'ulteriore **pausa** in attesa di ascoltare in cuffia la domanda seguente
 
 <br>
@@ -44,18 +46,13 @@ Nell'**ultima parte**:
        - Grrr: Questo suono può essere utilizzato per esprimere rabbia o frustrazione.
        - Eh?: Questo suono può essere utilizzato per chiedere a qualcuno di ripetere ciò che ha detto o per esprimere incertezza.
 
-  - <span style="color:red">  Inoltre è possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
-    - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
-      - *problema 1*: così facendo abbiamo molti più files
-    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "quindi?", "Allora", "eee..."** con diverso *portamento*.
-      - *problema 1*: il tono può variare?
-        - *soluzione 2*: il partecipante dopo aver risposto conta 5 secondi con le dita e poi legge la domanda introduttiva ("eh tu?"), poi conta 5 secondi e dopo pronuncia la domanda effettiva ("come è stata la tua giornata?")
-
 ## ESEMPIO:
  - **partecipante**: *indossa una sola cuffia sinistra/destra*
  - **audio in cuffia**: Qual è il tuo genere di musica preferita?
  - **partecipante**: *si toglie la cuffia*
  - **partecipante**: Mi piace molto la musica rock, ma ultimamente sto passando un po' anche alla musica metal
+ - ***attesa di 5 secondi***
+ - **partecipante**: pronuncia una frase. eg. "e tu?".
  - ***attesa di 5 secondi***
  - **partecipante**: Quale genere di musica preferisci?
  - ***indossa nuovamente la cuffia e attende la prossima domanda***
@@ -66,11 +63,6 @@ Nell'**ultima parte**:
  - ***attesa di 5 secondi***
 
 ***Il precedente ciclo di domande si ripete per tutti i suoni non verbali***
-
- - **partecipante**: pronuncia una frase. eg. "e tu?".
- - ***attesa di 5 secondi***
-
-***Il precedente ciclo di domande si ripete per tutte le frasi***
 
 ## Note per l'operatore:
 
