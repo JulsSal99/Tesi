@@ -1,7 +1,7 @@
 Lavoro di tesi:
 
 Documentazione
-[Documento](TEST.MD)
+[Documento](TESI.MD)
 
 [Protocollo per il test](PROTOCOLLO.MD)
 

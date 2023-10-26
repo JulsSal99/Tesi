@@ -44,11 +44,12 @@ Nell'**ultima parte**:
        - Grrr: Questo suono può essere utilizzato per esprimere rabbia o frustrazione.
        - Eh?: Questo suono può essere utilizzato per chiedere a qualcuno di ripetere ciò che ha detto o per esprimere incertezza.
 
-  - <span style="color:red">  Inoltre è possibile registrare una serie di domande in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
+  - <span style="color:red">  Inoltre è possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
     - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
-      - *problema 1*: così facendo abbiamo molti più files 
-    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?"** con diverso *portamento*.
+      - *problema 1*: così facendo abbiamo molti più files
+    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "quindi?", "Allora", "eee..."** con diverso *portamento*.
       - *problema 1*: il tono può variare?
+        - *soluzione 2*: il partecipante dopo aver risposto conta 5 secondi con le dita e poi legge la domanda introduttiva ("eh tu?"), poi conta 5 secondi e dopo pronuncia la domanda effettiva ("come è stata la tua giornata?")
 
 ## ESEMPIO:
  - **partecipante**: *indossa una sola cuffia sinistra/destra*
