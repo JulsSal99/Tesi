@@ -49,12 +49,24 @@ def find_file(name, path):
     raise Exception(f"File {name}.wav not found in {path}")
 
 def folder_info(folder_path):
-    '''count the number of audio files in a folder'''
+    '''count the number of audio files in a folder and split questions from answers'''
+    count_d = [] #questions
+    count_r = [] #answers
+    letter_counts = {}
+    count_persons = [] #persons
     count = 0
     for filename in os.listdir(folder_path):
         if filename.endswith('.wav'):
+            if filename.startswith('D'):
+                count_d.append(filename)
+            elif filename.startswith('R'):
+                count_r.append(filename)
+            second_value = filename.split('_')[1]
+            letter_counts[second_value] = letter_counts.get(second_value, 0) + 1
+            if second_value not in count_persons:
+                count_persons.append(second_value)
             count += 1
-    return count
+    return count, count_r, count_d, letter_counts, count_persons
 
 def get_channels(data):
     '''Get the number of channels in an audio file'''
@@ -168,10 +180,11 @@ def user_input(dir_path, max_participants):
 if __name__ == '__main__':
     '''Important path of input files'''
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    max_participants = folder_info(os.path.join(dir_path, "INPUT"))
+    max_participants, r_files, d_files, letter_counts, count_persons = folder_info(os.path.join(dir_path, "INPUT"))
 
-    print("\nGeneratore di dialoghi realistici.\n")
-
+    print("\n\tGeneratore di dialoghi realistici.\n")
+    print("See manual for correct file names.\n")
+    print("Domande: ", d_files, "\nRisposte: ", r_files, "\npartecipanti:", letter_counts, "\n n_persons: ", count_persons)
     try:
         '''ask for user input, if more than one file with same name, return the first file'''
         file_names = user_input(dir_path, max_participants)
@@ -183,4 +196,8 @@ if __name__ == '__main__':
         print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
         exit()
 
-# manca il controllo che nella cartella non ci siano più files con lo stesso nome (posso dichiarare che prende il primo file)
+# Il programma vede quali files ci sono nella cartella e chiede all'utente se vanno bene quegli interlocutori.
+# chiede all'utente:
+    # durata
+    # quante persone parlano
+        # se sì quali?

@@ -5,13 +5,12 @@ link-citations: true
 ---
 # Protocollo
 
-## Per l'ospite:
-### Qual è lo scopo?
+## Qual è lo scopo?
 Lo scopo di questo test, sarà la generazione di dialoghi realistici tramite la composizione di più linee di dialogo di più partecipanti.
 Per semplificare: verranno registrate una serie di domande e di risposte da ogni partecipante e queste domande e risposte verranno composte via software in un processo automatizzato per comporre dei dialoghi continui.
 Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futuro per esempio per un test prossimo al LIM sulla riverberazione in realtà aumentata.
 
-### Come avviene il test? 
+## Come avviene il test? 
 - Verrà fatta una serie di registrazioni di domande e risposte
 - gli argomenti delle domande possono essere forniti solo in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
 - la risposta deve essere il più naturale possibile
@@ -64,7 +63,7 @@ Nell'**ultima parte**:
 
 ***Il precedente ciclo di domande si ripete per tutti i suoni non verbali***
 
-## Note per l'operatore:
+# Note per l'operatore:
 
 Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante, Requivocabile
 Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe ALTAMENTE essere diversa dall'originale. Per esempio:
@@ -104,31 +103,40 @@ Le domande sono su:
     - (Generica, lunga, Basso-Requivocabile) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
 7. **Sport**:
     - (Generica, corta) Pratichi qualche sport?
-      - *ENG: Do you practice any sports?
+      - *ENG*: Do you practice any sports?
     - (Generica, corta) Quale squadra tifi?
     - (Specifica, lunga, Basso-Requivocabile) Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport?  
 8. **Natura**:
     - (Generica, corta) Ti piacciono gli animali? Hai un animale domestico e come si chiama?
+      - *ENG*: Do you like animals? Do you have a pet and what is its name?
     - (Corta, generica) Qual è il tuo rapporto con la natura? Ti piace stare all'aperto o preferisci stare in casa?
     - (Generica, lunga, Basso-equivocabile) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
-  - **Social media**:
+9. **Social media**:
     - (Generica, corta) Usi molto i social media e quali?
+      - *ENG*: Do you use social media a lot and which ones?
     - (Specifica, lunga, scottante) Ormai moltissime persone influenti stanno sempre più usando i social media per parlare col proprio pubblico. Cosa ne pensi di questa contaminazione tra TV e social media?
     - (Specifica, lunga) Hai visto che Elon Musk ha cambiato Twitter in X? Pensi che le persone possano avere un cambio di idea su qualcosa semplicemente cambiandone il nome?
-  - **musei/arte**
-    - (Specifica, lunga, Alto-Requivocabile) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla? 
-  - **Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)**
+10. **Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)**
     - (Generica, corta) Hai fatto qualcosa di interessante durante la settimana?
+      - *ENG*: Did you do anything interesting during the week?
     - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa in questa settimana.
-  - **Educazione**
+11. **Educazione**
     - (Generica, corta) Qual è stata la tua materia scolastica preferita a scuola?
-  - **lingue**
+      - *ENG*: What was your favorite school subject?
+12. **lingue**
     - (specifica, corta)  Quante lingue parli e quale lingua straniera vorresti imparare?
-  - **futuro**
+      - *ENG*: How many languages do you speak and which foreign language would you like to learn?
+13. **futuro**
     - (generica, corta) Dove ti vedi in futuro?
-  - **famiglie**:
-    - (Corto, generica) Hai fratelli e sorelle?
-  - **ipotesi storica**
+      - *ENG*: Where do you see yourself in the future?
+14. **ipotesi storica**
     - (specifica, corta) Se dovessi scegliere un periodo storico in cui vivere, quale sceglieresti?
-  - **problemi sociali**
+      - *ENG*: If you had to choose a historical period to live in, which one would you choose?
+15. **musei/arte**
+    - (Specifica, lunga, Alto-Requivocabile) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla? 
+      - *ENG*: I heard that there is a Van Gogh exhibition with special effects in Milan. Would you like to go see it?
+16. **famiglie**:
+    - (Corto, generica) Hai fratelli e sorelle?
+      - *ENG*: Do you have any siblings?
+17. **problemi sociali**
     - (Specifico, lunga, scottante) Es. Stamattina ho visto un gruppo di signori al bar e stavano parlando di politica, ma io non ne capivo molto. Secondo te perché noi giovani siamo sempre meno interessati verso la politica? 
