@@ -5,7 +5,7 @@ Documentazione
 
 [Protocollo per il test](PROTOCOLLO.MD)
 
-[Programma in Python](prova.py)
+[Programma in Python](PYGenerator.py)
 
 Cartella in INPUT per il programma:
 [/INPUT](/INPUT)
