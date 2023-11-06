@@ -71,36 +71,43 @@ Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe A
   - L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
   - Anche io adoro i Lego! Ho appena finito di costruire il set del Millennium Falcon.
 Le domande sono su:
-  - **musica**:
+1. **musica**:
     - (Generica, corta) Qual è il tuo genere di musica preferita?
+      - *ENG*: What is your favorite music genre?
     - (Generica, corta) Qual è la tua canzone preferita? 
     - (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è invece l'ultimo concerto a cui hai assistito te?
     - (Indiretta) Quel ragazzo/a sta ascoltando della musica dal suo Walkman, riusciresti a scoprire che genere di musica gli piace?
-  - **cucina**:
-    - (Generica, corta) Ti piace cucinare? Qual è il tuo piatto preferito? 
+2. **cucina**:
+    - (Generica, lunga) Ti piace cucinare? Hai un tuo piatto preferito? 
+      - *ENG*: Do you like to cook? Do you have a favorite dish?
     - (Specifica, lunga) Es. L'altra settimana sono stato in un all You Can Eat cinese, ma non mi è piaciuta la cucina. A te piacciono? 
     - (Indiretta) Vorrei proporre una cena tutti assieme, riusciresti a sapere che cibo o preferisce? Carne, pesce, sushi, pizza,...?
-  - **Hobbies**:
-    - (Generica, corta) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
+3. **Hobbies**:
+    - (Generica, lunga) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
+      - *ENG*: What is the last project or hobby you completed? How much time do you dedicate to your hobby each week?
     - (Generica, lunga, Alto-Requivocabile) L'altro giorno mi hanno regalato un modellino della Rokr di legno da costruire: ne sto facendo la collezione. Anche te hai qualche hobbie?
     - (Generica, lunga, Basso-Requivocabile) Io è da qualche mese che mi sto approccia do ai giochi da tavolo oltre ai videogiochi. Te hai qualche Hobbie o passione? 
-  - **Viaggi**:
+4. **Viaggi**:
     - (Generica, corta) Qual è il luogo più bello che hai visitato o in cui ti piacerebbe andare in vacanza?
+      - *ENG*: What is the most beautiful place you have visited or where would you like to go on vacation?
     - (Generica, lunga, Basso-Requivocabile) Il prossimo inverno voglio andare in vacanza sciare a Temu. Te andrai in vacanza da qualche parte questo inverno?
     - (generica, lunga, Basso-Requivocabile) La prossima estate vorrei andare a Cuba a farmi un bel giro per visitare i posti locali e per stare in mezzo alla musica. Quali sono i generi di vacanza che ti piacciono di più? 
-  - **Programma/serie TV**:
+5. **Programma/serie TV**:
     - (Generica, corta) Qual è l'ultimo film o serie che hai visto? 
+      - *ENG*: What is the last movie or series you watched?
     - (Generica, corta, debole) Qual è il tuo attore preferito?
     - (Generica, lunga, Basso-Requivocabile) Ieri hanno pubblicato l'ultimo episodio di Orville e mi è piaciuto molto. Quali sono invece le tue serie preferite? 
     - (Specifica, lunga) Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro? 
-  - **Occupazione**:
+6. **Occupazione**:
     - (Generica, corta) Che lavoro o studi fai? Cosa ti piace del tuo lavoro o studio?
+      - *ENG*: What is your job or study? What do you like about your job or study?
     - (Generica, lunga, Basso-Requivocabile) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
-  - **Sport**:
+7. **Sport**:
     - (Generica, corta) Pratichi qualche sport?
+      - *ENG: Do you practice any sports?
     - (Generica, corta) Quale squadra tifi?
     - (Specifica, lunga, Basso-Requivocabile) Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport?  
-  - **Natura**:
+8. **Natura**:
     - (Generica, corta) Ti piacciono gli animali? Hai un animale domestico e come si chiama?
     - (Corta, generica) Qual è il tuo rapporto con la natura? Ti piace stare all'aperto o preferisci stare in casa?
     - (Generica, lunga, Basso-equivocabile) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
@@ -115,7 +122,7 @@ Le domande sono su:
     - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa in questa settimana.
   - **Educazione**
     - (Generica, corta) Qual è stata la tua materia scolastica preferita a scuola?
-  - CORTA: **lingue**
+  - **lingue**
     - (specifica, corta)  Quante lingue parli e quale lingua straniera vorresti imparare?
   - **futuro**
     - (generica, corta) Dove ti vedi in futuro?
