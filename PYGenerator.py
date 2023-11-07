@@ -55,8 +55,7 @@ def folder_info(folder_path):
     count_q = [] #questions
     count_a = [] #answers
     count_iq = [] #initial answer
-    letter_counts = {}
-    count_persons = [] #persons
+    letter_counts = {} #persons
     for filename in os.listdir(folder_path):
         if filename.endswith('.wav'):
             if len(filename.split('_')) < 3:
@@ -71,10 +70,8 @@ def folder_info(folder_path):
                 second_value = filename.split('_')[1]
                 #letter_counts[second_value] = letter_counts.get(second_value, 0) + 1
                 letter_counts[second_value] = (filename.split('_')[2])[:-4]
-                if second_value not in count_persons:
-                    count_persons.append(second_value)
                 max_files += 1
-    return count_wrong_name, max_files, count_a, count_q, count_iq, letter_counts, count_persons
+    return count_wrong_name, max_files, count_a, count_q, count_iq, letter_counts
 
 def get_channels(data):
     '''Get the number of channels in an audio file'''
@@ -160,7 +157,46 @@ def read_write_file(file_names):
     
     read_write_complete(file_names, sample_rate, channels, silences)
 
-def user_input(dir_path, max_participants):
+def user_input(dir_path, max_participants, count_persons, count_questions):
+    while True:
+        user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
+        if str(user_choice).lower() == "si":
+            file_names = user_ask_files(dir_path, max_participants)
+            return file_names
+        elif str(user_choice).lower() == "no":
+            while True:
+                participants = input(f"Vuoi specificare un numero massimo di persone che partecipino al dialogo (massimo: {count_persons})? Se SI, quante o quali? ")
+                if str(participants).lower() == "no":
+                    break
+                elif str(participants).isnumeric() and int(participants)<=count_persons:
+                    break
+                elif str(participants).isnumeric() and int(participants)>count_persons:
+                    print(f"Il numero deve essere <= {count_persons}")
+                else:
+                    print("Il valore inserito non è corretto. Riprova.")
+            while True:
+                participants = input(f"Vuoi specificare un numero massimo di domande (massimo: {count_questions})? Se SI, quante o quali? ")
+                if str(participants).lower() == "no":
+                    break
+                elif str(participants).isnumeric() and int(participants)<=count_questions:
+                    break
+                elif str(participants).isnumeric() and int(participants)>count_questions:
+                    print(f"Il numero deve essere <= {count_persons}")
+                else:
+                    print("Il valore inserito non è corretto. Riprova.")
+            '''while True:
+                participants = input(f"Hai una lunghezza massima? Se SI, quanto? ")
+                if str(participants).lower() == "no":
+                    break
+                elif str(participants).isnumeric():
+                    break
+                else:
+                    print("Il valore inserito non è corretto. Riprova.")'''
+        else:
+            print("Il valore inserito non è corretto. Riprova.")
+    
+
+def user_ask_files(dir_path, max_participants):
     '''Ask file1, file2'''
     ''' and check/fix paths (file1, file2)'''
     ''' handle the errors'''
@@ -191,16 +227,17 @@ def user_input(dir_path, max_participants):
 if __name__ == '__main__':
     '''Important path of input files'''
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    count_wrong_name, max_participants, count_a, count_q, count_iq, letter_counts, count_persons = folder_info(os.path.join(dir_path, "INPUT"))
+    count_wrong_name, max_input_files, count_a, count_q, count_iq, count_p = folder_info(os.path.join(dir_path, "INPUT"))
 
     print("\n\tGeneratore di dialoghi realistici.\n")
     print("\nStatistiche utili:\n")
     if count_wrong_name >0:
         print("Found", count_wrong_name, "wav files with wrong file name. See manual for correct file names.\n")
-    print("Domande: ", count_q, "\nRisposte: ", count_a, "\npartecipanti:", letter_counts, "\n n_persons: ", count_persons, "\n")
+    print("Domande: ", count_q, "\nRisposte: ", count_a, "\npartecipanti:", count_p, "\n")
+    
     #try:
     '''ask for user input, if more than one file with same name, return the first file'''
-    file_names = user_input(dir_path, max_participants)
+    file_names = user_input(dir_path, max_input_files, len(count_p), len(count_q))
     '''Run concatenate (file1, file2) and open the folder'''
     read_write_file(file_names)
     print("\n COMPLETED! (folder opened)")
@@ -211,6 +248,7 @@ if __name__ == '__main__':
 
 # Il programma vede quali files ci sono nella cartella e chiede all'utente se vanno bene quegli interlocutori.
 # chiede all'utente:
-    # durata
+    # lunghezza massima
+        # 
     # quante persone parlano
         # se sì quali?
