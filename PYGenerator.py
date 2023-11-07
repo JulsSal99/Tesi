@@ -50,23 +50,31 @@ def find_file(name, path):
 
 def folder_info(folder_path):
     '''count the number of audio files in a folder and split questions from answers'''
-    count_d = [] #questions
-    count_r = [] #answers
+    count_wrong_name = 0
+    max_files = 0
+    count_q = [] #questions
+    count_a = [] #answers
+    count_iq = [] #initial answer
     letter_counts = {}
     count_persons = [] #persons
-    count = 0
     for filename in os.listdir(folder_path):
         if filename.endswith('.wav'):
-            if filename.startswith('D'):
-                count_d.append(filename)
-            elif filename.startswith('R'):
-                count_r.append(filename)
-            second_value = filename.split('_')[1]
-            letter_counts[second_value] = letter_counts.get(second_value, 0) + 1
-            if second_value not in count_persons:
-                count_persons.append(second_value)
-            count += 1
-    return count, count_r, count_d, letter_counts, count_persons
+            if len(filename.split('_')) < 3:
+                count_wrong_name += 1
+            else:
+                if filename.startswith('Q'):
+                    count_q.append(filename)
+                elif filename.startswith('A'):
+                    count_a.append(filename)
+                elif filename.startswith('IQ'):
+                    count_iq.append(filename)
+                second_value = filename.split('_')[1]
+                #letter_counts[second_value] = letter_counts.get(second_value, 0) + 1
+                letter_counts[second_value] = (filename.split('_')[2])[:-4]
+                if second_value not in count_persons:
+                    count_persons.append(second_value)
+                max_files += 1
+    return count_wrong_name, max_files, count_a, count_q, count_iq, letter_counts, count_persons
 
 def get_channels(data):
     '''Get the number of channels in an audio file'''
@@ -78,11 +86,14 @@ def get_channels(data):
 def concatenate(data1, data2, pause_length, sample_rate, channels):
     '''generate 2 audio files, one with the first audio muted,'''
     ''' the second with the second audio muted.'''
-    n_sample_silence = sample_rate * pause_length
-    silence = np.zeros((int(n_sample_silence), channels))
+    n_sample_silence = int(sample_rate * pause_length)
+    #stereo
     if len(data1.shape) > 1 or len(data2.shape) > 1:
+        silence = np.zeros((n_sample_silence, channels))
         OUTPUT = np.concatenate((data1, silence, data2), axis=0)
+    #mono
     else:
+        silence = np.zeros((n_sample_silence,))
         OUTPUT = np.concatenate((data1, silence, data2))
     return OUTPUT
 
@@ -137,13 +148,13 @@ def read_write_file(file_names):
                     if file_names[j]['person'] == print_person:
                         OUTPUT = file_names[0]['data']
                     else:
-                        OUTPUT = np.zeros((int(len(file_names[0]['data'])), channels))
+                        OUTPUT = np.zeros((int(len(file_names[0]['data'])),))
                 else:
                     # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
                     if file_names[j]['person'] == print_person:
                         OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], sample_rate, channels)
                     else:
-                        file_silence = np.zeros((int(len(file_names[j]['data'])), channels))
+                        file_silence = np.zeros((int(len(file_names[j]['data'])),))
                         OUTPUT = concatenate(OUTPUT, file_silence, silences[j - 1], sample_rate, channels)
             sf.write(f'OUTPUT/merged{i}{print_name}.wav', OUTPUT, sample_rate)
     
@@ -180,21 +191,23 @@ def user_input(dir_path, max_participants):
 if __name__ == '__main__':
     '''Important path of input files'''
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    max_participants, r_files, d_files, letter_counts, count_persons = folder_info(os.path.join(dir_path, "INPUT"))
+    count_wrong_name, max_participants, count_a, count_q, count_iq, letter_counts, count_persons = folder_info(os.path.join(dir_path, "INPUT"))
 
     print("\n\tGeneratore di dialoghi realistici.\n")
-    print("See manual for correct file names.\n")
-    print("Domande: ", d_files, "\nRisposte: ", r_files, "\npartecipanti:", letter_counts, "\n n_persons: ", count_persons)
-    try:
-        '''ask for user input, if more than one file with same name, return the first file'''
-        file_names = user_input(dir_path, max_participants)
-        '''Run concatenate (file1, file2) and open the folder'''
-        read_write_file(file_names)
-        print("\n COMPLETED! (folder opened)")
-        os.startfile(os.path.join(dir_path, "output"))
-    except Exception as e:
+    print("\nStatistiche utili:\n")
+    if count_wrong_name >0:
+        print("Found", count_wrong_name, "wav files with wrong file name. See manual for correct file names.\n")
+    print("Domande: ", count_q, "\nRisposte: ", count_a, "\npartecipanti:", letter_counts, "\n n_persons: ", count_persons, "\n")
+    #try:
+    '''ask for user input, if more than one file with same name, return the first file'''
+    file_names = user_input(dir_path, max_participants)
+    '''Run concatenate (file1, file2) and open the folder'''
+    read_write_file(file_names)
+    print("\n COMPLETED! (folder opened)")
+    os.startfile(os.path.join(dir_path, "output"))
+    '''except Exception as e:
         print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
-        exit()
+        exit()'''
 
 # Il programma vede quali files ci sono nella cartella e chiede all'utente se vanno bene quegli interlocutori.
 # chiede all'utente:
