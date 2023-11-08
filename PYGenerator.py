@@ -164,37 +164,40 @@ def user_input(dir_path, max_participants, count_persons, count_questions):
             file_names = user_ask_files(dir_path, max_participants)
             return file_names
         elif str(user_choice).lower() == "no":
-            while True:
-                participants = input(f"Vuoi specificare un numero massimo di persone che partecipino al dialogo (massimo: {count_persons})? Se SI, quante o quali? ")
-                if str(participants).lower() == "no":
-                    break
-                elif str(participants).isnumeric() and int(participants)<=count_persons:
-                    break
-                elif str(participants).isnumeric() and int(participants)>count_persons:
-                    print(f"Il numero deve essere <= {count_persons}")
-                else:
-                    print("Il valore inserito non è corretto. Riprova.")
-            while True:
-                participants = input(f"Vuoi specificare un numero massimo di domande (massimo: {count_questions})? Se SI, quante o quali? ")
-                if str(participants).lower() == "no":
-                    break
-                elif str(participants).isnumeric() and int(participants)<=count_questions:
-                    break
-                elif str(participants).isnumeric() and int(participants)>count_questions:
-                    print(f"Il numero deve essere <= {count_persons}")
-                else:
-                    print("Il valore inserito non è corretto. Riprova.")
-            '''while True:
-                participants = input(f"Hai una lunghezza massima? Se SI, quanto? ")
-                if str(participants).lower() == "no":
-                    break
-                elif str(participants).isnumeric():
-                    break
-                else:
-                    print("Il valore inserito non è corretto. Riprova.")'''
+            file_names = user_NO_ask_files(count_persons, count_questions)
+            return file_names
         else:
             print("Il valore inserito non è corretto. Riprova.")
     
+def user_NO_ask_files(count_persons, count_questions):
+    while True:
+       participants = input(f"Vuoi specificare un numero massimo di persone che partecipino al dialogo (massimo: {count_persons})? Se SI, quante o quali? ")
+       if str(participants).lower() == "no":
+           break
+       elif str(participants).isnumeric() and int(participants)<=count_persons:
+           break
+       elif str(participants).isnumeric() and int(participants)>count_persons:
+           print(f"Il numero deve essere <= {count_persons}")
+       else:
+           print("Il valore inserito non è corretto. Riprova.")
+    while True:
+       participants = input(f"Vuoi specificare un numero massimo di domande (massimo: {count_questions})? Se SI, quante o quali? ")
+       if str(participants).lower() == "no":
+           break
+       elif str(participants).isnumeric() and int(participants)<=count_questions:
+           break
+       elif str(participants).isnumeric() and int(participants)>count_questions:
+           print(f"Il numero deve essere <= {count_persons}")
+       else:
+           print("Il valore inserito non è corretto. Riprova.")
+    '''while True:
+       participants = input(f"Hai una lunghezza massima? Se SI, quanto? ")
+       if str(participants).lower() == "no":
+           break
+       elif str(participants).isnumeric():
+           break
+       else:
+           print("Il valore inserito non è corretto. Riprova.")'''
 
 def user_ask_files(dir_path, max_participants):
     '''Ask file1, file2'''

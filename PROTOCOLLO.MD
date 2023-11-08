@@ -18,6 +18,10 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 <br>
 
 **Inizialmente**:
+ - dichiarare le seguenti informazioni a scopo di raccolta dati:
+   - sesso [M/F/ND]:
+   - età:
+   - madrelingua inglese [SI/NO]:
  - verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato della cuffia) e a questa domanda la persona dovrà fornire una **risposta** nella maniera più naturale possibile
    - <span style="color:red">   alternativa, le risposte verranno poste in modo normale, MA la risposta dovrà essere data al segnale (che verrà dato dopo un numero prestabilito di secondi) </span>
 - Alla fine di ogni risposta il partecipante dovrà fare una pausa di **5 secondi in completo silenzio**.
