@@ -5,6 +5,7 @@ import os
 import soundfile as sf
 import numpy as np
 import random
+import re
 
 '''
 
@@ -39,6 +40,16 @@ def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
     file['duplicated'] = duplicated
     return file
 
+def add_file(file_names, file):
+    '''add file to file_names array and use audio_file() function'''
+    filename_without_extension = os.path.splitext(os.path.basename(file))[0]
+    person = filename_without_extension.split("_")[1]
+    duplicated = False
+    if person in [file_names[i]['person'] for i in range(len(file_names))]:
+        duplicated = True
+    file_names.append(audio_file(file, 0, filename_without_extension, person, duplicated))
+    return file_names
+
 def find_file(name, path):
     '''Search for the file by its name with and without the extension'''
     '''and return the first file found with the exact path of the file.'''
@@ -55,7 +66,9 @@ def folder_info(folder_path):
     count_q = [] #questions
     count_a = [] #answers
     count_iq = [] #initial answer
-    letter_counts = {} #persons
+    q_letters = {} #questions persons
+    a_letters = {} #answers persons
+    iq_letters = {} #initial questions persons
     for filename in os.listdir(folder_path):
         if filename.endswith('.wav'):
             if len(filename.split('_')) < 3:
@@ -63,15 +76,21 @@ def folder_info(folder_path):
             else:
                 if filename.startswith('Q'):
                     count_q.append(filename)
+                    filename = os.path.splitext(os.path.basename(filename))[0]
+                    second_value = filename.split('_')[1]
+                    q_letters[second_value] = (filename.split('_')[2])
                 elif filename.startswith('A'):
                     count_a.append(filename)
+                    filename = os.path.splitext(os.path.basename(filename))[0]
+                    second_value = filename.split('_')[1]
+                    a_letters[second_value] = (filename.split('_')[2])
                 elif filename.startswith('IQ'):
                     count_iq.append(filename)
-                second_value = filename.split('_')[1]
-                #letter_counts[second_value] = letter_counts.get(second_value, 0) + 1
-                letter_counts[second_value] = (filename.split('_')[2])[:-4]
+                    filename = os.path.splitext(os.path.basename(filename))[0]
+                    second_value = filename.split('_')[1]
+                    iq_letters[second_value] = (filename.split('_')[2])           
                 max_files += 1
-    return count_wrong_name, max_files, count_a, count_q, count_iq, letter_counts
+    return count_wrong_name, max_files, count_a, count_q, count_iq, a_letters, q_letters, iq_letters
 
 def get_channels(data):
     '''Get the number of channels in an audio file'''
@@ -157,36 +176,96 @@ def read_write_file(file_names):
     
     read_write_complete(file_names, sample_rate, channels, silences)
 
-def user_input(dir_path, max_participants, count_persons, count_questions):
-    while True:
-        user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
-        if str(user_choice).lower() == "si":
-            file_names = user_ask_files(dir_path, max_participants)
-            return file_names
-        elif str(user_choice).lower() == "no":
-            file_names = user_NO_ask_files(count_persons, count_questions)
-            return file_names
-        else:
-            print("Il valore inserito non è corretto. Riprova.")
-    
+def calculator_NO_ask_files(dir_path, n_participants, n_questions):
+    print("NON ANCORA DEFINITA")
+    _, _, answers, questions, inizial_questions, a_letters, q_letters, iq_letters = folder_info(os.path.join(dir_path, "INPUT"))
+
+    # choose questions participants
+    q_participants = list(q_letters.keys())
+    random.shuffle(q_participants)
+    q_participants = q_participants[:(int(n_participants))]
+    print("Questi sono i partecipanti casuali delle domande al test: ", q_participants)
+
+    # choose answers participants
+    a_participants = list(a_letters.keys())
+    random.shuffle(a_participants)
+    a_participants = a_participants[:(int(n_participants))]
+    print("Questi sono i partecipanti casuali delle risposte al test: ", a_participants)
+
+    # create 3D array for questions
+    matr_questions = []
+    for filename in questions:
+        filename_noext = os.path.splitext(os.path.basename(filename))[0]
+        if filename_noext.split('_')[1] in q_participants:
+            matr_questions.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
+
+    # create 3D array for answers
+    matr_answers = []
+    for filename in answers:
+        filename_noext = os.path.splitext(os.path.basename(filename))[0]
+        if filename_noext.split('_')[1] in a_participants:
+            matr_answers.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
+
+    file_names = []
+    interrogator = random.choice(q_participants)
+    for tmpn_q in range(int(n_questions)):
+        for i in matr_questions:
+            if str(interrogator) == str(i[1]) and str(tmpn_q) == str(i[2]):
+                file_names = add_file(file_names, i[0])
+                break
+        tmp_interrogator = interrogator
+
+        # choose first person answer
+        while True:
+            interrogator = random.choice(a_participants)
+            if interrogator != tmp_interrogator:
+                break
+        print(interrogator)
+
+        for i in matr_answers:
+            if str(interrogator) == i[1] and str(tmpn_q) == str(i[2]):
+                file_names = add_file(file_names, i[0])
+                break
+
+
+    # deve pescare la prima domanda
+    # pesca la prima risposta della n persona
+    # pesca qi della n persona
+    # pesca pesca la q della n persona
+
+    '''for filename in questions:
+        filename_noext = os.path.splitext(os.path.basename(filename))[0]
+        matr_questions.append([filename, (filename_noext.split('_')[2])])
+    for i in n_questions:
+        matrice_02 = [riga for riga in matrice if riga[1] == '02']
+        pos_questions = 
+        file_names = add_file(file_names, questions[i])'''
+        
+
+    print(file_names)
+
 def user_NO_ask_files(count_persons, count_questions):
     while True:
-       participants = input(f"Vuoi specificare un numero massimo di persone che partecipino al dialogo (massimo: {count_persons})? Se SI, quante o quali? ")
-       if str(participants).lower() == "no":
+       tmp_n_participants = input(f"Vuoi specificare un numero massimo di persone che partecipino al dialogo (massimo: {count_persons})? Se SI, quante? ")
+       if str(tmp_n_participants).lower() == "no":
+           n_participants = -1
            break
-       elif str(participants).isnumeric() and int(participants)<=count_persons:
+       elif str(tmp_n_participants).isnumeric() and int(tmp_n_participants)<=count_persons:
+           n_participants = tmp_n_participants
            break
-       elif str(participants).isnumeric() and int(participants)>count_persons:
+       elif str(tmp_n_participants).isnumeric() and int(tmp_n_participants)>count_persons:
            print(f"Il numero deve essere <= {count_persons}")
        else:
            print("Il valore inserito non è corretto. Riprova.")
     while True:
-       participants = input(f"Vuoi specificare un numero massimo di domande (massimo: {count_questions})? Se SI, quante o quali? ")
-       if str(participants).lower() == "no":
+       tmp_n_questions = input(f"Vuoi specificare un numero massimo di domande (massimo: {count_questions})? Se SI, quante? ")
+       if str(tmp_n_questions).lower() == "no":
+           n_questions = -1
            break
-       elif str(participants).isnumeric() and int(participants)<=count_questions:
+       elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)<=count_questions:
+           n_questions = tmp_n_questions
            break
-       elif str(participants).isnumeric() and int(participants)>count_questions:
+       elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)>count_questions:
            print(f"Il numero deve essere <= {count_persons}")
        else:
            print("Il valore inserito non è corretto. Riprova.")
@@ -198,6 +277,7 @@ def user_NO_ask_files(count_persons, count_questions):
            break
        else:
            print("Il valore inserito non è corretto. Riprova.")'''
+    return n_participants, n_questions
 
 def user_ask_files(dir_path, max_participants):
     '''Ask file1, file2'''
@@ -213,12 +293,7 @@ def user_ask_files(dir_path, max_participants):
                 elif file == "FINE" and i <= 1:
                     raise Exception("Non abbastanza files!!!")
                 file = find_file(file, os.path.join(dir_path, "INPUT"))
-                filename_without_extension = os.path.splitext(os.path.basename(file))[0]
-                person = filename_without_extension.split("_")[1]
-                duplicated = False
-                if person in [file_names[i]['person'] for i in range(len(file_names))]:
-                    duplicated = True
-                file_names.append(audio_file(file, 0, filename_without_extension, person, duplicated))
+                file_names = add_file(file, file_names) 
                 print(f'\tAggiunto "{file}" con successo.')
                 break
             except EOFError:
@@ -227,20 +302,39 @@ def user_ask_files(dir_path, max_participants):
             except Exception as e:
                 print(f"\tERRORE: {e}")
 
+def user_input(dir_path, max_participants, count_persons, count_q):
+    # count max number of questions per participant
+    count_questions = 0
+    for i in count_q:
+        i = os.path.splitext(os.path.basename(i))[0]
+        count_questions = max(count_questions, int(i.split("_")[2]))
+    
+    # choice manual files add
+    while True:
+        user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
+        if str(user_choice).lower() == "si":
+            file_names = user_ask_files(dir_path, max_participants)
+            return file_names
+        elif str(user_choice).lower() == "no":
+            n_participants, n_questions = user_NO_ask_files(len(count_persons), count_questions)
+            file_names = calculator_NO_ask_files(dir_path, n_participants, n_questions)
+            return file_names
+        else:
+            print("Il valore inserito non è corretto. Riprova.")
+
 if __name__ == '__main__':
     '''Important path of input files'''
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    count_wrong_name, max_input_files, count_a, count_q, count_iq, count_p = folder_info(os.path.join(dir_path, "INPUT"))
+    count_wrong_name, max_input_files, count_a, count_q, count_iq, a_letters, q_letters, iq_letters = folder_info(os.path.join(dir_path, "INPUT"))
 
     print("\n\tGeneratore di dialoghi realistici.\n")
-    print("\nStatistiche utili:\n")
     if count_wrong_name >0:
         print("Found", count_wrong_name, "wav files with wrong file name. See manual for correct file names.\n")
-    print("Domande: ", count_q, "\nRisposte: ", count_a, "\npartecipanti:", count_p, "\n")
     
     #try:
     '''ask for user input, if more than one file with same name, return the first file'''
-    file_names = user_input(dir_path, max_input_files, len(count_p), len(count_q))
+    print("answerers:", count_a, count_q, count_iq)
+    file_names = user_input(dir_path, max_input_files, q_letters, count_q)
     '''Run concatenate (file1, file2) and open the folder'''
     read_write_file(file_names)
     print("\n COMPLETED! (folder opened)")

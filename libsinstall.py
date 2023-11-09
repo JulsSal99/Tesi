@@ -12,6 +12,7 @@ def install_libraries():
         importlib.import_module('numpy')
         importlib.import_module('soundfile')
         importlib.import_module('random')
+        importlib.import_module('re')
     except ModuleNotFoundError:
         print("Una o più librerie non sono state trovate.")
         risposta = input("Vuoi installare le librerie mancanti? (y/n) ")
@@ -24,4 +25,6 @@ def install_libraries():
                 install('soundfile')
             if 'random' not in locals():
                 install('random')
+            if 'random' not in locals():
+                install('re')
             
