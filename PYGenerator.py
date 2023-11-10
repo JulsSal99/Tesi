@@ -5,7 +5,6 @@ import os
 import soundfile as sf
 import numpy as np
 import random
-import re
 
 '''
 
@@ -18,7 +17,7 @@ This collection is based upon the following packages (auto-installation):
 
 '''
 
-__version__ = "0.02"
+__version__ = "0.01"
 __author__  = "G.Salada"
 
 '''
@@ -28,7 +27,13 @@ __author__  = "G.Salada"
 def audioread(filename, frames=-1, start=0, fill_val=None):
     '''Returns audio data in range -1:1 together with sample rate'''
     '''Additional params: start, frames, fill_value'''
-    data, Fs = sf.read(filename, frames, start, fill_value=fill_val)
+    input = "input/"
+    #AGGIUSTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #AGGIUSTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #AGGIUSTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #AGGIUSTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    #AGGIUSTA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    data, Fs = sf.read(input+filename, frames, start, fill_value=fill_val)
     return data, Fs
 
 def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
@@ -176,88 +181,93 @@ def read_write_file(file_names):
     
     read_write_complete(file_names, sample_rate, channels, silences)
 
-def random_choice(q_letters, a_letters, n_participants):
-    # choose questions participants
+def participants_lists(q_letters, a_letters):
     q_participants = list(q_letters.keys())
-    random.shuffle(q_participants)
-    q_participants = q_participants[:(int(n_participants))]
-    print("Questi sono i partecipanti casuali delle domande al test: ", q_participants)
-
-    # choose answers participants
     a_participants = list(a_letters.keys())
-    random.shuffle(a_participants)
-    a_participants = a_participants[:(int(n_participants))]
-    print("Questi sono i partecipanti casuali delle risposte al test: ", a_participants)
-
+    # Unisci i due dizionari
+    #q_letters.update(a_letters)
+    # Elimina i duplicati dalle chiavi e trasformale in lista
+    #unique_keys = list(set(q_letters.keys()))
     return q_participants, a_participants
 
-def calculator_NO_ask_files(dir_path, n_participants, n_questions):
-    print("NON ANCORA DEFINITA")
-    _, _, answers, questions, initial_questions, a_letters, q_letters, iq_letters = folder_info(os.path.join(dir_path, "INPUT"))
-
-    q_participants, a_participants = random_choice(q_letters, a_letters, n_participants)
+def calculator_NO_ask_files(dir_path, n_answers, n_questions):
+    _, _, answers, questions, initial_questions, a_letters, q_letters, _ = folder_info(os.path.join(dir_path, "INPUT"))
+    #q_participants, a_participants = random_choice(q_letters, a_letters, n_answers)
     # create 3D array for questions
     matr_questions = []
     for filename in questions:
         filename_noext = os.path.splitext(os.path.basename(filename))[0]
-        if filename_noext.split('_')[1] in q_participants:
-            matr_questions.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
+        matr_questions.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
 
     # create 3D array for answers
     matr_answers = []
     for filename in answers:
         filename_noext = os.path.splitext(os.path.basename(filename))[0]
-        if filename_noext.split('_')[1] in a_participants:
-            matr_answers.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
+        matr_answers.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
 
+    # create 3D array for inizial questions
+    matr_initquest = []
+    for filename in initial_questions:
+        filename_noext = os.path.splitext(os.path.basename(filename))[0]
+        matr_initquest.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
+
+    q_participants, a_participants = participants_lists(q_letters, a_letters)
     file_names = []
-    
-        
-    for tmpn_q in range(int(n_questions)):
+
+    # handle 1 element arrays
+    if len(a_participants) == 1:
+        answerer = a_participants[0]
+        # first interrogator must be != answerer
+        if answerer in q_participants:
+            q_participants.remove(answerer)
+    if len(q_participants) == 1:
+        interrogator = q_participants[0]
+        # first answerer must be != interrogator
+        if interrogator in a_participants:
+            a_participants.remove(interrogator)
+
+    for j in range(int(n_questions)):
         # choose random interrogator
         interrogator = random.choice(q_participants)
-        if len(a_participants) != 1:
-            interrogator = random.choice(q_participants)
-            break
-        elif len(a_participants) == 1:
-            while True:
-                interrogator = random.choice(q_participants)
-                if a_participants[0] != interrogator:
-                    break
         
         # choose first person to ask X each question
         for i in matr_questions:
-            if str(interrogator) == str(i[1]) and str(tmpn_q+1) == str(i[2]):
+            if str(interrogator) == str(i[1]) and int(j+1) == int(i[2]):
                 file_names = add_file(file_names, i[0])
                 break
 
+        random.shuffle(q_participants)
         # choose first person answer X each question
-        while True:
-            random.shuffle(a_participants)
-            if str(a_participants[0]) != interrogator:
-                break
-        
-        for i in range(len(a_participants)):
-            responder = a_participants[i]
+        for i_a in range(int(n_answers)-1):
+            if i_a != 0:
+                for i in matr_initquest:
+                    if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
+                        file_names = add_file(file_names, i[0])
+                        break
+                for i in matr_questions:
+                    if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
+                        file_names = add_file(file_names, i[0])
+                        break
+            responder = a_participants[i_a]
+            i_a += 1
             for i in matr_answers:
-                if str(responder) == str(i[1]) and str(tmpn_q+1) == str(i[2]):
+                if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                     file_names = add_file(file_names, i[0])
                     break
 
-    print(file_names)
     return file_names
 
-def user_NO_ask_files(count_persons, count_questions):
+def user_NO_ask_files(count_answers, count_questions):
     while True:
-       tmp_n_participants = input(f"Vuoi specificare un numero massimo di persone che partecipino al dialogo (massimo: {count_persons})? Se SI, quante? ")
-       if str(tmp_n_participants).lower() == "no":
-           n_participants = -1
+       tmp_n_answers = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (massimo: {count_answers})? Se SI, quante? ")
+       if str(tmp_n_answers).lower() == "no":
+           n_answers = -1
            break
-       elif str(tmp_n_participants).isnumeric() and int(tmp_n_participants)<=count_persons:
-           n_participants = tmp_n_participants
+       elif str(tmp_n_answers).isnumeric() and int(tmp_n_answers)<=count_answers:
+           n_answers = tmp_n_answers
            break
-       elif str(tmp_n_participants).isnumeric() and int(tmp_n_participants)>count_persons:
-           print(f"Il numero deve essere <= {count_persons}")
+       elif str(tmp_n_answers).isnumeric() and int(tmp_n_answers)>count_answers:
+           print(f"Il numero deve essere <= {count_answers}")
        else:
            print("Il valore inserito non è corretto. Riprova.")
     while True:
@@ -269,7 +279,7 @@ def user_NO_ask_files(count_persons, count_questions):
            n_questions = tmp_n_questions
            break
        elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)>count_questions:
-           print(f"Il numero deve essere <= {count_persons}")
+           print(f"Il numero deve essere <= {count_questions}")
        else:
            print("Il valore inserito non è corretto. Riprova.")
     '''while True:
@@ -280,7 +290,7 @@ def user_NO_ask_files(count_persons, count_questions):
            break
        else:
            print("Il valore inserito non è corretto. Riprova.")'''
-    return n_participants, n_questions
+    return n_answers, n_questions
 
 def user_ask_files(dir_path, max_participants):
     '''Ask file1, file2'''
@@ -319,8 +329,8 @@ def user_input(dir_path, max_participants, count_persons, count_q):
             file_names = user_ask_files(dir_path, max_participants)
             return file_names
         elif str(user_choice).lower() == "no":
-            n_participants, n_questions = user_NO_ask_files(len(count_persons), count_questions)
-            file_names = calculator_NO_ask_files(dir_path, n_participants, n_questions)
+            n_answers, n_questions = user_NO_ask_files(len(count_persons), count_questions)
+            file_names = calculator_NO_ask_files(dir_path, n_answers, n_questions)
             return file_names
         else:
             print("Il valore inserito non è corretto. Riprova.")
@@ -336,7 +346,6 @@ if __name__ == '__main__':
     
     #try:
     '''ask for user input, if more than one file with same name, return the first file'''
-    print("answerers:", count_a, count_q, count_iq)
     file_names = user_input(dir_path, max_input_files, q_letters, count_q)
     '''Run concatenate (file1, file2) and open the folder'''
     read_write_file(file_names)
