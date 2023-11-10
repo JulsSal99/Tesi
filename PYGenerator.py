@@ -176,10 +176,7 @@ def read_write_file(file_names):
     
     read_write_complete(file_names, sample_rate, channels, silences)
 
-def calculator_NO_ask_files(dir_path, n_participants, n_questions):
-    print("NON ANCORA DEFINITA")
-    _, _, answers, questions, inizial_questions, a_letters, q_letters, iq_letters = folder_info(os.path.join(dir_path, "INPUT"))
-
+def random_choice(q_letters, a_letters, n_participants):
     # choose questions participants
     q_participants = list(q_letters.keys())
     random.shuffle(q_participants)
@@ -192,6 +189,13 @@ def calculator_NO_ask_files(dir_path, n_participants, n_questions):
     a_participants = a_participants[:(int(n_participants))]
     print("Questi sono i partecipanti casuali delle risposte al test: ", a_participants)
 
+    return q_participants, a_participants
+
+def calculator_NO_ask_files(dir_path, n_participants, n_questions):
+    print("NON ANCORA DEFINITA")
+    _, _, answers, questions, initial_questions, a_letters, q_letters, iq_letters = folder_info(os.path.join(dir_path, "INPUT"))
+
+    q_participants, a_participants = random_choice(q_letters, a_letters, n_participants)
     # create 3D array for questions
     matr_questions = []
     for filename in questions:
@@ -207,42 +211,41 @@ def calculator_NO_ask_files(dir_path, n_participants, n_questions):
             matr_answers.append([filename, filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
 
     file_names = []
-    interrogator = random.choice(q_participants)
-    for tmpn_q in range(int(n_questions)):
-        for i in matr_questions:
-            if str(interrogator) == str(i[1]) and str(tmpn_q) == str(i[2]):
-                file_names = add_file(file_names, i[0])
-                break
-        tmp_interrogator = interrogator
-
-        # choose first person answer
-        while True:
-            interrogator = random.choice(a_participants)
-            if interrogator != tmp_interrogator:
-                break
-        print(interrogator)
-
-        for i in matr_answers:
-            if str(interrogator) == i[1] and str(tmpn_q) == str(i[2]):
-                file_names = add_file(file_names, i[0])
-                break
-
-
-    # deve pescare la prima domanda
-    # pesca la prima risposta della n persona
-    # pesca qi della n persona
-    # pesca pesca la q della n persona
-
-    '''for filename in questions:
-        filename_noext = os.path.splitext(os.path.basename(filename))[0]
-        matr_questions.append([filename, (filename_noext.split('_')[2])])
-    for i in n_questions:
-        matrice_02 = [riga for riga in matrice if riga[1] == '02']
-        pos_questions = 
-        file_names = add_file(file_names, questions[i])'''
+    
         
+    for tmpn_q in range(int(n_questions)):
+        # choose random interrogator
+        interrogator = random.choice(q_participants)
+        if len(a_participants) != 1:
+            interrogator = random.choice(q_participants)
+            break
+        elif len(a_participants) == 1:
+            while True:
+                interrogator = random.choice(q_participants)
+                if a_participants[0] != interrogator:
+                    break
+        
+        # choose first person to ask X each question
+        for i in matr_questions:
+            if str(interrogator) == str(i[1]) and str(tmpn_q+1) == str(i[2]):
+                file_names = add_file(file_names, i[0])
+                break
+
+        # choose first person answer X each question
+        while True:
+            random.shuffle(a_participants)
+            if str(a_participants[0]) != interrogator:
+                break
+        
+        for i in range(len(a_participants)):
+            responder = a_participants[i]
+            for i in matr_answers:
+                if str(responder) == str(i[1]) and str(tmpn_q+1) == str(i[2]):
+                    file_names = add_file(file_names, i[0])
+                    break
 
     print(file_names)
+    return file_names
 
 def user_NO_ask_files(count_persons, count_questions):
     while True:
