@@ -141,7 +141,11 @@ def read_write_file(file_names):
     # create an array of pause_length for each (between) file
     silences = []
     for i in range(len(file_names) - 1):
-        pause_length = random.uniform(0.7, 0.9)  # seconds
+        if (file_names[i]['person']).startswith('IQ'):
+            # if the pause is a SILENCE
+            pause_length = random.uniform(0.05, 0.120)
+        else:
+            pause_length = random.uniform(0.7, 0.9)  # seconds
         silences.append(pause_length)
     
     # i è l'elemento da stampare con i dati, mentre j è l'elemento attuale
@@ -213,6 +217,7 @@ def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
     for j in range(n_questions):
         # choose random interrogator
         interrogator = random.choice(q_participants)
+        print("interrogator:", interrogator)
         
         # choose first person to ask X each question
         for i in matr_questions:
@@ -220,10 +225,13 @@ def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
                 file_names = add_file(file_names, i[0])
                 break
 
-        random.shuffle(q_participants)
-        # choose first person answer X each question
+        #random.shuffle(q_participants)
+        # handle number of answers also if negative 
         if n_answers < 0:
             tmp_n_answers = random.randint(1, (n_answers*(-1)))
+        else:
+            tmp_n_answers = n_answers
+        # choose first person answer X each question
         for i_a in range(tmp_n_answers):
             if i_a != 0:
                 for i in matr_initquest:

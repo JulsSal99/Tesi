@@ -117,7 +117,7 @@ Le domande, le risposte e le pause saranno organizzati in modo da seguire una st
 > Domanda_P_N &rarr; Risposta_P+1_N &rarr; DomandaIniziale_P+2_N &rarr; Domanda_P+2_N &rarr; Risposta_P+3_N &rarr; ... &rarr; Risposta_P+K_N &rarr; **si ripete il ciclo per N domande**
 
 A queste si aggiungono le pause e i silenzi
-> Domanda_P_N &rarr; *Pausa* &rarr; Risposta_P+1_N &rarr; *Pausa* &rarr; DomandaIniziale_P+2_N &rarr; *Silenzio* &rarr; Domanda_P+2_N *Pausa* &rarr; Risposta_P+3_N &rarr; ... &rarr; Risposta_P+K_N &rarr; **si ripete il ciclo per N domande**
+> Domanda_P_N &rarr; *Pausa* &rarr; Risposta_P+1_N &rarr; *Pausa* &rarr; DomandaIniziale_P+2_N &rarr; *Silenzio* &rarr; Domanda_P+2_N &rarr; *Pausa* &rarr; Risposta_P+3_N &rarr; ... &rarr; Risposta_P+K_N &rarr; *Pausa* &rarr; **si ripete il ciclo per N domande**
 
 
 
