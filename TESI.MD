@@ -111,21 +111,22 @@ Per i suoni non verbali: </span>
 ## Il programma
 Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
 I files audio singoli manterranno le pause e anche il silenzio quando parlano gli altri partecipanti.
-Le domande, le risposte e le pause saranno organizzati in modo da seguire una struttura
-> Domanda_N_P &rarr; Risposta_N_P &rarr; Pausa
 
-, ma che si 
-> Domanda_A_1 &rarr; Risposta_B_1 &rarr; Pausa_1 &rarr; Domanda_D_2 &rarr; Risposta_A_2 &rarr; Pausa_2 &rarr; Domanda_A_2 &rarr; Risposta_C_2
+Le componenti che comporranno le linee di dialogo sono: le **domande**, le **risposte**, le **domande iniziali** (eg. "e tu?"), le **pause** e il **silenzio** antecedente a ogni risposta.
+Le domande, le risposte e le pause saranno organizzati in modo da seguire una struttura
+> Domanda_P_N &rarr; Risposta_P+1_N &rarr; DomandaIniziale_P+2_N &rarr; Domanda_P+2_N &rarr; Risposta_P+3_N &rarr; ... &rarr; Risposta_P+K_N &rarr; **si ripete il ciclo per N domande**
+
+A queste si aggiungono le pause e i silenzi
+> Domanda_P_N &rarr; *Pausa* &rarr; Risposta_P+1_N &rarr; *Pausa* &rarr; DomandaIniziale_P+2_N &rarr; *Silenzio* &rarr; Domanda_P+2_N *Pausa* &rarr; Risposta_P+3_N &rarr; ... &rarr; Risposta_P+K_N &rarr; **si ripete il ciclo per N domande**
 
 
 
 ## Numenclatura dei files
 Per meglio spiegare l'organizzazione dei files stabiliamo:
- - **T** = "tipologia: domanda, risposta o suono non verbale"
+ - **T** = "tipologia: generale, domanda, risposta, domanda iniziale o suono non verbale" [G/D/A/IQ/S]
  - **N** = *numero della domanda o risposta*
- - **P** = *numero del partecipante al test*
- - **S** = *sesso (M/F) del partecipante al test*
- - **V** = *tipo di suono non verbale*
+ - **P** = *identificativo del partecipante al test*
+ - **S** = *sesso del partecipante al test* [M/F]
 
 ### Nomi dei files durante la registrazione
 Verranno generati due audio per ogni speaker:
@@ -134,9 +135,16 @@ Verranno generati due audio per ogni speaker:
 - Per i suoni non verbali: 
 > *T_P.wav*
 
-Esempio: 
-> "DR_A" indica la traccia con tutte le domande e le risposte della persona A
-> "S_F" indica la traccia con tutti i suoni non verbali della persona A
+<br>
+Esempio:
+
+> "G_A" 
+
+&rarr; indica la traccia generale con tutte le domande e le risposte della persona A
+
+> "S_A"
+
+&rarr; indica la traccia con un suono non verbale della persona A
 
 Le tracce verranno poi tagliati per suddividere singolarmente le domande e le risposte secondo il seguente ordine:
 
@@ -147,18 +155,18 @@ I nomi dei files da dare in input al programma saranno organizzati così:
 
 Esempio dei nomi dei files in input:
 
-| cartella      | T_P_S               | _N_PORTAMENTO      | _V          | .wav |
-| ------        | -:                  | :-:                | :-          | :-   |
-| \INPUT        | Domanda_Giovanni_M  | _1_ALTO            |             | .wav |
-| \INPUT        | Risposta_Giovanni_M | _1_ALTO            |             | .wav |
-| \INPUT        | Suono_Giovanni_M    |                    | _UH         | .wav |
+| cartella      | T_P_N               | _S  | _PORTAMENTO | .wav |
+| ------        | -:                  | :-: | :-          | :-   |
+| \INPUT        | Q_Giovanni_1        | _M  | _ALTO       | .wav |
+| \INPUT        | A_Giovanni_1        | _M  | _ALTO       | .wav |
+| \INPUT        | QI_Giovanni_1       | _M  | _ALTO       | .wav |
+| \INPUT        | S_Giovanni          | _M  |             | .wav |
 | | | | | |
-| \INPUT        | Domanda_Elena_F     | _1_ALTO            |             | .wav |
-| \INPUT        | Risposta_Elena_F    | _1_BASSO            |             | .wav |
-| \INPUT        | Suono_Mario         |                    | _UH         | .wav |
+| \INPUT        | Q_Elena_1           | _F  | _ALTO       | .wav |
+| \INPUT        | A_Elena_1           | _F  | _BASSO      | .wav |
+| \INPUT        | S_Mario             | _M  |             | .wav |
 
 <br>
-<span style="color:red"> Nel caso di catalogazione anche in base a Maschio/femmina si può aggiungere un tag "M"/"F" ?</span>
 
 # Cos'è Ambisonic?
 Ambisonics non invia il segnale audio a un numero particolare di altoparlanti; È "indipendente dal parlante". Invece, Ambisonics può essere decodificato in qualsiasi array di altoparlanti (maggiori informazioni di seguito). L'audio ambisonico rappresenta una sfera sonora completa e ininterrotta, senza essere limitata dalle limitazioni di uno specifico sistema di riproduzione. 
