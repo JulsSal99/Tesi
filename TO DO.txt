@@ -11,5 +11,8 @@ TEST2
  COMPLETED! (folder opened)
 
 
+gestione del generatore randomico
+- controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.
 
-controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.
+gestione dei silenzi
+- Problema, se chi fa la domanda dopo la risposta, non è più una nuova pausa, ma un silenzio
