@@ -152,7 +152,7 @@ def read_write_file(file_names):
     for i in range(len(file_names)):
         print_person = file_names[i]['person']
         if not file_names[i]['duplicated']:
-            print_name = file_names[i]['name']
+            print_name = file_names[i]['person']
             for j in range(len(file_names)):
                 if j == 0:
                     # gestisce il primo elemento e lo mette vuoto se non è lui
@@ -217,21 +217,25 @@ def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
     for j in range(n_questions):
         # choose random interrogator
         interrogator = random.choice(q_participants)
-        print("interrogator:", interrogator)
         
-        # choose first person to ask X each question
+        # add first person to ask X each question
         for i in matr_questions:
             if str(interrogator) == str(i[1]) and int(j+1) == int(i[2]):
                 file_names = add_file(file_names, i[0])
                 break
-
-        #random.shuffle(q_participants)
+        
         # handle number of answers also if negative 
         if n_answers < 0:
             tmp_n_answers = random.randint(1, (n_answers*(-1)))
         else:
             tmp_n_answers = n_answers
-        # choose first person answer X each question
+        # shuffle answerers 
+        while True:
+            random.shuffle(a_participants)
+            if a_participants[0] != interrogator:
+                break
+
+        # add first person to answer X each question
         for i_a in range(tmp_n_answers):
             if i_a != 0:
                 for i in matr_initquest:
