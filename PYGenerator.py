@@ -217,7 +217,6 @@ def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
     for j in range(n_questions):
         # choose random interrogator
         interrogator = random.choice(q_participants)
-        
         # add first person to ask X each question
         for i in matr_questions:
             if str(interrogator) == str(i[1]) and int(j+1) == int(i[2]):
@@ -253,6 +252,7 @@ def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
                     file_names = add_file(file_names, i[0])
                     break
     return file_names
+
 
 def user_auto_files(count_answers, count_questions):
     while True:

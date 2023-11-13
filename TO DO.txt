@@ -1,0 +1,15 @@
+errore: manca la domanda di TEST e inoltre la domanda di TEST2 ha come risposta TEST2
+true AI
+AI
+true TEST2
+TEST2
+true TEST
+true TEST2
+TEST2
+[{'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/Q_AI_01.wav', 'data': 0, 'name': 'Q_AI_01', 'person': 'AI', 'duplicated': False}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST_01.wav', 'data': 0, 'name': 'A_TEST_01', 'person': 'TEST', 'duplicated': False}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/Q_TEST2_02.wav', 'data': 0, 'name': 'Q_TEST2_02', 'person': 'TEST2', 'duplicated': False}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST_02.wav', 'data': 0, 'name': 'A_TEST_02', 'person': 'TEST', 'duplicated': True}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST2_03.wav', 'data': 0, 'name': 'A_TEST2_03', 'person': 'TEST2', 'duplicated': True}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/Q_TEST2_04.wav', 'data': 0, 'name': 'Q_TEST2_04', 'person': 'TEST2', 'duplicated': True}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST2_04.wav', 'data': 0, 'name': 'A_TEST2_04', 'person': 'TEST2', 'duplicated': True}]
+
+ COMPLETED! (folder opened)
+
+
+
+controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.
