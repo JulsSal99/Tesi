@@ -6,6 +6,9 @@ link-citations: true
 
 # Tesi: Registrazioni e generazione linee di dialogo 
 
+Il numero tra ogni _ deve essere corto e uguale per tutti
+IDname_SESSO_volume_tipoDOMANDA_ndomanda
+
 MAIN:
 ============
 
