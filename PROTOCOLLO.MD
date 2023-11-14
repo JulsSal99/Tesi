@@ -19,13 +19,10 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 
 **Inizialmente**:
  - <span style="font-size:large;">dichiarare le seguenti informazioni a scopo di raccolta dati:</span><span style="font-size:larger;">
+   - nnome: 
    - sesso [M/F/ND]:
    - età:
    - madrelingua inglese [SI/NO]:
-   - tipologia di lavoro: [cassiera,...]
-   - ambiente lavorativo: [privato/pubblico]
-   - sei spesso a lavoro a contatto con i clienti: [si/no]
-   - [forse no] Quanto stai al PC, alla TV, giornali:
 </span>
 
 **Il test:**
