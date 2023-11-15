@@ -4,9 +4,6 @@ bibliography: biblio.bib
 link-citations: true
 ---
 # Protocollo
-
-Tempo di risposta da dare: 10-30 secondi
-gesto per accorciare 
 8 - 10
 generica-lunga
 
@@ -17,22 +14,22 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 
 ## Come avviene il test? 
 - Verrà fatta una serie di registrazioni di domande e risposte
-- gli argomenti delle domande possono essere forniti solo in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
-- la risposta deve essere il più naturale possibile
+- gli argomenti delle domande verranno forniti in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
+- la risposta deve essere il più naturale possibile, non è importante la veridicità
 - Bisognerà posizionarsi a **1 metro di distanza dal microfono** e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
 <br>
 
 **Inizialmente**:
  - <span style="font-size:large;">dichiarare le seguenti informazioni a scopo di raccolta dati:</span><span style="font-size:larger;">
-   - nnome: 
+   - nome: 
    - sesso [M/F/ND]:
    - età:
    - madrelingua inglese [SI/NO]:
 </span>
 
 **Il test:**
- - verrà riprodotta una domanda in cuffia (dovrà essere indossato UN solo lato della cuffia) e a questa domanda la persona dovrà fornire una **risposta** nella maniera più naturale possibile
-   - <span style="color:red">   alternativa, le risposte verranno poste in modo normale, MA la risposta dovrà essere data al segnale (che verrà dato dopo un numero prestabilito di secondi) </span>
+- verrà posta una domanda dall'operatore e a questa domanda la persona dovrà fornire una **risposta** nella maniera più naturale possibile. Nel caso in cui la risposta risulti carente, l'intervistato può inventare una risposta anche non veritiera, ma che risulti plausibile.
+- Sarà l'operatore gestualmente a dare indicazioni sulla durata temporale della risposta se continuare a parlare o meno. 
 - Alla fine di ogni risposta il partecipante dovrà fare una pausa di **5 secondi in completo silenzio**.
 - In seguito dovrà pronunciare una domanda introduttiva (eg. "e tu?", "invece te?", "quindi?", "Allora", "eee...")
 - In seguito il partecipante dovrà fare un'ulteriore pausa di **5 secondi in completo silenzio**.
@@ -42,7 +39,7 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 <br>
 
 Nell'**ultima parte**:
- - alla fine delle domande, il partecipante ascolterà un dialogo in cuffia e verrà chiesto di fare dei suoni non verbali, come se partecipasse alla conversazione.
+ - alla fine delle domande, verrà chiesto al partecipante di fare dei suoni non verbali, come se partecipasse alla conversazione.
    - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti).
      - Degli ***esempi corretti* di suoni non verbali** sono:
        - A-hem: Questo suono è spesso usato per attirare l’attenzione di qualcuno o per indicare che si vuole parlare. È un suono breve e secco, simile a una tosse leggera.
@@ -59,15 +56,15 @@ Nell'**ultima parte**:
        - Eh?: Questo suono può essere utilizzato per chiedere a qualcuno di ripetere ciò che ha detto o per esprimere incertezza.
 
 ## ESEMPIO:
- - **partecipante**: *indossa una sola cuffia sinistra/destra*
- - **audio in cuffia**: Qual è il tuo genere di musica preferita?
+ - **operatore**: Qual è il tuo genere di musica preferita?
  - **partecipante**: *si toglie la cuffia*
- - **partecipante**: Mi piace molto la musica rock, ma ultimamente sto passando un po' anche alla musica metal
+ - **partecipante**: Mi piace molto la musica rock, ma ultimamente sto passando un po' anche alla musica metal...
+ - **operatore**: fa il cenno con la mano di concludere la risposta
+ - **partecipante**: ...ma ultimamente sto molto in fissa con gli Iron Maiden.
  - ***attesa di 5 secondi***
  - **partecipante**: pronuncia una frase. eg. "e tu?".
  - ***attesa di 5 secondi***
  - **partecipante**: Quale genere di musica preferisci?
- - ***indossa nuovamente la cuffia e attende la prossima domanda***
 
 ***Il precedente ciclo di domande si ripete per N volte***
 
@@ -88,12 +85,10 @@ Le domande sono su:
       - *ENG*: What is your favorite music genre?
     - (Generica, corta) Qual è la tua canzone preferita? 
     - (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è invece l'ultimo concerto a cui hai assistito te?
-    - (Indiretta) Quel ragazzo/a sta ascoltando della musica dal suo Walkman, riusciresti a scoprire che genere di musica gli piace?
 2. **cucina**:
     - (Generica, lunga) Ti piace cucinare? Hai un tuo piatto preferito? 
       - *ENG*: Do you like to cook? Do you have a favorite dish?
     - (Specifica, lunga) Es. L'altra settimana sono stato in un all You Can Eat cinese, ma non mi è piaciuta la cucina. A te piacciono? 
-    - (Indiretta) Vorrei proporre una cena tutti assieme, riusciresti a sapere che cibo o preferisce? Carne, pesce, sushi, pizza,...?
 3. **Hobbies**:
     - (Generica, lunga) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
       - *ENG*: What is the last project or hobby you completed? How much time do you dedicate to your hobby each week?
@@ -132,7 +127,6 @@ Le domande sono su:
 10. **Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)**
     - (Generica, corta) Hai fatto qualcosa di interessante durante la settimana?
       - *ENG*: Did you do anything interesting during the week?
-    - (Indiretta) Chiedile se è andato/a fuori o ha fatto/a qualcosa in questa settimana.
 11. **Educazione**
     - (Generica, corta) Qual è stata la tua materia scolastica preferita a scuola?
       - *ENG*: What was your favorite school subject?
@@ -142,6 +136,6 @@ Le domande sono su:
 13. **futuro**
     - (generica, corta) Dove ti vedi in futuro?
       - *ENG*: Where do you see yourself in the future?ù
-15. **musei/arte**
+14. **musei/arte**
     - (Specifica, lunga, Alto-Requivocabile) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla? 
       - *ENG*: I heard that there is a Van Gogh exhibition with special effects in Milan. Would you like to go see it?

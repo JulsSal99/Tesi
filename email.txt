@@ -1,0 +1,22 @@
+template di mail di contatto:
+
+Buongiorno. 
+Mi chiamo Salada Giulio e sono un tesista presso il LIM.
+
+Abbiamo selezionato un gruppo di partecipanti, tra cui lei, per partecipare a questo esperimento in stanza insonorizzata in Dipartimento di Informatica. 
+
+Lo scopo del test sarà generare dei dialoghi tramite l'opportuna combinazione di più domande e risposte dei vari partecipanti al test.
+Queste linee di dialogo verranno poi usate in seguito per ulteriori test presso il LIM.
+L'esperimento durerà massimo 1 ora.
+
+Dettagli dell’Esperimento: 
+L’esperimento si svolgerà in due fasi:
+- Intervista Preliminare: Incontreremo i partecipanti in cui presenteremo l’argomento dell’esperimento e forniremo ulteriori dettagli sul posizionamento e le modalità di registrazione.
+- Registrazione Audio: Successivamente, registreremo le risposte dei partecipanti a una serie di domande. Le domande riguarderanno una serie di argomenti (riportati di seguito). È importante notare che non è necessario rispondere con la verità assoluta, ma piuttosto con qualcosa di plausibile. 
+Argomenti delle Domande: Le domande riguarderanno principalmente: MUSIC PREFERENCES, COOKING, HOBBIES, TRAVEL, JOB, SOCIAL NETWORKS, PREFERRED SCHOOL SUBJECT, LANGUAGES, ENTERTAINMENT, ANIMALS e SUPERPOWERS
+Date Disponibili: Le saremmo grati se potesse indicarci le date in cui sarebbe disponibile per partecipare all’esperimento compilando il seguente form.
+
+Non vediamo l’ora di collaborare con lei
+
+Cordiali Saluti. 
+G. Salada, F. Avanzini, G. Presti
