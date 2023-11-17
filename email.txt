@@ -3,20 +3,41 @@ template di mail di contatto:
 Buongiorno. 
 Mi chiamo Salada Giulio e sono un tesista presso il LIM.
 
-Abbiamo selezionato un gruppo di partecipanti, tra cui lei, per partecipare a questo esperimento in stanza insonorizzata in Dipartimento di Informatica. 
+Sono state selezionate un gruppo di persone, tra cui lei, per partecipare a un esperimento in stanza insonorizzata in Dipartimento di Informatica. 
 
-Lo scopo del test sarà generare dei dialoghi tramite l'opportuna combinazione di più domande e risposte dei vari partecipanti al test.
-Queste linee di dialogo verranno poi usate in seguito per ulteriori test presso il LIM.
-L'esperimento durerà massimo 1 ora.
+Lo scopo del test sarà generare dei dialoghi tramite la combinazione di domande e risposte dei vari partecipanti.
+Queste linee di dialogo verranno usate per altri test presso il LIM.
+L'esperimento durerà massimo 1 ora. 
+
+Le saremmo grati se potesse indicarci le date in cui sarebbe disponibile per partecipare all’esperimento compilando il seguente form: https://forms.gle/x79AAfnMZ7s8PH438.
 
 Dettagli dell’Esperimento: 
 L’esperimento si svolgerà in due fasi:
-- Intervista Preliminare: Incontreremo i partecipanti in cui presenteremo l’argomento dell’esperimento e forniremo ulteriori dettagli sul posizionamento e le modalità di registrazione.
-- Registrazione Audio: Successivamente, registreremo le risposte dei partecipanti a una serie di domande. Le domande riguarderanno una serie di argomenti (riportati di seguito). È importante notare che non è necessario rispondere con la verità assoluta, ma piuttosto con qualcosa di plausibile. 
+- Intervista Preliminare: Incontreremo i partecipanti in cui presenteremo l’argomento dell’esperimento e forniremo ulteriori dettagli sulle modalità di registrazione.
+- Registrazione Audio: verranno poste una serie di domande su diversi argomenti e ne registreremo le risposte. È importante notare che non è necessario rispondere con la verità, ma piuttosto con qualcosa di plausibile. 
 Argomenti delle Domande: Le domande riguarderanno principalmente: MUSIC PREFERENCES, COOKING, HOBBIES, TRAVEL, JOB, SOCIAL NETWORKS, PREFERRED SCHOOL SUBJECT, LANGUAGES, ENTERTAINMENT, ANIMALS e SUPERPOWERS
-Date Disponibili: Le saremmo grati se potesse indicarci le date in cui sarebbe disponibile per partecipare all’esperimento compilando il seguente form.
-
-Non vediamo l’ora di collaborare con lei
 
 Cordiali Saluti. 
 G. Salada, F. Avanzini, G. Presti
+
+
+IN INGLESE:
+
+Good morning. My name is Salada Giulio and I am a thesis student at LIM.
+
+A group of people, including you, have been selected to participate in an experiment in a soundproof room at the Department of Computer Science.
+
+The purpose of the test is to generate dialogues by combining questions and answers from the various participants. These lines of dialogue will be used for other tests at LIM. The experiment will last a maximum of 1 hour.
+
+We would be grateful if you could indicate the dates on which you would be available to participate in the experiment by filling out the following form: https://forms.gle/x79AAfnMZ7s8PH438.
+
+Experiment Details: The experiment will take place in two phases:
+
+Preliminary Interview: We will meet with the participants in which we will present the topic of the experiment and provide further details on the registration process.
+Audio Recording: A series of questions on various topics will be asked and the responses will be recorded. It is important to note that it is not necessary to answer truthfully, but rather with something plausible. Question Topics: The questions will mainly concern: MUSIC PREFERENCES, COOKING, HOBBIES, TRAVEL, JOB, SOCIAL NETWORKS, PREFERRED SCHOOL SUBJECT, LANGUAGES, ENTERTAINMENT, ANIMALS and SUPERPOWERS
+
+Best regards. G. Salada, F. Avanzini, G. Presti
+
+
+https://docs.google.com/forms/d/1K8cqV2-WO5SXjDR8r_TQ1eW1NUUbRAbD8E-e1O3DV_I/edit
+https://docs.google.com/spreadsheets/d/1L_RTnii0lqQo27mSxRNMIVYrQLt9Jy-nBjkJsNBYQaU/edit?resourcekey#gid=759879207
