@@ -24,19 +24,20 @@ __author__  = "G.Salada"
 ------------------------
 '''
 
-def audio_file(path_file, data_file, name_file, person_file, duplicated: bool):
+def audio_file(path_file, data_file, name_file, person, duplicated: bool):
     file = {}
     file['path'] = path_file
     file['data'] = data_file
     file['name'] = name_file
-    file['person'] = person_file
+    file['person'] = person
     file['duplicated'] = duplicated
     return file
 
 def add_file(file_names, file):
     '''add file to file_names array and use audio_file() function'''
     filename_without_extension = os.path.splitext(os.path.basename(file))[0]
-    person = filename_without_extension.split("_")[1]
+    person = filename_without_extension.split("_")[0]
+    gender = filename_without_extension.split("_")[1]
     duplicated = False
     if person in [file_names[i]['person'] for i in range(len(file_names))]:
         duplicated = True
@@ -63,23 +64,22 @@ def folder_info(folder_path):
     a_letters = {} #count answers persons
     for filename in os.listdir(folder_path):
         if filename.endswith('.wav'):
-            if len(filename.split('_')) < 3:
+            if len(filename.split('_')) < 4:
                 count_wrong_name += 1
-            else:
-                if filename.startswith('Q'):
+            else: 
+                file_type = filename.split("_")[2]
+                if file_type == "Q":
                     count_q.append(filename)
                     filename = os.path.splitext(os.path.basename(filename))[0]
-                    second_value = filename.split('_')[1]
-                    q_letters[second_value] = (filename.split('_')[2])
-                elif filename.startswith('A'):
+                    person = filename.split('_')[0]
+                    q_letters[person] = (filename.split('_')[3])
+                elif file_type == "A":
                     count_a.append(filename)
                     filename = os.path.splitext(os.path.basename(filename))[0]
-                    second_value = filename.split('_')[1]
-                    a_letters[second_value] = (filename.split('_')[2])
-                elif filename.startswith('IQ'):
+                    person = filename.split('_')[0]
+                    a_letters[person] = (filename.split('_')[3])
+                elif file_type == "I":
                     count_iq.append(filename)
-                    filename = os.path.splitext(os.path.basename(filename))[0]
-                    second_value = filename.split('_')[1]         
                 max_files += 1
     return count_wrong_name, max_files, count_a, count_q, count_iq, a_letters, q_letters
 
@@ -141,7 +141,7 @@ def read_write_file(file_names):
     # create an array of pause_length for each (between) file
     silences = []
     for i in range(len(file_names) - 1):
-        if (file_names[i]['person']).startswith('IQ'):
+        if (file_names[i]['person']).split("_")[2] == "I"):
             # if the pause is a SILENCE
             pause_length = random.uniform(0.05, 0.120)
         else:
@@ -185,7 +185,9 @@ def list_to_3Dlist(dict):
     arr = []
     for filename in dict:
         filename_noext = os.path.splitext(os.path.basename(filename))[0]
-        arr.append([os.path.join(dir_path, "INPUT/"+filename), filename_noext.split('_')[1], int(filename_noext.split('_')[2])])
+        person = filename_noext.split('_')[2]
+        n_question = int(filename_noext.split('_')[3])]
+        arr.append([os.path.join(dir_path, "INPUT/"+filename), person, n_question])
     return arr
 
 def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
