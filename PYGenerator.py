@@ -5,11 +5,11 @@ import os
 import soundfile as sf
 import numpy as np
 import random
+import logging
 
 '''
 
 Should work on both Python 3.x (tested on Python 3.11.6)
-Look at the test() function for some examples...
 
 This collection is based upon the following packages (auto-installation):
   - numpy
@@ -20,9 +20,26 @@ This collection is based upon the following packages (auto-installation):
 __version__ = "0.01"
 __author__  = "G.Salada"
 
+input_folder = "INPUT" #should always be a folder inside the program' directory
+output_folder = "OUTPUT" #should always be a folder inside the program' directory
+
 '''
 ------------------------
 '''
+
+# //////////////////// logger ////////////////////
+
+log_file = os.path.join("__pycache__", "logging.log")
+logging.basicConfig(filename=log_file, filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+console_handler = logging.StreamHandler()
+console_handler.setLevel(logging.ERROR)
+logger.addHandler(console_handler)
+
+#shows only WARNING, ERROR and CRITICAL and not INFO or DEBUG
+
+# //////////////////// logger ////////////////////
 
 def audio_file(path_file, data_file, name_file, person, duplicated: bool):
     file = {}
@@ -31,17 +48,38 @@ def audio_file(path_file, data_file, name_file, person, duplicated: bool):
     file['name'] = name_file
     file['person'] = person
     file['duplicated'] = duplicated
+    logging.debug(f"audio_file \t code executed successfully for: {path_file}")
     return file
+
+def get_person(filename):
+    filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
+    logging.info(f"get_person \t code executed successfully for: {filename}")
+    return filename_without_extension.split("_")[0]
+
+def get_gender(filename):
+    filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
+    logging.info(f"get_gender \t code executed successfully for: {filename}")
+    return filename_without_extension.split("_")[1]
+
+def get_type(filename):
+    filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
+    logging.info(f"get_type \t code executed successfully for: {filename}")
+    return filename_without_extension.split("_")[2]
+
+def get_nquestion(filename):
+    filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
+    nquestion = int(filename_without_extension.split("_")[3])
+    logging.info(f"get_type \t code executed successfully for: {filename}")
+    return nquestion
 
 def add_file(file_names, file):
     '''add file to file_names array and use audio_file() function'''
-    filename_without_extension = os.path.splitext(os.path.basename(file))[0]
-    person = filename_without_extension.split("_")[0]
-    gender = filename_without_extension.split("_")[1]
+    person = get_person(file)
     duplicated = False
     if person in [file_names[i]['person'] for i in range(len(file_names))]:
         duplicated = True
-    file_names.append(audio_file(file, 0, filename_without_extension, person, duplicated))
+    file_names.append(audio_file(file, 0, os.path.splitext(os.path.basename(file))[0], person, duplicated))
+    logging.info(f"add_file \t code executed successfully for: {file}")
     return file_names
 
 def find_file(name, path):
@@ -67,17 +105,15 @@ def folder_info(folder_path):
             if len(filename.split('_')) < 4:
                 count_wrong_name += 1
             else: 
-                file_type = filename.split("_")[2]
+                file_type = get_type(filename)
                 if file_type == "Q":
                     count_q.append(filename)
-                    filename = os.path.splitext(os.path.basename(filename))[0]
-                    person = filename.split('_')[0]
-                    q_letters[person] = (filename.split('_')[3])
+                    person = get_person(filename)
+                    q_letters[person] = get_nquestion(filename)
                 elif file_type == "A":
                     count_a.append(filename)
-                    filename = os.path.splitext(os.path.basename(filename))[0]
-                    person = filename.split('_')[0]
-                    a_letters[person] = (filename.split('_')[3])
+                    person = get_person(filename)
+                    a_letters[person] = get_nquestion(filename)
                 elif file_type == "I":
                     count_iq.append(filename)
                 max_files += 1
@@ -86,8 +122,10 @@ def folder_info(folder_path):
 def get_channels(data):
     '''Get the number of channels in an audio file'''
     if len(np.shape(data)) == 1:
+        logging.info(f"get_channels \t code executed successfully: {1}")
         return 1
     else:
+        logging.info(f"get_channels \t code executed successfully: {np.shape(data)[1]}")
         return np.shape(data)[1]
 
 def concatenate(data1, data2, pause_length, sample_rate, channels):
@@ -102,6 +140,7 @@ def concatenate(data1, data2, pause_length, sample_rate, channels):
     else:
         silence = np.zeros((n_sample_silence,))
         OUTPUT = np.concatenate((data1, silence, data2))
+    logging.info(f"concatenate \t code executed successfully")
     return OUTPUT
 
 def check_SR_CH(file_names, sample_rate, channels):
@@ -111,6 +150,7 @@ def check_SR_CH(file_names, sample_rate, channels):
         channels_temp = get_channels(file_names[i]['data'])
         if i == 0:
             sample_rate = sample_rate_temp
+            logging.info(f"check_SR_CH \t code executed successfully")
         elif sample_rate != sample_rate_temp:
             raise Exception(f"\nIl file audio n{i+1} ha frequenza di campionamento diversa ({sample_rate_temp} hz).")
         elif channels != channels_temp:
@@ -123,7 +163,8 @@ def read_write_complete(file_names, sample_rate, channels, silences):
         else:
             # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
             OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], sample_rate, channels)
-    sf.write(f'OUTPUT/mergedCOMPLETE.wav', OUTPUT, sample_rate)
+    logging.info(f"read_write_complete \t code executed successfully")
+    sf.write((output_folder+'/mergedCOMPLETE.wav'), OUTPUT, sample_rate)
 
 def read_write_file(file_names):
     ''' MAIN FUNCTION: create the ending file'''
@@ -141,7 +182,7 @@ def read_write_file(file_names):
     # create an array of pause_length for each (between) file
     silences = []
     for i in range(len(file_names) - 1):
-        if (file_names[i]['person']).split("_")[2] == "I"):
+        if get_type(file_names[i]['name']) == "I":
             # if the pause is a SILENCE
             pause_length = random.uniform(0.05, 0.120)
         else:
@@ -167,8 +208,9 @@ def read_write_file(file_names):
                     else:
                         file_silence = np.zeros((int(len(file_names[j]['data'])),))
                         OUTPUT = concatenate(OUTPUT, file_silence, silences[j - 1], sample_rate, channels)
-            sf.write(f'OUTPUT/merged{i}{print_name}.wav', OUTPUT, sample_rate)
+            sf.write((output_folder+f'/merged{i}{print_name}.wav'), OUTPUT, sample_rate)
     
+    logging.info(f"read_write_file \t code executed successfully")
     read_write_complete(file_names, sample_rate, channels, silences)
 
 def participants_lists(q_letters, a_letters):
@@ -178,20 +220,21 @@ def participants_lists(q_letters, a_letters):
     #q_letters.update(a_letters)
     # Elimina i duplicati dalle chiavi e trasformale in lista
     #unique_keys = list(set(q_letters.keys()))
+    logging.info(f"participants_lists \t code executed successfully")
     return q_participants, a_participants
 
 def list_to_3Dlist(dict):
     # create 3D list for dicts
     arr = []
     for filename in dict:
-        filename_noext = os.path.splitext(os.path.basename(filename))[0]
-        person = filename_noext.split('_')[2]
-        n_question = int(filename_noext.split('_')[3])]
-        arr.append([os.path.join(dir_path, "INPUT/"+filename), person, n_question])
+        person = get_person(filename)
+        n_question = get_nquestion(filename)
+        arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, n_question])
+    logging.info(f"list_to_3Dlist \t code executed successfully")
     return arr
 
 def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
-    _, _, answers, questions, initial_questions, a_letters, q_letters = folder_info(os.path.join(dir_path, "INPUT"))
+    _, _, answers, questions, initial_questions, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
     #q_participants, a_participants = random_choice(q_letters, a_letters, n_answers)
     # create 3D array for questions
     matr_questions = list_to_3Dlist(questions)
@@ -253,6 +296,7 @@ def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
                 if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                     file_names = add_file(file_names, i[0])
                     break
+    logging.info(f"calculator_NO_ask_files \t code executed successfully")
     return file_names
 
 
@@ -304,7 +348,7 @@ def user_ask_files(dir_path, max_participants):
                     return file_names
                 elif file == "FINE" and i <= 1:
                     raise Exception("Non abbastanza files!!!")
-                file = find_file(file, os.path.join(dir_path, "INPUT"))
+                file = find_file(file, os.path.join(dir_path, input_folder))
                 file_names = add_file(file, file_names) 
                 print(f'\tAggiunto "{file}" con successo.')
                 break
@@ -332,7 +376,7 @@ def user_input(dir_path, max_participants, a_letters, q_letters):
 if __name__ == '__main__':
     '''Important path of input files'''
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    count_wrong_name, max_input_files, count_a, count_q, count_iq, a_letters, q_letters = folder_info(os.path.join(dir_path, "INPUT"))
+    count_wrong_name, max_input_files, count_a, count_q, count_iq, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
 
     print("\n\tGeneratore di dialoghi realistici.\n")
     if count_wrong_name >0:
@@ -344,7 +388,7 @@ if __name__ == '__main__':
     '''Run concatenate (file1, file2) and open the folder'''
     read_write_file(file_names)
     print("\n COMPLETED! (folder opened)")
-    os.startfile(os.path.join(dir_path, "output"))
+    os.startfile(os.path.join(dir_path, output_folder))
     '''except Exception as e:
         print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
         exit()'''
