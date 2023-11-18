@@ -38,6 +38,7 @@ console_handler.setLevel(logging.ERROR)
 logger.addHandler(console_handler)
 
 #shows only WARNING, ERROR and CRITICAL and not INFO or DEBUG
+#DEBUG do NOT goes in the logging.log file
 
 # //////////////////// logger ////////////////////
 
@@ -48,28 +49,28 @@ def audio_file(path_file, data_file, name_file, person, duplicated: bool):
     file['name'] = name_file
     file['person'] = person
     file['duplicated'] = duplicated
-    logging.debug(f"audio_file \t code executed successfully for: {path_file}")
+    logging.info(f"audio_file \t\t - SUCCESS for: {path_file}")
     return file
 
 def get_person(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
-    logging.info(f"get_person \t code executed successfully for: {filename}")
+    logging.info(f"get_person \t\t - SUCCESS for: {filename}")
     return filename_without_extension.split("_")[0]
 
 def get_gender(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
-    logging.info(f"get_gender \t code executed successfully for: {filename}")
+    logging.info(f"get_gender \t\t - SUCCESS for: {filename}")
     return filename_without_extension.split("_")[1]
 
 def get_type(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
-    logging.info(f"get_type \t code executed successfully for: {filename}")
+    logging.info(f"get_type \t\t - SUCCESS for: {filename}")
     return filename_without_extension.split("_")[2]
 
 def get_nquestion(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     nquestion = int(filename_without_extension.split("_")[3])
-    logging.info(f"get_type \t code executed successfully for: {filename}")
+    logging.info(f"get_type \t\t - SUCCESS for: {filename}")
     return nquestion
 
 def add_file(file_names, file):
@@ -79,7 +80,7 @@ def add_file(file_names, file):
     if person in [file_names[i]['person'] for i in range(len(file_names))]:
         duplicated = True
     file_names.append(audio_file(file, 0, os.path.splitext(os.path.basename(file))[0], person, duplicated))
-    logging.info(f"add_file \t code executed successfully for: {file}")
+    logging.info(f"add_file \t\t - SUCCESS for: {file}")
     return file_names
 
 def find_file(name, path):
@@ -98,6 +99,7 @@ def folder_info(folder_path):
     count_q = [] #array with all questions
     count_a = [] #array with all answers
     count_iq = [] #array with all initial answer
+    count_s = [] #array with all sounds
     q_letters = {} #count questions persons
     a_letters = {} #count answers persons
     for filename in os.listdir(folder_path):
@@ -116,16 +118,18 @@ def folder_info(folder_path):
                     a_letters[person] = get_nquestion(filename)
                 elif file_type == "I":
                     count_iq.append(filename)
+                elif file_type == "S":
+                    count_s.append(filename)
                 max_files += 1
-    return count_wrong_name, max_files, count_a, count_q, count_iq, a_letters, q_letters
+    return count_wrong_name, max_files, count_a, count_q, count_iq, count_s, a_letters, q_letters
 
 def get_channels(data):
     '''Get the number of channels in an audio file'''
     if len(np.shape(data)) == 1:
-        logging.info(f"get_channels \t code executed successfully: {1}")
+        logging.info(f"get_channels \t\t - SUCCESS: {1}")
         return 1
     else:
-        logging.info(f"get_channels \t code executed successfully: {np.shape(data)[1]}")
+        logging.info(f"get_channels \t\t - SUCCESS: {np.shape(data)[1]}")
         return np.shape(data)[1]
 
 def concatenate(data1, data2, pause_length, sample_rate, channels):
@@ -140,7 +144,7 @@ def concatenate(data1, data2, pause_length, sample_rate, channels):
     else:
         silence = np.zeros((n_sample_silence,))
         OUTPUT = np.concatenate((data1, silence, data2))
-    logging.info(f"concatenate \t code executed successfully")
+    logging.info(f"concatenate \t\t - SUCCESS")
     return OUTPUT
 
 def check_SR_CH(file_names, sample_rate, channels):
@@ -150,7 +154,7 @@ def check_SR_CH(file_names, sample_rate, channels):
         channels_temp = get_channels(file_names[i]['data'])
         if i == 0:
             sample_rate = sample_rate_temp
-            logging.info(f"check_SR_CH \t code executed successfully")
+            logging.info(f"check_SR_CH \t\t - SUCCESS")
         elif sample_rate != sample_rate_temp:
             raise Exception(f"\nIl file audio n{i+1} ha frequenza di campionamento diversa ({sample_rate_temp} hz).")
         elif channels != channels_temp:
@@ -163,8 +167,9 @@ def read_write_complete(file_names, sample_rate, channels, silences):
         else:
             # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
             OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], sample_rate, channels)
-    logging.info(f"read_write_complete \t code executed successfully")
-    sf.write((output_folder+'/mergedCOMPLETE.wav'), OUTPUT, sample_rate)
+    write_name = output_folder+'/mergedCOMPLETE.wav'
+    sf.write(write_name, OUTPUT, sample_rate)
+    logging.info(f"read_write_complete \t - SUCCESS for: {write_name}")
 
 def read_write_file(file_names):
     ''' MAIN FUNCTION: create the ending file'''
@@ -208,19 +213,16 @@ def read_write_file(file_names):
                     else:
                         file_silence = np.zeros((int(len(file_names[j]['data'])),))
                         OUTPUT = concatenate(OUTPUT, file_silence, silences[j - 1], sample_rate, channels)
-            sf.write((output_folder+f'/merged{i}{print_name}.wav'), OUTPUT, sample_rate)
-    
-    logging.info(f"read_write_file \t code executed successfully")
+            write_name = output_folder+f'/merged{i}{print_name}.wav'
+            sf.write(write_name, OUTPUT, sample_rate)
+            logging.info(f"read_write_file \t - SUCCESS for: {write_name}")
+
     read_write_complete(file_names, sample_rate, channels, silences)
 
 def participants_lists(q_letters, a_letters):
     q_participants = list(q_letters.keys())
     a_participants = list(a_letters.keys())
-    # Unisci i due dizionari
-    #q_letters.update(a_letters)
-    # Elimina i duplicati dalle chiavi e trasformale in lista
-    #unique_keys = list(set(q_letters.keys()))
-    logging.info(f"participants_lists \t code executed successfully")
+    logging.info(f"participants_lists \t - SUCCESS")
     return q_participants, a_participants
 
 def list_to_3Dlist(dict):
@@ -230,11 +232,30 @@ def list_to_3Dlist(dict):
         person = get_person(filename)
         n_question = get_nquestion(filename)
         arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, n_question])
-    logging.info(f"list_to_3Dlist \t code executed successfully")
+    logging.info(f"list_to_3Dlist \t\t - SUCCESS")
     return arr
 
-def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
-    _, _, answers, questions, initial_questions, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
+def raw_to_seconds(file):
+    # works with STEREO and MONO
+    import wave
+    with wave.open(file, 'rb') as f:
+        frames = f.getnframes()
+        rate = f.getframerate()
+        duration = frames / float(rate)
+    logging.info(f"raw_to_seconds \t\t - SUCCESS")
+    return duration
+
+def sounds_to_3dlist(sounds):
+    arr = []
+    for filename in sounds:
+        person = get_person(filename)
+        arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, raw_to_seconds(filename)])
+    logging.info(f"sounds_to_3dlist \t - SUCCESS")
+    return arr
+
+def calc_NO_ask_files(dir_path, n_answers: int, n_questions: int):
+    _, _, answers, questions, initial_questions, sounds, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
+    logging.info(f"{answers, questions, initial_questions}")
     #q_participants, a_participants = random_choice(q_letters, a_letters, n_answers)
     # create 3D array for questions
     matr_questions = list_to_3Dlist(questions)
@@ -296,7 +317,7 @@ def calculator_NO_ask_files(dir_path, n_answers: int, n_questions: int):
                 if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                     file_names = add_file(file_names, i[0])
                     break
-    logging.info(f"calculator_NO_ask_files \t code executed successfully")
+    logging.info(f"calc_NO_ask_files \t - SUCCESS: {file_names}")
     return file_names
 
 
@@ -333,6 +354,7 @@ def user_auto_files(count_answers, count_questions):
            break
        else:
            print("Il valore inserito non è corretto. Riprova.")'''
+    logging.info(f"user_auto_files \t - SUCCESS")
     return n_answers, n_questions
 
 def user_ask_files(dir_path, max_participants):
@@ -357,6 +379,7 @@ def user_ask_files(dir_path, max_participants):
                 exit()
             except Exception as e:
                 print(f"\tERRORE: {e}")
+    logging.info(f"user_ask_files \t - SUCCESS: {file_names}")
 
 def user_input(dir_path, max_participants, a_letters, q_letters):
     '''ask if wants each file or auto-mode'''
@@ -364,11 +387,13 @@ def user_input(dir_path, max_participants, a_letters, q_letters):
         user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
         if str(user_choice).lower() == "si":
             file_names = user_ask_files(dir_path, max_participants)
+            logging.info(f"user_input \t - SUCCESS: {file_names}")
             return file_names
         elif str(user_choice).lower() == "no":
             min_max = min(max(q_letters.values()), max(a_letters.values()))
             n_answers, n_questions = user_auto_files(len(a_letters), int(min_max))
-            file_names = calculator_NO_ask_files(dir_path, n_answers, n_questions)
+            file_names = calc_NO_ask_files(dir_path, n_answers, n_questions)
+            logging.info(f"user_input \t - SUCCESS: {file_names}")
             return file_names
         else:
             print("Il valore inserito non è corretto. Riprova.")
@@ -376,7 +401,7 @@ def user_input(dir_path, max_participants, a_letters, q_letters):
 if __name__ == '__main__':
     '''Important path of input files'''
     dir_path = os.path.dirname(os.path.realpath(__file__))
-    count_wrong_name, max_input_files, count_a, count_q, count_iq, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
+    count_wrong_name, max_input_files, count_a, count_q, count_iq, counts_s, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
 
     print("\n\tGeneratore di dialoghi realistici.\n")
     if count_wrong_name >0:
