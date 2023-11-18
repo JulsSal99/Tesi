@@ -235,6 +235,20 @@ def list_to_3Dlist(dict):
     logging.info(f"list_to_3Dlist \t\t - SUCCESS")
     return arr
 
+
+
+
+# ///////////////////////////////////
+
+def sounds_to_3dlist(sounds, max_duration):
+    arr = []
+    for filename in sounds:
+        person = get_person(filename)
+        delay = random.uniform(0, max_duration)
+        arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, delay])
+    logging.info(f"sounds_to_3dlist \t - SUCCESS")
+    return arr
+
 def raw_to_seconds(file):
     # works with STEREO and MONO
     import wave
@@ -245,13 +259,35 @@ def raw_to_seconds(file):
     logging.info(f"raw_to_seconds \t\t - SUCCESS")
     return duration
 
-def sounds_to_3dlist(sounds):
+def filenames_lenghts(file_names):
     arr = []
-    for filename in sounds:
-        person = get_person(filename)
-        arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, raw_to_seconds(filename)])
-    logging.info(f"sounds_to_3dlist \t - SUCCESS")
+    delay_after, delay_before = 0, 0
+    for filename in file_names:
+        delay_after = raw_to_seconds(filename) + delay_after
+        arr.append(filename["path"], filename["person"], delay_before, delay_after)
+        delay_before = raw_to_seconds(filename) + delay_before
+    logging.info(f"filenames_lenghts \t - SUCCESS")
     return arr
+
+def handle_sounds(sound_files, file_names):
+    sounds = raw_to_seconds(sound_files)
+    audio = filenames_lenghts(file_names)
+    random.shuffle(sounds)
+    for i_s in len(sounds):
+        for i_a in len(audio):
+            # if sound is inside an audio of the same person
+            if audio[i_a][1] == sounds[i_s][1] and audio[i_a][2] > sounds[i_s][2] or audio[i_a][3] < sounds[i_s][2]:
+                sounds.pop(i_s)
+
+
+    # DAI SUONI GENERA LE PAUSE!
+    return sounds
+
+# ///////////////////////////////////
+
+
+
+
 
 def calc_NO_ask_files(dir_path, n_answers: int, n_questions: int):
     _, _, answers, questions, initial_questions, sounds, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
