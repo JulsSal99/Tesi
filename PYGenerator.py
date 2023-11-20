@@ -6,6 +6,7 @@ import soundfile as sf
 import numpy as np
 import random
 import logging
+import wave
 
 '''
 
@@ -15,6 +16,8 @@ This collection is based upon the following packages (auto-installation):
   - numpy
   - pysoundfile
 
+------------------------
+YOU CAN MODIFY THESE VALUES:
 '''
 
 __version__ = "0.01"
@@ -23,9 +26,19 @@ __author__  = "G.Salada"
 input_folder = "INPUT" #should always be a folder inside the program' directory
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
 
+# silences values
+s_min = 0.05
+s_max = 0.120
+# pauses values
+p_min = 0.7
+p_max = 0.9
 '''
 ------------------------
+DO NOT MODIFY!!!
 '''
+sample_rate = 0
+channels = 0
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 # //////////////////// logger ////////////////////
 
@@ -132,7 +145,7 @@ def get_channels(data):
         logging.info(f"get_channels \t\t - SUCCESS: {np.shape(data)[1]}")
         return np.shape(data)[1]
 
-def concatenate(data1, data2, pause_length, sample_rate, channels):
+def concatenate(data1, data2, pause_length, channels):
     '''generate 2 audio files, one with the first audio muted,'''
     ''' the second with the second audio muted.'''
     n_sample_silence = int(sample_rate * pause_length)
@@ -147,53 +160,59 @@ def concatenate(data1, data2, pause_length, sample_rate, channels):
     logging.info(f"concatenate \t\t - SUCCESS")
     return OUTPUT
 
-def check_SR_CH(file_names, sample_rate, channels):
+def check_SR_CH(file_names, temp_rate, channels):
     '''Check sample rate and channels of the audio files'''
     for i in range(len(file_names)):
         file_names[i]['data'], sample_rate_temp = sf.read(file_names[i]['path'])
         channels_temp = get_channels(file_names[i]['data'])
         if i == 0:
-            sample_rate = sample_rate_temp
+            temp_rate = sample_rate_temp
             logging.info(f"check_SR_CH \t\t - SUCCESS")
-        elif sample_rate != sample_rate_temp:
+        elif temp_rate != sample_rate_temp:
             raise Exception(f"\nIl file audio n{i+1} ha frequenza di campionamento diversa ({sample_rate_temp} hz).")
         elif channels != channels_temp:
             raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
-def read_write_complete(file_names, sample_rate, channels, silences):
+def silence_generator(file_names):
+    silences = []
+    for i in range(len(file_names) - 1):
+        if get_type(file_names[i]['name']) == "I":
+            # if the pause is a SILENCE
+            pause_length = random.uniform(s_min, s_max)
+        else:
+            pause_length = random.uniform(p_min, p_max)  # seconds
+        silences.append(pause_length)
+    return silences
+
+def file_complete(file_names, channels, silences):
     for j in range(len(file_names)):
         if j == 0:
             OUTPUT = file_names[0]['data']
         else:
             # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
-            OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], sample_rate, channels)
-    write_name = output_folder+'/mergedCOMPLETE.wav'
-    sf.write(write_name, OUTPUT, sample_rate)
-    logging.info(f"read_write_complete \t - SUCCESS for: {write_name}")
+            OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], channels)
+    logging.info(f"output_complete \t - SUCCESS.")
+    return OUTPUT
 
 def read_write_file(file_names):
     ''' MAIN FUNCTION: create the ending file'''
     ''' create the class inside file_names and return to concatenate()'''
     ''' check channels, sample_rate'''
     # Get sample rate
-    data_temp, sample_rate = sf.read(file_names[0]['path'])
+    data_temp, temp_rate = sf.read(file_names[0]['path'])
     # Get channels number
-    channels = get_channels(data_temp)
+    global channels
+    channels += get_channels(data_temp)
     
     # Get sampled data from files and check sample rate and channels
-    _, sample_rate = sf.read(file_names[0]['path'])
-    check_SR_CH(file_names, sample_rate, channels)
+    check_SR_CH(file_names, temp_rate, channels)
+    global sample_rate
+    sample_rate += temp_rate
     
     # create an array of pause_length for each (between) file
-    silences = []
-    for i in range(len(file_names) - 1):
-        if get_type(file_names[i]['name']) == "I":
-            # if the pause is a SILENCE
-            pause_length = random.uniform(0.05, 0.120)
-        else:
-            pause_length = random.uniform(0.7, 0.9)  # seconds
-        silences.append(pause_length)
+    silences = silence_generator(file_names)
     
+    OUTPUT2 = []
     # i è l'elemento da stampare con i dati, mentre j è l'elemento attuale
     for i in range(len(file_names)):
         print_person = file_names[i]['person']
@@ -209,15 +228,106 @@ def read_write_file(file_names):
                 else:
                     # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
                     if file_names[j]['person'] == print_person:
-                        OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], sample_rate, channels)
+                        OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], channels)
                     else:
                         file_silence = np.zeros((int(len(file_names[j]['data'])),))
-                        OUTPUT = concatenate(OUTPUT, file_silence, silences[j - 1], sample_rate, channels)
-            write_name = output_folder+f'/merged{i}{print_name}.wav'
-            sf.write(write_name, OUTPUT, sample_rate)
-            logging.info(f"read_write_file \t - SUCCESS for: {write_name}")
+                        OUTPUT = concatenate(OUTPUT, file_silence, silences[j - 1], channels)
+            OUTPUT2.append([OUTPUT, print_name])
+            logging.info(f"read_write_file \t - SUCCESS for: {print_name}")
+    OUTPUT = file_complete(file_names, channels, silences)
+    OUTPUT2.append([OUTPUT, "COMPLETE"])
+    return OUTPUT2, silences
 
-    read_write_complete(file_names, sample_rate, channels, silences)
+
+# /////////////////////////////////// SOUNDS //////////////////////////////////
+
+def raw_to_seconds(audio):
+    # works with STEREO and MONO
+    duration = len(audio) / sample_rate
+    logging.info(f"raw_to_seconds \t\t - SUCCESS")
+    return duration
+
+def filenames_lenghts(file_names, silences):
+    '''Create array for each output file with path, person, start and end'''
+    '''also handle silences'''
+    arr = []
+    lengh_end, length_start = 0, 0
+    i = 0
+    for filename in file_names:
+        lengh_end = raw_to_seconds(filename) + lengh_end
+        arr.append([filename["path"], filename["person"], length_start, lengh_end])
+        length_start = raw_to_seconds(filename) + length_start
+        if i != (len(file_names)-1):
+            lengh_end, length_start = lengh_end + silences[i], length_start + silences[i]
+            i += 1
+    logging.info(f"filenames_lenghts \t - SUCCESS")
+    return arr
+
+def sounds_to_3dlist(sounds, max_duration):
+    arr = []
+    for filename in sounds:
+        person = get_person(filename)
+        delay = random.uniform(0, max_duration)
+        arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, delay])
+    logging.info(f"sounds_to_3dlist \t - SUCCESS")
+    return arr
+
+def handle_sounds(sound_files, file_names, max_duration, silences):
+    ''' deletes sounds in wrong position and concatenate silence with each sound '''
+    sounds = sounds_to_3dlist(sound_files, max_duration)
+    random.shuffle(sounds)
+    audio = filenames_lenghts(file_names, silences)
+
+    # to get channels and sample_rate
+    sound_raw, temp_rate = sf.read(file_names[0]['path'])
+    temp_channels = get_channels(sound_raw)
+    #if temp_rate != sample_rate or channels != temp_channels:
+    #    raise Exception("Invalid Sample_rate or channels!")
+    # !!!!!!!!!!!!!!!  CHECK SAMPLE AND CHANNELS !!!
+
+    # this cycle only handles superposition sounds
+    for i_s in range(len(sounds)-1):
+        for i_a in range(len(audio)-1):
+            # if sound is inside an audio of the same person
+            if audio[i_a][1] == sounds[i_s][1] and audio[i_a][2] > sounds[i_s][2] and audio[i_a][3] < sounds[i_s][2]:
+                sounds.pop(i_s)
+    
+    OUTPUT = []
+    for i_s in range(len(sounds)-1):
+        #empty pause
+        n_sample_silence = int(sample_rate * sounds[i_s][2])
+        data1, _ =sf.read(sounds[i_s][0])
+        #stereo
+        if len(data1.shape) > 1:
+            silence = np.zeros((n_sample_silence, channels))
+            data2 = np.concatenate((silence, data1), axis=0)
+        #mono
+        else:
+            silence = np.zeros((n_sample_silence,))
+            data2 = np.concatenate((silence, data1))
+        OUTPUT.append([data2, sounds[i_s][1]])
+    logging.info(f"handle_sounds \t\t - SUCCESS.")
+    # ho in uscita un array di tutti i file audio che vanno sovrapposti con il nome di ogni persona
+    return OUTPUT
+
+def sounds(sound_files, file_names, audio_no_s, silences):
+    output = []
+    max_duration = raw_to_seconds(audio_no_s[-1][0])
+    sounds = handle_sounds(sound_files, file_names, max_duration, silences)
+    for i in audio_no_s:
+        sum = i[0]
+        for j in sounds:
+            if i[1] == j[1]:
+                if j[0].shape == sum.shape:
+                    sum = np.add(sum, j[0])
+                else:
+                    j_padded = np.pad(j[0], (0, sum.shape[0] - j[0].shape[0]), 'constant')
+                    sum = np.add(sum, j_padded)
+        output.append([sum, i[1]])
+        logging.info(f"sounds \t\t\t - SUCCESS for: {i[1]}")
+    return output
+
+# /////////////////////////////////// SOUNDS //////////////////////////////////
 
 def participants_lists(q_letters, a_letters):
     q_participants = list(q_letters.keys())
@@ -234,60 +344,6 @@ def list_to_3Dlist(dict):
         arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, n_question])
     logging.info(f"list_to_3Dlist \t\t - SUCCESS")
     return arr
-
-
-
-
-# ///////////////////////////////////
-
-def sounds_to_3dlist(sounds, max_duration):
-    arr = []
-    for filename in sounds:
-        person = get_person(filename)
-        delay = random.uniform(0, max_duration)
-        arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, delay])
-    logging.info(f"sounds_to_3dlist \t - SUCCESS")
-    return arr
-
-def raw_to_seconds(file):
-    # works with STEREO and MONO
-    import wave
-    with wave.open(file, 'rb') as f:
-        frames = f.getnframes()
-        rate = f.getframerate()
-        duration = frames / float(rate)
-    logging.info(f"raw_to_seconds \t\t - SUCCESS")
-    return duration
-
-def filenames_lenghts(file_names):
-    arr = []
-    delay_after, delay_before = 0, 0
-    for filename in file_names:
-        delay_after = raw_to_seconds(filename) + delay_after
-        arr.append(filename["path"], filename["person"], delay_before, delay_after)
-        delay_before = raw_to_seconds(filename) + delay_before
-    logging.info(f"filenames_lenghts \t - SUCCESS")
-    return arr
-
-def handle_sounds(sound_files, file_names):
-    sounds = raw_to_seconds(sound_files)
-    audio = filenames_lenghts(file_names)
-    random.shuffle(sounds)
-    for i_s in len(sounds):
-        for i_a in len(audio):
-            # if sound is inside an audio of the same person
-            if audio[i_a][1] == sounds[i_s][1] and audio[i_a][2] > sounds[i_s][2] or audio[i_a][3] < sounds[i_s][2]:
-                sounds.pop(i_s)
-
-
-    # DAI SUONI GENERA LE PAUSE!
-    return sounds
-
-# ///////////////////////////////////
-
-
-
-
 
 def calc_NO_ask_files(dir_path, n_answers: int, n_questions: int):
     _, _, answers, questions, initial_questions, sounds, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
@@ -436,7 +492,6 @@ def user_input(dir_path, max_participants, a_letters, q_letters):
 
 if __name__ == '__main__':
     '''Important path of input files'''
-    dir_path = os.path.dirname(os.path.realpath(__file__))
     count_wrong_name, max_input_files, count_a, count_q, count_iq, counts_s, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
 
     print("\n\tGeneratore di dialoghi realistici.\n")
@@ -447,7 +502,11 @@ if __name__ == '__main__':
     '''ask for user input, if more than one file with same name, return the first file'''
     file_names = user_input(dir_path, max_input_files, a_letters, q_letters)
     '''Run concatenate (file1, file2) and open the folder'''
-    read_write_file(file_names)
+    OUTPUT, silences = read_write_file(file_names)
+    OUTPUT = sounds(counts_s, file_names, OUTPUT, silences)
+    for i in OUTPUT:
+        write_name = output_folder+f'/merged{i[1]}.wav'
+        sf.write(write_name, i[0], sample_rate)
     print("\n COMPLETED! (folder opened)")
     os.startfile(os.path.join(dir_path, output_folder))
     '''except Exception as e:

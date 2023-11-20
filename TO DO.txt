@@ -18,3 +18,5 @@ gestione dei silenzi
 - Problema, se chi fa la domanda dopo la risposta, non è più una nuova pausa, ma un silenzio
 
 cambiare il formato dei nomi, anche nella tesi in IDname_SESSO_volume_tipo_ndomanda 		da  *T_P_S_N_PORTAMENTO*
+
+284 check PAUSES SAMPLE RATE
