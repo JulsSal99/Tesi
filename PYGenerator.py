@@ -134,6 +134,25 @@ def get_channels(data):
     else:
         logging.info(f"get_channels \t\t - SUCCESS: {np.shape(data)[1]}")
         return np.shape(data)[1]
+    
+def raw_to_seconds(audio):
+    '''audio data to lenght. Works with STEREO and MONO'''
+    duration = len(audio) / sample_rate
+    logging.info(f"raw_to_seconds \t\t - SUCCESS")
+    return duration
+
+def check_SR_CH(file_names, temp_rate, channels):
+    '''Check sample rate and channels of the audio files'''
+    for i in range(len(file_names)):
+        file_names[i]['data'], sample_rate_temp = sf.read(file_names[i]['path'])
+        channels_temp = get_channels(file_names[i]['data'])
+        if i == 0:
+            temp_rate = sample_rate_temp
+            logging.info(f"check_SR_CH \t\t - SUCCESS")
+        elif temp_rate != sample_rate_temp:
+            raise Exception(f"\nIl file audio n{i+1} ha frequenza di campionamento diversa ({sample_rate_temp} hz).")
+        elif channels != channels_temp:
+            raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
 def concatenate(data1, data2, pause_length, channels):
     '''generate 2 audio files, one with the first audio muted,'''
@@ -149,19 +168,6 @@ def concatenate(data1, data2, pause_length, channels):
         OUTPUT = np.concatenate((data1, silence, data2))
     logging.info(f"concatenate \t\t - SUCCESS")
     return OUTPUT
-
-def check_SR_CH(file_names, temp_rate, channels):
-    '''Check sample rate and channels of the audio files'''
-    for i in range(len(file_names)):
-        file_names[i]['data'], sample_rate_temp = sf.read(file_names[i]['path'])
-        channels_temp = get_channels(file_names[i]['data'])
-        if i == 0:
-            temp_rate = sample_rate_temp
-            logging.info(f"check_SR_CH \t\t - SUCCESS")
-        elif temp_rate != sample_rate_temp:
-            raise Exception(f"\nIl file audio n{i+1} ha frequenza di campionamento diversa ({sample_rate_temp} hz).")
-        elif channels != channels_temp:
-            raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
 def silence_generator(file_names):
     silences = []
@@ -230,12 +236,6 @@ def read_write_file(file_names):
 
 
 # /////////////////////////////////// SOUNDS //////////////////////////////////
-
-def raw_to_seconds(audio):
-    # works with STEREO and MONO
-    duration = len(audio) / sample_rate
-    logging.info(f"raw_to_seconds \t\t - SUCCESS")
-    return duration
 
 def filenames_lenghts(file_names, silences):
     '''Create array for each output file with path, person, start and end'''
