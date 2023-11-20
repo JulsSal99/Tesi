@@ -6,7 +6,8 @@ import soundfile as sf
 import numpy as np
 import random
 import logging
-import wave
+import logger
+logger.logger()
 
 '''
 
@@ -40,20 +41,9 @@ sample_rate = 0
 channels = 0
 dir_path = os.path.dirname(os.path.realpath(__file__))
 
-# //////////////////// logger ////////////////////
-
-log_file = os.path.join("__pycache__", "logging.log")
-logging.basicConfig(filename=log_file, filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.ERROR)
-logger.addHandler(console_handler)
-
-#shows only WARNING, ERROR and CRITICAL and not INFO or DEBUG
-#DEBUG do NOT goes in the logging.log file
-
-# //////////////////// logger ////////////////////
+'''
+------------------------
+'''
 
 def audio_file(path_file, data_file, name_file, person, duplicated: bool):
     file = {}
@@ -346,7 +336,7 @@ def list_to_3Dlist(dict):
     return arr
 
 def calc_NO_ask_files(dir_path, n_answers: int, n_questions: int):
-    _, _, answers, questions, initial_questions, sounds, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
+    _, _, answers, questions, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
     logging.info(f"{answers, questions, initial_questions}")
     #q_participants, a_participants = random_choice(q_letters, a_letters, n_answers)
     # create 3D array for questions
@@ -499,10 +489,11 @@ if __name__ == '__main__':
         print("Found", count_wrong_name, "wav files with wrong file name. See manual for correct file names.\n")
     
     #try:
-    '''ask for user input, if more than one file with same name, return the first file'''
+    '''ask for user input'''
     file_names = user_input(dir_path, max_input_files, a_letters, q_letters)
-    '''Run concatenate (file1, file2) and open the folder'''
+    '''Create output array [data, person] and silences/pauses values'''
     OUTPUT, silences = read_write_file(file_names)
+    '''Create output array [data, person]: add silences/pauses to output data'''
     OUTPUT = sounds(counts_s, file_names, OUTPUT, silences)
     for i in OUTPUT:
         write_name = output_folder+f'/merged{i[1]}.wav'
