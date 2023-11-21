@@ -80,62 +80,22 @@ Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe A
   - L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
   - Anche io adoro i Lego! Ho appena finito di costruire il set del Millennium Falcon.
 Le domande sono su:
-1. **musica**:
-    - (Generica, corta) Qual è il tuo genere di musica preferita?
-      - *ENG*: What is your favorite music genre?
-    - (Generica, corta) Qual è la tua canzone preferita? 
-    - (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è invece l'ultimo concerto a cui hai assistito te?
-2. **cucina**:
-    - (Generica, lunga) Ti piace cucinare? Hai un tuo piatto preferito? 
-      - *ENG*: Do you like to cook? Do you have a favorite dish?
-    - (Specifica, lunga) Es. L'altra settimana sono stato in un all You Can Eat cinese, ma non mi è piaciuta la cucina. A te piacciono? 
-3. **Hobbies**:
-    - (Generica, lunga) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
-      - *ENG*: What is the last project or hobby you completed? How much time do you dedicate to your hobby each week?
-    - (Generica, lunga, Alto-Requivocabile) L'altro giorno mi hanno regalato un modellino della Rokr di legno da costruire: ne sto facendo la collezione. Anche te hai qualche hobbie?
-    - (Generica, lunga, Basso-Requivocabile) Io è da qualche mese che mi sto approccia do ai giochi da tavolo oltre ai videogiochi. Te hai qualche Hobbie o passione? 
-4. **Viaggi**:
-    - (Generica, corta) Qual è il luogo più bello che hai visitato o in cui ti piacerebbe andare in vacanza?
-      - *ENG*: What is the most beautiful place you have visited or where would you like to go on vacation?
-    - (Generica, lunga, Basso-Requivocabile) Il prossimo inverno voglio andare in vacanza sciare a Temu. Te andrai in vacanza da qualche parte questo inverno?
-    - (generica, lunga, Basso-Requivocabile) La prossima estate vorrei andare a Cuba a farmi un bel giro per visitare i posti locali e per stare in mezzo alla musica. Quali sono i generi di vacanza che ti piacciono di più? 
-5. **Programma/serie TV**:
-    - (Generica, corta) Qual è l'ultimo film o serie che hai visto? 
-      - *ENG*: What is the last movie or series you watched?
-    - (Generica, corta, debole) Qual è il tuo attore preferito?
-    - (Generica, lunga, Basso-Requivocabile) Ieri hanno pubblicato l'ultimo episodio di Orville e mi è piaciuto molto. Quali sono invece le tue serie preferite? 
-    - (Specifica, lunga) Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro? 
-6. **Occupazione**:
-    - (Generica, corta) Che lavoro o studi fai? Cosa ti piace del tuo lavoro o studio?
-      - *ENG*: What is your job or study? What do you like about your job or study?
-    - (Generica, lunga, Basso-Requivocabile) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
-7. **Sport**:
-    - (Generica, corta) Pratichi qualche sport?
-      - *ENG*: Do you practice any sports?
-    - (Generica, corta) Quale squadra tifi?
-    - (Specifica, lunga, Basso-Requivocabile) Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport?  
-8. **Natura**:
-    - (Generica, corta) Ti piacciono gli animali? Parla un po' del tuo animale domestico?
-      - *ENG*: Do you like animals? Do you have a pet and what is its name?
-    - (Corta, generica) Qual è il tuo rapporto con la natura? Ti piace stare all'aperto o preferisci stare in casa?
-    - (Generica, lunga, Basso-equivocabile) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono? 
-9. **Social media**: (TECNOLOGIA???)
-    - (Generica, corta) Usi molto i social media e quali?
-      - *ENG*: Do you use social media a lot and which ones?
-    - (Specifica, lunga, scottante) Ormai moltissime persone influenti stanno sempre più usando i social media per parlare col proprio pubblico. Cosa ne pensi di questa contaminazione tra TV e social media?
-    - (Specifica, lunga) Hai visto che Elon Musk ha cambiato Twitter in X? Pensi che le persone possano avere un cambio di idea su qualcosa semplicemente cambiandone il nome?
-10. **Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)**
-    - (Generica, corta) Hai fatto qualcosa di interessante durante la settimana?
-      - *ENG*: Did you do anything interesting during the week?
-11. **Educazione**
-    - (Generica, corta) Qual è stata la tua materia scolastica preferita a scuola?
-      - *ENG*: What was your favorite school subject?
-12. **lingue**
-    - (specifica, corta)  Quante lingue parli e quale lingua straniera vorresti imparare?
-      - *ENG*: How many languages do you speak and which foreign language would you like to learn?
-13. **futuro**
-    - (generica, corta) Dove ti vedi in futuro?
-      - *ENG*: Where do you see yourself in the future?ù
-14. **musei/arte**
-    - (Specifica, lunga, Alto-Requivocabile) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla? 
-      - *ENG*: I heard that there is a Van Gogh exhibition with special effects in Milan. Would you like to go see it?
+1. **MUSIC PREFERENCES**: 
+   - Do you enjoy music? What kind of music do you listen to?
+2. **COOKING**:
+   - Do you have a favourite dish? What do you like about it? 
+3. **HOBBIES**: What do you do in your free time? What are your hobbies?
+4. **TRAVEL**: What is the most beautiful place you have visited or where would you like to go on vacation?
+5. **JOB**: 
+   - What is your job or field of study? What do you like about it?
+6. **PREFERRED SCHOOL SUBJECT**: 
+   - What was your favourite school subject at primary school? Can you tell me something about this?
+7. **LANGUAGES**: 
+   - How many languages do you speak and which foreign language would you like to learn?
+8. **ENTERTAINMENT**: 
+   - Do you like reading books or watching movies and TV series? Can you tell me something about the last book, movie, or TV series you watched?
+9.  **ANIMALS**: 
+   - Can you tell me something about an animal that you like or don't like?
+10. **SUPERPOWERS**: 
+   - What superpowers would you like to have, and why?
+
