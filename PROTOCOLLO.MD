@@ -16,7 +16,7 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 - Verrà fatta una serie di registrazioni di domande e risposte
 - gli argomenti delle domande verranno forniti in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
 - la risposta deve essere il più naturale possibile, non è importante la veridicità
-- Bisognerà posizionarsi a **1 metro di distanza dal microfono** e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
+- Bisognerà posizionarsi a **mezzo metro di distanza dal microfono** e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
 <br>
 
 **Inizialmente**:
@@ -62,19 +62,17 @@ Nell'**ultima parte**:
 
 ## ESEMPIO:
  - **operatore**: Qual è il tuo genere di musica preferita?
- - **partecipante**: *si toglie la cuffia*
  - **partecipante**: Mi piace molto la musica rock, ma ultimamente sto passando un po' anche alla musica metal...
- - **operatore**: fa il cenno con la mano di concludere la risposta
  - **partecipante**: ...ma ultimamente sto molto in fissa con gli Iron Maiden.
- - ***attesa di 5 secondi***
+ - ***attesa di 3 secondi***
  - **partecipante**: pronuncia una frase. eg. "e tu?".
- - ***attesa di 5 secondi***
+ - ***attesa di 3 secondi***
  - **partecipante**: Quale genere di musica preferisci?
 
 ***Il precedente ciclo di domande si ripete per N volte***
 
  - **partecipante**: fa un suono non verbale. eg. "ah-ah"
- - ***attesa di 5 secondi***
+ - ***attesa di 3 secondi***
 
 ***Il precedente ciclo di domande si ripete per tutti i suoni non verbali***
 
