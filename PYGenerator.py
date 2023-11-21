@@ -335,7 +335,7 @@ def list_to_3Dlist(dict):
     logging.info(f"list_to_3Dlist \t\t - SUCCESS")
     return arr
 
-def calc_NO_ask_files(dir_path, n_answers: int, n_questions: int):
+def handle_auto_files(dir_path, n_answers: int, n_questions: int):
     _, _, answers, questions, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
     logging.info(f"{answers, questions, initial_questions}")
     #q_participants, a_participants = random_choice(q_letters, a_letters, n_answers)
@@ -399,7 +399,7 @@ def calc_NO_ask_files(dir_path, n_answers: int, n_questions: int):
                 if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                     file_names = add_file(file_names, i[0])
                     break
-    logging.info(f"calc_NO_ask_files \t - SUCCESS: {file_names}")
+    logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
     return file_names
 
 
@@ -474,7 +474,7 @@ def user_input(dir_path, max_participants, a_letters, q_letters):
         elif str(user_choice).lower() == "no":
             min_max = min(max(q_letters.values()), max(a_letters.values()))
             n_answers, n_questions = user_auto_files(len(a_letters), int(min_max))
-            file_names = calc_NO_ask_files(dir_path, n_answers, n_questions)
+            file_names = handle_auto_files(dir_path, n_answers, n_questions)
             logging.info(f"user_input \t - SUCCESS: {file_names}")
             return file_names
         else:
