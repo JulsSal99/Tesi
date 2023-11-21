@@ -29,7 +29,12 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 
 **Il test:**
 - verrà posta una domanda dall'operatore e a questa domanda la persona dovrà fornire una **risposta** nella maniera più naturale possibile. Nel caso in cui la risposta risulti carente, l'intervistato può inventare una risposta anche non veritiera, ma che risulti plausibile.
-- Sarà l'operatore gestualmente a dare indicazioni sulla durata temporale della risposta se continuare a parlare o meno. 
+- Sarà eventualmente l'operatore gestualmente a dare indicazioni sulla durata temporale della risposta se continuare a parlare o meno, ma non verrà fornita al partecipante alcuna durata effettiva. 
+Nello specifico, l'operatore considera diversi casistiche di durata e conseguentemente agisce nel seguente modo:
+   - sotto i 15 secondi: Viene chiesto di ripetere la domanda,
+   - tra i 15 e i 30: la risposta è valida, ma il partecipante viene esortato a parlare di più nella seguente,
+   - tra 30 e 50: durata corretta,
+   - sopra il minuto: Il partecipante viene esortato a parlare un po' meno nella domanda successiva.
 - Alla fine di ogni risposta il partecipante dovrà fare una pausa di **5 secondi in completo silenzio**.
 - In seguito dovrà pronunciare una domanda introduttiva (eg. "e tu?", "invece te?", "quindi?", "Allora", "eee...")
 - In seguito il partecipante dovrà fare un'ulteriore pausa di **5 secondi in completo silenzio**.
@@ -81,11 +86,14 @@ Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe A
   - Anche io adoro i Lego! Ho appena finito di costruire il set del Millennium Falcon.
 Le domande sono su:
 1. **MUSIC PREFERENCES**: 
-   - Do you enjoy music? What kind of music do you listen to?
+   - What kind of music do you listen to?
 2. **COOKING**:
    - Do you have a favourite dish? What do you like about it? 
-3. **HOBBIES**: What do you do in your free time? What are your hobbies?
-4. **TRAVEL**: What is the most beautiful place you have visited or where would you like to go on vacation?
+3. **HOBBIES**: 
+   - What do you do in your free time? What are your hobbies?
+4. **TRAVEL**: 
+   - What is the most beautiful place you have visited or where would you like to go on vacation?
+[SOLO UNA!!!!!!]
 5. **JOB**: 
    - What is your job or field of study? What do you like about it?
 6. **PREFERRED SCHOOL SUBJECT**: 
@@ -93,7 +101,7 @@ Le domande sono su:
 7. **LANGUAGES**: 
    - How many languages do you speak and which foreign language would you like to learn?
 8. **ENTERTAINMENT**: 
-   - Do you like reading books or watching movies and TV series? Can you tell me something about the last book, movie, or TV series you watched?
+   - Can you tell me something about the last book, movie, or TV series you watched?
 9.  **ANIMALS**: 
    - Can you tell me something about an animal that you like or don't like?
 10. **SUPERPOWERS**: 

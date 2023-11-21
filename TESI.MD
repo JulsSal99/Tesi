@@ -95,7 +95,15 @@ Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte
      - *soluzione 1*: L'intervistato ripete la domanda **dopo** aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta;
        - *problema 1*: l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente;
          - *Soluzione*: sta all'operatore *eventualmente* intervenire valutandone la coerenza con la domanda originale.
+         - *Soluzione 2*: Le domande non devono essere equivocabili: vengon ipotizzati diversi tipi di domande 
      - *soluzione 2*: viene dato all'intervistato un **prompt generico** il più lontano possibile dalla domanda originale e verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni (dopo una durata in secondi prestabilita)
+   - *Problema 3*: Il soggetto potrebbe produrre risposte troppo lunghe o troppo corte:
+     - *Soluzione 1*: vengono forniti in anticipo gli argomenti delle domande, ma non le domande in se'.
+     - *Soluzione 2*: Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. Le regole da seguire:
+        - sotto i 15 secondi: gli facciamo rifare 
+        - tra i 15 e i 30: prendiamo per buono ma esortiamo a parlare di più nella prossima
+        - tra 30 e 50: va bene
+        - sopra il minuto: esortiamo a parlare un po' meno nella domanda successiva
 
 <span style="color:red"> <br> 
 Inoltre è possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
