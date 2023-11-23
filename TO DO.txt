@@ -14,8 +14,6 @@ TEST2
 gestione del generatore randomico
 - controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.
 
-cambiare il formato dei nomi, anche nella tesi in IDname_SESSO_volume_tipo_ndomanda 		da  *T_P_S_N_PORTAMENTO*
-
 folder_info dovrebbe esistere un modo di disattivare gli errori di folder_info per far funzionare solo l'inserimento manuale
 
 portare gomma per ridurre 60Hz canale destro
