@@ -14,9 +14,16 @@ TEST2
 gestione del generatore randomico
 - controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.
 
-gestione dei silenzi
-- Problema, se chi fa la domanda dopo la risposta, non è più una nuova pausa, ma un silenzio
-
 cambiare il formato dei nomi, anche nella tesi in IDname_SESSO_volume_tipo_ndomanda 		da  *T_P_S_N_PORTAMENTO*
 
-284 check PAUSES SAMPLE RATE
+folder_info dovrebbe esistere un modo di disattivare gli errori di folder_info per far funzionare solo l'inserimento manuale
+
+portare gomma per ridurre 60Hz canale destro
+
+Portare adattatore JACK 3.5-6.3
+
+Registrare stanza in silenzio
+
+Isolante per le ventole (non si sentono, ma meglio prevenire che curare)
+
+Postit con note su quali domande si fanno

@@ -17,6 +17,7 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 - gli argomenti delle domande verranno forniti in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
 - la risposta deve essere il più naturale possibile, non è importante la veridicità
 - Bisognerà posizionarsi a **mezzo metro di distanza dal microfono** e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
+- Bisogna spegnere qualunque apparecchio che possa provocare rumori non previsti e/o fonte di distrazione (cellulari, sveglie orologi, etc.).
 <br>
 
 **Inizialmente**:
@@ -43,7 +44,7 @@ Nello specifico, l'operatore considera diversi casistiche di durata e conseguent
 
 <br>
 
-Nell'**ultima parte**:
+Nell'**ultima parte**:  
  - alla fine delle domande, verrà chiesto al partecipante di fare dei suoni non verbali, come se partecipasse alla conversazione.
    - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti).
      - Degli ***esempi corretti* di suoni non verbali** sono:
@@ -90,7 +91,7 @@ Le domande sono su:
 3. **HOBBIES**: 
    - What do you do in your free time? What are your hobbies?
 4. **TRAVEL**: 
-   - What is the most beautiful place you have visited or where would you like to go on vacation?
+   - What is the most beautiful place you have visited and where would you like to go on vacation?
 [SOLO UNA!!!!!!]
 5. **JOB**: 
    - What is your job or field of study? What do you like about it?

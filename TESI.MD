@@ -67,7 +67,7 @@ Verrà usata la stanza insonorizzata anecoica di celoria 22 (Malcangi).
 Il partecipante all'esperimento verrà piazzato al centro stanza. Verranno usati due microfoni, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a 1 metro di distanza all'altezza della bocca. 
 ... per ricreare una impostazione ambisonic del secondo ordine.
 <span style="color:red"> (eventuali registrazioni aggiuntive della camera?) </span>
-E' stata usata inoltre usata una scheda audio Motu M3 con gain a ... e due microfoni ...
+E' stata usata inoltre usata una scheda audio Motu M3 con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra
 La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav 24bit-192kHz.
 
 ## Procedimento in stanza con i partecipanti
@@ -99,11 +99,15 @@ Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte
      - *soluzione 2*: viene dato all'intervistato un **prompt generico** il più lontano possibile dalla domanda originale e verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni (dopo una durata in secondi prestabilita)
    - *Problema 3*: Il soggetto potrebbe produrre risposte troppo lunghe o troppo corte:
      - *Soluzione 1*: vengono forniti in anticipo gli argomenti delle domande, ma non le domande in se'.
-     - *Soluzione 2*: Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. Le regole da seguire:
+     - *Soluzione 2*: Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. 
+     Le regole da seguire:
         - sotto i 15 secondi: gli facciamo rifare 
         - tra i 15 e i 30: prendiamo per buono ma esortiamo a parlare di più nella prossima
         - tra 30 e 50: va bene
         - sopra il minuto: esortiamo a parlare un po' meno nella domanda successiva
+     L'operatore non dovrà guardare l'orologio per non dare l'impressione al partecipante di essere di fretta, ma verrà posto un orologio posteriormente al partecipante in modo da non distogliere con evidenza l'attenzione dal dialogo.
+
+Aggiungiamo inoltre che l'operatore dovrà stare frontale e guardare il tester. [RICERCA MOTIVI SGUARDO, ETC.]
 
 <span style="color:red"> <br> 
 Inoltre è possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
@@ -134,48 +138,38 @@ A queste si aggiungono le pause e i silenzi
 
 ## Numenclatura dei files
 Per meglio spiegare l'organizzazione dei files stabiliamo:
- - **T** = "tipologia: generale, domanda, risposta, domanda iniziale o suono non verbale" [G/D/A/IQ/S]
- - **N** = *numero della domanda o risposta*
- - **P** = *identificativo del partecipante al test*
+ - **P** = *identificativo del partecipante al test: viene associato un numero per ogni partecipante, riportato in nel file csv* (a due cifre)
  - **S** = *sesso del partecipante al test* [M/F]
+ - **V** = *Volume del parlato, o Portamento: Normale o Alto* [N/A]
+ - **T** = "tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale" [G/Q/A/I/S] (a singola cifra)
+ - **N** = *numero della domanda o risposta* (a due cifre)
 
 ### Nomi dei files durante la registrazione
-Verranno generati due audio per ogni speaker:
+Verranno generati un audio per ogni speaker:
 - Per le domande e risposte: 
-> *T_P.wav*
-- Per i suoni non verbali: 
-> *T_P.wav*
+> *P_S_V_T.wav*
 
-<br>
 Esempio:
-
-> "G_A" 
-
-&rarr; indica la traccia generale con tutte le domande e le risposte della persona A
-
-> "S_A"
-
-&rarr; indica la traccia con un suono non verbale della persona A
-
-Le tracce verranno poi tagliati per suddividere singolarmente le domande e le risposte secondo il seguente ordine:
+> *01_M_N_T.wav*
+&rarr; indica la traccia generale con tutte le domande, le risposte e i suoni con portamento normale della persona "01", di sesso maschile.
 
 ### Nomi dei files nel programma
-I nomi dei files da dare in input al programma saranno organizzati così:
-- Per le domande e risposte: *T_P_S_N_PORTAMENTO*
-- Per i suoni non verbali: *T_P_V*
+Le tracce verranno poi tagliati con Reaper per suddividere singolarmente le domande, le risposte, le domande iniziali e i suoni.
+I nomi dei files da dare in input al programma saranno così organizzati:
+> *P_S_V_T_N.wav*
 
 Esempio dei nomi dei files in input:
 
 | cartella      | T_P_N               | _S  | _PORTAMENTO | .wav |
 | ------        | -:                  | :-: | :-          | :-   |
-| \INPUT        | Q_Giovanni_1        | _M  | _ALTO       | .wav |
+| \INPUT        | Giovanni_1          | _M  | _ALTO       | .wav |
 | \INPUT        | A_Giovanni_1        | _M  | _ALTO       | .wav |
 | \INPUT        | QI_Giovanni_1       | _M  | _ALTO       | .wav |
 | \INPUT        | S_Giovanni          | _M  |             | .wav |
 | | | | | |
-| \INPUT        | Q_Elena_1           | _F  | _ALTO       | .wav |
-| \INPUT        | A_Elena_1           | _F  | _BASSO      | .wav |
-| \INPUT        | S_Mario             | _M  |             | .wav |
+| \OUTPUT       | Q_Elena_1           | _F  | _ALTO       | .wav |
+| \OUTPUT       | A_Elena_1           | _F  | _BASSO      | .wav |
+| \OUTPUT       | S_Mario             | _M  |             | .wav |
 
 <br>
 

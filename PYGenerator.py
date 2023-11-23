@@ -24,7 +24,11 @@ YOU CAN MODIFY THESE VALUES:
 __version__ = "0.01"
 __author__  = "G.Salada"
 
+# master folder. Should NOT end with a "/"
+dir_path = "C:/Users/giuli/Music" # default: os.path.dirname(os.path.realpath(__file__))
+# input files folder inside master folder
 input_folder = "INPUT" #should always be a folder inside the program' directory
+# output files folder inside master folder
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
 
 # silences values
@@ -33,14 +37,11 @@ s_max = 0.120
 # pauses values
 p_min = 0.7
 p_max = 0.9
-'''
-------------------------
-DO NOT MODIFY!!!
-'''
-sample_rate = 0
-channels = 0
-dir_path = os.path.dirname(os.path.realpath(__file__))
-
+# channels and sample rate of the project
+sample_rate = 0 # if 0, get sample_rate from the first file
+channels = 0    # if 0, get channels from the first file
+# file name format: *IDname_SESSO_volume_tipo_ndomanda". The number identifies the position
+name_format = {"person": 0, "gender": 1, "volume": 2, "type": 3, "question": 4}
 '''
 ------------------------
 '''
@@ -58,21 +59,21 @@ def audio_file(path_file, data_file, name_file, person, duplicated: bool):
 def get_person(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_person \t\t - SUCCESS for: {filename}")
-    return filename_without_extension.split("_")[0]
+    return filename_without_extension.split("_")[name_format['person']]
 
 def get_gender(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_gender \t\t - SUCCESS for: {filename}")
-    return filename_without_extension.split("_")[1]
+    return filename_without_extension.split("_")[name_format['gender']]
 
 def get_type(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_type \t\t - SUCCESS for: {filename}")
-    return filename_without_extension.split("_")[2]
+    return filename_without_extension.split("_")[name_format['type']]
 
 def get_nquestion(filename):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
-    nquestion = int(filename_without_extension.split("_")[3])
+    nquestion = int(filename_without_extension.split("_")[name_format['question']])
     logging.info(f"get_type \t\t - SUCCESS for: {filename}")
     return nquestion
 
@@ -92,6 +93,7 @@ def find_file(name, path):
     for root, dirs, files in os.walk(path):
         for file in files:
             if name in file and (file.lower().endswith(".wav")):
+                logging.info(f"find_file \t\t - SUCCESS.")
                 return os.path.join(root, file)
     raise Exception(f"File {name}.wav not found in {path}")
 
@@ -107,7 +109,7 @@ def folder_info(folder_path):
     a_letters = {} #count answers persons
     for filename in os.listdir(folder_path):
         if filename.endswith('.wav'):
-            if len(filename.split('_')) < 4:
+            if len(filename.split('_')) == len(name_format):
                 count_wrong_name += 1
             else: 
                 file_type = get_type(filename)
@@ -124,6 +126,16 @@ def folder_info(folder_path):
                 elif file_type == "S":
                     count_s.append(filename)
                 max_files += 1
+    if count_q == []:
+        logging.info(f"folder_info \t\t - No Initial Questions.")
+        raise Exception(f"\n No questions in the folder.")
+    if count_a == []:
+        logging.info(f"folder_info \t\t - No Initial Questions.")
+        raise Exception(f"\n No answers in the folder.")
+    if count_iq == []:
+        logging.info(f"folder_info \t\t - No Initial Questions.")
+        raise Exception(f"\n No Initial Questions in the folder.")
+    logging.info(f"folder_info \t\t - SUCCESS.")
     return count_wrong_name, max_files, count_a, count_q, count_iq, count_s, a_letters, q_letters
 
 def get_channels(data):
@@ -134,25 +146,23 @@ def get_channels(data):
     else:
         logging.info(f"get_channels \t\t - SUCCESS: {np.shape(data)[1]}")
         return np.shape(data)[1]
+
+def check_SR_CH(name, rate_temp, channels_temp):
+    '''handle SampleRate and Channels Exceptions'''
+    '''To avoid unuseful file reads,'''
+    '''this function handle only Exceptions'''
+    if sample_rate != rate_temp:
+        raise Exception(f"\nIl file audio n{name} ha frequenza di campionamento diversa ({rate_temp} hz).")
+    elif channels != channels_temp:
+        raise Exception(f"\n Il file audio n{name} ha numero di canali diverso ({channels_temp} ch).")
+    else:
+        logging.info(f"check_SR_CH \t\t - SUCCESS")
     
 def raw_to_seconds(audio):
     '''audio data to lenght. Works with STEREO and MONO'''
     duration = len(audio) / sample_rate
     logging.info(f"raw_to_seconds \t\t - SUCCESS")
     return duration
-
-def check_SR_CH(file_names, temp_rate, channels):
-    '''Check sample rate and channels of the audio files'''
-    for i in range(len(file_names)):
-        file_names[i]['data'], sample_rate_temp = sf.read(file_names[i]['path'])
-        channels_temp = get_channels(file_names[i]['data'])
-        if i == 0:
-            temp_rate = sample_rate_temp
-            logging.info(f"check_SR_CH \t\t - SUCCESS")
-        elif temp_rate != sample_rate_temp:
-            raise Exception(f"\nIl file audio n{i+1} ha frequenza di campionamento diversa ({sample_rate_temp} hz).")
-        elif channels != channels_temp:
-            raise Exception(f"\n Il file audio n{i+1} ha numero di canali diverso ({channels_temp} ch).")
 
 def concatenate(data1, data2, pause_length, channels):
     '''generate 2 audio files, one with the first audio muted,'''
@@ -178,6 +188,7 @@ def silence_generator(file_names):
         else:
             pause_length = random.uniform(p_min, p_max)  # seconds
         silences.append(pause_length)
+    logging.info(f"silence_generator \t - SUCCESS.")
     return silences
 
 def file_complete(file_names, channels, silences):
@@ -187,23 +198,32 @@ def file_complete(file_names, channels, silences):
         else:
             # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
             OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], channels)
-    logging.info(f"output_complete \t - SUCCESS.")
+    logging.info(f"file_complete \t\t - SUCCESS.")
     return OUTPUT
+
+def data_creator(file_names):
+    '''Read each single file and add raw data to file_names'''
+    '''and check sample rate and channels with check_SR_CH'''
+    global channels, sample_rate
+    if channels == 0 or sample_rate == 0:
+        # Get sample rate
+        data_temp, temp_rate = sf.read(file_names[0]['path'])
+        # Get channels number
+        channels += get_channels(data_temp)
+        sample_rate += temp_rate
+
+    for i in range(len(file_names)):
+        file_names[i]['data'], rate_temp = sf.read(file_names[i]['path'])
+        channels_temp = get_channels(file_names[i]['data'])
+        check_SR_CH(file_names[i]['name'], rate_temp, channels_temp)
 
 def read_write_file(file_names):
     ''' MAIN FUNCTION: create the ending file'''
     ''' create the class inside file_names and return to concatenate()'''
     ''' check channels, sample_rate'''
-    # Get sample rate
-    data_temp, temp_rate = sf.read(file_names[0]['path'])
-    # Get channels number
-    global channels
-    channels += get_channels(data_temp)
-    
+
     # Get sampled data from files and check sample rate and channels
-    check_SR_CH(file_names, temp_rate, channels)
-    global sample_rate
-    sample_rate += temp_rate
+    data_creator(file_names)
     
     # create an array of pause_length for each (between) file
     silences = silence_generator(file_names)
@@ -268,25 +288,21 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
     random.shuffle(sounds)
     audio = filenames_lenghts(file_names, silences)
 
-    # to get channels and sample_rate
-    sound_raw, temp_rate = sf.read(file_names[0]['path'])
-    temp_channels = get_channels(sound_raw)
-    #if temp_rate != sample_rate or channels != temp_channels:
-    #    raise Exception("Invalid Sample_rate or channels!")
-    # !!!!!!!!!!!!!!!  CHECK SAMPLE AND CHANNELS !!!
-
     # this cycle only handles superposition sounds
     for i_s in range(len(sounds)-1):
         for i_a in range(len(audio)-1):
             # if sound is inside an audio of the same person
             if audio[i_a][1] == sounds[i_s][1] and audio[i_a][2] > sounds[i_s][2] and audio[i_a][3] < sounds[i_s][2]:
                 sounds.pop(i_s)
-    
+
     OUTPUT = []
     for i_s in range(len(sounds)-1):
         #empty pause
         n_sample_silence = int(sample_rate * sounds[i_s][2])
-        data1, _ =sf.read(sounds[i_s][0])
+        name = sounds[i_s][0]
+        data1, temp_rate =sf.read(name)
+        temp_channels = get_channels(data1)
+        check_SR_CH(name, temp_rate, temp_channels)
         #stereo
         if len(data1.shape) > 1:
             silence = np.zeros((n_sample_silence, channels))
@@ -469,13 +485,13 @@ def user_input(dir_path, max_participants, a_letters, q_letters):
         user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
         if str(user_choice).lower() == "si":
             file_names = user_ask_files(dir_path, max_participants)
-            logging.info(f"user_input \t - SUCCESS: {file_names}")
+            logging.info(f"user_input \t\t - SUCCESS: {file_names}")
             return file_names
         elif str(user_choice).lower() == "no":
             min_max = min(max(q_letters.values()), max(a_letters.values()))
             n_answers, n_questions = user_auto_files(len(a_letters), int(min_max))
             file_names = handle_auto_files(dir_path, n_answers, n_questions)
-            logging.info(f"user_input \t - SUCCESS: {file_names}")
+            logging.info(f"user_input \t\t - SUCCESS: {file_names}")
             return file_names
         else:
             print("Il valore inserito non è corretto. Riprova.")
@@ -507,6 +523,3 @@ if __name__ == '__main__':
 # Il programma vede quali files ci sono nella cartella e chiede all'utente se vanno bene quegli interlocutori.
 # chiede all'utente:
     # lunghezza massima
-        # 
-    # quante persone parlano
-        # se sì quali?
