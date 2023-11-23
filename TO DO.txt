@@ -14,6 +14,10 @@ TEST2
 gestione del generatore randomico
 - controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.
 
+L'ordine delle domande deve essere casuale?
+ - chiedere all'utente se vuole che l'ordine delle domande sia casuale (ordine e quantità)
+ - passare a handle_auto_files il numero di domande, creare un array da 0 al numero di domande shuffleare e prendere gli n valori da questo array che dice quali domande
+
 folder_info dovrebbe esistere un modo di disattivare gli errori di folder_info per far funzionare solo l'inserimento manuale
 
 portare gomma per ridurre 60Hz canale destro
