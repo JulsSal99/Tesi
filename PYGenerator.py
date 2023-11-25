@@ -25,11 +25,14 @@ __version__ = "0.01"
 __author__  = "G.Salada"
 
 # master folder. Should NOT end with a "/"
-dir_path = "C:/Users/giuli/Music" # default: os.path.dirname(os.path.realpath(__file__))
+dir_path = "C:/Users/giuli/Documents/GitHub/Tesi" # default: os.path.dirname(os.path.realpath(__file__))
 # input files folder inside master folder
 input_folder = "INPUT" #should always be a folder inside the program' directory
 # output files folder inside master folder
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
+# 
+enable_noise = True
+noise_file = "noise.wav" #should always be a folder inside the program' directory
 
 # silences values
 s_min = 0.05
@@ -41,7 +44,8 @@ p_max = 0.9
 sample_rate = 0 # if 0, get sample_rate from the first file
 channels = 0    # if 0, get channels from the first file
 # file name format: *IDname_SESSO_volume_tipo_ndomanda". The number identifies the position
-name_format = {"person": 0, "gender": 1, "volume": 2, "type": 3, "question": 4}
+name_format = {"person": 0, "gender": 1, "volume": 4, "type": 2, "question": 3}
+# CORRETTO name_format = {"person": 0, "gender": 1, "volume": 2, "type": 3, "question": 4}
 '''
 ------------------------
 '''
@@ -164,6 +168,21 @@ def raw_to_seconds(audio):
     logging.info(f"raw_to_seconds \t\t - SUCCESS")
     return duration
 
+def noise(raw_file):
+    raw_noise, sample_rate = sf.read(dir_path + "/" + noise_file)
+    temp_channels = get_channels(raw_noise)
+    check_SR_CH(noise_file, sample_rate, temp_channels)
+    raw_length = len(raw_file)
+    noise_length = len(raw_noise)
+    if noise_length < raw_length:
+        n_repeats = int(raw_length/noise_length)+1
+        raw_noise = np.concatenate([raw_noise] * n_repeats)
+    sum = np.add(raw_noise[:raw_length], raw_file)
+    if len(raw_noise[:raw_length]) != len(raw_file) or len(raw_file) != len(sum):
+        raise Exception("Internal Error in function 'noise'")
+    logging.info(f"noise \t\t\t - SUCCESS.")
+    return sum
+ 
 def concatenate(data1, data2, pause_length, channels):
     '''generate 2 audio files, one with the first audio muted,'''
     ''' the second with the second audio muted.'''
@@ -171,10 +190,14 @@ def concatenate(data1, data2, pause_length, channels):
     #stereo
     if len(data1.shape) > 1 or len(data2.shape) > 1:
         silence = np.zeros((n_sample_silence, channels))
+        if enable_noise:
+            silence = noise(silence)
         OUTPUT = np.concatenate((data1, silence, data2), axis=0)
     #mono
     else:
         silence = np.zeros((n_sample_silence,))
+        if enable_noise:
+            silence = noise(silence)
         OUTPUT = np.concatenate((data1, silence, data2))
     logging.info(f"concatenate \t\t - SUCCESS")
     return OUTPUT
@@ -241,12 +264,16 @@ def read_write_file(file_names):
                         OUTPUT = file_names[0]['data']
                     else:
                         OUTPUT = np.zeros((int(len(file_names[0]['data'])),))
+                        if enable_noise:
+                            OUTPUT = noise(OUTPUT)
                 else:
                     # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
                     if file_names[j]['person'] == print_person:
                         OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1], channels)
                     else:
                         file_silence = np.zeros((int(len(file_names[j]['data'])),))
+                        if enable_noise:
+                            file_silence = noise(file_silence)
                         OUTPUT = concatenate(OUTPUT, file_silence, silences[j - 1], channels)
             OUTPUT2.append([OUTPUT, print_name])
             logging.info(f"read_write_file \t - SUCCESS for: {print_name}")
@@ -306,10 +333,14 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
         #stereo
         if len(data1.shape) > 1:
             silence = np.zeros((n_sample_silence, channels))
+            if enable_noise:
+                silence = noise(silence)
             data2 = np.concatenate((silence, data1), axis=0)
         #mono
         else:
             silence = np.zeros((n_sample_silence,))
+            if enable_noise:
+                silence = noise(silence)
             data2 = np.concatenate((silence, data1))
         OUTPUT.append([data2, sounds[i_s][1]])
     logging.info(f"handle_sounds \t\t - SUCCESS.")
