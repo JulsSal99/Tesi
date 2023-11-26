@@ -1,4 +1,11 @@
 sean@cs.gmu.edu, lunaperonace28@gmail.com, giorgio.presti@unimi.it, cecilia.rossi4@studenti.unimi.it, jacopo.silvestri1@studenti.unimi.it, valeria.stighezza@studenti.unimi.it, marco.fontana@unimi.it 
+Sean Luke: sean@cs.gmu.edu 
+Luna Peronace: lunaperonace28@gmail.com 
+Giorgio Presti: giorgio.presti@unimi.it 
+Cecilia Rossi: cecilia.rossi4@studenti.unimi.it 
+Jacopo Silvestri: jacopo.silvestri1@studenti.unimi.it 
+Valeria Stighezza: valeria.stighezza@studenti.unimi.it 
+Marco Fontana: marco.fontana@unimi.it 
 CC AVANZINI, FANTINI E PRESTI
 
 Oggetto: Esperimento di registrazione presso il Lab di Informatica Musicale
