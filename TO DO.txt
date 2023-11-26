@@ -10,6 +10,7 @@ TEST2
 
  COMPLETED! (folder opened)
 
+Aggiusta errore: in sound: "ERROR!! - np.pad aborted"
 
 gestione del generatore randomico
 - controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.

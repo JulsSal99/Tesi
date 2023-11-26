@@ -311,16 +311,25 @@ def sounds_to_3dlist(sounds, max_duration):
 
 def handle_sounds(sound_files, file_names, max_duration, silences):
     ''' deletes sounds in wrong position and concatenate silence with each sound '''
-    sounds = sounds_to_3dlist(sound_files, max_duration)
-    random.shuffle(sounds)
+    logging.info(f"handle_sounds \t\t - {sound_files}")
     audio = filenames_lenghts(file_names, silences)
 
     # this cycle only handles superposition sounds
-    for i_s in range(len(sounds)-1):
-        for i_a in range(len(audio)-1):
-            # if sound is inside an audio of the same person
-            if audio[i_a][1] == sounds[i_s][1] and audio[i_a][2] > sounds[i_s][2] and audio[i_a][3] < sounds[i_s][2]:
-                sounds.pop(i_s)
+    while True:
+        popped = 0
+        sounds = sounds_to_3dlist(sound_files, max_duration)
+        max_popped = len(sounds)
+        random.shuffle(sounds)
+        for i_s in range(len(sounds)-1):
+            for i_a in range(len(audio)-1):
+                # if sound is inside an audio of the same person
+                if audio[i_a][1] == sounds[i_s][1] and audio[i_a][2] > sounds[i_s][2] and audio[i_a][3] < sounds[i_s][2]:
+                    sounds.pop(i_s)
+                    popped += 1
+        if float(popped) / float(max_popped) < 0.3:
+            break
+        else:
+            logging.info(f"handle_sounds \t\t - ERROR!! - too many popped! Repeat cycle.")
 
     OUTPUT = []
     for i_s in range(len(sounds)-1):
@@ -349,16 +358,21 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
 
 def sounds(sound_files, file_names, audio_no_s, silences):
     output = []
+    # -1 takes the last file (COMPLETE)
     max_duration = raw_to_seconds(audio_no_s[-1][0])
     sounds = handle_sounds(sound_files, file_names, max_duration, silences)
     for i in audio_no_s:
         sum = i[0]
         for j in sounds:
+            # if the person is the same
             if i[1] == j[1]:
                 if j[0].shape == sum.shape:
                     sum = np.add(sum, j[0])
                 else:
-                    j_padded = np.pad(j[0], (0, sum.shape[0] - j[0].shape[0]), 'constant')
+                    if (sum.shape[0]>j[0].shape[0]):
+                        j_padded = np.pad(j[0], (0, sum.shape[0] - j[0].shape[0]), 'constant')
+                    else:
+                        logging.info(f"sounds \t\t\t - ERROR!! - np.pad aborted: sum ({sum}) .shape:{sum.shape[0]} > j ({j}) .shape:{j[0].shape[0]}")
                     sum = np.add(sum, j_padded)
         output.append([sum, i[1]])
         logging.info(f"sounds \t\t\t - SUCCESS for: {i[1]}")
