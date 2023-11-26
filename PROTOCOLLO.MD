@@ -4,8 +4,6 @@ bibliography: biblio.bib
 link-citations: true
 ---
 # Protocollo
-8 - 10
-generica-lunga
 
 ## Qual è lo scopo?
 Lo scopo di questo test, sarà la generazione di dialoghi realistici tramite la composizione di più linee di dialogo di più partecipanti.
@@ -36,9 +34,9 @@ Nello specifico, l'operatore considera diversi casistiche di durata e conseguent
    - tra i 15 e i 30: la risposta è valida, ma il partecipante viene esortato a parlare di più nella seguente,
    - tra 30 e 50: durata corretta,
    - sopra il minuto: Il partecipante viene esortato a parlare un po' meno nella domanda successiva.
-- Alla fine di ogni risposta il partecipante dovrà fare una pausa di **5 secondi in completo silenzio**.
+- Alla fine di ogni risposta il partecipante dovrà fare una pausa di **3 secondi in completo silenzio** (può contare con le dita).
 - In seguito dovrà pronunciare una domanda introduttiva (eg. "e tu?", "invece te?", "quindi?", "Allora", "eee...")
-- In seguito il partecipante dovrà fare un'ulteriore pausa di **5 secondi in completo silenzio**.
+- In seguito il partecipante dovrà fare un'ulteriore pausa di **3 secondi in completo silenzio**.
 - Poi dovrà ripronunciare la **domanda** fatta in partenza *usando le proprie parole*
 - Dopo aver pronunciato la domanda il partecipante dovrà fare un'ulteriore **pausa** in attesa di ascoltare in cuffia la domanda seguente
 

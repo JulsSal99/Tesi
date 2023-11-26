@@ -1,3 +1,5 @@
+import sys
+sys.path.insert(0, 'libs')
 import libsinstall
 libsinstall.install_libraries()
 
@@ -35,7 +37,7 @@ input_folder = "INPUT" #should always be a folder inside the program' directory
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
 # background noise for silences and pauses
 enable_noise = True
-noise_file = "noise.wav" #should always be a folder inside the program' directory
+noise_file = "NOISE.wav" #should always be a folder inside the program' directory
 
 # silences values
 s_min = 0.05
@@ -47,7 +49,7 @@ p_max = 0.9
 sample_rate = 0 # if 0, get sample_rate from the first file
 channels = 0    # if 0, get channels from the first file
 # sounds quantity. This float value goes from 0 to 1. If 1, uses all sounds, if 0, none
-s_quantity = 1.0
+s_quantity = 0
 '''
 ------------------------
 '''
@@ -317,8 +319,9 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
     audio = filenames_lenghts(file_names, silences)
 
     sounds = sounds_to_3dlist(sound_files, max_duration)
-    len(sounds)
-    max_popped = len(sounds)
+    max_sounds = int(len(sounds) * s_quantity)
+    sounds = sounds[:max_sounds]
+    print(sounds)
     # this cycle only handles superposition sounds
     while True:
         popped = 0
@@ -329,12 +332,12 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
                 if audio[i_a][1] == sounds[i_s][1] and audio[i_a][2] > sounds[i_s][2] and audio[i_a][3] < sounds[i_s][2]:
                     sounds.pop(i_s)
                     popped += 1
-        if float(popped) / float(max_popped) < 0.3:
+        if float(popped) / float(max_sounds) < 0.3:
             break
         else:
             # repeat cycle only if popped sounds are less than 30% (0.3)
             logging.info(f"handle_sounds \t\t - ERROR!! - too many popped! Repeat cycle.")
-            sounds = sounds_to_3dlist(sound_files, max_duration)
+            sounds = (sounds_to_3dlist(sound_files, max_duration))[:max_sounds]
 
     logging.info(f"handle_sounds \t\t - SUCCESS.")
     # ho in uscita un array di tutti i file audio che vanno sovrapposti con il nome di ogni persona
@@ -342,25 +345,30 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
 
 def sounds(sound_files, file_names, audio_no_s, silences):
     output = []
-    # -1 takes the last file (COMPLETE)
-    max_duration = raw_to_seconds(audio_no_s[-1][0])
-    sounds = handle_sounds(sound_files, file_names, max_duration, silences)
-    for i in audio_no_s:
-        sum = i[0]
-        for j in sounds:
-            # if the person is the same
-            if i[1] == j[1]:
-                sound, temp_rate =sf.read(j[0])
-                temp_channels = get_channels(sound)
-                check_SR_CH(j[0], temp_rate, temp_channels)
-                start_sound = sample_rate*int(j[2])
-                end_sound = len(sound)+start_sound
-                if len(sound.shape) > 1 and len(sum.shape) > 1:
-                    sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]), axis=0)
-                else:
-                    sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]))
-        output.append([sum, i[1]])
-        logging.info(f"sounds \t\t\t - SUCCESS for: {i[1]}")
+    if s_quantity == 0:
+        logging.info(f"sounds \t\t\t - ABORT: s_quantity = 0")
+        for i in audio_no_s:
+            output.append([i[0], i[1]])
+    else:
+        # -1 takes the last file (COMPLETE)
+        max_duration = raw_to_seconds(audio_no_s[-1][0])
+        sounds = handle_sounds(sound_files, file_names, max_duration, silences)
+        for i in audio_no_s:
+            sum = i[0]
+            for j in sounds:
+                # if the person is the same
+                if i[1] == j[1]:
+                    sound, temp_rate =sf.read(j[0])
+                    temp_channels = get_channels(sound)
+                    check_SR_CH(j[0], temp_rate, temp_channels)
+                    start_sound = sample_rate*int(j[2])
+                    end_sound = len(sound)+start_sound
+                    if len(sound.shape) > 1 and len(sum.shape) > 1:
+                        sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]), axis=0)
+                    else:
+                        sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]))
+            output.append([sum, i[1]])
+            logging.info(f"sounds \t\t\t - SUCCESS for: {i[1]}")
     return output
 
 # /////////////////////////////////// SOUNDS //////////////////////////////////
