@@ -37,7 +37,7 @@ input_folder = "INPUT" #should always be a folder inside the program' directory
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
 # background noise for silences and pauses
 enable_noise = True
-noise_file = "NOISE.wav" #should always be a folder inside the program' directory
+noise_file = "noise.wav" #should always be a folder inside the program' directory
 
 # silences values
 s_min = 0.05
