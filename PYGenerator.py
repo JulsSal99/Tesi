@@ -24,13 +24,16 @@ YOU CAN MODIFY THESE VALUES:
 __version__ = "0.01"
 __author__  = "G.Salada"
 
+# file name format: *IDname_SESSO_volume_tipo_ndomanda". The number identifies the position
+name_format = {"person": 0, "gender": 1, "volume": 4, "type": 2, "question": 3}
+# CORRETTO name_format = {"person": 0, "gender": 1, "volume": 2, "type": 3, "question": 4}
 # master folder. Should NOT end with a "/"
 dir_path = "C:/Users/giuli/Documents/GitHub/Tesi" # default: os.path.dirname(os.path.realpath(__file__))
 # input files folder inside master folder
 input_folder = "INPUT" #should always be a folder inside the program' directory
 # output files folder inside master folder
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
-# 
+# background noise for silences and pauses
 enable_noise = True
 noise_file = "noise.wav" #should always be a folder inside the program' directory
 
@@ -43,9 +46,8 @@ p_max = 0.9
 # channels and sample rate of the project
 sample_rate = 0 # if 0, get sample_rate from the first file
 channels = 0    # if 0, get channels from the first file
-# file name format: *IDname_SESSO_volume_tipo_ndomanda". The number identifies the position
-name_format = {"person": 0, "gender": 1, "volume": 4, "type": 2, "question": 3}
-# CORRETTO name_format = {"person": 0, "gender": 1, "volume": 2, "type": 3, "question": 4}
+# sounds quantity. This float value goes from 0 to 1. If 1, uses all sounds, if 0, none
+s_quantity = 1.0
 '''
 ------------------------
 '''
@@ -314,11 +316,12 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
     logging.info(f"handle_sounds \t\t - {sound_files}")
     audio = filenames_lenghts(file_names, silences)
 
+    sounds = sounds_to_3dlist(sound_files, max_duration)
+    len(sounds)
+    max_popped = len(sounds)
     # this cycle only handles superposition sounds
     while True:
         popped = 0
-        sounds = sounds_to_3dlist(sound_files, max_duration)
-        max_popped = len(sounds)
         random.shuffle(sounds)
         for i_s in range(len(sounds)-1):
             for i_a in range(len(audio)-1):
@@ -329,32 +332,13 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
         if float(popped) / float(max_popped) < 0.3:
             break
         else:
+            # repeat cycle only if popped sounds are less than 30% (0.3)
             logging.info(f"handle_sounds \t\t - ERROR!! - too many popped! Repeat cycle.")
+            sounds = sounds_to_3dlist(sound_files, max_duration)
 
-    OUTPUT = []
-    for i_s in range(len(sounds)-1):
-        #empty pause
-        n_sample_silence = int(sample_rate * sounds[i_s][2])
-        name = sounds[i_s][0]
-        data1, temp_rate =sf.read(name)
-        temp_channels = get_channels(data1)
-        check_SR_CH(name, temp_rate, temp_channels)
-        #stereo
-        if len(data1.shape) > 1:
-            silence = np.zeros((n_sample_silence, channels))
-            if enable_noise:
-                silence = noise(silence)
-            data2 = np.concatenate((silence, data1), axis=0)
-        #mono
-        else:
-            silence = np.zeros((n_sample_silence,))
-            if enable_noise:
-                silence = noise(silence)
-            data2 = np.concatenate((silence, data1))
-        OUTPUT.append([data2, sounds[i_s][1]])
     logging.info(f"handle_sounds \t\t - SUCCESS.")
     # ho in uscita un array di tutti i file audio che vanno sovrapposti con il nome di ogni persona
-    return OUTPUT
+    return sounds
 
 def sounds(sound_files, file_names, audio_no_s, silences):
     output = []
@@ -366,14 +350,15 @@ def sounds(sound_files, file_names, audio_no_s, silences):
         for j in sounds:
             # if the person is the same
             if i[1] == j[1]:
-                if j[0].shape == sum.shape:
-                    sum = np.add(sum, j[0])
+                sound, temp_rate =sf.read(j[0])
+                temp_channels = get_channels(sound)
+                check_SR_CH(j[0], temp_rate, temp_channels)
+                start_sound = sample_rate*int(j[2])
+                end_sound = len(sound)+start_sound
+                if len(sound.shape) > 1 and len(sum.shape) > 1:
+                    sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]), axis=0)
                 else:
-                    if (sum.shape[0]>j[0].shape[0]):
-                        j_padded = np.pad(j[0], (0, sum.shape[0] - j[0].shape[0]), 'constant')
-                    else:
-                        logging.info(f"sounds \t\t\t - ERROR!! - np.pad aborted: sum ({sum}) .shape:{sum.shape[0]} > j ({j}) .shape:{j[0].shape[0]}")
-                    sum = np.add(sum, j_padded)
+                    sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]))
         output.append([sum, i[1]])
         logging.info(f"sounds \t\t\t - SUCCESS for: {i[1]}")
     return output
