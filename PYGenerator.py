@@ -38,7 +38,6 @@ output_folder = "OUTPUT" #should always be a folder inside the program' director
 # background noise for silences and pauses
 enable_noise = True
 noise_file = "noise.wav" #should always be a folder inside the program' directory
-
 # silences values
 s_min = 0.05
 s_max = 0.120
@@ -53,6 +52,9 @@ s_quantity = 0
 '''
 ------------------------
 '''
+# number of answers and questions. positive or "-1" if random
+n_answers = -1
+n_questions = -1
 
 def audio_file(path_file, data_file, name_file, person, duplicated: bool):
     file = {}
@@ -107,8 +109,7 @@ def find_file(name, path):
 
 def folder_info(folder_path):
     '''count the number of audio files in a folder and split questions from answers'''
-    count_wrong_name = 0
-    max_files = 0
+    max_participants = 0
     count_q = [] #array with all questions
     count_a = [] #array with all answers
     count_iq = [] #array with all initial answer
@@ -117,8 +118,8 @@ def folder_info(folder_path):
     a_letters = {} #count answers persons
     for filename in os.listdir(folder_path):
         if filename.endswith('.wav'):
-            if len(filename.split('_')) == len(name_format):
-                count_wrong_name += 1
+            if len(filename.split('_')) > len(name_format):
+                logging.info(f"folder_info \t\t - ABORT: {filename} name format is NOT correct. See manual for correct file naming.\n")
             else: 
                 file_type = get_type(filename)
                 if file_type == "Q":
@@ -133,7 +134,7 @@ def folder_info(folder_path):
                     count_iq.append(filename)
                 elif file_type == "S":
                     count_s.append(filename)
-                max_files += 1
+                max_participants += 1
     if count_q == []:
         logging.info(f"folder_info \t\t - No Initial Questions.")
         raise Exception(f"\n No questions in the folder.")
@@ -144,7 +145,7 @@ def folder_info(folder_path):
         logging.info(f"folder_info \t\t - No Initial Questions.")
         raise Exception(f"\n No Initial Questions in the folder.")
     logging.info(f"folder_info \t\t - SUCCESS.")
-    return count_wrong_name, max_files, count_a, count_q, count_iq, count_s, a_letters, q_letters
+    return max_participants, count_a, count_q, count_iq, count_s, a_letters, q_letters
 
 def get_channels(data):
     '''Get the number of channels in an audio file'''
@@ -389,10 +390,10 @@ def list_to_3Dlist(dict):
     logging.info(f"list_to_3Dlist \t\t - SUCCESS")
     return arr
 
-def handle_auto_files(dir_path, n_answers: int, n_questions: int):
-    _, _, answers, questions, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
+def handle_auto_files(dir_path):
+    global n_questions
+    _, answers, questions, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
     logging.info(f"{answers, questions, initial_questions}")
-    #q_participants, a_participants = random_choice(q_letters, a_letters, n_answers)
     # create 3D array for questions
     matr_questions = list_to_3Dlist(questions)
     matr_answers = list_to_3Dlist(answers)
@@ -458,12 +459,13 @@ def handle_auto_files(dir_path, n_answers: int, n_questions: int):
 
 
 def user_auto_files(count_answers, count_questions):
+    global n_answers, n_questions
     while True:
        tmp_n_answers = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (massimo: {count_answers})? Se SI, quante? ")
        if str(tmp_n_answers).lower() == "no":
            n_answers = count_answers * (-1)
            break
-       elif str(tmp_n_answers).isnumeric() and int(tmp_n_answers)<=count_answers and int(tmp_n_answers)>=0:
+       elif str(tmp_n_answers).isnumeric() and int(tmp_n_answers)<=count_answers and int(tmp_n_answers)>0:
            n_answers = int(tmp_n_answers)
            break
        elif str(tmp_n_answers).isnumeric() and int(tmp_n_answers)>count_answers:
@@ -475,7 +477,7 @@ def user_auto_files(count_answers, count_questions):
        if str(tmp_n_questions).lower() == "no":
            n_questions = count_questions * (-1)
            break
-       elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)<=count_questions and int(tmp_n_questions)>=0:
+       elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)<=count_questions and int(tmp_n_questions)>0:
            n_questions = int(tmp_n_questions)
            break
        elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)>count_questions:
@@ -491,7 +493,6 @@ def user_auto_files(count_answers, count_questions):
        else:
            print("Il valore inserito non è corretto. Riprova.")'''
     logging.info(f"user_auto_files \t - SUCCESS")
-    return n_answers, n_questions
 
 def user_ask_files(dir_path, max_participants):
     '''Ask file1, file2'''
@@ -527,35 +528,37 @@ def user_input(dir_path, max_participants, a_letters, q_letters):
             return file_names
         elif str(user_choice).lower() == "no":
             min_max = min(max(q_letters.values()), max(a_letters.values()))
-            n_answers, n_questions = user_auto_files(len(a_letters), int(min_max))
-            file_names = handle_auto_files(dir_path, n_answers, n_questions)
+            user_auto_files(len(a_letters), int(min_max))
+            file_names = handle_auto_files(dir_path)
             logging.info(f"user_input \t\t - SUCCESS: {file_names}")
             return file_names
         else:
             print("Il valore inserito non è corretto. Riprova.")
 
+def write_files(OUTPUT):
+    for i in OUTPUT:
+        write_name = output_folder+f'/merged{i[1]}.wav'
+        sf.write(write_name, i[0], sample_rate)
+        logging.info(f"write_files \t\t - SUCCESS: Created {write_name}")
+
 if __name__ == '__main__':
     '''Important path of input files'''
-    count_wrong_name, max_input_files, count_a, count_q, count_iq, counts_s, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
+    max_participants, count_a, count_q, count_iq, counts_s, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
 
     print("\n\tGeneratore di dialoghi realistici.\n")
-    if count_wrong_name >0:
-        print("Found", count_wrong_name, "wav files with wrong file name. See manual for correct file names.\n")
     
     #try:
     '''ask for user input'''
-    file_names = user_input(dir_path, max_input_files, a_letters, q_letters)
+    file_names = user_input(dir_path, max_participants, a_letters, q_letters)
     '''Create output array [data, person] and silences/pauses values'''
     OUTPUT, silences = read_write_file(file_names)
     '''Create output array [data, person]: add silences/pauses to output data'''
     OUTPUT = sounds(counts_s, file_names, OUTPUT, silences)
-    for i in OUTPUT:
-        write_name = output_folder+f'/merged{i[1]}.wav'
-        sf.write(write_name, i[0], sample_rate)
+    write_files(OUTPUT)
     print("\n COMPLETED! (folder opened)")
     os.startfile(os.path.join(dir_path, output_folder))
     '''except Exception as e:
-        print("\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {}".format(e))
+        print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
         exit()'''
 
 # Il programma vede quali files ci sono nella cartella e chiede all'utente se vanno bene quegli interlocutori.
