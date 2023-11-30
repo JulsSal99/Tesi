@@ -48,7 +48,9 @@ p_max = 0.9
 sample_rate = 0 # if 0, get sample_rate from the first file
 channels = 0    # if 0, get channels from the first file
 # sounds quantity. This float value goes from 0 to 1. If 1, uses all sounds, if 0, none
-s_quantity = 0
+s_quantity = 0.5
+# decide if sounds can come from people not asking or answering questions 
+'''outside_sounds = False IN DEVELOPMENT'''
 '''
 ------------------------
 '''
@@ -59,32 +61,36 @@ n_questions = -1
 # number of answers. positive or "-1" if random
 n_answers = -1
 
-def audio_file(path_file, data_file, name_file, person, duplicated: bool):
+'''def check_global():
+    if n_questions.type != 'int' or (n_questions < 0 and n_questions != -1):
+        raise ValueError(f"\n n_questions Wrong Type!")'''
+
+def audio_file(path: str, data: bin, name: str, person: str, duplicated: bool):
     file = {}
-    file['path'] = path_file
-    file['data'] = data_file
-    file['name'] = name_file
+    file['path'] = path
+    file['data'] = data
+    file['name'] = name
     file['person'] = person
     file['duplicated'] = duplicated
-    logging.info(f"audio_file \t\t - SUCCESS for: {path_file}")
+    logging.info(f"audio_file \t\t - SUCCESS for: {path}: {type(file)}")
     return file
 
-def get_person(filename):
+def get_person(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_person \t\t - SUCCESS for: {filename}")
     return filename_without_extension.split("_")[name_format['person']]
 
-def get_gender(filename):
+def get_gender(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_gender \t\t - SUCCESS for: {filename}")
     return filename_without_extension.split("_")[name_format['gender']]
 
-def get_type(filename):
+def get_type(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_type \t\t - SUCCESS for: {filename}")
     return filename_without_extension.split("_")[name_format['type']]
 
-def get_nquestion(filename):
+def get_nquestion(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     nquestion = int(filename_without_extension.split("_")[name_format['question']])
     logging.info(f"get_type \t\t - SUCCESS for: {filename}")
@@ -325,7 +331,6 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
     sounds = sounds_to_3dlist(sound_files, max_duration)
     max_sounds = int(len(sounds) * s_quantity)
     sounds = sounds[:max_sounds]
-    print(sounds)
     # this cycle only handles superposition sounds
     while True:
         popped = 0
@@ -371,6 +376,22 @@ def sounds(sound_files, file_names, audio_no_s, silences):
                         sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]), axis=0)
                     else:
                         sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]))
+                '''elif outside_sounds:
+                    sound, temp_rate =sf.read(j[0])
+                    start_sound = sample_rate*int(j[2])
+                    ending = sample_rate*max_duration - len(sound)+start_sound
+                    if len(sound.shape) > 1 and len(sum.shape) > 1:
+                        silence = np.zeros((start_sound, ))
+                        silence2 = np.zeros((ending, ))
+                        if enable_noise:
+                            silence = noise(silence)
+                        sum = np.concatenate(silence, sound, silence2), axis=0)
+                    else:
+                        silence = np.zeros((start_sound, ))
+                        silence2 = np.zeros((ending, ))
+                        if enable_noise:
+                            silence = noise(silence)
+                        sum = np.concatenate(silence, sound, silence2)'''
             output.append([sum, i[1]])
             logging.info(f"sounds \t\t\t - SUCCESS for: {i[1]}")
     return output

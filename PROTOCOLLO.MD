@@ -6,27 +6,33 @@ link-citations: true
 # Protocollo
 
 ## Qual è lo scopo?
-Lo scopo di questo test, sarà la generazione di dialoghi realistici tramite la composizione di più linee di dialogo di più partecipanti.
+
+Lo scopo di questo test, sarà la generazione di *dialoghi realistici* tramite la composizione di *più linee di dialogo* di *più partecipanti*.
 Per semplificare: verranno registrate una serie di domande e di risposte da ogni partecipante e queste domande e risposte verranno composte via software in un processo automatizzato per comporre dei dialoghi continui.
 Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futuro per esempio per un test prossimo al LIM sulla riverberazione in realtà aumentata.
 
 ## Come avviene il test? 
-- Verrà fatta una serie di registrazioni di domande e risposte
-- gli argomenti delle domande verranno forniti in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
-- la risposta deve essere il più naturale possibile, non è importante la veridicità
-- Bisognerà posizionarsi a **mezzo metro di distanza dal microfono** e con il viso diretto verso il microfono. Sarà l'operatore a posizionare l'altezza corretta del microfono
-- Bisogna spegnere qualunque apparecchio che possa provocare rumori non previsti e/o fonte di distrazione (cellulari, sveglie orologi, etc.).
+
+- Verrà fatta una serie di registrazioni di *domande* e *risposte*
+- gli *argomenti* delle domande verranno forniti in anticipo per evitare scena muta, ma non verranno fornite le domande specifiche
+- la risposta deve essere il più *naturale* possibile, non è importante la veridicità
+- Bisognerà posizionarsi a **mezzo metro di distanza dal microfono** e con il viso diretto verso il microfono (l'operatore sarà posizionato dietro al microfono per aiutare a mantenere la corretta posizione).
+- Bisogna **spegnere qualunque apparecchio** che possa provocare rumori non previsti e/o fonte di distrazione (cellulari, sveglie orologi, etc.).
 <br>
 
-**Inizialmente**:
- - <span style="font-size:large;">dichiarare le seguenti informazioni a scopo di raccolta dati:</span><span style="font-size:larger;">
-   - nome: 
-   - sesso [M/F/ND]:
-   - età:
-   - madrelingua inglese [SI/NO]:
-</span>
+### Inizialmente:
 
-**Il test:**
+<span style="font-size:large;">dichiarare le seguenti informazioni a scopo di raccolta dati:</span>
+
+|                   	| 1 	| 2 	| 3 	| 4 	| 5 	| 6 	| 7 	| 8 	| 9 	| 10 	|
+|-------------------	|---	|---	|---	|---	|---	|---	|---	|---	|---	|----	|
+| nome              	|   	|   	|   	|   	|   	|   	|   	|   	|   	|    	|
+| sesso [M/F/ND]    	|   	|   	|   	|   	|   	|   	|   	|   	|   	|    	|
+| età               	|   	|   	|   	|   	|   	|   	|   	|   	|   	|    	|
+| madrelingua [Y/N] 	|   	|   	|   	|   	|   	|   	|   	|   	|   	|    	|
+
+### Il test:
+
 - verrà posta una domanda dall'operatore e a questa domanda la persona dovrà fornire una **risposta** nella maniera più naturale possibile. Nel caso in cui la risposta risulti carente, l'intervistato può inventare una risposta anche non veritiera, ma che risulti plausibile.
 - Sarà eventualmente l'operatore gestualmente a dare indicazioni sulla durata temporale della risposta se continuare a parlare o meno, ma non verrà fornita al partecipante alcuna durata effettiva. 
 Nello specifico, l'operatore considera diversi casistiche di durata e conseguentemente agisce nel seguente modo:
@@ -42,7 +48,8 @@ Nello specifico, l'operatore considera diversi casistiche di durata e conseguent
 
 <br>
 
-Nell'**ultima parte**:  
+Nell'**ultima parte**:
+
  - alla fine delle domande, verrà chiesto al partecipante di fare dei suoni non verbali, come se partecipasse alla conversazione.
    - I suoni non verbali devono essere di neutri (no disapprovazione, incertezza o estrema approvazione allo scopo di evitare che siano inadatti alle varie varianti di risposte date dai partecipanti).
      - Degli ***esempi corretti* di suoni non verbali** sono:
@@ -60,6 +67,7 @@ Nell'**ultima parte**:
        - Eh?: Questo suono può essere utilizzato per chiedere a qualcuno di ripetere ciò che ha detto o per esprimere incertezza.
 
 ## ESEMPIO:
+
  - **operatore**: Qual è il tuo genere di musica preferita?
  - **partecipante**: Mi piace molto la musica rock, ma ultimamente sto passando un po' anche alla musica metal...
  - **partecipante**: ...ma ultimamente sto molto in fissa con gli Iron Maiden.
@@ -79,9 +87,12 @@ Nell'**ultima parte**:
 
 Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante, Requivocabile
 Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe ALTAMENTE essere diversa dall'originale. Per esempio:
+
   - L'altro giorno mi hanno regalato un lego set di Harry Potter: sto facendo la collezione. Anche te hai qualche hobbie?
   - Anche io adoro i Lego! Ho appena finito di costruire il set del Millennium Falcon.
+
 Le domande sono su:
+
 1. **MUSIC PREFERENCES**: 
    - What kind of music do you listen to?
 2. **COOKING**:
@@ -90,7 +101,6 @@ Le domande sono su:
    - What do you do in your free time? What are your hobbies?
 4. **TRAVEL**: 
    - What is the most beautiful place you have visited and where would you like to go on vacation?
-[SOLO UNA!!!!!!]
 5. **JOB**: 
    - What is your job or field of study? What do you like about it?
 6. **PREFERRED SCHOOL SUBJECT**: 
