@@ -52,9 +52,12 @@ s_quantity = 0
 '''
 ------------------------
 '''
-# number of answers and questions. positive or "-1" if random
-n_answers = -1
+# if True, question order is random
+random_question = True
+# number of questions. positive or "-1" if random
 n_questions = -1
+# number of answers. positive or "-1" if random
+n_answers = -1
 
 def audio_file(path_file, data_file, name_file, person, duplicated: bool):
     file = {}
@@ -417,7 +420,10 @@ def handle_auto_files(dir_path):
     tmp_n_answers = 0
     if n_questions < 0:
         n_questions = random.randint(1, (n_questions*(-1)))
-    for j in range(n_questions):
+    ran_n_que = list(range(n_questions))
+    if random_question:
+        random.shuffle(ran_n_que)
+    for j in ran_n_que:
         # choose random interrogator
         interrogator = random.choice(q_participants)
         # add first person to ask X each question
@@ -459,7 +465,7 @@ def handle_auto_files(dir_path):
 
 
 def user_auto_files(count_answers, count_questions):
-    global n_answers, n_questions
+    global n_answers, n_questions, random_question
     while True:
        tmp_n_answers = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (massimo: {count_answers})? Se SI, quante? ")
        if str(tmp_n_answers).lower() == "no":
@@ -482,6 +488,16 @@ def user_auto_files(count_answers, count_questions):
            break
        elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)>count_questions:
            print(f"Il numero deve essere <= {count_questions}")
+       else:
+           print("Il valore inserito non è corretto. Riprova.")
+    while True:
+       tmp_random_order = input(f"L'ordine delle domande è casuale? [SI/NO] ")
+       if str(tmp_random_order).lower() == "no":
+           random_question = False
+           break
+       elif str(tmp_random_order).lower() == "si":
+           random_question = True
+           break
        else:
            print("Il valore inserito non è corretto. Riprova.")
     '''while True:
