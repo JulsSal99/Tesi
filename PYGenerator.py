@@ -467,7 +467,7 @@ def handle_auto_files(dir_path):
 def user_auto_files(count_answers, count_questions):
     global n_answers, n_questions, random_question
     while True:
-       tmp_n_answers = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (massimo: {count_answers})? Se SI, quante? ")
+       tmp_n_answers = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (max: {count_answers})? [NO/n] ")
        if str(tmp_n_answers).lower() == "no":
            n_answers = count_answers * (-1)
            break
@@ -479,7 +479,7 @@ def user_auto_files(count_answers, count_questions):
        else:
            print("Il valore inserito non è corretto. Riprova.")
     while True:
-       tmp_n_questions = input(f"Vuoi specificare un numero massimo di domande (massimo: {count_questions})? Se SI, quante? ")
+       tmp_n_questions = input(f"Vuoi specificare un numero massimo di domande (max: {count_questions})? [NO/n] ")
        if str(tmp_n_questions).lower() == "no":
            n_questions = count_questions * (-1)
            break
