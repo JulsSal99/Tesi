@@ -18,6 +18,7 @@ Questi dialoghi costituiranno quindi un dataset che potrà essere usato in futur
 - la risposta deve essere il più *naturale* possibile, non è importante la veridicità
 - Bisognerà posizionarsi a **mezzo metro di distanza dal microfono** e con il viso diretto verso il microfono (l'operatore sarà posizionato dietro al microfono per aiutare a mantenere la corretta posizione).
 - Bisogna **spegnere qualunque apparecchio** che possa provocare rumori non previsti e/o fonte di distrazione (cellulari, sveglie orologi, etc.).
+- NON PRONUNCIARE IL PROPRIO NOME (DOXING)
 <br>
 
 ### Inizialmente:
@@ -100,7 +101,7 @@ Le domande sono su:
 3. **HOBBIES**: 
    - What do you do in your free time? What are your hobbies?
 4. **TRAVEL**: 
-   - What is the most beautiful place you have visited and where would you like to go on vacation?
+   - What is the most beautiful place you have visited?
 5. **JOB**: 
    - What is your job or field of study? What do you like about it?
 6. **PREFERRED SCHOOL SUBJECT**: 
