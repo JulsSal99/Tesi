@@ -547,14 +547,6 @@ def user_auto_files(count_answers, count_questions):
            break
        else:
            print("Il valore inserito non è corretto. Riprova.")
-    '''while True:
-       participants = input(f"Hai una lunghezza massima? Se SI, quanto? ")
-       if str(participants).lower() == "no":
-           break
-       elif str(participants).isnumeric():
-           break
-       else:
-           print("Il valore inserito non è corretto. Riprova.")'''
     logging.info(f"user_auto_files \t - SUCCESS")
 
 def user_ask_files(dir_path, max_participants):
