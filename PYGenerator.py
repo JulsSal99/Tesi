@@ -60,8 +60,8 @@ random_question = True
 n_questions = -1
 # number of answers. positive or "-1" if random
 n_answers = -1
-# volume of answers. "0" if a random mix, "1" if low volume, "2" if high volume
-volume = 0
+# volume of answers. "ND" if NOT DEFINED, "H" if LOW volume, "L" if HIGH volume
+volume = "ND"
 
 pop_tollerance = sample_rate * 1
 
@@ -140,18 +140,19 @@ def folder_info(folder_path):
                 logging.info(f"folder_info \t\t - ABORT: {filename} name format is NOT correct. See manual for correct file naming.\n")
             else: 
                 file_type = get_type(filename)
-                if file_type == "Q":
-                    count_q.append(filename)
-                    person = get_person(filename)
-                    q_letters[person] = get_nquestion(filename)
-                elif file_type == "A":
-                    count_a.append(filename)
-                    person = get_person(filename)
-                    a_letters[person] = get_nquestion(filename)
-                elif file_type == "I":
-                    count_iq.append(filename)
-                elif file_type == "S":
+                if file_type == "S":
                     count_s.append(filename)
+                elif volume == "ND" or get_volume(filename) == volume:
+                    if file_type == "Q":
+                        count_q.append(filename)
+                        person = get_person(filename)
+                        q_letters[person] = get_nquestion(filename)
+                    elif file_type == "A":
+                        count_a.append(filename)
+                        person = get_person(filename)
+                        a_letters[person] = get_nquestion(filename)
+                    elif file_type == "I":
+                        count_iq.append(filename)
                 max_files += 1
     if count_q == []:
         logging.info(f"folder_info \t\t - No Initial Questions.")
@@ -162,7 +163,7 @@ def folder_info(folder_path):
     if count_iq == []:
         logging.info(f"folder_info \t\t - No Initial Questions.")
         raise Exception(f"\n No Initial Questions in the folder.")
-    logging.info(f"folder_info \t\t - SUCCESS: {max_files, count_a, count_q, count_iq, count_s, a_letters, q_letters}")
+    logging.info(f"folder_info \t\t - SUCCESS: max_files: {max_files}, \tcount_a: {count_a}, \tcount_q: {count_q}, \tcount_iq: {count_iq}, \tcount_s: {count_s}, \ta_letters: {a_letters}, \tq_letters: {q_letters}")
     return max_files, count_a, count_q, count_iq, count_s, a_letters, q_letters
 
 def get_channels(data):
@@ -427,7 +428,7 @@ def list_to_3Dlist(dict):
     return arr
 
 def handle_auto_files(dir_path):
-    global n_questions
+    '''CREATE FILE_NAMES'''
     _, answers, questions, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
     logging.info(f"{answers, questions, initial_questions}")
     # create 3D array for questions
@@ -439,6 +440,8 @@ def handle_auto_files(dir_path):
     file_names = []
 
     # handle 1 element arrays
+    if len(a_participants) == len(q_participants) == 1 and a_participants[0] == q_participants[0]:
+        raise Exception("More than 1 participant are required for the experiment!!")
     if len(a_participants) == 1:
         answerer = a_participants[0]
         # first interrogator must be != answerer
@@ -452,8 +455,10 @@ def handle_auto_files(dir_path):
 
     tmp_n_answers = 0
     if n_questions < 0:
-        n_questions = random.randint(1, (n_questions*(-1)))
-    ran_n_que = list(range(n_questions))
+        tmp_n_questions = random.randint(1, (n_questions*(-1)))
+    else:
+        tmp_n_questions = n_questions
+    ran_n_que = list(range(tmp_n_questions))
     # shuffle if question order should be randomized
     if random_question:
         random.shuffle(ran_n_que)
@@ -537,13 +542,13 @@ def user_auto_files(count_answers, count_questions):
     while True:
        tmp_random_order = input(f"Portamento? [HIGH/LOW/MIX] ")
        if str(tmp_random_order).lower() == "high":
-           volume = 2
+           volume = "H"
            break
        elif str(tmp_random_order).lower() == "low":
-           volume = 1
+           volume = "L"
            break
        elif str(tmp_random_order).lower() == "mix":
-           volume = 0
+           volume = "ND"
            break
        else:
            print("Il valore inserito non è corretto. Riprova.")
