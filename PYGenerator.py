@@ -48,7 +48,7 @@ p_max = 0.9
 sample_rate = 0 # if 0, get sample_rate from the first file
 channels = 0    # if 0, get channels from the first file
 # sounds quantity. This float value goes from 0 to 1. If 1, uses all sounds, if 0, none
-s_quantity = 0.5
+s_quantity = 20.5
 # decide if sounds can come from people not asking or answering questions 
 '''outside_sounds = False IN DEVELOPMENT'''
 '''
@@ -332,40 +332,59 @@ def filenames_lenghts(file_names, silences):
     logging.info(f"filenames_lenghts \t - SUCCESS: {arr}")
     return arr
 
-def sounds_to_3dlist(sounds, max_duration):
+def sounds_to_2dlist(sounds, max_duration):
+    '''create 2D list of sounds. Each sound has a random position in seconds'''
     arr = []
     for filename in sounds:
         person = get_person(filename)
         delay = random.uniform(0, max_duration)
         arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, delay])
+    if s_quantity > 1:
+        integer, decimal = str(s_quantity).split(".")
+        decimal = float("0." + decimal)
+        for _ in range(int(integer)):
+            for filename in sounds:
+                person = get_person(filename)
+                delay = random.uniform(0, max_duration)
+                arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, delay])
+            logging.info(f"handle_sounds \t\t - INFO: arr expanded")
     logging.info(f"sounds_to_3dlist \t - SUCCESS")
     return arr
 
 def handle_sounds(sound_files, file_names, max_duration, silences):
+    cut_redundancy = 1.5  # in seconds
+    max_popped = 0.3  # how many values in percentage can be removed
+    chance_limit = 3  # how many times can be rebuilt sounds positions if too many sounds get popped
     ''' deletes sounds in wrong position and concatenate silence with each sound '''
     audio = filenames_lenghts(file_names, silences)
 
-    sounds = sounds_to_3dlist(sound_files, max_duration)
+    sounds = sounds_to_2dlist(sound_files, max_duration)
     max_sounds = int(len(sounds) * s_quantity)
+    chance_i = 0
     while True:
+        # random.shuffle is there only because max_sounds remove the last sounds from the array
         random.shuffle(sounds)
         tmp_sounds = sounds[:max_sounds]
         popped = 0
         OUTPUT = []
         for i_s in range(len(tmp_sounds)-1):
             correct = True
-            for i_a in range(len(audio)-1):
-                # if sound is inside an audio of the same person
-                if audio[i_a][1] == tmp_sounds[i_s][1] and tmp_sounds[i_s][2] > audio[i_a][2] and tmp_sounds[i_s][2] < audio[i_a][3]:
+            for i_a in range(len(audio)):
+                # REMOVE if sound is inside an audio of the same person
+                if audio[i_a][1] == tmp_sounds[i_s][1] and tmp_sounds[i_s][2] > (audio[i_a][2]-cut_redundancy) and tmp_sounds[i_s][2] < (audio[i_a][3]+cut_redundancy):
                     correct = False
                     popped += 1
                     break
             if correct:
                 OUTPUT.append(tmp_sounds[i_s])
-        if float(popped) / float(max_sounds) < 0.3:
+        if float(popped) / float(max_sounds) < max_popped:
+            break
+        elif chance_i == chance_limit:
+            logging.info(f"handle_sounds \t\t - ERROR!! - too many popped, BUT chance_limit reached: output this cycle.")
             break
         else:
-            # break cycle only if popped sounds are less than 30% (0.3)
+            sounds = sounds_to_2dlist(sound_files, max_duration)
+            chance_i += 1
             logging.info(f"handle_sounds \t\t - ERROR!! - too many popped! Repeat cycle.")
 
     logging.info(f"handle_sounds \t\t - SUCCESS: popped {popped} files. Created files: {OUTPUT}")

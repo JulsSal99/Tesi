@@ -1,23 +1,16 @@
-errore: manca la domanda di TEST e inoltre la domanda di TEST2 ha come risposta TEST2
-true AI
-AI
-true TEST2
-TEST2
-true TEST
-true TEST2
-TEST2
-[{'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/Q_AI_01.wav', 'data': 0, 'name': 'Q_AI_01', 'person': 'AI', 'duplicated': False}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST_01.wav', 'data': 0, 'name': 'A_TEST_01', 'person': 'TEST', 'duplicated': False}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/Q_TEST2_02.wav', 'data': 0, 'name': 'Q_TEST2_02', 'person': 'TEST2', 'duplicated': False}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST_02.wav', 'data': 0, 'name': 'A_TEST_02', 'person': 'TEST', 'duplicated': True}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST2_03.wav', 'data': 0, 'name': 'A_TEST2_03', 'person': 'TEST2', 'duplicated': True}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/Q_TEST2_04.wav', 'data': 0, 'name': 'Q_TEST2_04', 'person': 'TEST2', 'duplicated': True}, {'path': 'C:\\Users\\giuli\\Documents\\GitHub\\Tesi\\INPUT/A_TEST2_04.wav', 'data': 0, 'name': 'A_TEST2_04', 'person': 'TEST2', 'duplicated': True}]
-
 gestione del generatore randomico
 - controllare che se mi mette il numero di domande, il numero di risposte deve adeguarsi in base a quel numero.
 
 L'ordine delle domande deve essere casuale?
- - chiedere all'utente se vuole che l'ordine delle domande sia casuale (ordine e quantità)
  - passare a handle_auto_files il numero di domande, creare un array da 0 al numero di domande shuffleare e prendere gli n valori da questo array che dice quali domande
 
 folder_info dovrebbe esistere un modo di disattivare gli errori di folder_info per far funzionare solo l'inserimento manuale
 
-portare gomma per ridurre 60Hz canale destro
+sounds_to_2dlist: due suoni uguali non possono stare vicini. Scorrere l'array finale e, se negli ultimi 3 files, c'è un file uguale, rieseguire random.uniform per cambiarne valore
+
+Ricerca su quando vengono messi dei suoni in base ai silenzi
+
+
 
 Portare adattatore JACK 3.5-6.3
 
@@ -25,4 +18,8 @@ Registrare stanza in silenzio
 
 Isolante per le ventole (non si sentono, ma meglio prevenire che curare)
 
-Postit con note su quali domande si fanno
+Brioche per evitare brontolii di pancia
+
+note su quali DOMANDE si fanno
+
+Faldone
