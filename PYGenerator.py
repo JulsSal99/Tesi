@@ -36,8 +36,8 @@ input_folder = "INPUT" #should always be a folder inside the program' directory
 # output files folder inside master folder
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
 # background noise for silences and pauses
-enable_noise = False
-noise_file = "noise.wav" #should always be a folder inside the program' directory
+enable_noise = True
+noise_file = "noise.wav"
 # silences values
 s_min = 0.05
 s_max = 0.120
@@ -64,10 +64,6 @@ n_answers = -1
 volume = "ND"
 
 pop_tollerance = sample_rate * 1
-
-'''def check_global():
-    if n_questions.type != 'int' or (n_questions < 0 and n_questions != -1):
-        raise ValueError(f"\n n_questions Wrong Type!")'''
 
 def audio_file(path: str, data: bin, name: str, person: str, duplicated: bool):
     file = {}
@@ -206,23 +202,67 @@ def noise(raw_file):
         raise Exception("Internal Error in function 'noise'")
     logging.info(f"noise \t\t\t - SUCCESS.")
     return sum
- 
+
+def shape_fixer(mono_array, shape):
+    if shape > 1:
+        stereo_array = np.empty((mono_array.shape[0], channels), dtype=mono_array.dtype)
+        for i in range(channels):
+            stereo_array[:, i] = mono_array
+    else:
+        stereo_array = mono_array.reshape(-1)
+    return stereo_array
+
+def concatenate_noise(audio1, audio2, shape):
+    noise = sf.read(dir_path + "/" + noise_file)[0]
+    #temp_channels = get_channels(noise_file)
+    #check_SR_CH(noise_file, temp_rate, temp_channels)
+    durata_fade = 0.05 #in seconds
+    if len(noise) < (durata_fade * sample_rate):
+        raise Exception("noise too small!!")
+    # calcola la durata dei fade-in e fade-out in campioni
+    durata_fade_campioni = int(durata_fade * sample_rate)
+    # applica il fade-out al primo file audio
+    audio1[-durata_fade_campioni:] *= shape_fixer(np.linspace(1, 0, durata_fade_campioni), shape)
+    # applica il fade-in al secondo file audio
+    audio2[:durata_fade_campioni] *= shape_fixer(np.linspace(0, 1, durata_fade_campioni), shape)
+    noise = noise[:(durata_fade_campioni*2)]
+    # applica il fade-in al rumore
+    FI_rumore = noise[-durata_fade_campioni:]*shape_fixer(np.linspace(0, 1, durata_fade_campioni), shape)
+    # applica il fade-out al rumore
+    FO_rumore = noise[:durata_fade_campioni]*shape_fixer(np.linspace(1, 0, durata_fade_campioni), shape)
+    # Unisci i file audio
+    mixed_audio_1 = np.vstack((audio1, FI_rumore))
+    mixed_audio_2 = np.vstack((audio2, FO_rumore))
+    #concatena i files audio
+    if channels > 1:
+        OUTPUT = np.concatenate((mixed_audio_1, mixed_audio_2), axis=0)
+    else:
+        #OUTPUT = np.concatenate((mixed_audio_1[:-durata_fade_campioni], overlap, mixed_audio_2[durata_fade_campioni:]))
+        OUTPUT = np.concatenate((mixed_audio_1, mixed_audio_2))
+    logging.info(f"concatenate_noise \t\t - SUCCESS")
+    return OUTPUT
+
 def concatenate(data1, data2, pause_length):
     '''generate 2 audio files, one with the first audio muted,'''
     ''' the second with the second audio muted.'''
     n_sample_silence = int(sample_rate * pause_length)
     #stereo
-    if len(data1.shape) > 1 or len(data2.shape) > 1:
+    shape = len(data1.shape)
+    if shape > 1:
         silence = np.zeros((n_sample_silence, channels))
         if enable_noise:
             silence = noise(silence)
-        OUTPUT = np.concatenate((data1, silence, data2), axis=0)
+            OUTPUT = concatenate_noise((concatenate_noise(data1, silence, shape)), data2, shape)
+        else:
+            OUTPUT = np.concatenate((data1, silence, data2), axis=0)
     #mono
     else:
         silence = np.zeros((n_sample_silence,))
         if enable_noise:
             silence = noise(silence)
-        OUTPUT = np.concatenate((data1, silence, data2))
+            OUTPUT = concatenate_noise((concatenate_noise(data1, silence, shape)), data2, shape)
+        else:
+            OUTPUT = np.concatenate((data1, silence, data2))
     logging.info(f"concatenate \t\t - SUCCESS")
     return OUTPUT
 
@@ -358,11 +398,11 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
     ''' deletes sounds in wrong position and concatenate silence with each sound '''
     audio = filenames_lenghts(file_names, silences)
 
-    sounds = sounds_to_2dlist(sound_files, max_duration)
-    max_sounds = int(len(sounds) * s_quantity)
     chance_i = 0
     while True:
         # random.shuffle is there only because max_sounds remove the last sounds from the array
+        sounds = sounds_to_2dlist(sound_files, max_duration)
+        max_sounds = int(len(sounds) * s_quantity)
         random.shuffle(sounds)
         tmp_sounds = sounds[:max_sounds]
         popped = 0
@@ -383,9 +423,8 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
             logging.info(f"handle_sounds \t\t - ERROR!! - too many popped, BUT chance_limit reached: output this cycle.")
             break
         else:
-            sounds = sounds_to_2dlist(sound_files, max_duration)
             chance_i += 1
-            logging.info(f"handle_sounds \t\t - ERROR!! - too many popped! Repeat cycle.")
+            logging.info(f"handle_sounds \t\t - ERROR!! - too many popped! Repeat cycle n_{chance_i}.")
 
     logging.info(f"handle_sounds \t\t - SUCCESS: popped {popped} files. Created files: {OUTPUT}")
     # ho in uscita un array di tutti i file audio che vanno sovrapposti con il nome di ogni persona
@@ -404,6 +443,7 @@ def sounds(sound_files, file_names, audio_no_s, silences):
         for i in audio_no_s:
             if i[1] != "COMPLETE":
                 sum = i[0]
+                print(len(sum))
                 for j in sounds:
                     # if the person is the same
                     if i[1] == j[1]:
@@ -413,9 +453,9 @@ def sounds(sound_files, file_names, audio_no_s, silences):
                         start_sound = sample_rate*int(j[2])
                         end_sound = len(sound)+start_sound
                         if channels > 1:
-                            sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]), axis=0)
+                            sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]), axis=0)
                         else:
-                            sum = np.concatenate((sum[:start_sound], sound, sum[end_sound:]))
+                            sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]))
                 output.append([sum, i[1]])
             elif i[1] == "COMPLETE":
                 for j in output:
