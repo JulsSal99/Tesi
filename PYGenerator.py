@@ -37,7 +37,7 @@ input_folder = "INPUT" #should always be a folder inside the program' directory
 output_folder = "OUTPUT" #should always be a folder inside the program' directory
 # background noise for silences and pauses
 enable_noise = True
-noise_file = "noise2.wav"
+noise_file = "noise.wav"
 # silences values
 s_min = 0.05
 s_max = 0.120
@@ -48,7 +48,9 @@ p_max = 0.9
 sample_rate = 0 # if 0, get sample_rate from the first file
 channels = 0    # if 0, get channels from the first file
 # sounds quantity. This float value goes from 0 to 1. If 1, uses all sounds, if 0, none
-s_quantity = 10
+s_quantity = 1
+# minimum distance between one sound and another
+min_s_distance = 5
 # decide if sounds can come from people not asking or answering questions 
 '''outside_sounds = False IN DEVELOPMENT'''
 '''
@@ -180,7 +182,7 @@ def check_SR_CH(name, rate_temp, channels_temp):
     elif channels != channels_temp:
         raise Exception(f"\n Il file audio n{name} ha numero di canali diverso ({channels_temp} ch).")
     else:
-        logging.info(f"check_SR_CH \t\t - SUCCESS")
+        logging.info(f"check_SR_CH \t\t - SUCCESS for {name}")
     
 def raw_to_seconds(audio):
     '''audio data to lenght. Works with STEREO and MONO'''
@@ -216,10 +218,10 @@ def shape_fixer(mono_array, shape):
 
 def concatenate_noise(audio1, audio2, shape):
     if len(audio1) == 0:
-        logging.info(f"concatenate_noise \t\t - SUCCESS: audio1 is empty")
+        logging.info(f"concatenate_noise \t\t - WARNING: audio1 is empty")
         return audio2
     elif len(audio2) == 0:
-        logging.info(f"concatenate_noise \t\t - SUCCESS: audio2 is empty")
+        logging.info(f"concatenate_noise \t\t - WARNING: audio2 is empty")
         return audio1
     noise = sf.read(dir_path + "/" + noise_file)[0]
     durata_fade = 0.05 #in seconds
@@ -232,10 +234,9 @@ def concatenate_noise(audio1, audio2, shape):
         raise Exception(f"audio2 ({len(audio2)} samples) smaller than fade ({durata_fade_campioni} samples)!!")
     # applica il fade-out al primo file audio
     fade_out = np.logspace(np.log10(0.15), np.log10(1.05), durata_fade_campioni)
+    #fade_out = np.linspace(0.15, 1.05, durata_fade_campioni)
     fade_out = shape_fixer(np.subtract(1.1, fade_out), shape)
     fade_in = np.flip(fade_out)
-    #fade_out = shape_fixer(np.linspace(1, 0, durata_fade_campioni), shape)
-    #fade_in = shape_fixer(np.linspace(0, 1, durata_fade_campioni), shape)
     FO_audio1 = audio1[-durata_fade_campioni:] * fade_out
     FI_audio2 = audio2[:durata_fade_campioni] *fade_in
     noise = noise[:(durata_fade_campioni*2)]
@@ -383,13 +384,16 @@ def filenames_lenghts(file_names, silences):
     logging.info(f"filenames_lenghts \t - SUCCESS: {arr}")
     return arr
 
-def sounds_to_2dlist(sounds, max_duration):
+def handle_sounds(sound_files, file_names, max_duration, silences):
     '''create 2D list of sounds. Each sound has a random position in seconds'''
-    end_tollerance = 5 #in seconds
-    min_distance = 1 # in seconds. distance between sounds
-    cycle_limit = 20
-    arr = []
+    cut_redundancy = 1.5  # in seconds
+    length_sounds = 2 # lenght is fixed to not cause unuseful reads
+    end_tollerance = 3 # in seconds, gap at the end to avoid different lenghts in the final audio file
+    cycle_limit = 10 # how many times does the random function search for an empty space. Bigger values get better results, but a slower code
+    OUTPUT = []
     tmp_arr = []
+    count_sounds = 0
+    audio = filenames_lenghts(file_names, silences)
     if isinstance(s_quantity, int):
         integer = int(s_quantity)
     elif isinstance(s_quantity, float):
@@ -397,63 +401,40 @@ def sounds_to_2dlist(sounds, max_duration):
         if int(decimal) != "0":
             integer = int(integer) + 1
     for _ in range(integer):
-        for filename in sounds:
+        random.shuffle(sound_files)
+        for filename in sound_files:
+            count_sounds += 1
             tmp_limit = 0
             person = get_person(filename)
             while True:
+                correct = True
                 delay = random.uniform(0, max_duration-end_tollerance)
-                if np.isclose(tmp_arr, delay, min_distance).any():
-                    cycle_limit += 1
-                elif tmp_limit > cycle_limit:
-                    logging.info(f"handle_sounds \t\t - WARNING: no more space for new sounds!!")
-                    return arr
+                if tmp_limit <= cycle_limit:
+                    for i in tmp_arr:
+                        if abs(i-delay) < min_s_distance:
+                            correct = False
+                            tmp_limit += 1
+                            break
+                    if correct != False:
+                        for i_a in range(len(audio)):
+                            # REMOVE if sound is inside an audio of the same person
+                            start_NO_zone = audio[i_a][2]-cut_redundancy-length_sounds
+                            end_NO_zone = audio[i_a][3]+cut_redundancy
+                            if audio[i_a][1] == person and delay > (start_NO_zone) and delay < (end_NO_zone):
+                                correct = False
+                                tmp_limit += 1
+                                break
                 else:
+                    logging.info(f"handle_sounds \t\t - WARNING: no more space for new sounds with cycle repeated {tmp_limit}")
+                    return OUTPUT
+                if correct:
                     tmp_arr.append(delay)
-                    arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, delay])
+                    OUTPUT.append([os.path.join(dir_path, input_folder+"/"+filename), person, delay])
+                    logging.info(f"handle_sounds \t\t - NOTE: appended {filename} on position {delay} with cycle repeated {tmp_limit}")
+                    tmp_limit = 0
                     break
-        logging.info(f"handle_sounds \t\t - INFO: arr expanded")
-    logging.info(f"sounds_to_2dlist \t - SUCCESS")
-    return arr
-
-def handle_sounds(sound_files, file_names, max_duration, silences):
-    cut_redundancy = 1.5  # in seconds
-    length_sounds = 1
-    max_popped = 0.3  # how many values in percentage can be removed
-    chance_limit = 3  # how many times can be rebuilt sounds positions if too many sounds get popped
-    ''' deletes sounds in wrong position and concatenate silence with each sound '''
-    audio = filenames_lenghts(file_names, silences)
-
-    chance_i = 0
-    while True:
-        # random.shuffle is there only because max_sounds remove the last sounds from the array
-        sounds = sounds_to_2dlist(sound_files, max_duration)
-        random.shuffle(sounds)
-        max_sounds = int(len(sounds) * s_quantity)
-        tmp_sounds = sounds[:max_sounds]
-        popped = 0
-        OUTPUT = []
-        for i_s in range(len(tmp_sounds)-1):
-            correct = True
-            for i_a in range(len(audio)):
-                # REMOVE if sound is inside an audio of the same person
-                start_NO_zone = audio[i_a][2]-cut_redundancy-length_sounds
-                end_NO_zone = audio[i_a][3]+cut_redundancy
-                if audio[i_a][1] == tmp_sounds[i_s][1] and tmp_sounds[i_s][2] >= (start_NO_zone) and tmp_sounds[i_s][2] <= (end_NO_zone):
-                    correct = False
-                    popped += 1
-                    break
-            if correct:
-                OUTPUT.append(tmp_sounds[i_s])
-        if float(popped) / float(max_sounds) < max_popped:
-            break
-        elif chance_i == chance_limit:
-            logging.info(f"handle_sounds \t\t - ERROR!! - too many popped, BUT chance_limit reached: output this cycle.")
-            break
-        else:
-            chance_i += 1
-            logging.info(f"handle_sounds \t\t - ERROR!! - too many popped! Repeat cycle n_{chance_i}.")
-
-    logging.info(f"handle_sounds \t\t - SUCCESS: popped {popped} files. Created files: {OUTPUT}")
+        logging.info(f"handle_sounds \t\t - NOTE: arr expanded with {count_sounds} sounds")
+    logging.info(f"handle_sounds \t\t - SUCCESS")
     # ho in uscita un array di tutti i file audio che vanno sovrapposti con il nome di ogni persona
     return OUTPUT
 
@@ -480,11 +461,14 @@ def sounds(sound_files, file_names, audio_no_s, silences):
                         end_sound = len(sound)+start_sound
                         shape = len(sum.shape)
                         if enable_noise:
-                            sum = concatenate_noise(concatenate_noise(sum[:start_sound-1], sound, shape), sum[end_sound-1:], shape)
+                            sum_tmp = concatenate_noise(sum[:start_sound], sound, shape)
+                            sum = concatenate_noise(sum_tmp, sum[end_sound:], shape)
                         elif channels > 1:
                             sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]), axis=0)
                         else:
                             sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]))
+                if len(sum) != (max_duration*sample_rate):
+                    raise Exception (f"INTERNAL ERROR: {i[1]} (with lenght: {len(sum)}) does not match {max_duration*sample_rate} length")
                 output.append([sum, i[1]])
             elif i[1] == "COMPLETE":
                 for j in output:
@@ -701,9 +685,12 @@ if __name__ == '__main__':
     '''ask for user input'''
     file_names = user_input(dir_path, max_participants, a_letters, q_letters)
     '''Create output array [data, person] and silences/pauses values'''
+    print("\t chosing new files and pauses...")
     OUTPUT, silences = read_write_file(file_names)
     '''Create output array [data, person]: add silences/pauses to output data'''
+    print("\t adding new sounds...")
     OUTPUT = sounds(counts_s, file_names, OUTPUT, silences)
+    print("\t writing files into the hard drive...")
     write_files(OUTPUT)
     print("\n COMPLETED! (folder opened)")
     os.startfile(os.path.join(dir_path, output_folder))

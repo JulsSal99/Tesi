@@ -86,6 +86,22 @@ Nell'**ultima parte**:
 
 # Note per l'operatore:
 
+Procedure di controllo:
+- ricordare di spegnere dispositivi: no vibrazione, muto totale
+- dire che possono ripetere la risposta quante volte vogliono e decidere se tenerla o meno 
+- A ogni domanda sul foglio deve essere messa una doppia spunta: ad inizio domanda e a fine domanda per evitare salti (o eventualmente gli operatori devono essere 2).
+- non muovere o sbattere i piedi
+- non sfregare maglioni o braghe
+- misurare distanza microfoni
+- controllare campionamento e volumi
+- fare una pausa di 3 secondi tra risposta, domanda iniziale, domanda e alla fine
+- fare un esempio "cosa hai fatto ieri?" "sono andato al parco divertimenti,... però è stata comunque una buona giornata" PAUSA "E invece tu?" "Cosa hai fatto ieri?"
+- dire gli argomenti delle domande
+- abbassare luminosità dello schermo del PC
+- mettere il timer (dietro alla persona, spegnimento schermo lungo)
+- i suoni sono stati fatti solo ad un portamento basso poiché alti sarebbero troppo impostati
+
+
 Possibili tipologie di domande: Generica/Specifica/Indiretta, Corta/Lunga, Debole/Scottante, Requivocabile
 Le domande con Requivocabile sono rischiose poiché la domanda finale potrebbe ALTAMENTE essere diversa dall'originale. Per esempio:
 
