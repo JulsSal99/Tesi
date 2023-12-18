@@ -41,6 +41,9 @@ noise_file = "noise.wav"
 # silences values
 s_min = 0.05
 s_max = 0.120
+# long pauses (a pause between a question and another question without any initial question) values
+lp_min = 0.9
+lp_max = 1.2
 # pauses values
 p_min = 0.7
 p_max = 0.9
@@ -52,7 +55,6 @@ s_quantity = 1
 # minimum distance between one sound and another
 min_s_distance = 5
 # decide if sounds can come from people not asking or answering questions 
-'''outside_sounds = False IN DEVELOPMENT'''
 '''
 ------------------------
 '''
@@ -292,10 +294,16 @@ def concatenate(data1, data2, pause_length):
 
 def silence_generator(file_names):
     silences = []
-    for i in range(len(file_names) - 1):
+    length = len(file_names) - 1
+    for i in range(length):
         if get_type(file_names[i]['name']) == "I":
             # if the pause is a SILENCE
             pause_length = random.uniform(s_min, s_max)
+        elif get_type(file_names[i]['name']) == "A" and i != length:
+            if get_nquestion(file_names[i]['name']) and get_nquestion(file_names[i+1]['name']):
+                pause_length = random.uniform(lp_min, lp_max)  # seconds
+            else:
+                pause_length = random.uniform(p_min, p_max)  # seconds
         else:
             pause_length = random.uniform(p_min, p_max)  # seconds
         silences.append(pause_length)
