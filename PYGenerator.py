@@ -30,7 +30,7 @@ __author__  = "G.Salada"
 name_format = {"person": 0, "gender": 1, "volume": 4, "type": 2, "question": 3}
 # CORRETTO name_format = {"person": 0, "gender": 1, "volume": 2, "type": 3, "question": 4}
 # master folder. Should NOT end with a "/"
-dir_path = "C:/Users/giuli/Music/Giorgio" # default: os.path.dirname(os.path.realpath(__file__))
+dir_path = "C:/Users/giuli/Music/Edit" # default: os.path.dirname(os.path.realpath(__file__))
 # input files folder inside master folder
 input_folder = "INPUT" #should always be a folder inside the program' directory
 # output files folder inside master folder
