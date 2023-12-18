@@ -62,6 +62,8 @@ random_question = True
 n_questions = -1
 # number of answers. positive or "-1" if random
 n_answers = -1
+# enable initial questions. "-1" if random, "0" if disabled, "1" if enabled
+enable_init_question = -1
 # volume of answers. "ND" if NOT DEFINED, "H" if LOW volume, "L" if HIGH volume
 volume = "ND"
 
@@ -183,7 +185,16 @@ def check_SR_CH(name, rate_temp, channels_temp):
         raise Exception(f"\n Il file audio n{name} ha numero di canali diverso ({channels_temp} ch).")
     else:
         logging.info(f"check_SR_CH \t\t - SUCCESS for {name}")
-    
+
+def ceil(value) -> int:
+    if isinstance(value, int):
+        integer = int(value)
+    elif isinstance(value, float):
+        integer, decimal = str(value).split(".")
+        if int(decimal) != "0":
+            integer = int(integer) + 1
+    return integer
+
 def raw_to_seconds(audio):
     '''audio data to lenght. Works with STEREO and MONO'''
     duration = len(audio) / sample_rate
@@ -217,36 +228,37 @@ def shape_fixer(mono_array, shape):
     return stereo_array
 
 def concatenate_noise(audio1, audio2, shape):
+    len_fade = 0.05 #in seconds, if noise is <, value is half noise
+    len_fade = int(len_fade * sample_rate)
+    noise = sf.read(dir_path + "/" + noise_file)[0]
+    if len(noise) < (len_fade * 2):
+        len_fade = int(len(noise) / 2)
+        logging.info(f"concatenate_noise \t\t - NOTE: len_fade = {len_fade}")
     if len(audio1) == 0:
         logging.info(f"concatenate_noise \t\t - WARNING: audio1 is empty")
         return audio2
     elif len(audio2) == 0:
         logging.info(f"concatenate_noise \t\t - WARNING: audio2 is empty")
         return audio1
-    noise = sf.read(dir_path + "/" + noise_file)[0]
-    durata_fade = 0.05 #in seconds
-    durata_fade_campioni = int(durata_fade * sample_rate)
-    if len(noise) < (durata_fade_campioni * 2):
-        raise Exception(f"noise ({len(noise)} samples) smaller than fade ({durata_fade_campioni} samples)!!")
-    elif len(audio1) < (durata_fade_campioni):
-        raise Exception(f"audio1 ({len(audio1)} samples) smaller than fade ({durata_fade_campioni} samples)!!")
-    elif len(audio2) < (durata_fade_campioni):
-        raise Exception(f"audio2 ({len(audio2)} samples) smaller than fade ({durata_fade_campioni} samples)!!")
+    elif len(audio1) < (len_fade):
+        raise Exception(f"audio1 ({len(audio1)} samples) smaller than fade ({len_fade} samples)!!")
+    elif len(audio2) < (len_fade):
+        raise Exception(f"audio2 ({len(audio2)} samples) smaller than fade ({len_fade} samples)!!")
     # applica il fade-out al primo file audio
-    fade_out = np.logspace(np.log10(0.15), np.log10(1.05), durata_fade_campioni)
-    #fade_out = np.linspace(0.15, 1.05, durata_fade_campioni)
+    fade_out = np.logspace(np.log10(0.15), np.log10(1.05), len_fade)
+    #fade_out = np.linspace(0.15, 1.05, len_fade)
     fade_out = shape_fixer(np.subtract(1.1, fade_out), shape)
     fade_in = np.flip(fade_out)
-    FO_audio1 = audio1[-durata_fade_campioni:] * fade_out
-    FI_audio2 = audio2[:durata_fade_campioni] *fade_in
-    noise = noise[:(durata_fade_campioni*2)]
-    FI_rumore = noise[:durata_fade_campioni]*fade_in
-    FO_rumore = noise[-durata_fade_campioni:]*fade_out
+    FO_audio1 = audio1[-len_fade:] * fade_out
+    FI_audio2 = audio2[:len_fade] *fade_in
+    noise = noise[:(len_fade*2)]
+    FI_rumore = noise[:len_fade]*fade_in
+    FO_rumore = noise[-len_fade:]*fade_out
     # Unisci i file audio
     mixed_audio1 = np.add(FO_audio1, FI_rumore)
     mixed_audio2 = np.add(FI_audio2, FO_rumore)
-    audio1[-durata_fade_campioni:] = mixed_audio1
-    audio2[:durata_fade_campioni] = mixed_audio2
+    audio1[-len_fade:] = mixed_audio1
+    audio2[:len_fade] = mixed_audio2
     #concatena i files audio
     if channels > 1:
         OUTPUT = np.concatenate((audio1, audio2), axis=0)
@@ -315,6 +327,7 @@ def data_creator(file_names):
         file_names[i]['data'], rate_temp = sf.read(file_names[i]['path'])
         channels_temp = get_channels(file_names[i]['data'])
         check_SR_CH(file_names[i]['name'], rate_temp, channels_temp)
+    logging.info(f"data_creator \t\t - SUCCESS.")
 
 def read_write_file(file_names):
     ''' MAIN FUNCTION: create the ending file'''
@@ -394,13 +407,7 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
     tmp_arr = []
     count_sounds = 0
     audio = filenames_lenghts(file_names, silences)
-    if isinstance(s_quantity, int):
-        integer = int(s_quantity)
-    elif isinstance(s_quantity, float):
-        integer, decimal = str(s_quantity).split(".")
-        if int(decimal) != "0":
-            integer = int(integer) + 1
-    for _ in range(integer):
+    for _ in range(ceil(s_quantity)):
         random.shuffle(sound_files)
         for filename in sound_files:
             count_sounds += 1
@@ -454,9 +461,7 @@ def sounds(sound_files, file_names, audio_no_s, silences):
                 for j in sounds:
                     # if the person is the same
                     if i[1] == j[1]:
-                        sound, temp_rate =sf.read(j[0])
-                        temp_channels = get_channels(sound)
-                        check_SR_CH(j[0], temp_rate, temp_channels)
+                        sound =sf.read(j[0])[0]
                         start_sound = sample_rate*int(j[2])
                         end_sound = len(sound)+start_sound
                         shape = len(sum.shape)
@@ -467,8 +472,8 @@ def sounds(sound_files, file_names, audio_no_s, silences):
                             sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]), axis=0)
                         else:
                             sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]))
-                if len(sum) != (max_duration*sample_rate):
-                    raise Exception (f"INTERNAL ERROR: {i[1]} (with lenght: {len(sum)}) does not match {max_duration*sample_rate} length")
+                if len(sum) != (ceil(max_duration*sample_rate)):
+                    raise Exception (f"INTERNAL ERROR: {i[1]} (with lenght: {len(sum)}) does not match {ceil(max_duration*sample_rate)} length")
                 output.append([sum, i[1]])
             elif i[1] == "COMPLETE":
                 for j in output:
@@ -561,7 +566,7 @@ def handle_auto_files(dir_path):
                     if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                         file_names = add_file(file_names, i[0])
                         break
-                if 0 == (random.randint(0,1)):
+                if (enable_init_question == 1) or (enable_init_question == -1 and bool(random.getrandbits(1)) == True):
                     for i in matr_questions:
                         if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                             file_names = add_file(file_names, i[0])
