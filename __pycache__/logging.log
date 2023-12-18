@@ -1,842 +1,900 @@
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_QI_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_02_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_04_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_05_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_06_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_07_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_08_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_09_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_10_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:21,512 - root - INFO - folder_info 		 - SUCCESS: max_files: 77, 	count_a: ['01_M_A_01_H.wav', '01_M_A_01_L.wav', '01_M_A_02_H.wav', '01_M_A_02_L.wav', '01_M_A_03_H.wav', '01_M_A_03_L.wav', '01_M_A_04_H.wav', '01_M_A_04_L.wav', '01_M_A_05_H.wav', '01_M_A_05_L.wav', '01_M_A_06_H.wav', '01_M_A_06_L.wav', '01_M_A_07_H.wav', '01_M_A_07_L.wav', '01_M_A_08_H.wav', '01_M_A_08_L.wav', '01_M_A_09_H.wav', '01_M_A_09_L.wav', '01_M_A_10_H.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav'], 	count_q: ['01_M_Q_01_H.wav', '01_M_Q_01_L.wav', '01_M_Q_02_H.wav', '01_M_Q_03_H.wav', '01_M_Q_03_L.wav', '01_M_Q_04_H.wav', '01_M_Q_04_L.wav', '01_M_Q_05_H.wav', '01_M_Q_05_L.wav', '01_M_Q_06_H.wav', '01_M_Q_06_L.wav', '01_M_Q_07_H.wav', '01_M_Q_07_L.wav', '01_M_Q_08_H.wav', '01_M_Q_08_L.wav', '01_M_Q_09_H.wav', '01_M_Q_09_L.wav', '01_M_Q_10_H.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav'], 	count_iq: ['01_M_I_01_H.wav', '01_M_I_01_L.wav', '01_M_I_02_H.wav', '01_M_I_02_L.wav', '01_M_I_03_H.wav', '01_M_I_03_L.wav', '01_M_I_04_H.wav', '01_M_I_04_L.wav', '01_M_I_05_H.wav', '01_M_I_05_L.wav', '01_M_I_06_H.wav', '01_M_I_06_L.wav', '01_M_I_07_H.wav', '01_M_I_07_L.wav', '01_M_I_08_H.wav', '01_M_I_08_L.wav', '01_M_I_09_H.wav', '01_M_I_09_L.wav', '01_M_I_10_H.wav', '01_M_I_10_L.wav'], 	count_s: ['01_M_S_01_L.wav', '01_M_S_02_L.wav', '01_M_S_03_L.wav', '01_M_S_04_L.wav', '01_M_S_05_L.wav', '01_M_S_06_L.wav', '01_M_S_07_L.wav', '01_M_S_08_L.wav', '01_M_S_09_L.wav', '01_M_S_10_L.wav'], 	a_letters: {'01': 10, '03': 3}, 	q_letters: {'01': 10, '03': 2}
-2023-12-18 15:54:24,307 - root - INFO - user_auto_files 	 - SUCCESS
-2023-12-18 15:54:24,309 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
-2023-12-18 15:54:24,309 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_H.wav
-2023-12-18 15:54:24,309 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
-2023-12-18 15:54:24,309 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_H.wav
-2023-12-18 15:54:24,309 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:24,309 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
-2023-12-18 15:54:24,310 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_H.wav
-2023-12-18 15:54:24,310 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
-2023-12-18 15:54:24,310 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_H.wav
-2023-12-18 15:54:24,310 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
-2023-12-18 15:54:24,310 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_H.wav
-2023-12-18 15:54:24,310 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:24,310 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
-2023-12-18 15:54:24,311 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_H.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
-2023-12-18 15:54:24,311 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_H.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
-2023-12-18 15:54:24,311 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_H.wav
-2023-12-18 15:54:24,311 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:24,311 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
-2023-12-18 15:54:24,312 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_H.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
-2023-12-18 15:54:24,312 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_H.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_H.wav
-2023-12-18 15:54:24,312 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_H.wav
-2023-12-18 15:54:24,312 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_L.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_H.wav
-2023-12-18 15:54:24,313 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_H.wav
-2023-12-18 15:54:24,314 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
-2023-12-18 15:54:24,314 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_QI_02_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_QI_02_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_02_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_H.wav
-2023-12-18 15:54:24,315 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:24,315 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
-2023-12-18 15:54:24,316 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_H.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
-2023-12-18 15:54:24,316 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_H.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:24,316 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
-2023-12-18 15:54:24,316 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_H.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
-2023-12-18 15:54:24,317 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_H.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
-2023-12-18 15:54:24,317 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_H.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:24,317 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
-2023-12-18 15:54:24,318 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_H.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_01_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_02_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_03_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_04_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_05_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_06_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_07_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_08_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_09_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_10_L.wav
-2023-12-18 15:54:24,318 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:24,319 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:24,320 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:24,320 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:24,320 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:24,320 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:24,320 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:24,320 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_01_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_volume 		 - SUCCESS for: 03_M_QI_01_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_02_L.wav
-2023-12-18 15:54:24,321 - root - INFO - get_volume 		 - SUCCESS for: 03_M_QI_02_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:24,322 - root - INFO - folder_info 		 - SUCCESS: max_files: 77, 	count_a: ['01_M_A_01_L.wav', '01_M_A_02_L.wav', '01_M_A_03_L.wav', '01_M_A_04_L.wav', '01_M_A_05_L.wav', '01_M_A_06_L.wav', '01_M_A_07_L.wav', '01_M_A_08_L.wav', '01_M_A_09_L.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav'], 	count_q: ['01_M_Q_01_L.wav', '01_M_Q_03_L.wav', '01_M_Q_04_L.wav', '01_M_Q_05_L.wav', '01_M_Q_06_L.wav', '01_M_Q_07_L.wav', '01_M_Q_08_L.wav', '01_M_Q_09_L.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav'], 	count_iq: ['01_M_I_01_L.wav', '01_M_I_02_L.wav', '01_M_I_03_L.wav', '01_M_I_04_L.wav', '01_M_I_05_L.wav', '01_M_I_06_L.wav', '01_M_I_07_L.wav', '01_M_I_08_L.wav', '01_M_I_09_L.wav', '01_M_I_10_L.wav'], 	count_s: ['01_M_S_01_L.wav', '01_M_S_02_L.wav', '01_M_S_03_L.wav', '01_M_S_04_L.wav', '01_M_S_05_L.wav', '01_M_S_06_L.wav', '01_M_S_07_L.wav', '01_M_S_08_L.wav', '01_M_S_09_L.wav', '01_M_S_10_L.wav'], 	a_letters: {'01': 10, '03': 3}, 	q_letters: {'01': 10, '03': 2}
-2023-12-18 15:54:24,322 - root - INFO - (['01_M_A_01_L.wav', '01_M_A_02_L.wav', '01_M_A_03_L.wav', '01_M_A_04_L.wav', '01_M_A_05_L.wav', '01_M_A_06_L.wav', '01_M_A_07_L.wav', '01_M_A_08_L.wav', '01_M_A_09_L.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav'], ['01_M_Q_01_L.wav', '01_M_Q_03_L.wav', '01_M_Q_04_L.wav', '01_M_Q_05_L.wav', '01_M_Q_06_L.wav', '01_M_Q_07_L.wav', '01_M_Q_08_L.wav', '01_M_Q_09_L.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav'], ['01_M_I_01_L.wav', '01_M_I_02_L.wav', '01_M_I_03_L.wav', '01_M_I_04_L.wav', '01_M_I_05_L.wav', '01_M_I_06_L.wav', '01_M_I_07_L.wav', '01_M_I_08_L.wav', '01_M_I_09_L.wav', '01_M_I_10_L.wav'])
-2023-12-18 15:54:24,322 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:24,322 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:24,323 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
-2023-12-18 15:54:24,324 - root - INFO - list_to_3Dlist 		 - SUCCESS
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
-2023-12-18 15:54:24,324 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:24,325 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
-2023-12-18 15:54:24,325 - root - INFO - list_to_3Dlist 		 - SUCCESS
-2023-12-18 15:54:24,327 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_01_L.wav
-2023-12-18 15:54:24,327 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
-2023-12-18 15:54:24,327 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_02_L.wav
-2023-12-18 15:54:24,327 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
-2023-12-18 15:54:24,327 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_03_L.wav
-2023-12-18 15:54:24,327 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
-2023-12-18 15:54:24,327 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_04_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_05_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_06_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_07_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_08_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_09_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_10_L.wav
-2023-12-18 15:54:24,328 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
-2023-12-18 15:54:24,328 - root - INFO - list_to_3Dlist 		 - SUCCESS
-2023-12-18 15:54:24,328 - root - INFO - participants_lists 	 - SUCCESS
-2023-12-18 15:54:24,328 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_Q_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_Q_01_L.wav: <class 'dict'>
-2023-12-18 15:54:24,329 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_Q_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_01_L.wav: <class 'dict'>
-2023-12-18 15:54:24,329 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_01_L.wav: <class 'dict'>
-2023-12-18 15:54:24,329 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_01_L.wav: <class 'dict'>
-2023-12-18 15:54:24,329 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_01_L.wav
-2023-12-18 15:54:24,329 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_02_L.wav
-2023-12-18 15:54:24,329 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_02_L.wav: <class 'dict'>
-2023-12-18 15:54:24,329 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_02_L.wav
-2023-12-18 15:54:24,329 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_02_L.wav
-2023-12-18 15:54:24,330 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_02_L.wav: <class 'dict'>
-2023-12-18 15:54:24,330 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_02_L.wav
-2023-12-18 15:54:24,330 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_02_L.wav
-2023-12-18 15:54:24,330 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_02_L.wav: <class 'dict'>
-2023-12-18 15:54:24,330 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_02_L.wav
-2023-12-18 15:54:24,330 - root - INFO - handle_auto_files 	 - SUCCESS: [{'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_01_L.wav', 'data': 0, 'name': '01_M_Q_01_L', 'person': '01', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_01_L.wav', 'data': 0, 'name': '03_M_A_01_L', 'person': '03', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_01_L.wav', 'data': 0, 'name': '03_M_Q_01_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav', 'data': 0, 'name': '01_M_A_01_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav', 'data': 0, 'name': '03_M_A_02_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_02_L.wav', 'data': 0, 'name': '03_M_Q_02_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav', 'data': 0, 'name': '01_M_A_02_L', 'person': '01', 'duplicated': True}]
-2023-12-18 15:54:24,330 - root - INFO - user_input 		 - SUCCESS: [{'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_01_L.wav', 'data': 0, 'name': '01_M_Q_01_L', 'person': '01', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_01_L.wav', 'data': 0, 'name': '03_M_A_01_L', 'person': '03', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_01_L.wav', 'data': 0, 'name': '03_M_Q_01_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav', 'data': 0, 'name': '01_M_A_01_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav', 'data': 0, 'name': '03_M_A_02_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_02_L.wav', 'data': 0, 'name': '03_M_Q_02_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav', 'data': 0, 'name': '01_M_A_02_L', 'person': '01', 'duplicated': True}]
-2023-12-18 15:54:24,350 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,361 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,361 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_Q_01_L
-2023-12-18 15:54:24,503 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,504 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_A_01_L
-2023-12-18 15:54:24,514 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,514 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_Q_01_L
-2023-12-18 15:54:24,645 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,645 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_01_L
-2023-12-18 15:54:24,723 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,723 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_A_02_L
-2023-12-18 15:54:24,738 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,738 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_Q_02_L
-2023-12-18 15:54:24,899 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,899 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_02_L
-2023-12-18 15:54:24,899 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L
-2023-12-18 15:54:24,899 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L
-2023-12-18 15:54:24,899 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L
-2023-12-18 15:54:24,899 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
-2023-12-18 15:54:24,899 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L
-2023-12-18 15:54:24,899 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L
-2023-12-18 15:54:24,899 - root - INFO - silence_generator 	 - SUCCESS.
-2023-12-18 15:54:24,899 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:24,899 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:24,930 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:24,930 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:24,946 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:24,962 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:24,977 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,009 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,024 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,055 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,087 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,118 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,149 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,180 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,212 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,259 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,291 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,337 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,384 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,431 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,477 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,540 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,587 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,655 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,709 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,772 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,846 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,901 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:25,979 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,042 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,120 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,198 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,276 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,355 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,434 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,512 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,590 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,670 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,752 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,837 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:26,925 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,016 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,107 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,260 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:27,291 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:27,292 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:27,294 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:27,306 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,389 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,390 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:27,407 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:27,408 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:27,417 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,427 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,440 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,456 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,468 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:27,475 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:27,475 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:27,477 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:27,563 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,668 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,683 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:27,702 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:27,702 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:27,705 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:27,798 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,944 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:27,962 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:27,985 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:27,986 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:27,994 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,005 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,018 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,034 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,052 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,071 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,093 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,115 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,139 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,165 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,193 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,224 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,257 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,294 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,336 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,382 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,429 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,478 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,520 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,583 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,629 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,692 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,757 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,820 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,882 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:28,960 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,032 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,129 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:29,161 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:29,161 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:29,161 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:29,348 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,567 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,599 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:29,645 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:29,645 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:29,645 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,661 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,677 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,692 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,708 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:29,724 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:29,739 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:29,739 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:29,739 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:29,927 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:30,305 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:30,352 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:30,383 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:30,383 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:30,399 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:30,629 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,138 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,208 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:32,256 - root - INFO - read_write_file 	 - SUCCESS for: 01
-2023-12-18 15:54:32,278 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:32,278 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:32,297 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,308 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,322 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,335 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:32,343 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:32,343 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:32,345 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:32,357 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,667 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,669 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:32,674 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:32,674 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:32,676 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:32,758 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,850 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,867 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:32,889 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:32,889 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:32,897 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,907 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,919 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,934 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,951 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,969 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:32,989 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,015 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,045 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,079 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,112 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,146 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,183 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,222 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,264 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,310 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,358 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,407 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,458 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,512 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,568 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,626 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,687 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,753 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,816 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,881 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:33,941 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,003 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,068 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,142 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,221 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,303 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,389 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,525 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:34,552 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:34,552 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:34,554 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:34,654 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,828 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:34,846 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:34,866 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:34,866 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:34,869 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:35,033 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:36,319 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:36,353 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:36,397 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:36,397 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:36,401 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:36,633 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,230 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,304 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:37,372 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:37,372 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:37,387 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,398 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,412 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,428 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,447 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,468 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,491 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,516 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,543 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,572 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,604 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,636 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,669 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,704 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,743 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,783 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,823 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,865 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,908 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:37,956 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,005 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,055 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,107 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,163 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,224 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,287 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,355 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,427 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,503 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,579 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,657 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,736 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,825 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,903 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:38,982 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,060 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,158 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,236 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,327 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,405 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,499 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,610 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:39,754 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:39,801 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:39,801 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:39,801 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:40,001 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:40,954 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:40,999 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:41,039 - root - INFO - read_write_file 	 - SUCCESS for: 03
-2023-12-18 15:54:41,055 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:41,055 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:41,059 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:41,116 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:41,522 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:41,524 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:41,528 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:41,528 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:41,531 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:41,619 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:41,732 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:41,749 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:41,771 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:41,771 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:41,774 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:41,870 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:42,536 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:42,553 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:42,575 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:42,575 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:42,577 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:42,751 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:43,595 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:43,628 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:43,668 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:43,668 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:43,671 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:43,999 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:45,902 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:45,960 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:46,017 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:46,017 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
-2023-12-18 15:54:46,021 - root - INFO - noise 			 - SUCCESS.
-2023-12-18 15:54:46,302 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:48,279 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:48,356 - root - INFO - concatenate 		 - SUCCESS
-2023-12-18 15:54:48,420 - root - INFO - file_complete 		 - SUCCESS.
-2023-12-18 15:54:48,445 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,446 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,446 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,447 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,447 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,447 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,447 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,447 - root - INFO - raw_to_seconds 		 - SUCCESS
-2023-12-18 15:54:48,457 - root - INFO - filenames_lenghts 	 - SUCCESS: [['C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_01_L.wav', '01', 0, 3.711572916666667], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_A_01_L.wav', '03', 4.47036727709761, 57.188961027097605], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_01_L.wav', '03', 58.05927746215331, 61.98043892048664], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav', '01', 62.72547341971878, 104.86981196138545], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav', '03', 105.70499401524756, 140.34470234858088], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_02_L.wav', '03', 141.1810126572589, 147.14552307392555], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav', '01', 147.88121260052674, 202.4561917671934]]
-2023-12-18 15:54:48,465 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_10_L.wav
-2023-12-18 15:54:48,469 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_10_L.wav on position 31.757004982058255 with cycle repeated 0
-2023-12-18 15:54:48,469 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_04_L.wav
-2023-12-18 15:54:48,470 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_04_L.wav on position 56.02399069883956 with cycle repeated 1
-2023-12-18 15:54:48,470 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_08_L.wav
-2023-12-18 15:54:48,470 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_08_L.wav on position 132.91796858666456 with cycle repeated 1
-2023-12-18 15:54:48,470 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_09_L.wav
-2023-12-18 15:54:48,470 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_09_L.wav on position 8.162247867932088 with cycle repeated 2
-2023-12-18 15:54:48,470 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_02_L.wav
-2023-12-18 15:54:48,470 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_02_L.wav on position 125.30898142772222 with cycle repeated 0
-2023-12-18 15:54:48,470 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_06_L.wav
-2023-12-18 15:54:48,470 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_06_L.wav on position 143.73102934871562 with cycle repeated 0
-2023-12-18 15:54:48,470 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_05_L.wav
-2023-12-18 15:54:48,471 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_05_L.wav on position 115.00655018922697 with cycle repeated 1
-2023-12-18 15:54:48,471 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_01_L.wav
-2023-12-18 15:54:48,471 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_01_L.wav on position 48.159006176115874 with cycle repeated 1
-2023-12-18 15:54:48,471 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_07_L.wav
-2023-12-18 15:54:48,471 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_07_L.wav on position 109.85949196422604 with cycle repeated 8
-2023-12-18 15:54:48,471 - root - INFO - get_person 		 - SUCCESS for: 01_M_S_03_L.wav
-2023-12-18 15:54:48,471 - root - INFO - handle_sounds 		 - NOTE: appended 01_M_S_03_L.wav on position 19.77786278876564 with cycle repeated 10
-2023-12-18 15:54:48,471 - root - INFO - handle_sounds 		 - NOTE: arr expanded with 10 sounds
-2023-12-18 15:54:48,471 - root - INFO - handle_sounds 		 - SUCCESS
-2023-12-18 15:54:48,508 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:48,508 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_10_L.wav
-2023-12-18 15:54:49,157 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:51,404 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:51,409 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:51,409 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_04_L.wav
-2023-12-18 15:54:51,609 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:53,492 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:53,596 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:53,596 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_08_L.wav
-2023-12-18 15:54:53,837 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:54,206 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:54,271 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:54,271 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_09_L.wav
-2023-12-18 15:54:54,304 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:54,676 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:54,754 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:54,754 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_02_L.wav
-2023-12-18 15:54:54,938 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:55,272 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:55,338 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:55,338 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_06_L.wav
-2023-12-18 15:54:55,591 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:55,960 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:56,025 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:56,025 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_05_L.wav
-2023-12-18 15:54:56,216 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:56,554 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:56,620 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:56,620 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_01_L.wav
-2023-12-18 15:54:56,687 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:57,054 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:57,120 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:57,120 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_07_L.wav
-2023-12-18 15:54:57,319 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:57,636 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:57,682 - root - INFO - get_channels 		 - SUCCESS: 2
-2023-12-18 15:54:57,682 - root - INFO - check_SR_CH 		 - SUCCESS for C:/Users/giuli/Music/Edit\INPUT/01_M_S_03_L.wav
-2023-12-18 15:54:57,714 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:58,088 - root - INFO - concatenate_noise 	 - SUCCESS
-2023-12-18 15:54:58,161 - root - INFO - sounds 			 - SUCCESS for: 01
-2023-12-18 15:54:58,161 - root - INFO - sounds 			 - SUCCESS for: 03
-2023-12-18 15:54:59,886 - root - INFO - sounds 			 - SUCCESS for: COMPLETE
-2023-12-18 15:55:00,768 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged01.wav
-2023-12-18 15:55:01,380 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged03.wav
-2023-12-18 15:55:02,127 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/mergedCOMPLETE.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_QI_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_02_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_04_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_05_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_06_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_07_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_08_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_09_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_10_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_01.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_02.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_03.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_04.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_05.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_06.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_07.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_08.wav
+2023-12-18 16:33:55,563 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_09.wav
+2023-12-18 16:33:55,563 - root - INFO - folder_info 		 - SUCCESS: max_files: 88, 	count_a: ['01_M_A_01_H.wav', '01_M_A_01_L.wav', '01_M_A_02_H.wav', '01_M_A_02_L.wav', '01_M_A_03_H.wav', '01_M_A_03_L.wav', '01_M_A_04_H.wav', '01_M_A_04_L.wav', '01_M_A_05_H.wav', '01_M_A_05_L.wav', '01_M_A_06_H.wav', '01_M_A_06_L.wav', '01_M_A_07_H.wav', '01_M_A_07_L.wav', '01_M_A_08_H.wav', '01_M_A_08_L.wav', '01_M_A_09_H.wav', '01_M_A_09_L.wav', '01_M_A_10_H.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav'], 	count_q: ['01_M_Q_01_H.wav', '01_M_Q_01_L.wav', '01_M_Q_02_H.wav', '01_M_Q_03_H.wav', '01_M_Q_03_L.wav', '01_M_Q_04_H.wav', '01_M_Q_04_L.wav', '01_M_Q_05_H.wav', '01_M_Q_05_L.wav', '01_M_Q_06_H.wav', '01_M_Q_06_L.wav', '01_M_Q_07_H.wav', '01_M_Q_07_L.wav', '01_M_Q_08_H.wav', '01_M_Q_08_L.wav', '01_M_Q_09_H.wav', '01_M_Q_09_L.wav', '01_M_Q_10_H.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav', '03_M_Q_03_L.wav'], 	count_iq: ['01_M_I_01_H.wav', '01_M_I_01_L.wav', '01_M_I_02_H.wav', '01_M_I_02_L.wav', '01_M_I_03_H.wav', '01_M_I_03_L.wav', '01_M_I_04_H.wav', '01_M_I_04_L.wav', '01_M_I_05_H.wav', '01_M_I_05_L.wav', '01_M_I_06_H.wav', '01_M_I_06_L.wav', '01_M_I_07_H.wav', '01_M_I_07_L.wav', '01_M_I_08_H.wav', '01_M_I_08_L.wav', '01_M_I_09_H.wav', '01_M_I_09_L.wav', '01_M_I_10_H.wav', '01_M_I_10_L.wav'], 	count_s: ['01_M_S_01_L.wav', '01_M_S_02_L.wav', '01_M_S_03_L.wav', '01_M_S_04_L.wav', '01_M_S_05_L.wav', '01_M_S_06_L.wav', '01_M_S_07_L.wav', '01_M_S_08_L.wav', '01_M_S_09_L.wav', '01_M_S_10_L.wav', '03_M_S_01.wav', '03_M_S_02.wav', '03_M_S_03.wav', '03_M_S_04.wav', '03_M_S_05.wav', '03_M_S_06.wav', '03_M_S_07.wav', '03_M_S_08.wav', '03_M_S_09.wav'], 	a_letters: {'01': 10, '03': 3}, 	q_letters: {'01': 10, '03': 3}
+2023-12-18 16:34:04,854 - root - INFO - user_auto_files 	 - SUCCESS
+2023-12-18 16:34:04,855 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
+2023-12-18 16:34:04,855 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_H.wav
+2023-12-18 16:34:04,856 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:34:04,856 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:34:04,856 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:34:04,856 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:34:04,856 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
+2023-12-18 16:34:04,856 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_H.wav
+2023-12-18 16:34:04,856 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:34:04,856 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:34:04,856 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:34:04,856 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
+2023-12-18 16:34:04,857 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_H.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
+2023-12-18 16:34:04,857 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_H.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
+2023-12-18 16:34:04,857 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_H.wav
+2023-12-18 16:34:04,857 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:34:04,857 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:34:04,858 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:34:04,858 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:34:04,858 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
+2023-12-18 16:34:04,858 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_H.wav
+2023-12-18 16:34:04,858 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:34:04,858 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:34:04,858 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:34:04,858 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
+2023-12-18 16:34:04,859 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_H.wav
+2023-12-18 16:34:04,859 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
+2023-12-18 16:34:04,859 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_H.wav
+2023-12-18 16:34:04,859 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:34:04,859 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_L.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_H.wav
+2023-12-18 16:34:04,860 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
+2023-12-18 16:34:04,861 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_L.wav
+2023-12-18 16:34:04,861 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_H.wav
+2023-12-18 16:34:04,861 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_H.wav
+2023-12-18 16:34:04,861 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
+2023-12-18 16:34:04,861 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_L.wav
+2023-12-18 16:34:04,861 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_H.wav
+2023-12-18 16:34:04,861 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_H.wav
+2023-12-18 16:34:04,861 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
+2023-12-18 16:34:04,861 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_L.wav
+2023-12-18 16:34:04,861 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_H.wav
+2023-12-18 16:34:04,861 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_H.wav
+2023-12-18 16:34:04,861 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_H.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_L.wav
+2023-12-18 16:34:04,862 - root - INFO - get_type 		 - SUCCESS for: 01_M_QI_02_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_volume 		 - SUCCESS for: 01_M_QI_02_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
+2023-12-18 16:34:04,863 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_H.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
+2023-12-18 16:34:04,863 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_02_H.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
+2023-12-18 16:34:04,863 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_H.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:34:04,863 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
+2023-12-18 16:34:04,863 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_H.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
+2023-12-18 16:34:04,864 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_H.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
+2023-12-18 16:34:04,864 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_H.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:34:04,864 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
+2023-12-18 16:34:04,865 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_H.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
+2023-12-18 16:34:04,865 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_H.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
+2023-12-18 16:34:04,865 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_H.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:34:04,865 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
+2023-12-18 16:34:04,866 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_H.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_01_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_02_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_03_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_04_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_05_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_06_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_07_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_08_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_09_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_10_L.wav
+2023-12-18 16:34:04,866 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_01_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_volume 		 - SUCCESS for: 03_M_QI_01_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_02_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_volume 		 - SUCCESS for: 03_M_QI_02_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_QI_03_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_volume 		 - SUCCESS for: 03_M_QI_03_L.wav
+2023-12-18 16:34:04,867 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_01.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_02.wav
+2023-12-18 16:34:04,868 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_03.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_04.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_05.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_06.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_07.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_08.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_09.wav
+2023-12-18 16:34:04,869 - root - INFO - folder_info 		 - SUCCESS: max_files: 88, 	count_a: ['01_M_A_01_L.wav', '01_M_A_02_L.wav', '01_M_A_03_L.wav', '01_M_A_04_L.wav', '01_M_A_05_L.wav', '01_M_A_06_L.wav', '01_M_A_07_L.wav', '01_M_A_08_L.wav', '01_M_A_09_L.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav'], 	count_q: ['01_M_Q_01_L.wav', '01_M_Q_03_L.wav', '01_M_Q_04_L.wav', '01_M_Q_05_L.wav', '01_M_Q_06_L.wav', '01_M_Q_07_L.wav', '01_M_Q_08_L.wav', '01_M_Q_09_L.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav', '03_M_Q_03_L.wav'], 	count_iq: ['01_M_I_01_L.wav', '01_M_I_02_L.wav', '01_M_I_03_L.wav', '01_M_I_04_L.wav', '01_M_I_05_L.wav', '01_M_I_06_L.wav', '01_M_I_07_L.wav', '01_M_I_08_L.wav', '01_M_I_09_L.wav', '01_M_I_10_L.wav'], 	count_s: ['01_M_S_01_L.wav', '01_M_S_02_L.wav', '01_M_S_03_L.wav', '01_M_S_04_L.wav', '01_M_S_05_L.wav', '01_M_S_06_L.wav', '01_M_S_07_L.wav', '01_M_S_08_L.wav', '01_M_S_09_L.wav', '01_M_S_10_L.wav', '03_M_S_01.wav', '03_M_S_02.wav', '03_M_S_03.wav', '03_M_S_04.wav', '03_M_S_05.wav', '03_M_S_06.wav', '03_M_S_07.wav', '03_M_S_08.wav', '03_M_S_09.wav'], 	a_letters: {'01': 10, '03': 3}, 	q_letters: {'01': 10, '03': 3}
+2023-12-18 16:34:04,869 - root - INFO - (['01_M_A_01_L.wav', '01_M_A_02_L.wav', '01_M_A_03_L.wav', '01_M_A_04_L.wav', '01_M_A_05_L.wav', '01_M_A_06_L.wav', '01_M_A_07_L.wav', '01_M_A_08_L.wav', '01_M_A_09_L.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav'], ['01_M_Q_01_L.wav', '01_M_Q_03_L.wav', '01_M_Q_04_L.wav', '01_M_Q_05_L.wav', '01_M_Q_06_L.wav', '01_M_Q_07_L.wav', '01_M_Q_08_L.wav', '01_M_Q_09_L.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav', '03_M_Q_03_L.wav'], ['01_M_I_01_L.wav', '01_M_I_02_L.wav', '01_M_I_03_L.wav', '01_M_I_04_L.wav', '01_M_I_05_L.wav', '01_M_I_06_L.wav', '01_M_I_07_L.wav', '01_M_I_08_L.wav', '01_M_I_09_L.wav', '01_M_I_10_L.wav'])
+2023-12-18 16:34:04,869 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
+2023-12-18 16:34:04,869 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
+2023-12-18 16:34:04,869 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
+2023-12-18 16:34:04,869 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:34:04,869 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:34:04,870 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
+2023-12-18 16:34:04,871 - root - INFO - list_to_3Dlist 		 - SUCCESS
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
+2023-12-18 16:34:04,871 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
+2023-12-18 16:34:04,872 - root - INFO - list_to_3Dlist 		 - SUCCESS
+2023-12-18 16:34:04,872 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_01_L.wav
+2023-12-18 16:34:04,872 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_02_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_03_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_04_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_05_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_06_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_07_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_08_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_09_L.wav
+2023-12-18 16:34:04,873 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
+2023-12-18 16:34:04,874 - root - INFO - get_person 		 - SUCCESS for: 01_M_I_10_L.wav
+2023-12-18 16:34:04,874 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
+2023-12-18 16:34:04,874 - root - INFO - list_to_3Dlist 		 - SUCCESS
+2023-12-18 16:34:04,874 - root - INFO - participants_lists 	 - SUCCESS
+2023-12-18 16:34:04,874 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_Q_01_L.wav
+2023-12-18 16:34:04,874 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_Q_01_L.wav: <class 'dict'>
+2023-12-18 16:34:04,874 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_Q_01_L.wav
+2023-12-18 16:34:04,874 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_01_L.wav
+2023-12-18 16:34:04,874 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_01_L.wav: <class 'dict'>
+2023-12-18 16:34:04,874 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_01_L.wav
+2023-12-18 16:34:04,874 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_01_L.wav
+2023-12-18 16:34:04,874 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_01_L.wav: <class 'dict'>
+2023-12-18 16:34:04,874 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_01_L.wav
+2023-12-18 16:34:04,874 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_02_L.wav
+2023-12-18 16:34:04,875 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_02_L.wav: <class 'dict'>
+2023-12-18 16:34:04,875 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_02_L.wav
+2023-12-18 16:34:04,875 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_02_L.wav
+2023-12-18 16:34:04,875 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_02_L.wav: <class 'dict'>
+2023-12-18 16:34:04,875 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_02_L.wav
+2023-12-18 16:34:04,875 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_03_L.wav
+2023-12-18 16:34:04,875 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_03_L.wav: <class 'dict'>
+2023-12-18 16:34:04,875 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_Q_03_L.wav
+2023-12-18 16:34:04,876 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_03_L.wav
+2023-12-18 16:34:04,876 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_03_L.wav: <class 'dict'>
+2023-12-18 16:34:04,876 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_A_03_L.wav
+2023-12-18 16:34:04,876 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_I_03_L.wav
+2023-12-18 16:34:04,877 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_I_03_L.wav: <class 'dict'>
+2023-12-18 16:34:04,877 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/01_M_I_03_L.wav
+2023-12-18 16:34:04,877 - root - INFO - get_person 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_03_L.wav
+2023-12-18 16:34:04,877 - root - INFO - audio_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_03_L.wav: <class 'dict'>
+2023-12-18 16:34:04,877 - root - INFO - add_file 		 - SUCCESS for: C:/Users/giuli/Music/Edit\INPUT/03_M_A_03_L.wav
+2023-12-18 16:34:04,878 - root - INFO - handle_auto_files 	 - SUCCESS: [{'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_01_L.wav', 'data': 0, 'name': '01_M_Q_01_L', 'person': '01', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_01_L.wav', 'data': 0, 'name': '03_M_A_01_L', 'person': '03', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav', 'data': 0, 'name': '01_M_A_01_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav', 'data': 0, 'name': '03_M_A_02_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav', 'data': 0, 'name': '01_M_A_02_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_03_L.wav', 'data': 0, 'name': '03_M_Q_03_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_03_L.wav', 'data': 0, 'name': '01_M_A_03_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_I_03_L.wav', 'data': 0, 'name': '01_M_I_03_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_03_L.wav', 'data': 0, 'name': '03_M_A_03_L', 'person': '03', 'duplicated': True}]
+2023-12-18 16:34:04,878 - root - INFO - user_input 		 - SUCCESS: [{'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_01_L.wav', 'data': 0, 'name': '01_M_Q_01_L', 'person': '01', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_01_L.wav', 'data': 0, 'name': '03_M_A_01_L', 'person': '03', 'duplicated': False}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav', 'data': 0, 'name': '01_M_A_01_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav', 'data': 0, 'name': '03_M_A_02_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav', 'data': 0, 'name': '01_M_A_02_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_03_L.wav', 'data': 0, 'name': '03_M_Q_03_L', 'person': '03', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_A_03_L.wav', 'data': 0, 'name': '01_M_A_03_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/01_M_I_03_L.wav', 'data': 0, 'name': '01_M_I_03_L', 'person': '01', 'duplicated': True}, {'path': 'C:/Users/giuli/Music/Edit\\INPUT/03_M_A_03_L.wav', 'data': 0, 'name': '03_M_A_03_L', 'person': '03', 'duplicated': True}]
+2023-12-18 16:34:04,905 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:04,915 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:04,915 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_Q_01_L
+2023-12-18 16:34:05,041 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,041 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_A_01_L
+2023-12-18 16:34:05,163 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,163 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_01_L
+2023-12-18 16:34:05,241 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,242 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_A_02_L
+2023-12-18 16:34:05,398 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,398 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_02_L
+2023-12-18 16:34:05,414 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,414 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_Q_03_L
+2023-12-18 16:34:05,559 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,560 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_03_L
+2023-12-18 16:34:05,563 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,563 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_I_03_L
+2023-12-18 16:34:05,709 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,709 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_A_03_L
+2023-12-18 16:34:05,710 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L
+2023-12-18 16:34:05,710 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L
+2023-12-18 16:34:05,710 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
+2023-12-18 16:34:05,710 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L
+2023-12-18 16:34:05,710 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L
+2023-12-18 16:34:05,710 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L
+2023-12-18 16:34:05,710 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L
+2023-12-18 16:34:05,711 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L
+2023-12-18 16:34:05,711 - root - INFO - silence_generator 	 - SUCCESS.
+2023-12-18 16:34:05,715 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:05,715 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:05,725 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,736 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,754 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,775 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,796 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,817 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,841 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,866 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,893 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,924 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,957 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:05,992 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,029 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,069 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,112 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,155 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,204 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,253 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,305 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,360 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,419 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,480 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,543 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,607 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,674 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,744 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,814 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,888 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:06,961 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,039 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,118 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,199 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,286 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,374 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,469 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,565 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,660 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,757 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,855 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:07,960 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,120 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:08,156 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:08,156 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:08,158 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:08,174 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,283 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,285 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:08,290 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:08,290 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:08,292 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:08,423 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,582 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,598 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:08,645 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:08,645 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:08,645 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,660 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,676 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,695 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,713 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,718 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,750 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,787 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,807 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,849 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,884 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,921 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:08,959 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,004 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,047 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,088 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,135 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,182 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,228 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,293 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,350 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,403 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,465 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,543 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,600 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,667 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:09,763 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:09,786 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:09,786 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:09,786 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:09,946 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,165 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,196 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:10,227 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:10,227 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:10,243 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:10,520 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,817 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,864 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:10,930 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:10,930 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:10,939 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,944 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,965 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,982 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:10,998 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:11,004 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:11,004 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:11,004 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:11,301 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:11,596 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:11,658 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:11,735 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:11,735 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:11,735 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:12,087 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:12,867 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:12,944 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:13,011 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:13,011 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:13,014 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:13,432 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,042 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,113 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:14,195 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:14,195 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:14,204 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,215 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,229 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,245 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,264 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,285 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,309 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,335 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,363 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,395 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,428 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,466 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,507 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,548 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,593 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,639 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,685 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,735 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,787 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,842 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,896 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:14,952 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,005 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,061 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,120 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,179 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,240 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,304 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,369 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,437 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,516 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,599 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,688 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,777 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,864 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:15,945 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:16,027 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:16,158 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:16,190 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:16,190 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:16,190 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:16,538 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,332 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,400 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:17,478 - root - INFO - read_write_file 	 - SUCCESS for: 01
+2023-12-18 16:34:17,478 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:17,478 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:17,493 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,509 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,533 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,537 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:17,552 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:17,552 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:17,552 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:17,568 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,964 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,964 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:17,980 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:17,980 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:17,995 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:17,995 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,011 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,027 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,043 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,058 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,089 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,105 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,136 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,170 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,197 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,228 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,275 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,306 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,353 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,400 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,447 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,496 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,547 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,598 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,651 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,708 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,765 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,826 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,890 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:18,954 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,015 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,079 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,144 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,211 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,279 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,351 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,424 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,549 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:19,585 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:19,585 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:19,587 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:19,678 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,821 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:19,839 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:19,862 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:19,862 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:19,864 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:20,005 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,389 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,417 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:20,466 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:20,466 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:20,474 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,485 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,498 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,513 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,531 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,552 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,575 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,600 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,625 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,653 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,685 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,719 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,755 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,795 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,833 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,871 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,911 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:20,956 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,000 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,048 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,097 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,149 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,203 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,258 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,316 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,382 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,453 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,528 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,604 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,683 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,761 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,838 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,911 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:21,986 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,094 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,174 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,254 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,342 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,443 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,553 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,659 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,769 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:22,914 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:22,949 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:22,950 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:22,951 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:23,130 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:23,422 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:23,464 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:23,513 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:23,513 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:23,516 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:23,787 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,698 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,760 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:24,838 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:24,838 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:24,854 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,870 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,885 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,901 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,916 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,932 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,963 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:24,995 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,010 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,042 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,073 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,120 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,151 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,196 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,243 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,290 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,336 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,383 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,430 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,493 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,555 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,618 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,665 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,735 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,798 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,860 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,923 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:25,985 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,055 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,134 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,212 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,274 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,352 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,430 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,517 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,607 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,698 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:26,833 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:26,863 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:26,863 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:26,866 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:27,158 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:27,661 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:27,733 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:27,845 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:27,845 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:27,847 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:27,851 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:27,851 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:27,855 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:28,244 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:28,626 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:28,699 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:28,775 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:28,775 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:28,775 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:29,155 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:30,681 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:30,759 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:30,829 - root - INFO - read_write_file 	 - SUCCESS for: 03
+2023-12-18 16:34:30,847 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:30,847 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:30,851 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:30,932 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:31,489 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:31,492 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:31,496 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:31,496 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:31,498 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:31,593 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:32,229 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:32,248 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:32,269 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:32,269 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:32,271 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:32,405 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:32,677 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:32,706 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:32,739 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:32,739 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:32,741 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:32,957 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:34,047 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:34,086 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:34,128 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:34,128 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:34,131 - root - INFO - noise 			 - SUCCESS.
+2023-12-18 16:34:34,431 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:35,073 - root - INFO - concatenate_noise 	 - SUCCESS
+2023-12-18 16:34:35,141 - root - INFO - concatenate 		 - SUCCESS
+2023-12-18 16:34:35,224 - root - INFO - get_channels 		 - SUCCESS: 2
+2023-12-18 16:34:35,224 - root - INFO - check_SR_CH 		 - SUCCESS for noise.wav
+2023-12-18 16:34:35,224 - root - INFO - noise 			 - SUCCESS.

@@ -561,10 +561,11 @@ def handle_auto_files(dir_path):
                     if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                         file_names = add_file(file_names, i[0])
                         break
-                for i in matr_questions:
-                    if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
-                        file_names = add_file(file_names, i[0])
-                        break
+                if 0 == (random.randint(0,1)):
+                    for i in matr_questions:
+                        if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
+                            file_names = add_file(file_names, i[0])
+                            break
             responder = a_participants[i_a]
             i_a += 1
             for i in matr_answers:
