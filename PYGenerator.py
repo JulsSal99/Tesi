@@ -107,6 +107,15 @@ def get_volume(filename: str):
     logging.info(f"get_volume \t\t - SUCCESS for: {filename}")
     return filename_without_extension.split("_")[name_format['volume']]
 
+def get_channels(data):
+    '''Get the number of channels in an audio file'''
+    if len(np.shape(data)) == 1:
+        logging.info(f"get_channels \t\t - SUCCESS: {1}")
+        return 1
+    else:
+        logging.info(f"get_channels \t\t - SUCCESS: {np.shape(data)[1]}")
+        return np.shape(data)[1]
+
 def add_file(file_names, file):
     '''add file to file_names array and use audio_file() function'''
     person = get_person(file)
@@ -168,15 +177,6 @@ def folder_info(folder_path):
     logging.info(f"folder_info \t\t - SUCCESS: max_files: {max_files}, \tcount_a: {count_a}, \tcount_q: {count_q}, \tcount_iq: {count_iq}, \tcount_s: {count_s}, \ta_letters: {a_letters}, \tq_letters: {q_letters}")
     return max_files, count_a, count_q, count_iq, count_s, a_letters, q_letters
 
-def get_channels(data):
-    '''Get the number of channels in an audio file'''
-    if len(np.shape(data)) == 1:
-        logging.info(f"get_channels \t\t - SUCCESS: {1}")
-        return 1
-    else:
-        logging.info(f"get_channels \t\t - SUCCESS: {np.shape(data)[1]}")
-        return np.shape(data)[1]
-
 def check_SR_CH(name, rate_temp, channels_temp):
     '''handle SampleRate and Channels Exceptions'''
     '''To avoid unuseful file reads,'''
@@ -216,7 +216,7 @@ def noise(raw_file):
             raw_noise = concatenate_noise(raw_noise, tmp_noise, len(raw_noise.shape))
     sum = np.add(raw_noise[:raw_length], raw_file)
     if len(raw_noise[:raw_length]) != len(raw_file) or len(raw_file) != len(sum):
-        raise Exception("Internal Error in function 'noise'")
+        raise Exception("INTERNAL ERROR: function 'noise'")
     logging.info(f"noise \t\t\t - SUCCESS.")
     return sum
 
@@ -267,7 +267,7 @@ def concatenate_noise(audio1, audio2, shape):
     else:
         OUTPUT = np.concatenate((audio1, audio2))
     if len(audio1) + len(audio2) != len(OUTPUT):
-        raise Exception("Internal error in concatenate_noise function")
+        raise Exception("INTERNAL ERROR: concatenate_noise function")
     logging.info(f"concatenate_noise \t - SUCCESS")
     return OUTPUT
 
@@ -480,7 +480,8 @@ def sounds(sound_files, file_names, audio_no_s, silences):
                             sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]), axis=0)
                         else:
                             sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]))
-                if len(sum) != (ceil(max_duration*sample_rate)):
+                limit = ceil(max_duration*sample_rate)
+                if len(sum) > limit or len(sum) < limit-2:
                     raise Exception (f"INTERNAL ERROR: {i[1]} (with lenght: {len(sum)}) does not match {ceil(max_duration*sample_rate)} length")
                 output.append([sum, i[1]])
             elif i[1] == "COMPLETE":
