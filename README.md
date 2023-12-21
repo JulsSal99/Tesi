@@ -5,14 +5,16 @@ Documentazione
 
 [Protocollo per il test](PROTOCOLLO.MD)
 
-[Programma in Python](PYGenerator.py)
+[Generatore di dialoghi pseudo-realistici in Python](PYGenerator.py)
 
-Cartella in INPUT per il programma:
-[/INPUT](/INPUT)
+Il codice:
+  - permette all'utente di scegliere se inserire i files manualmente o impostare dei parametri per l'auto-generazione di dialoghi
+  - Permette di inserire manualmente i files
+  - eventuali ulteriori settaggi sono nel file di generazione come variabili globali
 
+<br><br>
 
-Cartella di OUTPUT del il programma:
-[/OUTPUT](/OUTPUT)
+![Backup](img/appunti1.jpg)
 
 <br><br><br><br><br><br><br><br><br><br><br>
 

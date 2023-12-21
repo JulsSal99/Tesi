@@ -230,6 +230,7 @@ def shape_fixer(mono_array, shape):
     return stereo_array
 
 def concatenate_noise(audio1, audio2, shape):
+    '''Concatenate two audio files using a noise as a bandade (two fade-in, fade-out)'''
     len_fade = 0.05 #in seconds, if noise is <, value is half noise
     len_fade = int(len_fade * sample_rate)
     noise = sf.read(dir_path + "/" + noise_file)[0]
@@ -293,6 +294,7 @@ def concatenate(data1, data2, pause_length):
     return OUTPUT
 
 def silence_generator(file_names):
+    '''Generate long pause, short pause or silence in seconds'''
     silences = []
     length = len(file_names) - 1
     for i in range(length):
@@ -432,10 +434,16 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
                             break
                     if correct != False:
                         for i_a in range(len(audio)):
-                            # REMOVE if sound is inside an audio of the same person
                             start_NO_zone = audio[i_a][2]-cut_redundancy-length_sounds
+                            start_NO_zone2 = audio[i_a][2]-cut_redundancy
                             end_NO_zone = audio[i_a][3]+cut_redundancy
+                            # REMOVE if sound is inside an audio of the same person
                             if audio[i_a][1] == person and delay > (start_NO_zone) and delay < (end_NO_zone):
+                                correct = False
+                                tmp_limit += 1
+                                break
+                            # REMOVE if sound is near the start of any sound
+                            elif delay > (start_NO_zone2) and delay < (end_NO_zone):
                                 correct = False
                                 tmp_limit += 1
                                 break
@@ -476,6 +484,8 @@ def sounds(sound_files, file_names, audio_no_s, silences):
                         if enable_noise:
                             sum_tmp = concatenate_noise(sum[:start_sound], sound, shape)
                             sum = concatenate_noise(sum_tmp, sum[end_sound:], shape)
+                        #else:
+                        #    sum[start_sound:end_sound] += sound
                         elif channels > 1:
                             sum = np.concatenate((sum[:start_sound-1], sound, sum[end_sound-1:]), axis=0)
                         else:

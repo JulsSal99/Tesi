@@ -247,6 +247,39 @@ Inoltre, riguardo ai riverberi:
 > "la maggiore lunghezza della coda sonora potrebbe portare il parlatore “professionista” ad allungare i periodi di fonazione per migliorare l’intelligibilità del messaggio che deve trasmettere. ", ed è stato osservato che sussiste "un incremento della lunghezza media più occorrente dei periodi di voce in 18 insegnanti che parlavano in aule maggiormente riverberanti rispetto a 24 insegnanti che esercitavano la loro attività didattica in aule con tempi di riverberazione conformi ai requisiti acustici stabiliti per questi ambienti.".
 "per i professionisti della voce il periodo più ricorrente è pari a 90 ms, mentre per i non professionisti è molto più corto, pari a 60 e 50 ms", "indice di un parlato molto veloce e probabilmente indipendente dalle caratteristiche acustiche dell’ambiente, ma dipendente invece dal modo di esporre un discorso nel caso di non professionista della voce. Infatti, il parlato di un insegnante potrebbe appartenere al “clear speech” che prevede un incremento della pause e un allungamento dei singoli segmenti di parlato" [^p3]
 
+# Il codice:
+
+- user_input
+  - permette all'utente di scegliere se inserire i files manualmente o impostare dei parametri per l'auto-generazione di dialoghi
+
+- user_ask_files
+  - Permette di inserire manualmente i files
+
+- user_auto_files
+  - si occupa di domandare all'utente quali valori per la generazione
+
+- handle_auto_files
+  - Se nella cartella è presente una sola persona che risponde alle domande, chi domanda non è quella persona
+  - Se nella cartella è presente una sola persona che domanda, chi risponde non è quella persona
+  - Se n_questions è minore di 0, il numero è casuale
+  - Se random_question è True, cambia l'ordine delle domande in casuale
+  - Sceglie casualmente la prima persona a fare la domanda
+  - Se n_answers è minore di 0, il numero di persone per ogni domanda che rispondono è sempre diverso e casuale
+  - Le persone che rispondono sono salvate in un array, ogni volta casuale. Evita che ci possano essere ripetizioni
+  - Aggiunge un numero n di risposte e, per ognuna, se enable_init_question è negativo, decide casualmente se aggiungere o meno di ripetere la domanda dopo la domanda iniziale
+
+- sounds
+  - Taglia nel punto in cui dovrebbe esserci un suono e lo inserisce (se il suono ha già il rumore di fondo, concatena, altrimenti sovrappone?)
+
+- handle_sounds:
+  - Il suono non deve essere presente nella stessa parte in cui parla la medesima persona
+  - Il suono non dev'essere vicino a punti in cui cambia il parlante
+
+- silence_generator:
+  - genera una pausa lunga, una pausa corta o un silenzio
+  
+E il volume?
+
 
 DOMANDE:
 ============
