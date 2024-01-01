@@ -6,11 +6,17 @@ L'ordine delle domande deve essere casuale?
 
 folder_info dovrebbe esistere un modo di disattivare gli errori di folder_info per far funzionare solo l'inserimento manuale
 
-sounds_to_2dlist: due suoni uguali non possono stare vicini. Scorrere l'array finale e, se negli ultimi 3 files, c'è un file uguale, rieseguire random.uniform per cambiarne valore
-
 Ricerca su quando vengono messi dei suoni in base ai silenzi
 
+WHAT-IF: sounds_to_2dlist: due suoni uguali non possono stare vicini. Scorrere l'array finale e, se negli ultimi 3 files, c'è un file uguale, rieseguire random.uniform per cambiarne valore
 
+WHAT-IF: E se il portamento(volume) volessi che variasse:
+	A parla con B perché B è lontano (all'ascoltatore), quindi c'è A-Q-H, B-A-H
+	Se C è vicino, B-I-H, B-Q-H, C-A-H
+	B è vicino, C-Q-L, B-A-L
+	In ogni ciclo di botta-risposta, quello che importa è la posizione di chi parla nel ciclo singolo. Questo significa che la persona che risponde viene scelta in precedenza
+
+# handle 1 element arrays   544 IS BWOKEN
 
 Portare adattatore JACK 3.5-6.3
 

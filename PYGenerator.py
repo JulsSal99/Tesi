@@ -203,6 +203,17 @@ def raw_to_seconds(audio):
     logging.info(f"raw_to_seconds \t\t - SUCCESS")
     return duration
 
+def shape_fixer(mono_array, shape):
+    if shape > 1:
+        stereo_array = np.empty((mono_array.shape[0], channels), dtype=mono_array.dtype)
+        for i in range(channels):
+            stereo_array[:, i] = mono_array
+    else:
+        stereo_array = mono_array.reshape(-1)
+    return stereo_array
+
+# /////////////////////////////////// NOISE //////////////////////////////////
+
 def noise(raw_file):
     raw_noise, sample_rate = sf.read(dir_path + "/" + noise_file)
     temp_channels = get_channels(raw_noise)
@@ -219,15 +230,6 @@ def noise(raw_file):
         raise Exception("INTERNAL ERROR: function 'noise'")
     logging.info(f"noise \t\t\t - SUCCESS.")
     return sum
-
-def shape_fixer(mono_array, shape):
-    if shape > 1:
-        stereo_array = np.empty((mono_array.shape[0], channels), dtype=mono_array.dtype)
-        for i in range(channels):
-            stereo_array[:, i] = mono_array
-    else:
-        stereo_array = mono_array.reshape(-1)
-    return stereo_array
 
 def concatenate_noise(audio1, audio2, shape):
     '''Concatenate two audio files using a noise as a bandade (two fade-in, fade-out)'''
@@ -271,6 +273,8 @@ def concatenate_noise(audio1, audio2, shape):
         raise Exception("INTERNAL ERROR: concatenate_noise function")
     logging.info(f"concatenate_noise \t - SUCCESS")
     return OUTPUT
+
+# /////////////////////////////////////////////////////////////////////////////
 
 def concatenate(data1, data2, pause_length):
     '''generate 2 audio files, one with the first audio muted,'''
@@ -409,6 +413,7 @@ def filenames_lenghts(file_names, silences):
 
 def handle_sounds(sound_files, file_names, max_duration, silences):
     '''create 2D list of sounds. Each sound has a random position in seconds'''
+    '''There are various values to setup the randomness'''
     cut_redundancy = 1.5  # in seconds
     length_sounds = 2 # lenght is fixed to not cause unuseful reads
     end_tollerance = 3 # in seconds, gap at the end to avoid different lenghts in the final audio file
@@ -432,6 +437,7 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
                             correct = False
                             tmp_limit += 1
                             break
+                        # WHAT-IF: The sound is near the same sound?
                     if correct != False:
                         for i_a in range(len(audio)):
                             start_NO_zone = audio[i_a][2]-cut_redundancy-length_sounds
@@ -603,48 +609,48 @@ def handle_auto_files(dir_path):
 def user_auto_files(count_answers, count_questions):
     global n_answers, n_questions, random_question, volume
     while True:
-       tmp_n_answers = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (max: {count_answers})? [NO/n] ")
-       if str(tmp_n_answers).lower() == "no":
+       tmp_input = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (max: {count_answers})? [NO/n] ")
+       if str(tmp_input).lower() == "no":
            n_answers = count_answers * (-1)
            break
-       elif str(tmp_n_answers).isnumeric() and int(tmp_n_answers)<=count_answers and int(tmp_n_answers)>0:
-           n_answers = int(tmp_n_answers)
+       elif str(tmp_input).isnumeric() and int(tmp_input)<=count_answers and int(tmp_input)>0:
+           n_answers = int(tmp_input)
            break
-       elif str(tmp_n_answers).isnumeric() and int(tmp_n_answers)>count_answers:
+       elif str(tmp_input).isnumeric() and int(tmp_input)>count_answers:
            print(f"Il numero deve essere <= {count_answers}")
        else:
            print("Il valore inserito non è corretto. Riprova.")
     while True:
-       tmp_n_questions = input(f"Vuoi specificare un numero massimo di domande (max: {count_questions})? [NO/n] ")
-       if str(tmp_n_questions).lower() == "no":
+       tmp_input = input(f"Vuoi specificare un numero massimo di domande (max: {count_questions})? [NO/n] ")
+       if str(tmp_input).lower() == "no":
            n_questions = count_questions * (-1)
            break
-       elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)<=count_questions and int(tmp_n_questions)>0:
-           n_questions = int(tmp_n_questions)
+       elif str(tmp_input).isnumeric() and int(tmp_input)<=count_questions and int(tmp_input)>0:
+           n_questions = int(tmp_input)
            break
-       elif str(tmp_n_questions).isnumeric() and int(tmp_n_questions)>count_questions:
+       elif str(tmp_input).isnumeric() and int(tmp_input)>count_questions:
            print(f"Il numero deve essere <= {count_questions}")
        else:
            print("Il valore inserito non è corretto. Riprova.")
     while True:
-       tmp_random_order = input(f"L'ordine delle domande è casuale? [SI/NO] ")
-       if str(tmp_random_order).lower() == "no":
+       tmp_input = input(f"L'ordine delle domande è casuale? [SI/NO] ")
+       if str(tmp_input).lower() == "no":
            random_question = False
            break
-       elif str(tmp_random_order).lower() == "si":
+       elif str(tmp_input).lower() == "si":
            random_question = True
            break
        else:
            print("Il valore inserito non è corretto. Riprova.")
     while True:
-       tmp_random_order = input(f"Portamento? [HIGH/LOW/MIX] ")
-       if str(tmp_random_order).lower() == "high":
+       tmp_input = input(f"Portamento? [HIGH/LOW/MIX] ")
+       if str(tmp_input).lower() == "high":
            volume = "H"
            break
-       elif str(tmp_random_order).lower() == "low":
+       elif str(tmp_input).lower() == "low":
            volume = "L"
            break
-       elif str(tmp_random_order).lower() == "mix":
+       elif str(tmp_input).lower() == "mix":
            volume = "ND"
            break
        else:
