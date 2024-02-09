@@ -174,6 +174,9 @@ def folder_info(folder_path):
     if count_iq == []:
         logging.info(f"folder_info \t\t - No Initial Questions.")
         raise Exception(f"\n No Initial Questions in the folder.")
+    if len(q_letters) == 1 and len(a_letters) == 1 and q_letters.keys() == a_letters.keys():
+        logging.info(f"folder_info \t\t - Only one participant.")
+        raise Exception(f"\n Only one participant!!!")
     logging.info(f"folder_info \t\t - SUCCESS: max_files: {max_files}, \tcount_a: {count_a}, \tcount_q: {count_q}, \tcount_iq: {count_iq}, \tcount_s: {count_s}, \ta_letters: {a_letters}, \tq_letters: {q_letters}")
     return max_files, count_a, count_q, count_iq, count_s, a_letters, q_letters
 
@@ -182,9 +185,9 @@ def check_SR_CH(name, rate_temp, channels_temp):
     '''To avoid unuseful file reads,'''
     '''this function handle only Exceptions'''
     if sample_rate != rate_temp:
-        raise Exception(f"\nIl file audio n{name} ha frequenza di campionamento diversa ({rate_temp} hz).")
+        raise Exception(f"\n Audio file n{name} has different sample rate (must be {rate_temp} hz).")
     elif channels != channels_temp:
-        raise Exception(f"\n Il file audio n{name} ha numero di canali diverso ({channels_temp} ch).")
+        raise Exception(f"\n Audio file n{name} has different channels number (must be {channels_temp} ch).")
     else:
         logging.info(f"check_SR_CH \t\t - SUCCESS for {name}")
 
@@ -227,7 +230,7 @@ def noise(raw_file):
             raw_noise = concatenate_noise(raw_noise, tmp_noise, len(raw_noise.shape))
     sum = np.add(raw_noise[:raw_length], raw_file)
     if len(raw_noise[:raw_length]) != len(raw_file) or len(raw_file) != len(sum):
-        raise Exception("INTERNAL ERROR: function 'noise'")
+        raise Exception("INTERNAL ERROR: function 'noise', lenght does not match")
     logging.info(f"noise \t\t\t - SUCCESS.")
     return sum
 
@@ -270,7 +273,7 @@ def concatenate_noise(audio1, audio2, shape):
     else:
         OUTPUT = np.concatenate((audio1, audio2))
     if len(audio1) + len(audio2) != len(OUTPUT):
-        raise Exception("INTERNAL ERROR: concatenate_noise function")
+        raise Exception("INTERNAL ERROR: concatenate_noise function, lenght does not match")
     logging.info(f"concatenate_noise \t - SUCCESS")
     return OUTPUT
 
@@ -669,7 +672,7 @@ def user_ask_files(dir_path, max_participants):
                 if file == "FINE" and i > 1:
                     return file_names
                 elif file == "FINE" and i <= 1:
-                    raise Exception("Non abbastanza files!!!")
+                    raise Exception("Not enough files!!!")
                 file = find_file(file, os.path.join(dir_path, input_folder))
                 file_names = add_file(file, file_names) 
                 print(f'\tAggiunto "{file}" con successo.')
@@ -682,8 +685,6 @@ def user_ask_files(dir_path, max_participants):
     logging.info(f"user_ask_files \t - SUCCESS: {file_names}")
 
 def user_input(dir_path, max_participants, a_letters, q_letters):
-    if len(q_letters) == 1 and len(a_letters) == 1 and q_letters.keys() == a_letters.keys():
-        raise Exception("Only one participant!!!")
     '''ask if wants each file or auto-mode'''
     while True:
         user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
