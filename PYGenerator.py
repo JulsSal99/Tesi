@@ -8,6 +8,7 @@ import soundfile as sf
 import numpy as np
 import random
 import logging
+import configparser
 import logger
 logger.logger()
 
@@ -26,50 +27,44 @@ YOU CAN MODIFY THESE VALUES:
 __version__ = "0.01"
 __author__  = "G.Salada"
 
-# file name format: *IDname_SESSO_volume_tipo_ndomanda". The number identifies the position
-name_format = {"person": 0, "gender": 1, "volume": 4, "type": 2, "question": 3}
-# CORRETTO name_format = {"person": 0, "gender": 1, "volume": 2, "type": 3, "question": 4}
-# master folder. Should NOT end with a "/"
-dir_path = "C:/Users/giuli/Music/Edit" # default: os.path.dirname(os.path.realpath(__file__))
-# input files folder inside master folder
-input_folder = "INPUT" #should always be a folder inside the program' directory
-# output files folder inside master folder
-output_folder = "OUTPUT" #should always be a folder inside the program' directory
-# background noise for silences and pauses
-enable_noise = True
-noise_file = "noise.wav"
-# silences values
-s_min = 0.05
-s_max = 0.120
-# long pauses (a pause between a question and another question without any initial question) values
-lp_min = 0.9
-lp_max = 1.2
-# pauses values
-p_min = 0.7
-p_max = 0.9
-# channels and sample rate of the project
-sample_rate = 0 # if 0, get sample_rate from the first file
-channels = 0    # if 0, get channels from the first file
-# sounds quantity. This float value goes from 0 to 1. If 1, uses all sounds, if 0, none
-s_quantity = 1
-# minimum distance between one sound and another
-min_s_distance = 5
-# decide if sounds can come from people not asking or answering questions 
-'''
-------------------------
-'''
-# if True, question order is random
-random_question = True
-# number of questions. positive or "-1" if random
-n_questions = -1
-# number of answers. positive or "-1" if random
-n_answers = -1
-# enable initial questions. "-1" if random, "0" if disabled, "1" if enabled
-enable_init_question = -1
-# volume of answers. "ND" if NOT DEFINED, "H" if LOW volume, "L" if HIGH volume
-volume = "ND"
+# import cfg file
+config = configparser.ConfigParser()
+config.read('PYgenerator.cfg')
 
+n_questions = config.getint('global', 'n_questions', fallback=0)
+n_answers = config.getint('global', 'n_answers', fallback=0)
+init_question = config.getint('global', 'init_question', fallback=-1)
+volume = config.get('global', 'volume', fallback="ND")
+name_format = (config.get('files', 'name_format')).split("_")
+dir_path = config.get('files', 'dir_path', fallback=os.path.dirname(os.path.realpath(__file__)))
+input_folder = config.get('files', 'input_folder', fallback="INPUT")
+output_folder = config.get('files', 'output_folder', fallback="OUTPUT")
+enable_noise = config.getboolean('noise', 'enable_noise', fallback=False)
+noise_file = config.get('noise', 'noise_file', fallback="")
+s_min = config.getfloat('silences', 'min', fallback=0.05)
+s_max = config.getfloat('silences', 'max', fallback=0.120)
+lp_min = config.getfloat('long pauses', 'min', fallback=0.9)
+lp_max = config.getfloat('long pauses', 'max', fallback=1.2)
+p_min = config.getfloat('pauses', 'min', fallback=0.7)
+p_max = config.getfloat('pauses', 'max', fallback=0.9)
+s_quantity = config.getfloat('sounds', 's_quantity', fallback=0.2)
+min_s_distance = config.getfloat('sounds', 'min_s_distance', fallback=5)
+random_q_order = config.getboolean('global', 'random_q_order', fallback=True)
+
+sample_rate = config.getint('data', 'sample_rate', fallback=0)
+channels = config.getint('data', 'sample_rate', fallback=0)
 pop_tollerance = sample_rate * 1
+
+def cfg_check(count_answers, count_questions):
+    if (n_answers>count_answers):
+        raise Exception(f"cfg_check - n_answers in configuration file must be <= {count_answers} or -1 for random.")
+    if (n_questions>count_questions):
+        raise Exception(f"cfg_check - n_answers in configuration file must be <= {count_answers} or -1 for random.")
+    if enable_noise == True and noise_file == "":
+        raise Exception("noise file should not be empty")
+    if volume != "ND" or volume != "H" or volume != "L":
+         raise Exception("volume should be ND, H or L")
+    logging.info(f"cfg_check \t - SUCCESS")
 
 def audio_file(path: str, data: bin, name: str, person: str, duplicated: bool):
     file = {}
@@ -84,28 +79,27 @@ def audio_file(path: str, data: bin, name: str, person: str, duplicated: bool):
 def get_person(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_person \t\t - SUCCESS for: {filename}")
-    return filename_without_extension.split("_")[name_format['person']]
+    return filename_without_extension.split("_")[(name_format.index('person'))]
 
 def get_gender(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_gender \t\t - SUCCESS for: {filename}")
-    return filename_without_extension.split("_")[name_format['gender']]
+    return filename_without_extension.split("_")[name_format.index('gender')]
 
 def get_type(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_type \t\t - SUCCESS for: {filename}")
-    return filename_without_extension.split("_")[name_format['type']]
+    return filename_without_extension.split("_")[name_format.index('type')]
 
 def get_nquestion(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
-    nquestion = int(filename_without_extension.split("_")[name_format['question']])
     logging.info(f"get_type \t\t - SUCCESS for: {filename}")
-    return nquestion
+    return int(filename_without_extension.split("_")[name_format.index('question')])
 
 def get_volume(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_volume \t\t - SUCCESS for: {filename}")
-    return filename_without_extension.split("_")[name_format['volume']]
+    return filename_without_extension.split("_")[name_format.index('volume')]
 
 def get_channels(data):
     '''Get the number of channels in an audio file'''
@@ -558,14 +552,18 @@ def handle_auto_files(dir_path):
         if interrogator in a_participants:
             a_participants.remove(interrogator)
 
+    max_questions = min(max(q_letters.values()), max(a_letters.values()))
+    max_answers = len(a_letters)
     tmp_n_answers = 0
-    if n_questions < 0:
-        tmp_n_questions = random.randint(1, (n_questions*(-1)))
+    if n_questions == 0:
+        tmp_n_questions = random.randint(1, max_questions)
+    elif n_questions < 0:
+        tmp_n_questions = random.randint(1, n_questions)
     else:
         tmp_n_questions = n_questions
     ran_n_que = list(range(tmp_n_questions))
     # shuffle if question order should be randomized
-    if random_question:
+    if random_q_order:
         random.shuffle(ran_n_que)
     for j in ran_n_que:
         # choose random interrogator
@@ -577,8 +575,10 @@ def handle_auto_files(dir_path):
                 break
         
         # handle number of answers also if negative 
-        if n_answers < 0:
-            tmp_n_answers = random.randint(1, (n_answers*(-1)))
+        if n_answers == 0:
+            tmp_n_answers = random.randint(1, max_answers)
+        elif n_answers < 0:
+            tmp_n_answers = random.randint(1, n_answers)
         else:
             tmp_n_answers = n_answers
         # shuffle answerers 
@@ -594,7 +594,7 @@ def handle_auto_files(dir_path):
                     if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                         file_names = add_file(file_names, i[0])
                         break
-                if (enable_init_question == 1) or (enable_init_question == -1 and bool(random.getrandbits(1)) == True):
+                if (init_question == 1) or (init_question == -1 and bool(random.getrandbits(1)) == True):
                     for i in matr_questions:
                         if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                             file_names = add_file(file_names, i[0])
@@ -607,58 +607,6 @@ def handle_auto_files(dir_path):
                     break
     logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
     return file_names
-
-
-def user_auto_files(count_answers, count_questions):
-    global n_answers, n_questions, random_question, volume
-    while True:
-       tmp_input = input(f"Vuoi specificare un numero massimo di persone che rispondono alla domanda (max: {count_answers})? [NO/n] ")
-       if str(tmp_input).lower() == "no":
-           n_answers = count_answers * (-1)
-           break
-       elif str(tmp_input).isnumeric() and int(tmp_input)<=count_answers and int(tmp_input)>0:
-           n_answers = int(tmp_input)
-           break
-       elif str(tmp_input).isnumeric() and int(tmp_input)>count_answers:
-           print(f"Il numero deve essere <= {count_answers}")
-       else:
-           print("Il valore inserito non è corretto. Riprova.")
-    while True:
-       tmp_input = input(f"Vuoi specificare un numero massimo di domande (max: {count_questions})? [NO/n] ")
-       if str(tmp_input).lower() == "no":
-           n_questions = count_questions * (-1)
-           break
-       elif str(tmp_input).isnumeric() and int(tmp_input)<=count_questions and int(tmp_input)>0:
-           n_questions = int(tmp_input)
-           break
-       elif str(tmp_input).isnumeric() and int(tmp_input)>count_questions:
-           print(f"Il numero deve essere <= {count_questions}")
-       else:
-           print("Il valore inserito non è corretto. Riprova.")
-    while True:
-       tmp_input = input(f"L'ordine delle domande è casuale? [SI/NO] ")
-       if str(tmp_input).lower() == "no":
-           random_question = False
-           break
-       elif str(tmp_input).lower() == "si":
-           random_question = True
-           break
-       else:
-           print("Il valore inserito non è corretto. Riprova.")
-    while True:
-       tmp_input = input(f"Portamento? [HIGH/LOW/MIX] ")
-       if str(tmp_input).lower() == "high":
-           volume = "H"
-           break
-       elif str(tmp_input).lower() == "low":
-           volume = "L"
-           break
-       elif str(tmp_input).lower() == "mix":
-           volume = "ND"
-           break
-       else:
-           print("Il valore inserito non è corretto. Riprova.")
-    logging.info(f"user_auto_files \t - SUCCESS")
 
 def user_ask_files(dir_path, max_participants):
     '''Ask file1, file2'''
@@ -684,17 +632,16 @@ def user_ask_files(dir_path, max_participants):
                 print(f"\tERRORE: {e}")
     logging.info(f"user_ask_files \t - SUCCESS: {file_names}")
 
-def user_input(dir_path, max_participants, a_letters, q_letters):
+def user_input(dir_path):
     '''ask if wants each file or auto-mode'''
     while True:
         user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
         if str(user_choice).lower() == "si":
+            max_participants, _, _, _, _, _, _ = folder_info(os.path.join(dir_path, input_folder))
             file_names = user_ask_files(dir_path, max_participants)
             logging.info(f"user_input \t\t - SUCCESS: {file_names}")
             return file_names
         elif str(user_choice).lower() == "no":
-            min_max = min(max(q_letters.values()), max(a_letters.values()))
-            user_auto_files(len(a_letters), int(min_max))
             file_names = handle_auto_files(dir_path)
             logging.info(f"user_input \t\t - SUCCESS: {file_names}")
             return file_names
@@ -709,18 +656,19 @@ def write_files(OUTPUT):
 
 if __name__ == '__main__':
     '''Important path of input files'''
-    max_participants, count_a, count_q, count_iq, counts_s, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
 
+    cfg_check
     print("\n\tGeneratore di dialoghi realistici.\n")
     
     #try:
     '''ask for user input'''
-    file_names = user_input(dir_path, max_participants, a_letters, q_letters)
+    file_names = user_input(dir_path)
     '''Create output array [data, person] and silences/pauses values'''
     print("\t chosing new files and pauses...")
     OUTPUT, silences = read_write_file(file_names)
     '''Create output array [data, person]: add silences/pauses to output data'''
     print("\t adding new sounds...")
+    _, _, _, _, counts_s, _, _ = folder_info(os.path.join(dir_path, input_folder))
     OUTPUT = sounds(counts_s, file_names, OUTPUT, silences)
     print("\t writing files into the hard drive...")
     write_files(OUTPUT)
