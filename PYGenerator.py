@@ -464,7 +464,8 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
     # ho in uscita un array di tutti i file audio che vanno sovrapposti con il nome di ogni persona
     return OUTPUT
 
-def sounds(sound_files, file_names, audio_no_s, silences):
+def sounds(file_names, audio_no_s, silences):
+    _, _, _, _, sound_files, _, _ = folder_info(os.path.join(dir_path, input_folder))
     output = []
     if s_quantity == 0:
         logging.info(f"sounds \t\t\t - ABORT: s_quantity = 0")
@@ -552,8 +553,9 @@ def handle_auto_files(dir_path):
         if interrogator in a_participants:
             a_participants.remove(interrogator)
 
-    max_questions = min(max(q_letters.values()), max(a_letters.values()))
-    max_answers = len(a_letters)
+    max_questions = max(q_letters.values())
+    max_answers = len(a_letters) 
+    # max number of participants to answers
     tmp_n_answers = 0
     if n_questions == 0:
         tmp_n_questions = random.randint(1, max_questions)
@@ -581,6 +583,7 @@ def handle_auto_files(dir_path):
             tmp_n_answers = random.randint(1, n_answers)
         else:
             tmp_n_answers = n_answers
+        
         # shuffle answerers 
         while True:
             random.shuffle(a_participants)
@@ -588,6 +591,7 @@ def handle_auto_files(dir_path):
                 break
 
         # add first person to answer X each question
+        logging.info(f"handle_auto_files \t - INFO: tmp_n_answers: {tmp_n_answers}")
         for i_a in range(tmp_n_answers):
             if i_a != 0:
                 for i in matr_initquest:
@@ -600,7 +604,6 @@ def handle_auto_files(dir_path):
                             file_names = add_file(file_names, i[0])
                             break
             responder = a_participants[i_a]
-            i_a += 1
             for i in matr_answers:
                 if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
                     file_names = add_file(file_names, i[0])
@@ -608,11 +611,12 @@ def handle_auto_files(dir_path):
     logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
     return file_names
 
-def user_ask_files(dir_path, max_participants):
+def user_ask_files(dir_path):
     '''Ask file1, file2'''
     ''' and check/fix paths (file1, file2)'''
     ''' handle the errors'''
     file_names = []
+    max_participants, _, _, _, _, _, _ = folder_info(os.path.join(dir_path, input_folder))
     for i in range(max_participants):
         while True:
             try:
@@ -632,22 +636,6 @@ def user_ask_files(dir_path, max_participants):
                 print(f"\tERRORE: {e}")
     logging.info(f"user_ask_files \t - SUCCESS: {file_names}")
 
-def user_input(dir_path):
-    '''ask if wants each file or auto-mode'''
-    while True:
-        user_choice = input(f"Vuoi inserire manualmente i files? [SI/NO] ")
-        if str(user_choice).lower() == "si":
-            max_participants, _, _, _, _, _, _ = folder_info(os.path.join(dir_path, input_folder))
-            file_names = user_ask_files(dir_path, max_participants)
-            logging.info(f"user_input \t\t - SUCCESS: {file_names}")
-            return file_names
-        elif str(user_choice).lower() == "no":
-            file_names = handle_auto_files(dir_path)
-            logging.info(f"user_input \t\t - SUCCESS: {file_names}")
-            return file_names
-        else:
-            print("Il valore inserito non è corretto. Riprova.")
-
 def write_files(OUTPUT):
     for i in OUTPUT:
         write_name = os.path.join(dir_path, output_folder+f'/merged{i[1]}.wav')
@@ -656,28 +644,21 @@ def write_files(OUTPUT):
 
 if __name__ == '__main__':
     '''Important path of input files'''
-
-    cfg_check
     print("\n\tGeneratore di dialoghi realistici.\n")
     
     #try:
-    '''ask for user input'''
-    file_names = user_input(dir_path)
+    file_names = handle_auto_files(dir_path)
+    #file_names = user_ask_files(dir_path)
     '''Create output array [data, person] and silences/pauses values'''
     print("\t chosing new files and pauses...")
     OUTPUT, silences = read_write_file(file_names)
     '''Create output array [data, person]: add silences/pauses to output data'''
     print("\t adding new sounds...")
-    _, _, _, _, counts_s, _, _ = folder_info(os.path.join(dir_path, input_folder))
-    OUTPUT = sounds(counts_s, file_names, OUTPUT, silences)
+    OUTPUT = sounds(file_names, OUTPUT, silences)
     print("\t writing files into the hard drive...")
     write_files(OUTPUT)
     print("\n COMPLETED! (folder opened)")
     os.startfile(os.path.join(dir_path, output_folder))
-    '''except Exception as e:
-        print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
-        exit()'''
-
-# Il programma vede quali files ci sono nella cartella e chiede all'utente se vanno bene quegli interlocutori.
-# chiede all'utente:
-    # lunghezza massima
+    #except Exception as e:
+    #print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
+    #exit()
