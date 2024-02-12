@@ -561,6 +561,14 @@ def matr_to_dict1(matr1, list2):
         for _, p, n in matr1:
             if j == n:
                 dict1.setdefault(n, []).append(p)
+    return dict1
+
+def volume_handler(pos_participants, p1, p2):
+    if pos_participants.get(p1) == pos_participants.get(p2):
+        tmp_volume = "L"
+    else:
+        tmp_volume = "H"
+    return tmp_volume
 
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
@@ -590,75 +598,76 @@ def handle_auto_files(dir_path):
         if interrogator in a_participants:
             a_participants.remove(interrogator)
 
-    max_answers = len(a_letters) 
     # max number of participants to answers
     tmp_n_answers = 0
     list_questions = matr_to_list1(matr_questions, n_questions)
-    list_answers = matr_to_dict1(matr_questions, n_questions, list_questions)
+    dict_answers = matr_to_dict1(matr_questions, list_questions)
 
     if volume == "ND":
         participants = merge_arrays(q_participants, a_participants)
         pos_participants = {item: random.choice([0, 1]) for item in participants}
 
     for j in list_questions:
-        tmp_volume = random.choice(["L", "H"])
         print(f"\t chosen question n: {j}", end=" ")
         # choose random interrogator
         interrogator = random.choice(q_participants)
+
         # shuffle answerers 
         while True:
-            random.shuffle(a_participants)
-            if a_participants[0] != interrogator:
+            answerers = dict_answers.get(j)
+            random.shuffle(answerers)
+            if answerers[0] != interrogator:
                 break
+
         # handle number of answers also if negative 
         if n_answers == 0:
-            tmp_n_answers = random.randint(1, max_answers)
+            tmp_n_answers = random.randint(1, len(answerers))
         elif n_answers < 0:
-            tmp_n_answers = random.randint(1, n_answers)
+            tmp_n_answers = random.randint(1, min((abs(n_answers)-1), answerers))
         else:
             tmp_n_answers = n_answers
-        tmp_pos = pos_participants.get(interrogator)
-        
-        print(f"with n{tmp_n_answers} answers.")
+        answerers = answerers[:tmp_n_answers]
+        tmp_volume = volume_handler(pos_participants, answerers[0], interrogator)
+
         # add first person to ask X each question
         for i in matr_questions:
             if str(interrogator) == str(i[1]) and int(j) == int(i[2]):
-                if volume != "ND" or (get_volume(i[0]) == tmp_pos):
+                if volume != "ND" or (get_volume(i[0]) == tmp_volume):
                     file_names = add_file(file_names, i[0])
                     break
         
-        # add first person to answer X each question
-        logging.info(f"handle_auto_files \t - INFO: tmp_n_answers: {tmp_n_answers}")
+        print(f"with n{tmp_n_answers+1} answers.")
+
         for i_a in range(tmp_n_answers):
-            tmp_volume = random.choice(["L", "H"])
-            not_found = 0
+            err_check = 0
             if i_a != 0:
+                tmp_volume = volume_handler(pos_participants, responder, answerers[i_a])
                 if (random.random() < prob_init_question) == True:
                     for i in matr_initquest:
                         if responder == str(i[1]) and j == i[2]:
                             if volume != "ND" or (get_volume(i[0]) == tmp_volume):
                                 file_names = add_file(file_names, i[0])
-                                not_found += 1
+                                err_check += 1
                                 break
                 else:
-                    not_found += 1
+                    err_check += 1
                 if ((random.random() < prob_question) == True) and ((random.random() < prob_i_q) == True):
                     for i in matr_questions:
                         if responder == str(i[1]) and j == i[2]:
                             if volume != "ND" or (get_volume(i[0]) == tmp_volume):
                                 file_names = add_file(file_names, i[0])
-                                not_found += 1
+                                err_check += 1
                                 break
                 else:
-                    not_found += 1
-            responder = a_participants[i_a]
+                    err_check += 1
+            responder = answerers[i_a]
             for i in matr_answers:
                 if responder == str(i[1]) and j == i[2]:
                     if volume != "ND" or (get_volume(i[0]) == tmp_volume):
                         file_names = add_file(file_names, i[0])
-                        not_found += 1
+                        err_check += 1
                         break
-            if not (not_found == 3 or (i_a == 0 and not_found == 1)):
+            if not (err_check == 3 or (i_a == 0 and err_check == 1)):
                 logging.info(f"handle_auto_files \t - ERROR: {matr_answers}, responder: {responder}, j: {j}, i_a: {i_a}, {volume, tmp_volume}")
                 raise Exception(f"Wrong Setting: Can't find the right file responder: {responder}, question: {j}")
     logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
