@@ -31,9 +31,12 @@ __author__  = "G.Salada"
 config = configparser.ConfigParser()
 config.read('PYgenerator.cfg')
 
+random_q_order = config.getboolean('global', 'random_q_order', fallback=True)
 n_questions = config.getint('global', 'n_questions', fallback=0)
 n_answers = config.getint('global', 'n_answers', fallback=0)
-init_question = config.getint('global', 'init_question', fallback=-1)
+prob_question = config.getfloat('global', 'prob_question', fallback=0.5)
+prob_init_question = config.getfloat('global', 'prob_init_question', fallback=0.5)
+prob_i_q = config.getfloat('global', 'prob_i_q', fallback=0.8)
 volume = config.get('global', 'volume', fallback="ND")
 name_format = (config.get('files', 'name_format')).split("_")
 dir_path = config.get('files', 'dir_path', fallback=os.path.dirname(os.path.realpath(__file__)))
@@ -47,9 +50,13 @@ lp_min = config.getfloat('long pauses', 'min', fallback=0.9)
 lp_max = config.getfloat('long pauses', 'max', fallback=1.2)
 p_min = config.getfloat('pauses', 'min', fallback=0.7)
 p_max = config.getfloat('pauses', 'max', fallback=0.9)
-s_quantity = config.getfloat('sounds', 's_quantity', fallback=0.2)
+s_quantity = config.getfloat('sounds', 's_quantity', fallback=0.5)
 min_s_distance = config.getfloat('sounds', 'min_s_distance', fallback=5)
-random_q_order = config.getboolean('global', 'random_q_order', fallback=True)
+
+cut_redundancy = config.getfloat('sounds', 'cut_redundancy', fallback=1.5)
+length_sounds = config.getfloat('sounds', 'length_sounds', fallback=2)
+end_tollerance = config.getfloat('sounds', 'end_tollerance', fallback=3)
+cycle_limit = config.getfloat('sounds', 'cycle_limit', fallback=10)
 
 sample_rate = config.getint('data', 'sample_rate', fallback=0)
 channels = config.getint('data', 'sample_rate', fallback=0)
@@ -94,7 +101,7 @@ def get_type(filename: str):
 def get_nquestion(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
     logging.info(f"get_type \t\t - SUCCESS for: {filename}")
-    return int(filename_without_extension.split("_")[name_format.index('question')])
+    return filename_without_extension.split("_")[name_format.index('question')]
 
 def get_volume(filename: str):
     filename_without_extension = os.path.splitext(os.path.basename(filename))[0]
@@ -411,10 +418,6 @@ def filenames_lenghts(file_names, silences):
 def handle_sounds(sound_files, file_names, max_duration, silences):
     '''create 2D list of sounds. Each sound has a random position in seconds'''
     '''There are various values to setup the randomness'''
-    cut_redundancy = 1.5  # in seconds
-    length_sounds = 2 # lenght is fixed to not cause unuseful reads
-    end_tollerance = 3 # in seconds, gap at the end to avoid different lenghts in the final audio file
-    cycle_limit = 10 # how many times does the random function search for an empty space. Bigger values get better results, but a slower code
     OUTPUT = []
     tmp_arr = []
     count_sounds = 0
@@ -527,14 +530,48 @@ def list_to_3Dlist(dict):
     logging.info(f"list_to_3Dlist \t\t - SUCCESS")
     return arr
 
+def merge_arrays(arr1, arr2):
+    merged_array = []
+    for item in arr1:
+        if item not in merged_array:
+            merged_array.append(item)
+    for item in arr2:
+        if item not in merged_array:
+            merged_array.append(item)
+    return merged_array
+
+def matr_to_list1(matr1, value1):
+    list1 = []
+    for _, _, n in matr1:
+        if n not in list1:
+            list1.append(n)
+    if random_q_order:
+        random.shuffle(list1)
+    if value1 == 0:
+        list1 = list1[:(random.randint(1,len(list1)))]
+    elif int(value1) < 0:
+        list1 = list1[:(random.randint(1,abs(int(value1))))]
+    else:
+        list1 = list1[:(value1-1)]
+    return list1
+
+def matr_to_dict1(matr1, list2):
+    dict1 = {}
+    for j in list2:
+        for _, p, n in matr1:
+            if j == n:
+                dict1.setdefault(n, []).append(p)
+
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
-    _, answers, questions, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
-    logging.info(f"{answers, questions, initial_questions}")
+    _, count_a, count_q, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
+    logging.info(f"{count_a, count_q, initial_questions}")
     # create 3D array for questions
-    matr_questions = list_to_3Dlist(questions)
-    matr_answers = list_to_3Dlist(answers)
+    matr_questions = list_to_3Dlist(count_q)
+    matr_answers = list_to_3Dlist(count_a)
     matr_initquest = list_to_3Dlist(initial_questions)
+
+    print(matr_answers)
 
     q_participants, a_participants = participants_lists(q_letters, a_letters)
     file_names = []
@@ -553,29 +590,26 @@ def handle_auto_files(dir_path):
         if interrogator in a_participants:
             a_participants.remove(interrogator)
 
-    max_questions = max(q_letters.values())
     max_answers = len(a_letters) 
     # max number of participants to answers
     tmp_n_answers = 0
-    if n_questions == 0:
-        tmp_n_questions = random.randint(1, max_questions)
-    elif n_questions < 0:
-        tmp_n_questions = random.randint(1, n_questions)
-    else:
-        tmp_n_questions = n_questions
-    ran_n_que = list(range(tmp_n_questions))
-    # shuffle if question order should be randomized
-    if random_q_order:
-        random.shuffle(ran_n_que)
-    for j in ran_n_que:
+    list_questions = matr_to_list1(matr_questions, n_questions)
+    list_answers = matr_to_dict1(matr_questions, n_questions, list_questions)
+
+    if volume == "ND":
+        participants = merge_arrays(q_participants, a_participants)
+        pos_participants = {item: random.choice([0, 1]) for item in participants}
+
+    for j in list_questions:
+        tmp_volume = random.choice(["L", "H"])
+        print(f"\t chosen question n: {j}", end=" ")
         # choose random interrogator
         interrogator = random.choice(q_participants)
-        # add first person to ask X each question
-        for i in matr_questions:
-            if str(interrogator) == str(i[1]) and int(j+1) == int(i[2]):
-                file_names = add_file(file_names, i[0])
+        # shuffle answerers 
+        while True:
+            random.shuffle(a_participants)
+            if a_participants[0] != interrogator:
                 break
-        
         # handle number of answers also if negative 
         if n_answers == 0:
             tmp_n_answers = random.randint(1, max_answers)
@@ -583,31 +617,50 @@ def handle_auto_files(dir_path):
             tmp_n_answers = random.randint(1, n_answers)
         else:
             tmp_n_answers = n_answers
+        tmp_pos = pos_participants.get(interrogator)
         
-        # shuffle answerers 
-        while True:
-            random.shuffle(a_participants)
-            if a_participants[0] != interrogator:
-                break
-
+        print(f"with n{tmp_n_answers} answers.")
+        # add first person to ask X each question
+        for i in matr_questions:
+            if str(interrogator) == str(i[1]) and int(j) == int(i[2]):
+                if volume != "ND" or (get_volume(i[0]) == tmp_pos):
+                    file_names = add_file(file_names, i[0])
+                    break
+        
         # add first person to answer X each question
         logging.info(f"handle_auto_files \t - INFO: tmp_n_answers: {tmp_n_answers}")
         for i_a in range(tmp_n_answers):
+            tmp_volume = random.choice(["L", "H"])
+            not_found = 0
             if i_a != 0:
-                for i in matr_initquest:
-                    if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
-                        file_names = add_file(file_names, i[0])
-                        break
-                if (init_question == 1) or (init_question == -1 and bool(random.getrandbits(1)) == True):
+                if (random.random() < prob_init_question) == True:
+                    for i in matr_initquest:
+                        if responder == str(i[1]) and j == i[2]:
+                            if volume != "ND" or (get_volume(i[0]) == tmp_volume):
+                                file_names = add_file(file_names, i[0])
+                                not_found += 1
+                                break
+                else:
+                    not_found += 1
+                if ((random.random() < prob_question) == True) and ((random.random() < prob_i_q) == True):
                     for i in matr_questions:
-                        if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
-                            file_names = add_file(file_names, i[0])
-                            break
+                        if responder == str(i[1]) and j == i[2]:
+                            if volume != "ND" or (get_volume(i[0]) == tmp_volume):
+                                file_names = add_file(file_names, i[0])
+                                not_found += 1
+                                break
+                else:
+                    not_found += 1
             responder = a_participants[i_a]
             for i in matr_answers:
-                if str(responder) == str(i[1]) and int(j+1) == int(i[2]):
-                    file_names = add_file(file_names, i[0])
-                    break
+                if responder == str(i[1]) and j == i[2]:
+                    if volume != "ND" or (get_volume(i[0]) == tmp_volume):
+                        file_names = add_file(file_names, i[0])
+                        not_found += 1
+                        break
+            if not (not_found == 3 or (i_a == 0 and not_found == 1)):
+                logging.info(f"handle_auto_files \t - ERROR: {matr_answers}, responder: {responder}, j: {j}, i_a: {i_a}, {volume, tmp_volume}")
+                raise Exception(f"Wrong Setting: Can't find the right file responder: {responder}, question: {j}")
     logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
     return file_names
 
