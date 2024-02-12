@@ -454,7 +454,7 @@ def handle_sounds(sound_files, file_names, max_duration, silences):
                                 tmp_limit += 1
                                 break
                 else:
-                    logging.info(f"handle_sounds \t\t - WARNING: no more space for new sounds with cycle repeated {tmp_limit}")
+                    logging.info(f"handle_sounds \t\t - WARNING: no more space for new sounds with cycle repeated {tmp_limit}. Added {count_sounds} sounds")
                     return OUTPUT
                 if correct:
                     tmp_arr.append(delay)
@@ -476,6 +476,7 @@ def sounds(file_names, audio_no_s, silences):
             output.append([i[0], i[1]])
     else:
         # -1 takes the last file (COMPLETE)
+        print("\t adding new sounds...")
         max_duration = raw_to_seconds(audio_no_s[-1][0])
         sounds = handle_sounds(sound_files, file_names, max_duration, silences)
         for i in audio_no_s:
@@ -530,16 +531,6 @@ def list_to_3Dlist(dict):
     logging.info(f"list_to_3Dlist \t\t - SUCCESS")
     return arr
 
-def merge_arrays(arr1, arr2):
-    merged_array = []
-    for item in arr1:
-        if item not in merged_array:
-            merged_array.append(item)
-    for item in arr2:
-        if item not in merged_array:
-            merged_array.append(item)
-    return merged_array
-
 def matr_to_list1(matr1, value1):
     list1 = []
     for _, _, n in matr1:
@@ -564,11 +555,30 @@ def matr_to_dict1(matr1, list2):
     return dict1
 
 def volume_handler(pos_participants, p1, p2):
-    if pos_participants.get(p1) == pos_participants.get(p2):
-        tmp_volume = "L"
-    else:
-        tmp_volume = "H"
-    return tmp_volume
+    if volume == "ND":
+        if pos_participants.get(p1) == pos_participants.get(p2):
+            tmp_volume = "L"
+        else:
+            tmp_volume = "H"
+        return tmp_volume
+    else: return volume
+
+def position_handler(q_participants, a_participants):
+    if volume == "ND":
+        participants = merge_arrays(q_participants, a_participants)
+        pos_participants = {item: random.choice([0, 1]) for item in participants}
+        return pos_participants
+    else: return {}
+
+def merge_arrays(arr1, arr2):
+    merged_array = []
+    for item in arr1:
+        if item not in merged_array:
+            merged_array.append(item)
+    for item in arr2:
+        if item not in merged_array:
+            merged_array.append(item)
+    return merged_array
 
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
@@ -578,11 +588,7 @@ def handle_auto_files(dir_path):
     matr_questions = list_to_3Dlist(count_q)
     matr_answers = list_to_3Dlist(count_a)
     matr_initquest = list_to_3Dlist(initial_questions)
-
-    print(matr_answers)
-
     q_participants, a_participants = participants_lists(q_letters, a_letters)
-    file_names = []
 
     # handle 1 element arrays
     if len(a_participants) == len(q_participants) == 1 and a_participants[0] == q_participants[0]:
@@ -599,14 +605,13 @@ def handle_auto_files(dir_path):
             a_participants.remove(interrogator)
 
     # max number of participants to answers
-    tmp_n_answers = 0
     list_questions = matr_to_list1(matr_questions, n_questions)
     dict_answers = matr_to_dict1(matr_questions, list_questions)
 
-    if volume == "ND":
-        participants = merge_arrays(q_participants, a_participants)
-        pos_participants = {item: random.choice([0, 1]) for item in participants}
+    pos_participants = position_handler(q_participants, a_participants)
 
+    tmp_n_answers = 0
+    file_names = []
     for j in list_questions:
         print(f"\t chosen question n: {j}", end=" ")
         # choose random interrogator
@@ -636,9 +641,10 @@ def handle_auto_files(dir_path):
                     file_names = add_file(file_names, i[0])
                     break
         
-        print(f"with n{tmp_n_answers+1} answers.")
+        print(f"with n{tmp_n_answers+1} answers from:", end=" ")
 
         for i_a in range(tmp_n_answers):
+            print(answerers[i_a], end=" ")
             err_check = 0
             if i_a != 0:
                 tmp_volume = volume_handler(pos_participants, responder, answerers[i_a])
@@ -669,7 +675,8 @@ def handle_auto_files(dir_path):
                         break
             if not (err_check == 3 or (i_a == 0 and err_check == 1)):
                 logging.info(f"handle_auto_files \t - ERROR: {matr_answers}, responder: {responder}, j: {j}, i_a: {i_a}, {volume, tmp_volume}")
-                raise Exception(f"Wrong Setting: Can't find the right file responder: {responder}, question: {j}")
+                raise Exception(f"Wrong Setting: Can't find the right file responder {responder}, question {j} and volume {tmp_volume}")
+        print("")
     logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
     return file_names
 
@@ -715,7 +722,6 @@ if __name__ == '__main__':
     print("\t chosing new files and pauses...")
     OUTPUT, silences = read_write_file(file_names)
     '''Create output array [data, person]: add silences/pauses to output data'''
-    print("\t adding new sounds...")
     OUTPUT = sounds(file_names, OUTPUT, silences)
     print("\t writing files into the hard drive...")
     write_files(OUTPUT)
