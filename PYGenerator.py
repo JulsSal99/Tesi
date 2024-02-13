@@ -61,6 +61,8 @@ cycle_limit = config.getfloat('sounds', 'cycle_limit', fallback=10)
 sample_rate = config.getint('data', 'sample_rate', fallback=0)
 channels = config.getint('data', 'sample_rate', fallback=0)
 pop_tollerance = sample_rate * 1
+save_name1 = os.path.join("__pycache__", "output_files")
+import_name1 = os.path.join("__pycache__", config.getint('data', 'custom_files', fallback="output_files"))
 
 def cfg_check(count_answers, count_questions):
     if (n_answers>count_answers):
@@ -580,6 +582,18 @@ def merge_arrays(arr1, arr2):
             merged_array.append(item)
     return merged_array
 
+def save_file(INPUT):
+    import json
+    # Salvare il dizionario in un file JSON
+    with open((save_name1+'.json'), 'w') as file:
+        json.dump(INPUT, file)
+
+def import_file():
+    import json
+    # Caricare il dizionario da un file JSON
+    with open((import_name1+'.json'), 'r') as file:
+        return json.load(file)
+
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
     _, count_a, count_q, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
@@ -677,6 +691,7 @@ def handle_auto_files(dir_path):
                 logging.info(f"handle_auto_files \t - ERROR: {matr_answers}, responder: {responder}, j: {j}, i_a: {i_a}, {volume, tmp_volume}")
                 raise Exception(f"Wrong Setting: Can't find the right file responder {responder}, question {j} and volume {tmp_volume}")
         print("")
+    save_file(file_names)
     logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
     return file_names
 
@@ -715,18 +730,20 @@ if __name__ == '__main__':
     '''Important path of input files'''
     print("\n\tGeneratore di dialoghi realistici.\n")
     
-    #try:
-    file_names = handle_auto_files(dir_path)
-    #file_names = user_ask_files(dir_path)
-    '''Create output array [data, person] and silences/pauses values'''
-    print("\t chosing new files and pauses...")
-    OUTPUT, silences = read_write_file(file_names)
-    '''Create output array [data, person]: add silences/pauses to output data'''
-    OUTPUT = sounds(file_names, OUTPUT, silences)
-    print("\t writing files into the hard drive...")
-    write_files(OUTPUT)
-    print("\n COMPLETED! (folder opened)")
-    os.startfile(os.path.join(dir_path, output_folder))
-    #except Exception as e:
-    #print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
-    #exit()
+    try:
+        file_names = handle_auto_files(dir_path)
+
+        OUTPUT = import_file()
+        #file_names = user_ask_files(dir_path)
+        '''Create output array [data, person] and silences/pauses values'''
+        print("\t chosing new files and pauses...")
+        OUTPUT, silences = read_write_file(file_names)
+        '''Create output array [data, person]: add silences/pauses to output data'''
+        OUTPUT = sounds(file_names, OUTPUT, silences)
+        print("\t writing files into the hard drive...")
+        write_files(OUTPUT)
+        print("\n COMPLETED! (folder opened)")
+        os.startfile(os.path.join(dir_path, output_folder))
+    except Exception as e:
+        print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
+        exit()
