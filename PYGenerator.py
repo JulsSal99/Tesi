@@ -42,8 +42,10 @@ name_format = (config.get('files', 'name_format')).split("_")
 dir_path = config.get('files', 'dir_path', fallback=os.path.dirname(os.path.realpath(__file__)))
 input_folder = config.get('files', 'input_folder', fallback="INPUT")
 output_folder = config.get('files', 'output_folder', fallback="OUTPUT")
+import_name1 = os.path.join("__pycache__", config.get('files', 'custom_files', fallback="output_files.json"))
 enable_noise = config.getboolean('noise', 'enable_noise', fallback=False)
 noise_file = config.get('noise', 'noise_file', fallback="")
+noise_fade = config.getfloat('noise', 'noise_fade', fallback=0.5)
 s_min = config.getfloat('silences', 'min', fallback=0.05)
 s_max = config.getfloat('silences', 'max', fallback=0.120)
 lp_min = config.getfloat('long pauses', 'min', fallback=0.9)
@@ -61,8 +63,7 @@ cycle_limit = config.getfloat('sounds', 'cycle_limit', fallback=10)
 sample_rate = config.getint('data', 'sample_rate', fallback=0)
 channels = config.getint('data', 'sample_rate', fallback=0)
 pop_tollerance = sample_rate * 1
-save_name1 = os.path.join("__pycache__", "output_files")
-import_name1 = os.path.join("__pycache__", config.getint('data', 'custom_files', fallback="output_files"))
+save_name1 = os.path.join("__pycache__", "output_files.json")
 
 def cfg_check(count_answers, count_questions):
     if (n_answers>count_answers):
@@ -239,37 +240,36 @@ def noise(raw_file):
 
 def concatenate_noise(audio1, audio2, shape):
     '''Concatenate two audio files using a noise as a bandade (two fade-in, fade-out)'''
-    len_fade = 0.05 #in seconds, if noise is <, value is half noise
-    len_fade = int(len_fade * sample_rate)
+    noise_fade = int(noise_fade * sample_rate)
     noise = sf.read(dir_path + "/" + noise_file)[0]
-    if len(noise) < (len_fade * 2):
-        len_fade = int(len(noise) / 2)
-        logging.info(f"concatenate_noise \t\t - NOTE: len_fade = {len_fade}")
+    if len(noise) < (noise_fade * 2):
+        noise_fade = int(len(noise) / 2)
+        logging.info(f"concatenate_noise \t\t - NOTE: noise_fade = {noise_fade}")
     if len(audio1) == 0:
         logging.info(f"concatenate_noise \t\t - WARNING: audio1 is empty")
         return audio2
     elif len(audio2) == 0:
         logging.info(f"concatenate_noise \t\t - WARNING: audio2 is empty")
         return audio1
-    elif len(audio1) < (len_fade):
-        raise Exception(f"audio1 ({len(audio1)} samples) smaller than fade ({len_fade} samples)!!")
-    elif len(audio2) < (len_fade):
-        raise Exception(f"audio2 ({len(audio2)} samples) smaller than fade ({len_fade} samples)!!")
+    elif len(audio1) < (noise_fade):
+        raise Exception(f"audio1 ({len(audio1)} samples) smaller than fade ({noise_fade} samples)!!")
+    elif len(audio2) < (noise_fade):
+        raise Exception(f"audio2 ({len(audio2)} samples) smaller than fade ({noise_fade} samples)!!")
     # applica il fade-out al primo file audio
-    fade_out = np.logspace(np.log10(0.15), np.log10(1.05), len_fade)
-    #fade_out = np.linspace(0.15, 1.05, len_fade)
+    fade_out = np.logspace(np.log10(0.15), np.log10(1.05), noise_fade)
+    #fade_out = np.linspace(0.15, 1.05, noise_fade)
     fade_out = shape_fixer(np.subtract(1.1, fade_out), shape)
     fade_in = np.flip(fade_out)
-    FO_audio1 = audio1[-len_fade:] * fade_out
-    FI_audio2 = audio2[:len_fade] *fade_in
-    noise = noise[:(len_fade*2)]
-    FI_rumore = noise[:len_fade]*fade_in
-    FO_rumore = noise[-len_fade:]*fade_out
+    FO_audio1 = audio1[-noise_fade:] * fade_out
+    FI_audio2 = audio2[:noise_fade] *fade_in
+    noise = noise[:(noise_fade*2)]
+    FI_rumore = noise[:noise_fade]*fade_in
+    FO_rumore = noise[-noise_fade:]*fade_out
     # Unisci i file audio
     mixed_audio1 = np.add(FO_audio1, FI_rumore)
     mixed_audio2 = np.add(FI_audio2, FO_rumore)
-    audio1[-len_fade:] = mixed_audio1
-    audio2[:len_fade] = mixed_audio2
+    audio1[-noise_fade:] = mixed_audio1
+    audio2[:noise_fade] = mixed_audio2
     #concatena i files audio
     if channels > 1:
         OUTPUT = np.concatenate((audio1, audio2), axis=0)
@@ -582,18 +582,6 @@ def merge_arrays(arr1, arr2):
             merged_array.append(item)
     return merged_array
 
-def save_file(INPUT):
-    import json
-    # Salvare il dizionario in un file JSON
-    with open((save_name1+'.json'), 'w') as file:
-        json.dump(INPUT, file)
-
-def import_file():
-    import json
-    # Caricare il dizionario da un file JSON
-    with open((import_name1+'.json'), 'r') as file:
-        return json.load(file)
-
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
     _, count_a, count_q, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
@@ -691,8 +679,20 @@ def handle_auto_files(dir_path):
                 logging.info(f"handle_auto_files \t - ERROR: {matr_answers}, responder: {responder}, j: {j}, i_a: {i_a}, {volume, tmp_volume}")
                 raise Exception(f"Wrong Setting: Can't find the right file responder {responder}, question {j} and volume {tmp_volume}")
         print("")
-    save_file(file_names)
     logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
+    return file_names
+
+def auto_files(dir_path):
+    import json
+    if os.path.exists(import_name1) and save_name1!=import_name1:
+        print("\t found custom audio settings file...")
+        with open((import_name1), 'r') as file:
+            return json.load(file)
+    else:
+        print("\t chosing new files and pauses...")
+        file_names = handle_auto_files(dir_path)
+        with open((save_name1), 'w') as file:
+            json.dump(file_names, file)
     return file_names
 
 def user_ask_files(dir_path):
@@ -731,12 +731,9 @@ if __name__ == '__main__':
     print("\n\tGeneratore di dialoghi realistici.\n")
     
     try:
-        file_names = handle_auto_files(dir_path)
-
-        OUTPUT = import_file()
+        file_names = auto_files(dir_path)
         #file_names = user_ask_files(dir_path)
         '''Create output array [data, person] and silences/pauses values'''
-        print("\t chosing new files and pauses...")
         OUTPUT, silences = read_write_file(file_names)
         '''Create output array [data, person]: add silences/pauses to output data'''
         OUTPUT = sounds(file_names, OUTPUT, silences)
