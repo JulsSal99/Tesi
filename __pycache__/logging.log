@@ -1,338 +1,338 @@
-2024-02-13 19:04:32,291 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,298 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,298 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_Q_01_L
-2024-02-13 19:04:32,426 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,426 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_01_L
-2024-02-13 19:04:32,444 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,445 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_Q_02_L
-2024-02-13 19:04:32,589 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,590 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_02_L
-2024-02-13 19:04:32,602 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,602 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_Q_02_L
-2024-02-13 19:04:32,682 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,682 - root - INFO - check_SR_CH 		 - SUCCESS for 07_M_A_02_L
-2024-02-13 19:04:32,692 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,692 - root - INFO - check_SR_CH 		 - SUCCESS for 07_M_I_02_L
-2024-02-13 19:04:32,793 - root - INFO - get_channels 		 - SUCCESS: 2
-2024-02-13 19:04:32,793 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_A_02_L
-2024-02-13 19:04:32,793 - root - INFO - data_creator 		 - SUCCESS.
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L
-2024-02-13 19:04:32,794 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L
-2024-02-13 19:04:32,795 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L
-2024-02-13 19:04:32,795 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L
-2024-02-13 19:04:32,795 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L
-2024-02-13 19:04:32,795 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L
-2024-02-13 19:04:32,795 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L
-2024-02-13 19:04:32,795 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_02_L
-2024-02-13 19:04:32,795 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_02_L
-2024-02-13 19:04:32,795 - root - INFO - silence_generator 	 - SUCCESS.
-2024-02-13 19:04:32,894 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:32,961 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:33,177 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:33,347 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:33,619 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:33,872 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:34,142 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:34,189 - root - INFO - read_write_file 	 - SUCCESS for: 03
-2024-02-13 19:04:34,251 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:34,318 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:34,500 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:34,672 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:34,916 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:35,170 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:35,527 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:35,568 - root - INFO - read_write_file 	 - SUCCESS for: 01
-2024-02-13 19:04:35,687 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:35,786 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:36,027 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:36,258 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:36,509 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:36,780 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:37,160 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:37,202 - root - INFO - read_write_file 	 - SUCCESS for: 07
-2024-02-13 19:04:37,274 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:37,357 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:37,517 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:37,724 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:38,009 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:38,638 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:39,131 - root - INFO - concatenate 		 - SUCCESS
-2024-02-13 19:04:39,178 - root - INFO - file_complete 		 - SUCCESS.
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_L.wav
-2024-02-13 19:04:39,209 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_H.wav
-2024-02-13 19:04:39,209 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_H.wav
-2024-02-13 19:04:39,220 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_02_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_H.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_04_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_05_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_06_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_07_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_08_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_09_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_10_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_I_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_I_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_I_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_I_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_I_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_I_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_01.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_02.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_03.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_04.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_05.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_06.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_07.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_08.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_09.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 07_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 07_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 07_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_I_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_I_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_I_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 07_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_01_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 07_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_02_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_volume 		 - SUCCESS for: 07_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_person 		 - SUCCESS for: 07_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_03_L.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_01.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_02.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_03.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_04.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_05.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_06.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_07.wav
-2024-02-13 19:04:39,221 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_08.wav
-2024-02-13 19:04:39,221 - root - INFO - folder_info 		 - SUCCESS: max_files: 105, 	count_a: ['01_M_A_01_L.wav', '01_M_A_02_L.wav', '01_M_A_03_L.wav', '01_M_A_04_L.wav', '01_M_A_05_L.wav', '01_M_A_06_L.wav', '01_M_A_07_L.wav', '01_M_A_08_L.wav', '01_M_A_09_L.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav', '07_M_A_01_L.wav', '07_M_A_02_L.wav', '07_M_A_03_L.wav'], 	count_q: ['01_M_Q_01_L.wav', '01_M_Q_02_L.wav', '01_M_Q_03_L.wav', '01_M_Q_04_L.wav', '01_M_Q_05_L.wav', '01_M_Q_06_L.wav', '01_M_Q_07_L.wav', '01_M_Q_08_L.wav', '01_M_Q_09_L.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav', '03_M_Q_03_L.wav', '07_M_Q_01_L.wav', '07_M_Q_02_L.wav', '07_M_Q_03_L.wav'], 	count_iq: ['01_M_I_01_L.wav', '01_M_I_02_L.wav', '01_M_I_03_L.wav', '01_M_I_04_L.wav', '01_M_I_05_L.wav', '01_M_I_06_L.wav', '01_M_I_07_L.wav', '01_M_I_08_L.wav', '01_M_I_09_L.wav', '01_M_I_10_L.wav', '03_M_I_01_L.wav', '03_M_I_02_L.wav', '03_M_I_03_L.wav', '07_M_I_01_L.wav', '07_M_I_02_L.wav', '07_M_I_03_L.wav'], 	count_s: ['01_M_S_01_L.wav', '01_M_S_02_L.wav', '01_M_S_03_L.wav', '01_M_S_04_L.wav', '01_M_S_05_L.wav', '01_M_S_06_L.wav', '01_M_S_07_L.wav', '01_M_S_08_L.wav', '01_M_S_09_L.wav', '01_M_S_10_L.wav', '03_M_S_01.wav', '03_M_S_02.wav', '03_M_S_03.wav', '03_M_S_04.wav', '03_M_S_05.wav', '03_M_S_06.wav', '03_M_S_07.wav', '03_M_S_08.wav', '03_M_S_09.wav', '07_M_S_01.wav', '07_M_S_02.wav', '07_M_S_03.wav', '07_M_S_04.wav', '07_M_S_05.wav', '07_M_S_06.wav', '07_M_S_07.wav', '07_M_S_08.wav'], 	a_letters: {'01': '10', '03': '03', '07': '03'}, 	q_letters: {'01': '10', '03': '03', '07': '03'}
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - raw_to_seconds 		 - SUCCESS
-2024-02-13 19:04:39,221 - root - INFO - filenames_lenghts 	 - SUCCESS: [['C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_01_L.wav', '03', 0, 2.921161458333333], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav', '01', 3.6697380797057906, 45.81407662137246], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_02_L.wav', '03', 46.914499149134485, 51.879009565801155], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav', '01', 52.69481965747868, 107.26979882414534], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_02_L.wav', '01', 108.27413348222859, 112.26346681556193], ['C:/Users/giuli/Music/Edit\\INPUT/07_M_A_02_L.wav', '07', 113.07015830215443, 142.94711663548776], ['C:/Users/giuli/Music/Edit\\INPUT/07_M_I_02_L.wav', '07', 143.95337273934476, 147.05477898934475], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav', '03', 147.13122086706454, 180.77092920039786]]
-2024-02-13 19:04:39,238 - root - INFO - get_person 		 - SUCCESS for: 03_M_S_05.wav
-2024-02-13 19:04:39,238 - root - INFO - handle_sounds 		 - WARNING: no more space for new sounds with cycle repeated 101. Added 1 sounds
-2024-02-13 19:04:39,238 - root - INFO - sounds 			 - SUCCESS for: 03
-2024-02-13 19:04:39,238 - root - INFO - sounds 			 - SUCCESS for: 01
-2024-02-13 19:04:39,238 - root - INFO - sounds 			 - SUCCESS for: 07
-2024-02-13 19:04:40,841 - root - INFO - sounds 			 - SUCCESS for: COMPLETE
-2024-02-13 19:04:41,632 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged03.wav
-2024-02-13 19:04:42,225 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged01.wav
-2024-02-13 19:04:42,748 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged07.wav
-2024-02-13 19:04:43,276 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/mergedCOMPLETE.wav
+2024-02-15 18:18:51,531 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,541 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,541 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_Q_01_L
+2024-02-15 18:18:51,668 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,668 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_01_L
+2024-02-15 18:18:51,686 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,686 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_Q_02_L
+2024-02-15 18:18:51,836 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,837 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_A_02_L
+2024-02-15 18:18:51,850 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,850 - root - INFO - check_SR_CH 		 - SUCCESS for 01_M_Q_02_L
+2024-02-15 18:18:51,939 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,939 - root - INFO - check_SR_CH 		 - SUCCESS for 07_M_A_02_L
+2024-02-15 18:18:51,948 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:51,948 - root - INFO - check_SR_CH 		 - SUCCESS for 07_M_I_02_L
+2024-02-15 18:18:52,056 - root - INFO - get_channels 		 - SUCCESS: 2
+2024-02-15 18:18:52,056 - root - INFO - check_SR_CH 		 - SUCCESS for 03_M_A_02_L
+2024-02-15 18:18:52,056 - root - INFO - data_creator 		 - SUCCESS.
+2024-02-15 18:18:52,057 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L
+2024-02-15 18:18:52,057 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L
+2024-02-15 18:18:52,057 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
+2024-02-15 18:18:52,057 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L
+2024-02-15 18:18:52,058 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_02_L
+2024-02-15 18:18:52,059 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_02_L
+2024-02-15 18:18:52,059 - root - INFO - silence_generator 	 - SUCCESS.
+2024-02-15 18:18:52,165 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:52,235 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:52,464 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:52,678 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:52,982 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:53,263 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:53,560 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:53,603 - root - INFO - read_write_file 	 - SUCCESS for: 03
+2024-02-15 18:18:53,677 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:53,767 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:53,960 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:54,161 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:54,456 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:54,770 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:55,146 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:55,193 - root - INFO - read_write_file 	 - SUCCESS for: 01
+2024-02-15 18:18:55,315 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:55,411 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:55,679 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:55,898 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:56,198 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:56,477 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:56,893 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:56,937 - root - INFO - read_write_file 	 - SUCCESS for: 07
+2024-02-15 18:18:57,014 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:57,101 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:57,276 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:58,206 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:58,710 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:59,088 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:59,415 - root - INFO - concatenate 		 - SUCCESS
+2024-02-15 18:18:59,477 - root - INFO - file_complete 		 - SUCCESS.
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_01_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_01_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_01_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_02_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_02_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_02_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_03_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_03_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_03_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_04_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_04_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_04_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_05_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_05_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_05_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_06_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_06_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_06_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_H.wav
+2024-02-15 18:18:59,493 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_07_L.wav
+2024-02-15 18:18:59,493 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_07_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_07_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_08_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_08_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_08_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_09_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_09_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_09_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_A_10_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_person 		 - SUCCESS for: 01_M_A_10_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_A_10_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_01_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_01_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_02_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_02_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_03_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_03_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_04_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_04_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_05_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_05_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_06_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_06_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_07_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_07_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_08_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_08_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_09_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_09_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_I_10_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_I_10_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_01_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_01_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_01_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_02_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_02_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_02_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_02_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_H.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_03_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_03_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_03_L.wav
+2024-02-15 18:18:59,501 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_04_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_04_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_04_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_05_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_05_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_05_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_06_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_06_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_06_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_07_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_07_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_07_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_08_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_08_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_08_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_09_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_09_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_09_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_H.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 01_M_Q_10_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 01_M_Q_10_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_Q_10_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_04_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_05_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_06_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_07_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_08_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_09_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 01_M_S_10_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 03_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_I_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_I_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_I_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_I_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_I_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_I_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 03_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 03_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_01.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_02.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_03.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_04.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_05.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_06.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_07.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_08.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 03_M_S_09.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 07_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 07_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 07_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_A_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_I_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_I_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_I_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_I_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 07_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_01_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 07_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_02_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_volume 		 - SUCCESS for: 07_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_person 		 - SUCCESS for: 07_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_Q_03_L.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_01.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_02.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_03.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_04.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_05.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_06.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_07.wav
+2024-02-15 18:18:59,508 - root - INFO - get_type 		 - SUCCESS for: 07_M_S_08.wav
+2024-02-15 18:18:59,508 - root - INFO - folder_info 		 - SUCCESS: max_files: 105, 	count_a: ['01_M_A_01_L.wav', '01_M_A_02_L.wav', '01_M_A_03_L.wav', '01_M_A_04_L.wav', '01_M_A_05_L.wav', '01_M_A_06_L.wav', '01_M_A_07_L.wav', '01_M_A_08_L.wav', '01_M_A_09_L.wav', '01_M_A_10_L.wav', '03_M_A_01_L.wav', '03_M_A_02_L.wav', '03_M_A_03_L.wav', '07_M_A_01_L.wav', '07_M_A_02_L.wav', '07_M_A_03_L.wav'], 	count_q: ['01_M_Q_01_L.wav', '01_M_Q_02_L.wav', '01_M_Q_03_L.wav', '01_M_Q_04_L.wav', '01_M_Q_05_L.wav', '01_M_Q_06_L.wav', '01_M_Q_07_L.wav', '01_M_Q_08_L.wav', '01_M_Q_09_L.wav', '01_M_Q_10_L.wav', '03_M_Q_01_L.wav', '03_M_Q_02_L.wav', '03_M_Q_03_L.wav', '07_M_Q_01_L.wav', '07_M_Q_02_L.wav', '07_M_Q_03_L.wav'], 	count_iq: ['01_M_I_01_L.wav', '01_M_I_02_L.wav', '01_M_I_03_L.wav', '01_M_I_04_L.wav', '01_M_I_05_L.wav', '01_M_I_06_L.wav', '01_M_I_07_L.wav', '01_M_I_08_L.wav', '01_M_I_09_L.wav', '01_M_I_10_L.wav', '03_M_I_01_L.wav', '03_M_I_02_L.wav', '03_M_I_03_L.wav', '07_M_I_01_L.wav', '07_M_I_02_L.wav', '07_M_I_03_L.wav'], 	count_s: ['01_M_S_01_L.wav', '01_M_S_02_L.wav', '01_M_S_03_L.wav', '01_M_S_04_L.wav', '01_M_S_05_L.wav', '01_M_S_06_L.wav', '01_M_S_07_L.wav', '01_M_S_08_L.wav', '01_M_S_09_L.wav', '01_M_S_10_L.wav', '03_M_S_01.wav', '03_M_S_02.wav', '03_M_S_03.wav', '03_M_S_04.wav', '03_M_S_05.wav', '03_M_S_06.wav', '03_M_S_07.wav', '03_M_S_08.wav', '03_M_S_09.wav', '07_M_S_01.wav', '07_M_S_02.wav', '07_M_S_03.wav', '07_M_S_04.wav', '07_M_S_05.wav', '07_M_S_06.wav', '07_M_S_07.wav', '07_M_S_08.wav'], 	a_letters: {'01': '10', '03': '03', '07': '03'}, 	q_letters: {'01': '10', '03': '03', '07': '03'}
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,508 - root - INFO - raw_to_seconds 		 - SUCCESS
+2024-02-15 18:18:59,523 - root - INFO - filenames_lenghts 	 - SUCCESS: [['C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_01_L.wav', '03', 0, 2.921161458333333], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav', '01', 3.646456683292309, 45.79079522495898], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_02_L.wav', '03', 46.94274818146003, 51.9072585981267], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav', '01', 52.72567239797293, 107.3006515646396], ['C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_02_L.wav', '01', 108.28143930607402, 112.27077263940735], ['C:/Users/giuli/Music/Edit\\INPUT/07_M_A_02_L.wav', '07', 113.07459266906793, 142.95155100240126], ['C:/Users/giuli/Music/Edit\\INPUT/07_M_I_02_L.wav', '07', 143.9088398125777, 147.0102460625777], ['C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav', '03', 147.09677403843773, 180.73648237177105]]
+2024-02-15 18:18:59,523 - root - INFO - get_person 		 - SUCCESS for: 03_M_S_03.wav
+2024-02-15 18:18:59,523 - root - INFO - handle_sounds 		 - WARNING: no more space for new sounds with cycle repeated 101. Added 1 sounds
+2024-02-15 18:18:59,523 - root - INFO - sounds 			 - SUCCESS for: 03
+2024-02-15 18:18:59,523 - root - INFO - sounds 			 - SUCCESS for: 01
+2024-02-15 18:18:59,523 - root - INFO - sounds 			 - SUCCESS for: 07
+2024-02-15 18:19:02,827 - root - INFO - sounds 			 - SUCCESS for: COMPLETE
+2024-02-15 18:19:03,628 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged03.wav
+2024-02-15 18:19:04,335 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged01.wav
+2024-02-15 18:19:04,847 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/merged07.wav
+2024-02-15 18:19:05,396 - root - INFO - write_files 		 - SUCCESS: Created C:/Users/giuli/Music/Edit\OUTPUT/mergedCOMPLETE.wav

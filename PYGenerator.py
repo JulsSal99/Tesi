@@ -54,11 +54,10 @@ p_min = config.getfloat('pauses', 'min', fallback=0.7)
 p_max = config.getfloat('pauses', 'max', fallback=0.9)
 s_quantity = config.getfloat('sounds', 's_quantity', fallback=0.5)
 min_s_distance = config.getfloat('sounds', 'min_s_distance', fallback=5)
-
 cut_redundancy = config.getfloat('sounds', 'cut_redundancy', fallback=1.5)
 length_sounds = config.getfloat('sounds', 'length_sounds', fallback=2)
 end_tollerance = config.getfloat('sounds', 'end_tollerance', fallback=3)
-cycle_limit = config.getfloat('sounds', 'cycle_limit', fallback=10)
+cycle_limit = config.getint('sounds', 'cycle_limit', fallback=10)
 
 sample_rate = config.getint('data', 'sample_rate', fallback=0)
 channels = config.getint('data', 'sample_rate', fallback=0)
