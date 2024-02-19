@@ -1,22 +1,28 @@
-Lavoro di tesi:
+# Procedural Dialogue Generation
 
-Documentazione
-[Documento](TESI.MD)
+## Documentation
+[Document](TESI.MD)
 
-[Protocollo per il test](PROTOCOLLO.MD)
+[Test Protocol](PROTOCOLLO.MD)
 
-[Generatore di dialoghi pseudo-realistici in Python](PYGenerator.py)
+## The Program
 
-Il codice:
-  - permette all'utente di scegliere se inserire i files manualmente o impostare dei parametri per l'auto-generazione di dialoghi
-  - Permette di inserire manualmente i files
-  - eventuali ulteriori settaggi sono nel file di generazione come variabili globali
+In the following repository, you'll find a program for procedural dialogue generation. The program takes a series of input files and concatenates them.
 
-<br><br>
+[Python Pseudo-Realistic Dialogue Generator](PYGenerator.py)
 
-![Backup](img/appunti1.jpg)
+The input file types include:
+- Question (e.g., "How was your day?")
+- Response (e.g., "Not much, it was okay.")
+- Prompt (e.g., "And you?")
+- Burst (e.g., cough)
 
-<br><br><br><br><br><br><br><br><br><br><br>
+The output file types are:
+- Individual audio files for each speaker
+- A combined file summarizing the previous tracks
 
-REMINDER di fare il backup:
-![Backup](img/backup.jpg)
+## Settings
+
+Users can declare various values for dialogue generation. The settings file contains comments for each user-declarable value. If absent, default values are used.
+
+[Settings](PYGenerator.cfg)
