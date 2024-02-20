@@ -11,86 +11,43 @@ Il numero tra ogni _ deve essere corto e uguale per tutti
 MAIN:
 ============
 
-serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
-
-Riguardo al protocollo, quello da definire le ricordo che consiste in:
-- Posizionamento dello speaker e dei microfoni (centro stanza? entrambi i mic a 1mt, uno frontale e l'altro a 90°? <span style="color:red">registrazioni aggiuntive in spazi reali?)</span>
-- Impostazione e calibrazione dell'hardware (ovviamente questo campo lo si compila solo quando avremo di nuovo accesso al dipartimento)
-- Reclutamento dei soggetti: per ora definirei quanti e con che caratteristiche, una volta fissati questi due punti procediamo tutti insieme al reperimento delle persone
-- Modalità di svolgimento dell'intervista: briefing, argomenti, tecnica di stimolazione, durata. forse varrebbe la pena fare 3 sessioni per ogni soggetti: <span style="color:red"> una a un volume di voce normale; una a voce più portata, come se fossero lontani e dovessero parlare con noi; </span> e una con dei suoni non verbali tipo "hm, eh, si, hem, uh uh?, ah!"
-- Modalità di salvataggio dei file raw (direi 1 solo wav per ogni take, con left e right corrispondenti ai 2 microfoni, quindi se si fanno 3 sessioni per soggetto ci saranno 3 file per soggetto) e protocollo di nominazione dei file raw
-- Modalità di salvataggio dei file tagliati e relativa nomenclatura e organizzazione nel file system
-- Compilazione di un foglio di calcolo che riporti tutti i dati del caso
-Riguardo allo script python, l'obiettivo è avere una funzione che dato in ingresso 
-- path delle registrazioni, 
-<span style="color:red">- array con id degli speaker da usare, (visto che c'è la possibilità di fare dialoghi a 3 forse farei registrare anche un "e tu?" a ogni soggetto, in modo da poterlo infilare tra le risposte di più soggetti)</span>
-- numero di domande per persona
-- stringa per il nome di file di output
-- tempo tra domanda e risposta, 
-- quantità massima di suoni non verbali ()
-restituisca tanti file quanti parlanti ci sono (nomi dei file di output costruiti concatenando la stringa del nome in ingresso con l'id del parlante), tutti lunghi uguali, che se sovrapposti generano il dialogo desiderato.
-suggerisco l'uso delle sole librerie numpy e soundfile, per un esempio di come si possono manipolare file audio in python con queste librerie veda: https://github.com/Kuig/SNDfunc
+Serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
 
 Protocollo sperimentale per le registrazioni
-- <span style="color:green">Spiegazione iniziale a ogni soggetto
+ - Spiegazione iniziale a ogni soggetto
    -> Obiettivi della registrazione
-   -> Come bisogna parlare durante la registrazione: non sovrapporti,</span>
-conta fino a 5, ecc.
-   -> ... altro
-- Parte A. Un tot di argomenti/domande. Per ciascuna domanda il soggetto
-     1) fornisce la sua risposta
-     2) fa lui la stessa domanda rifrasandola
-- Parte B. Un tot di suoni non verbali: a-hem, coff, a-ha, aah!, hm-hm, ecc.
-
-Setup<span style="color:green">
-- Registrazione stereo con due mic a 1 metro
-- In cabina Malcangi</span>
-- Per parte B: eventualmente il soggetto ascolta un parlatore
-- .... da pensare
-
-Assemblaggio dialoghi
-- Struttura (dom)->(risp+dom)->(risp+dom)-> ... ->(risp)
-- Non serve che la prima domanda sia diversa dalle altre
-- Il dialogo può essere con n persone ordinate a caso: (i-1) chiede a
-(i), che risponde e chiede a (i+1), ecc.
-- Numero n di persone e lunghezza del dialogo definibili a piacere
-- A una risposta possono venire sovrapposti suoni non verbali di altre
-persone
-- Ogni persona ha il suo array di domande shuffle-ato (si può ripetere
-la stessa domanda in un dialogo)
+   -> Come bisogna parlare durante la registrazione: non sovrapporti,
 
 # Procedimento:
 
 ## Attrezzatura e locazione:
 
-Verrà usata la stanza insonorizzata anecoica di celoria 22 (Malcangi).
-Il partecipante all'esperimento verrà piazzato al centro stanza. Verranno usati due microfoni, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a 1 metro di distanza all'altezza della bocca. 
-... per ricreare una impostazione ambisonic del secondo ordine.
-<span style="color:red"> (eventuali registrazioni aggiuntive della camera?) </span>
-E' stata usata inoltre usata una scheda audio Motu M3 con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra
-La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav 24bit-192kHz.
+Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi).
+La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
+La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni.
+E' stata usata inoltre usata una scheda audio Motu M3 con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
+La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
+Il software usato per la registrazione è la DAW Reaper.
+E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
 
 ## Procedimento in stanza con i partecipanti
 
 Uno dei problemi principali nell'esecuzione del nostro test è stata l'identificazione delle metodologie di registrazione in modo che: 
  - Non ci fossero **sovrapposizioni** tra audio dell'intervistatore e dell'intervistato (dalle ricerche [Analisi dei tempi di risposta](#analisi-dei-tempi-di-risposta) è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta) 
- - Non ci fosse ritorno, se non isolabile nel microfono di ulteriori possibili suoni (al di fuori del partecipante all'esperimento)
+ - Non ci fosse ritorno, se non isolabile, nel microfono di ulteriori possibili suoni (al di fuori del partecipante all'esperimento)
  - Le risposte fossero realistiche
  - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati
 
-<span style="color:red"> <br> 
-Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato. </span>
+<br> 
+Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato. 
+
    - *problema 1*: possibile sovrapposizione di voci
      - *soluzione 1*: far attendere un tempo in secondi alll'intervistato prima di dare una risposta;
        - problema: non si possono osservare i tempi di risposta.
      - *soluzione 2*: utilizzare delle cuffie in-ear/aperte/chiuse;
        - *problema 1*: l'ascoltatore tenderà ad avere un volume di voce errato perché non si sentirà correttamente: questo è l'[effetto Lombard](#Effetto-Lombard-e-la-cuffia-nel-doppiaggio-per-una-voce-naturale);
-         - *soluzione*: Potremmo eseguire dei test con delle **cuffie** e misurare il volume medio del parlato. Inoltre ascoltare il volume delle cuffie rispetto al volume del parlato in db. In generale: se volume cuffia a 1mt tappata <<< volume del parlato && volume parlato CON cuffia ≃ volume parlato SENZA cuffia --> procedere.
-         Nello specifico, ho provato ad eseguire un test con delle cuffie in-ear ed il risultato è stato di un volume del parlato inferiore, probabilmente generato dalla conduzione ossea della voce causato dalla cuffia. Un ulteriore test è stato eseguito tra un solo padiglione e entrambi i padiglioni della cuffia ed il risultato è stato di un volume minore quando entrambe i padiglioni sono indossati.
-         La soluzione quindi ipotetica è una cuffia chiusa sopra-aurale per evitare il ritorno nel microfono che dovrà essere indossata ogni volta dal partecipante all'esperimento, ma esclusivamente per ascoltare la domanda e non per fornirne la risposta.
-         Il volume in cuffia sarà deciso prima dell'esperimento dall'operatore e rimarrà invariato per non influenzare l'esperimento.
-         Come esempio prendiamo la tecnica usata nel doppiaggio:
        - *problema 2*: le latenze del DAW devono essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale;
+         - *soluzione 3*: è stata una tecnica più "manuale" in cui è l'operatore ad accorgersi dei tempi di pausa ed eventualmente interrompere il partecipante. 
    - *problema 2*: le domande registrate potrebbero risultare tutte troppo uguali poiché l'intervistato sarà tentato a ripetere parola per parola la domanda originale;
      - *soluzione 1*: L'intervistato ripete la domanda **dopo** aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta;
        - *problema 1*: l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente;
@@ -101,27 +58,26 @@ Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte
      - *Soluzione 1*: vengono forniti in anticipo gli argomenti delle domande, ma non le domande in se'.
      - *Soluzione 2*: Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. 
      Le regole da seguire:
-        - sotto i 15 secondi: gli facciamo rifare 
-        - tra i 15 e i 30: prendiamo per buono ma esortiamo a parlare di più nella prossima
+        - sotto i 15 secondi: viene considerata errata e viene chiesto di ripetere
+        - tra i 15 e i 30: viene considerata buona ma il partecipante viene esortato a parlare di più alla domanda seguente
         - tra 30 e 50: va bene
-        - sopra il minuto: esortiamo a parlare un po' meno nella domanda successiva
-     L'operatore non dovrà guardare l'orologio per non dare l'impressione al partecipante di essere di fretta, ma verrà posto un orologio posteriormente al partecipante in modo da non distogliere con evidenza l'attenzione dal dialogo.
+        - sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
+     - *Problema 1*: E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta.
+       - *Soluzione 1*: è stato posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
 
-Aggiungiamo inoltre che l'operatore dovrà stare frontale e guardare il tester. [RICERCA MOTIVI SGUARDO, ETC.]
+Aggiungiamo inoltre che l'operatore dovrà stare frontale e guardare il tester.
 
-<span style="color:red"> <br> 
-Inoltre è possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda </span>
-  - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
-      - *problema 1*: così facendo la prima domanda del ciclo avrà sempre un'interrogazione come se fosse la seconda domanda
-  - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "quindi?", "Allora", "eee..."** con diverso *portamento*.
+ - *Problema 1*: Deve essere possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda 
+    - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
+        - *problema 1*: così facendo la prima domanda del ciclo avrà sempre un'interrogazione come se fosse la seconda domanda
+    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "quindi?", "Allora", "eee..."** con diverso *portamento*.
       - *problema 1*: il tono può variare?
         - *soluzione 2*: il partecipante dopo aver risposto conta 5 secondi con le dita e poi legge la domanda introduttiva ("eh tu?"), poi conta 5 secondi e dopo pronuncia la domanda effettiva ("come è stata la tua giornata?")
-      - *problema 2*: TANTI TANTI files....
+ 
 
-<span style="color:red"> <br> 
-Per i suoni non verbali: </span>
-  - *soluzione 1*: ad ogni partecipante verrà data la cuffia in-ear e fatto ascoltare un audio completo, se eseguito con le in-ear e verrà chiesto di produrre dei suoni di sottofondo.
-  - *soluzione 2*: viene chiesto al partecipante di pronunciare con diverso *portamento* dei versi basandosi su alcuni prestabiliti come **"a-hem, coff, a-ha, aah!, hm-hm, ecc."**).
+E' stato inoltre chiesto al partecipante di pronunciare alcuni suoni non verbali basandosi modelli prestabiliti come **"a-hem, coff, a-ha, aah!, hm-hm, ecc."**. 
+Sarà poi l'operatore in seguito a controllarne la validità e selezionarne i casi migliori.
+Questi suoni verranno pronunciati dopo le varie domande, sia perché così nella registrazione, costituiscono un elemento di pausa tra il primo e il secondo ciclo di domanda, sia perché questi suoni andranno registrati senza cuffia poiché costituiranno dei suoni di sottofondo e quindi a portamento basso.
 
 ## Il programma
 Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.

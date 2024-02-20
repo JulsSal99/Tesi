@@ -42,7 +42,7 @@ name_format = (config.get('files', 'name_format')).split("_")
 dir_path = config.get('files', 'dir_path', fallback=os.path.dirname(os.path.realpath(__file__)))
 input_folder = config.get('files', 'input_folder', fallback="INPUT")
 output_folder = config.get('files', 'output_folder', fallback="OUTPUT")
-import_name1 = os.path.join("__pycache__", config.get('files', 'custom_files', fallback="output_files.json"))
+import_name1 = os.path.join("__pycache__", config.get('files', 'custom_path', fallback="output_files.json"))
 enable_noise = config.getboolean('noise', 'enable_noise', fallback=False)
 noise_file = config.get('noise', 'noise_file', fallback="")
 noise_fade = config.getfloat('noise', 'noise_fade', fallback=0.5)
@@ -473,8 +473,7 @@ def sounds(file_names, audio_no_s, silences):
     output = []
     if s_quantity == 0:
         logging.info(f"sounds \t\t\t - ABORT: s_quantity = 0")
-        for i in audio_no_s:
-            output.append([i[0], i[1]])
+        output = audio_no_s
     else:
         # -1 takes the last file (COMPLETE)
         print("\t adding new sounds...")
@@ -685,8 +684,7 @@ def auto_files(dir_path):
     import json
     if os.path.exists(import_name1) and save_name1!=import_name1:
         print("\t found custom audio settings file...")
-        with open((import_name1), 'r') as file:
-            return json.load(file)
+        return custom_files()
     else:
         print("\t chosing new files and pauses...")
         file_names = handle_auto_files(dir_path)
@@ -694,36 +692,45 @@ def auto_files(dir_path):
             json.dump(file_names, file)
     return file_names
 
-def user_ask_files(dir_path):
-    '''Ask file1, file2'''
-    ''' and check/fix paths (file1, file2)'''
+def custom_files():
+    ''' if custom file is a dict, return the dict, '''
+    ''' if custom file is an array, find the file and check the dictionary'''
     ''' handle the errors'''
+    import json
     file_names = []
-    max_participants, _, _, _, _, _, _ = folder_info(os.path.join(dir_path, input_folder))
-    for i in range(max_participants):
-        while True:
-            try:
-                file = input(f"Inserisci il nome del {i + 1}o audio (scrivi FINE per terminare, max {max_participants - i}): ")
-                if file == "FINE" and i > 1:
-                    return file_names
-                elif file == "FINE" and i <= 1:
-                    raise Exception("Not enough files!!!")
-                file = find_file(file, os.path.join(dir_path, input_folder))
-                file_names = add_file(file, file_names) 
-                print(f'\tAggiunto "{file}" con successo.')
-                break
-            except EOFError:
-                print("\n\tProgramma terminato senza successo. Chiusura del programma.")
-                exit()
-            except Exception as e:
-                print(f"\tERRORE: {e}")
+    try:
+        with open(import_name1, "r") as file_json:
+            data = json.load(file_json)
+            if isinstance(data, list):
+                if all(isinstance(item, dict) for item in data):
+                    logging.info(f"user_ask_files \t - INFO: found dict")
+                    file_names = data
+                elif all(isinstance(item, str) for item in data):
+                    logging.info(f"user_ask_files \t - INFO: found list")
+                    max_participants, _, _, _, _, _, _ = folder_info(os.path.join(dir_path, input_folder))
+                    if len(data) > 1 and len(data) <= max_participants:
+                        for tmp_file in data:
+                            file = find_file(tmp_file, os.path.join(dir_path, input_folder))
+                            file_names = add_file(file_names, file)
+                    else:
+                        raise Exception('file JSON does not contain a valid array. Format should be ["a.wav","b.wav",...]')
+                else: 
+                    raise Exception('file JSON does not contain a valid list')
+            else: 
+                raise Exception('file JSON does not contain a list')
+    except FileNotFoundError:
+        print(f"file {import_name1} not found.")
     logging.info(f"user_ask_files \t - SUCCESS: {file_names}")
+    return file_names
 
 def write_files(OUTPUT):
+    print("\t writing files into the hard drive...")
     for i in OUTPUT:
         write_name = os.path.join(dir_path, output_folder+f'/merged{i[1]}.wav')
         sf.write(write_name, i[0], sample_rate)
         logging.info(f"write_files \t\t - SUCCESS: Created {write_name}")
+    logging.info(f"write_files \t\t - SUCCESS: All files Saved")
+    print("\n COMPLETED! (folder opened)")
 
 if __name__ == '__main__':
     '''Important path of input files'''
@@ -731,14 +738,11 @@ if __name__ == '__main__':
     
     try:
         file_names = auto_files(dir_path)
-        #file_names = user_ask_files(dir_path)
         '''Create output array [data, person] and silences/pauses values'''
         OUTPUT, silences = read_write_file(file_names)
         '''Create output array [data, person]: add silences/pauses to output data'''
         OUTPUT = sounds(file_names, OUTPUT, silences)
-        print("\t writing files into the hard drive...")
         write_files(OUTPUT)
-        print("\n COMPLETED! (folder opened)")
         os.startfile(os.path.join(dir_path, output_folder))
     except Exception as e:
         print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")

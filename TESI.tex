@@ -1,0 +1,706 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{listings}
+\newcommand{\passthrough}[1]{#1}
+\lstset{defaultdialect=[5.3]Lua}
+\lstset{defaultdialect=[x86masm]Assembler}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
+  \fi
+  % set entry spacing
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Tesi - Registrazioni e generazione linee di dialogo},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Tesi - Registrazioni e generazione linee di dialogo}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Tesi: Registrazioni e generazione linee di dialogo}\label{tesi-registrazioni-e-generazione-linee-di-dialogo}
+
+Il numero tra ogni \_ deve essere corto e uguale per tutti
+
+\section{MAIN:}\label{main}
+
+Serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
+
+Protocollo sperimentale per le registrazioni - Spiegazione iniziale a ogni soggetto -\textgreater{} Obiettivi della registrazione -\textgreater{} Come bisogna parlare durante la registrazione: non sovrapporti,
+
+\section{Procedimento:}\label{procedimento}
+
+\subsection{Attrezzatura e locazione:}\label{attrezzatura-e-locazione}
+
+Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi). La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine. La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni. E' stata usata inoltre usata una scheda audio Motu M3 con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra. La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz. Il software usato per la registrazione è la DAW Reaper. E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
+
+\subsection{Procedimento in stanza con i partecipanti}\label{procedimento-in-stanza-con-i-partecipanti}
+
+Uno dei problemi principali nell'esecuzione del nostro test è stata l'identificazione delle metodologie di registrazione in modo che: - Non ci fossero \textbf{sovrapposizioni} tra audio dell'intervistatore e dell'intervistato (dalle ricerche \hyperref[analisi-dei-tempi-di-risposta]{Analisi dei tempi di risposta} è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta) - Non ci fosse ritorno, se non isolabile, nel microfono di ulteriori possibili suoni (al di fuori del partecipante all'esperimento) - Le risposte fossero realistiche - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati
+
+Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato.
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{problema 1}: possibile sovrapposizione di voci
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{soluzione 1}: far attendere un tempo in secondi alll'intervistato prima di dare una risposta;
+
+    \begin{itemize}
+    \tightlist
+    \item
+      problema: non si possono osservare i tempi di risposta.
+    \end{itemize}
+  \item
+    \emph{soluzione 2}: utilizzare delle cuffie in-ear/aperte/chiuse;
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{problema 1}: l'ascoltatore tenderà ad avere un volume di voce errato perché non si sentirà correttamente: questo è l'\hyperref[Effetto-Lombard-e-la-cuffia-nel-doppiaggio-per-una-voce-naturale]{effetto Lombard};
+    \item
+      \emph{problema 2}: le latenze del DAW devono essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale;
+
+      \begin{itemize}
+      \tightlist
+      \item
+        \emph{soluzione 3}: è stata una tecnica più ``manuale'' in cui è l'operatore ad accorgersi dei tempi di pausa ed eventualmente interrompere il partecipante.
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\item
+  \emph{problema 2}: le domande registrate potrebbero risultare tutte troppo uguali poiché l'intervistato sarà tentato a ripetere parola per parola la domanda originale;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{soluzione 1}: L'intervistato ripete la domanda \textbf{dopo} aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta;
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{problema 1}: l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente;
+
+      \begin{itemize}
+      \tightlist
+      \item
+        \emph{Soluzione}: sta all'operatore \emph{eventualmente} intervenire valutandone la coerenza con la domanda originale.
+      \item
+        \emph{Soluzione 2}: Le domande non devono essere equivocabili: vengon ipotizzati diversi tipi di domande
+      \end{itemize}
+    \end{itemize}
+  \item
+    \emph{soluzione 2}: viene dato all'intervistato un \textbf{prompt generico} il più lontano possibile dalla domanda originale e verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni (dopo una durata in secondi prestabilita)
+  \end{itemize}
+\item
+  \emph{Problema 3}: Il soggetto potrebbe produrre risposte troppo lunghe o troppo corte:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{Soluzione 1}: vengono forniti in anticipo gli argomenti delle domande, ma non le domande in se'.
+  \item
+    \emph{Soluzione 2}: Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. Le regole da seguire:
+
+    \begin{itemize}
+    \tightlist
+    \item
+      sotto i 15 secondi: viene considerata errata e viene chiesto di ripetere
+    \item
+      tra i 15 e i 30: viene considerata buona ma il partecipante viene esortato a parlare di più alla domanda seguente
+    \item
+      tra 30 e 50: va bene
+    \item
+      sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
+    \end{itemize}
+  \item
+    \emph{Problema 1}: E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{Soluzione 1}: è stato posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+Aggiungiamo inoltre che l'operatore dovrà stare frontale e guardare il tester.
+
+\begin{itemize}
+\tightlist
+\item
+  \emph{Problema 1}: Deve essere possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \emph{soluzione 1}: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un ``e tu?''.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{problema 1}: così facendo la prima domanda del ciclo avrà sempre un'interrogazione come se fosse la seconda domanda
+    \end{itemize}
+  \item
+    \emph{soluzione 2}: conoscendo i \hyperref[tempi-di-pausa]{tempi di pausa}, far registrare alla fine, assieme ai suoni non verbali, diverse frasi come \textbf{``e tu?'', ``invece te?'', ``quindi?'', ``Allora'', ``eee\ldots{}''} con diverso \emph{portamento}.
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{problema 1}: il tono può variare?
+
+      \begin{itemize}
+      \tightlist
+      \item
+        \emph{soluzione 2}: il partecipante dopo aver risposto conta 5 secondi con le dita e poi legge la domanda introduttiva (``eh tu?''), poi conta 5 secondi e dopo pronuncia la domanda effettiva (``come è stata la tua giornata?'')
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\end{itemize}
+
+E' stato inoltre chiesto al partecipante di pronunciare alcuni suoni non verbali basandosi modelli prestabiliti come \textbf{``a-hem, coff, a-ha, aah!, hm-hm, ecc.''}. Sarà poi l'operatore in seguito a controllarne la validità e selezionarne i casi migliori. Questi suoni verranno pronunciati dopo le varie domande, sia perché così nella registrazione, costituiscono un elemento di pausa tra il primo e il secondo ciclo di domanda, sia perché questi suoni andranno registrati senza cuffia poiché costituiranno dei suoni di sottofondo e quindi a portamento basso.
+
+\subsection{Il programma}\label{il-programma}
+
+Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo. I files audio singoli manterranno le pause e anche il silenzio quando parlano gli altri partecipanti.
+
+Le componenti che comporranno le linee di dialogo sono: le \textbf{domande}, le \textbf{risposte}, le \textbf{domande iniziali} (eg. ``e tu?''), le \textbf{pause} e il \textbf{silenzio} antecedente a ogni risposta. Le domande, le risposte e le pause saranno organizzati in modo da seguire una struttura \textgreater{} Domanda\_P\_N → Risposta\_P+1\_N → DomandaIniziale\_P+2\_N → Domanda\_P+2\_N → Risposta\_P+3\_N → \ldots{} → Risposta\_P+K\_N → \textbf{si ripete il ciclo per N domande}
+
+A queste si aggiungono le pause e i silenzi \textgreater{} Domanda\_P\_N → \emph{Pausa} → Risposta\_P+1\_N → \emph{Pausa} → DomandaIniziale\_P+2\_N → \emph{Silenzio} → Domanda\_P+2\_N → \emph{Pausa} → Risposta\_P+3\_N → \ldots{} → Risposta\_P+K\_N → \emph{Pausa} → \textbf{si ripete il ciclo per N domande}
+
+\subsection{Numenclatura dei files}\label{numenclatura-dei-files}
+
+Per meglio spiegare l'organizzazione dei files stabiliamo: - \textbf{P} = \emph{identificativo del partecipante al test: viene associato un numero per ogni partecipante, riportato in nel file csv} (a due cifre) - \textbf{S} = \emph{sesso del partecipante al test} {[}M/F{]} - \textbf{V} = \emph{Volume del parlato, o Portamento: Normale o Alto} {[}N/A{]} - \textbf{T} = ``tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale'' {[}G/Q/A/I/S{]} (a singola cifra) - \textbf{N} = \emph{numero della domanda o risposta} (a due cifre)
+
+\subsubsection{Nomi dei files durante la registrazione}\label{nomi-dei-files-durante-la-registrazione}
+
+Verranno generati un audio per ogni speaker: - Per le domande e risposte: \textgreater{} \emph{P\_S\_V\_T.wav}
+
+Esempio: \textgreater{} \emph{01\_M\_N\_T.wav} → indica la traccia generale con tutte le domande, le risposte e i suoni con portamento normale della persona ``01'', di sesso maschile.
+
+\subsubsection{Nomi dei files nel programma}\label{nomi-dei-files-nel-programma}
+
+Le tracce verranno poi tagliati con Reaper per suddividere singolarmente le domande, le risposte, le domande iniziali e i suoni. I nomi dei files da dare in input al programma saranno così organizzati: \textgreater{} \emph{P\_S\_V\_T\_N.wav}
+
+Esempio dei nomi dei files in input:
+
+\begin{longtable}[]{@{}lrcll@{}}
+\toprule\noalign{}
+cartella & T\_P\_N & \_S & \_PORTAMENTO & .wav \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\INPUT & Giovanni\_1 & \_M & \_ALTO & .wav \\
+\INPUT & A\_Giovanni\_1 & \_M & \_ALTO & .wav \\
+\INPUT & QI\_Giovanni\_1 & \_M & \_ALTO & .wav \\
+\INPUT & S\_Giovanni & \_M & & .wav \\
+& & & & \\
+\OUTPUT & Q\_Elena\_1 & \_F & \_ALTO & .wav \\
+\OUTPUT & A\_Elena\_1 & \_F & \_BASSO & .wav \\
+\OUTPUT & S\_Mario & \_M & & .wav \\
+\end{longtable}
+
+\section{Cos'è Ambisonic?}\label{cosuxe8-ambisonic}
+
+Ambisonics non invia il segnale audio a un numero particolare di altoparlanti; È ``indipendente dal parlante''. Invece, Ambisonics può essere decodificato in qualsiasi array di altoparlanti (maggiori informazioni di seguito). L'audio ambisonico rappresenta una sfera sonora completa e ininterrotta, senza essere limitata dalle limitazioni di uno specifico sistema di riproduzione.
+
+\section{Effetto Lombard e la cuffia nel doppiaggio per una voce naturale}\label{effetto-lombard-e-la-cuffia-nel-doppiaggio-per-una-voce-naturale}
+
+``L'effetto Lombard (Lombard effect o Lombard reflex) è la tendenza involontaria dei parlanti ad aumentare l'intensità della loro voce in presenza di un rumore di fondo che interferisce con la comprensione della voce umana.'' \footnote{{[}Lane H, Tranel B, The Lombard sign and the role of hearing in speech, in J Speech Hear Res, vol.~14, n.~4, 1971, pp.~677-709.{]}} La cuffia singola è un elemento fondamentale nella sala di doppiaggio. Essa serve a isolare l'audio in modo che il doppiatore possa ascoltare la traccia audio originale senza interferenze esterne. Inoltre, la cuffia singola permette al doppiatore di ascoltare la propria voce in modo chiaro e preciso, il che è essenziale per garantire una sincronizzazione perfetta tra la voce doppiata e le labbra del personaggio sullo schermo. L'uso di una cassa spia o di entrambe le cuffie potrebbe interferire con la qualità dell'audio e rendere difficile la sincronizzazione labiale. Quindi, la cuffia singola è la scelta migliore per garantire un doppiaggio di alta qualità (1) Doppiaggio - Accademia Doppiaggio. https://www.accademiadoppiaggio.com/doppiaggio/.
+
+\section{Analisi dei tempi di risposta}\label{analisi-dei-tempi-di-risposta}
+
+\textbf{Sacks et al.~(1974)} hanno distinto tre tipi di silenzi acustici nelle conversazioni: \emph{pausa}, \emph{gap} e \emph{interruzioni} (``lapses'') \footnote{{[}Sacks, H., Schegloff, E. A., \& Jefferson, G. (1974). A simplest systematics for the organization of turn-taking for conversation. Language, 50, 696--735.{]}}. Questa classificazione si basava su ciò che precedeva e seguiva il silenzio nella conversazione e sulla lunghezza percepita del silenzio. Le \emph{pause}, in questo contesto, si riferivano ai silenzi all'interno dei turni; le \emph{lacune} si riferivano a silenzi più brevi tra i turni o in possibili punti di completamento (cioè nei punti di rilevanza della transizione o TRP); e le \emph{interruzioni} (``lapses'') si riferivano a silenzi più lunghi (o prolungati) tra i turni.
+
+Secondo Sacks et al.~inoltre ci sono tre possibili modi di organizzare un cambio di parlante: può esserci una pausa intermedia; può esserci sovrapposizione; o non può esserci né pausa né sovrapposizione.
+
+Sacks et al.~avevano anche osservato che il caso più comune in una conversazione è quello di un solo interlocutore alla volta e che i cambi di parlante avvengono tipicamente senza alcuna pausa intermedia e senza alcuna sovrapposizione del discorso - no-gap-no-overlap. ``Le transizioni da (un turno al prossimo) con nessun gap e nessuna sovrapposizione sono comuni. Assieme con transizioni caratterizzate da piccoli gap o leggere sovrapposizioni, fanno la maggiorparte delle transizioni'' \footnote{{[}Vedi Sacks et al., 1974, p.~700{]}}.
+
+Inizialmente fu anche ipotizzata una possibile lunghezza della pausa da \textbf{Jefferson nell'84}: ``A recipient/next speaker does not start up in `terminal overlap', nor `latched' to the very point of possible completion, but permits just a bit of space between the end of a prior utterance and the start of his own'' \footnote{\href{DOC/1-s2.0-S0095447010000628-main.pdf}{Vedi, ``\emph{Pauses, gaps and overlaps in conversations}'' di ``\emph{Mattias Heldner, Jens Edlund}'', \emph{2010}}} e quantifica ``Just a Bit of Space'' con un intervallo silente di circa 150--250 ms.
+
+Paragrafo 2.3 Una transizione fluida è un termine che si riferisce a un tipo di passaggio tra due persone che parlano in una conversazione. Si verifica quando non c'è una pausa percettibile tra la fine del discorso di una persona e l'inizio del discorso della persona successiva1. Questo significa che, anche se potrebbe esserci un silenzio acustico, il flusso della conversazione rimane ininterrotto1.
+
+La \textbf{teoria delle transizioni fluide} è stata studiata da diversi ricercatori, tra cui \textbf{Duncan (1972), Kendon (1967) e Yngve (1970)}.
+
+\textbf{Walker e Trimboli (1982)} hanno invece stimato che la soglia di rilevamento dei silenzi tra gli interlocutori nelle conversazioni si avvicina ai 200 ms \footnote{{[}Beattie \& Barnard, 1979; Jaffe \& Feldstein, 1970; Kendon, 1967{]}}. Unl'altra teoria
+
+In generale: - \emph{Pausa}: Silenzio seguito da altro discorso dallo stesso oratore. - \emph{Gap} e \emph{Interruzione}: Silenzio seguito da cambio di oratore anche quando non avviene nei TRP.
+
+Intorno ai 200ms
+
+\begin{quote}
+``Una caratteristica intrigante del sistema di comunicazione umano è l'infrastruttura interattiva su cui si basa. In entrambe le interazioni di tipo dyadico e multipersonale, la conversazione è altamente strutturata e organizzata secondo principi stabiliti (Sacks et al., 1974). L'interazione degli adulti umani è caratterizzata da un meccanismo di scambio basato su raffiche di informazioni alternate (e relativamente brevi). Nella maggior parte dei casi, solo una persona tende a parlare alla volta e ogni contributo riceve di solito una risposta. Ciò che è notevole è il preciso timing di questi contributi sequenziali, che comporta intervalli tra i turni di parola che in media durano solo circa 200 ms (Stivers et al., 2009).''; \footnote{\href{DOC/608110.pdf}{pp.~7}}
+\end{quote}
+
+Secondo lo Studio di \textbf{Stivers et al.} del 2009, prendendo in esaminazione 10 linguaggi: \textgreater{} ``I tempi medi di risposta per le risposte soggettivamente puntuali sono molto più lunghi in danese e laotiano (203 e 202 ms, rispettivamente) rispetto al giapponese e al tzeltal (36 e 83 ms, rispettivamente) e confrontando le 3 lingue con offset di risposta più lunghi con tutte le altre, la differenza è significativa {[}t(847) = −10,97, P \textless{} 0,001{]}. Pertanto, un silenzio di 200 ms, giudicato come un ritardo nella maggior parte delle lingue, è stato ancora considerato in tempo. Tale silenzio non è quindi fenomenologicamente saliente all'interno di una comunità linguistica (ma può esserlo per un osservatore esterno).'' \footnote{{[}Stivers, T., Enfield, N. J., Brown, P., Englert, C., Hayashi, M., Heinemann, T., et al.~(2009). Universals and cultural variation in turn-taking in conversation. Proc. Natl. Acad. Sci. U.S.A. 106, 10587--10592. doi: 10.1073/pnas.09036 16106{]}}
+
+\begin{quote}
+``Dalle esperienze psicolinguistiche, sappiamo che il tempo necessario per produrre anche semplici enunciati di una sola parola (min. 600 ms, Indefrey e Levelt, 2004) supera di gran lunga questa durata media dell'intervallo, suggerendo la complessità dei processi cognitivi coinvolti (Levinson, 2013).'' \footnote{\href{DOC/608110.pdf}{pp.~7}}
+\end{quote}
+
+Questo tempo, però può anche variare: \textbf{Kendrick} dimostra che i turni che si occupano di problemi di parlare, ascoltare e capire (cioè, altre iniziative di riparazione) sono governati da diversi principi temporali e possono quindi interrompere il comune modello di intervalli minimi tra i turni. Come rivela l'analisi, i più lunghi intervalli caratteristici delle sequenze di riparazione tendono ad essere utilizzati dai partecipanti come opportunità per permettere al produttore della fonte di problema di risolvere la questione prima che la riparazione venga avviata, per permettersi di risolvere i propri problemi di comprensione prima di avviare la riparazione o per segnalare problemi di comprensione attraverso segnali visivi (ad esempio, sollevamento delle sopracciglia) prima di avviare la riparazione verbalmente. \footnote{\href{https://www.frontiersin.org/articles/10.3389/fpsyg.2015.00250/full}{``\emph{The intersection of turn-taking and repair: the timing of other-initiations of repair in conversation}'' di Kobin H. Kendrick}}
+
+C'è da sottolineare però un particolare: sebbene possa sembrare che i tempi di risposta siano corti, i tempi di inizio risposta non lo sono: \textgreater{} ``I brevi tempi di transizione sono notevoli perché contrastano nettamente con le latenze di inizio del discorso molto più lunghe osservate quando i partecipanti agli esperimenti psicolinguistici producono semplici enunciati. Ad esempio, nominare un oggetto richiede almeno 600 ms (ad esempio, Indefrey e Levelt, 2004) e pianificare una frase che descrive una scena può richiedere più di un secondo (Griffin e Bock, 2000; Konopka, 2012).'' \footnote{\href{DOC/fpsyg-12-693124.pdf}{``\emph{Competition Reduces Response Times in Multiparty Conversation}''}}
+
+\begin{quote}
+``Studi di laboratorio hanno dimostrato che la formulazione linguistica e la pianificazione articolatoria per una singola parola richiedono almeno 600 ms (ad esempio, Indefrey \& Levelt, 2004). Le parole elicitate negli studi di laboratorio sono tipicamente nomi di immagini e altri tipi di parole possono essere più veloci da pianificare. Ad esempio, ci si potrebbe aspettare che le particelle, che spesso appaiono all'inizio delle affermazioni, siano più veloci da pianificare rispetto alle parole di contenuto. Tuttavia, Knudsen e colleghi non hanno riscontrato che le affermazioni che iniziano con particelle siano state avviate più velocemente rispetto ad altre affermazioni.'' \footnote{\href{DOC/1-s2.0-S0010027722000257-main.pdf}{pp.~3, ``\emph{Overrated gaps: Inter-speaker gaps provide limited information about the timing of turns in conversation}''}}
+\end{quote}
+
+Levinson (2016) \footnote{\href{https://doi.org/10.3389/fpsyg.2016.01858}{Barthel, M., Sauppe, S., Levinson, S. C., \& Meyer, A. S. (2016). ``\emph{The timing of utterance planning in task-oriented dialogue: Evidence from a novel list-completion paradigm}''. Frontiers in Psychology, 7.}} ha affermato che i turni durano tipicamente circa due secondi, il che offrirebbe ampio tempo di pianificazione. Inoltre, Levinson e Torreira riportano una durata media del turno di 1680 ms e una mediana di 1227 ms per il corpus NXT-Switchboard \footnote{\href{DOC/The_NXT_format_Switchboard_Corpus_a_rich_resource_for_investigating_the_syntax_semantics_pragmatics_and_prosody_of_dialogue.pdf}{The NXT-format Switchboard Corpus: a rich resource for investigating the syntax, semantics, pragmatics and prosody of dialogue}} \footnote{\href{DOC/1-s2.0-S0010027722000257-main.pdf}{pp.~3, ``\emph{Overrated gaps: Inter-speaker gaps provide limited information about the timing of turns in conversation}''}}.
+
+In generale per domande personali, i tempi di risposta di allungano: \textgreater{} ``Although these studies support the hypothesis that speech planning and listening occur in parallel, participants' average response times (which are considered lab-equivalents to gap durations) were consis­ tently longer than 200 or 300 ms. These long response times are not particularly noteworthy: In some studies, participants had to answer questions about knowledge or personal experience, which might involve complex memory search processes or decisions between alternatives. What is important, however, is that the average gain in the response latency in the early relative to the late cue condition was substantially less than the time difference between the two cues. For example, par­ ticipants in B¨ogels et al.'s (2015) study responded about 300 ms earlier in the early than the late cue condition, but the early cues occurred on average 1700 ms earlier than the late cues. Thus, a full 1400 ms were ``lost''. A likely explanation for this lost time is that participants did not have sufficient time to fully plan their utterance during the preceding question, and so they had to engage in some planning after question end.'' \footnote{\href{DOC/1-s2.0-S0010027722000257-main.pdf}{pp.~3, ``\emph{Overrated gaps: Inter-speaker gaps provide limited information about the timing of turns in conversation}''}}
+
+Inoltre contribuisce la complessità della domanda ed il contesto in cui viene posta: \textgreater{} ``There have also been reports that gap durations tend to increase with cognitive load (see e.g.~Cappella (1979), and references mentioned therein). Within the Map Task domain, it has been shown that more complex tasks, lack of familiarity with tasks, and presence of conversational game boundaries results in longer gaps (Bull \& Aylett, 1998). Several studies have furthermore observed longer gaps in dialogues where the participants have eye contact than in dialogues without eye contact (Beattie \& Barnard, 1979; Bull \& Aylett, 1998; Jaffe \& Feldstein, 1970; ten Bosch, Oostdijk, \& de Ruiter, 2004a). The opposite result, faster speaker changes to the extent that average switching times are negative (or overlapping) have also been observed in eye contact vs.~no eye contact comparisons (Sellen, 1995). From analyses of pairs of speakers it has also been suggested that speakers adapt the duration of gaps to those of the other participants, that is a form ofaccommodation or interlocutor similarity with respect to gap duration (e.g.~Edlund, Heldner, \& Hirschberg, 2009; Jaffe \& Feldstein, 1970; Kousidis \& Dorran, 2009; ten Bosch et al., 2005). Finally, it has been observed that the language differences with respect to gap durations seem to be minor (cf.~Weilhammer \& Rabold, 2003).'' \footnote{\href{DOC/1-s2.0-S0095447010000628-main.pdf}{Vedi, ``\emph{Pauses, gaps and overlaps in conversations}'' di ``\emph{Mattias Heldner, Jens Edlund}'', \emph{2010}}} \textgreater{} ``Dispreferred second pair parts, such as request refusal, are structurally complex; they tend to have a complete grammatical format and make use of a variety of hedging elements, which serve to minimize the threat of disaffiliation (Heritage 1984). These include the following: Delays, e.g., insertion sequences; Prefaces, e.g., markers or announcers of dispreferreds, such as ``Uh'' and ``Well''; Politeness markers, e.g., appreciation markers and apologies; Hesitations, e.g., self-editing; Accounts: carefully formulated explanations for why the (dispreferred) act is being performed (Levinson 1983, pp.~334--35).'' \footnote{\href{\%22DOC/languages-08-00026.pdf}{``Article Pause Length and Differences in Cognitive State Attribution in Native and Non-Native Speakers'', Theresa Matzinger 1,2, Michael Pleyer and Przemysław ˙Zywiczy ´nski}}
+
+\section{Tempi di Pausa:}\label{tempi-di-pausa}
+
+Riguardo ai periodi di pausa in un discorso: - Nel testo di Pavese et al è stata analizzato il tempo di pausa e professionisti è composto da 5 docenti universitari madre lingua inglesi della London South Bank University e 6 soggetti madre lingua italiani monitorati in stanze con diverse condizioni di riverberazione. \textgreater{} ``I risultati mostrano che la distribuzione dei periodi di pausa non varia nelle diverse camere; in particolare, il maggior numero di occorrenze si ha per periodi della durata pari a 90 ms. Viceversa, il tipo di camera influenza la durata dei periodi di voce. Nel caso dei monitoraggi in camera anecoica (figura 1A), il maggior numero di occorrenze si ha per tratti di lunghezza pari a 90 ms; tale valore aumenta con la riverberazione della camera: il picco di occorrenze è a 120 ms per la camera semi riverberante (figura 1B) e a 150 ms per la camera riverberante (figura 1C).'' \footnote{\href{DOC/aia2014_pavese_et_al.pdf}{/////////////////////////Vedi, \emph{pp.~3-4}, ``\emph{Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.}'', \emph{Lorenzo Pavese} e \emph{Giuseppina Emma Puglisi}, \emph{Giugno 2014}}} \textgreater{} ``per i non professionisti della voce {[}\ldots{]} i picchi delle occorrenze medie si attestano a \emph{60 ms per i tratti di pausa} e a \emph{90 ms per la voce}.'' e ``\emph{50 ms per i tratti di pausa} e a \emph{100 ms per la voce}.'' con un ``periodo base dei due dispositivi, che è pari a 30 ms e 50 ms rispettivamente.'' \footnote{\href{DOC/aia2014_pavese_et_al.pdf}{Vedi, \emph{pp.~6-7}, ``\emph{Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.}'', \emph{Lorenzo Pavese} e \emph{Giuseppina Emma Puglisi}, \emph{Giugno 2014}}}
+
+Inoltre, riguardo ai riverberi: \textgreater{} ``la maggiore lunghezza della coda sonora potrebbe portare il parlatore ``professionista'' ad allungare i periodi di fonazione per migliorare l'intelligibilità del messaggio che deve trasmettere. ``, ed è stato osservato che sussiste''un incremento della lunghezza media più occorrente dei periodi di voce in 18 insegnanti che parlavano in aule maggiormente riverberanti rispetto a 24 insegnanti che esercitavano la loro attività didattica in aule con tempi di riverberazione conformi ai requisiti acustici stabiliti per questi ambienti.''. ``per i professionisti della voce il periodo più ricorrente è pari a 90 ms, mentre per i non professionisti è molto più corto, pari a 60 e 50 ms'', ``indice di un parlato molto veloce e probabilmente indipendente dalle caratteristiche acustiche dell'ambiente, ma dipendente invece dal modo di esporre un discorso nel caso di non professionista della voce. Infatti, il parlato di un insegnante potrebbe appartenere al ``clear speech'' che prevede un incremento della pause e un allungamento dei singoli segmenti di parlato'' \footnote{\href{DOC/aia2014_pavese_et_al.pdf}{Vedi, \emph{pp.~7-8}, ``\emph{Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.}'', \emph{Lorenzo Pavese} e \emph{Giuseppina Emma Puglisi}, \emph{Giugno 2014}}}
+
+\section{Il codice:}\label{il-codice}
+
+\begin{itemize}
+\tightlist
+\item
+  user\_input
+
+  \begin{itemize}
+  \tightlist
+  \item
+    permette all'utente di scegliere se inserire i files manualmente o impostare dei parametri per l'auto-generazione di dialoghi
+  \end{itemize}
+\item
+  user\_ask\_files
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Permette di inserire manualmente i files
+  \end{itemize}
+\item
+  user\_auto\_files
+
+  \begin{itemize}
+  \tightlist
+  \item
+    si occupa di domandare all'utente quali valori per la generazione
+  \end{itemize}
+\item
+  handle\_auto\_files
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Se nella cartella è presente una sola persona che risponde alle domande, chi domanda non è quella persona
+  \item
+    Se nella cartella è presente una sola persona che domanda, chi risponde non è quella persona
+  \item
+    Se n\_questions è minore di 0, il numero è casuale
+  \item
+    Se random\_question è True, cambia l'ordine delle domande in casuale
+  \item
+    Sceglie casualmente la prima persona a fare la domanda
+  \item
+    Se n\_answers è minore di 0, il numero di persone per ogni domanda che rispondono è sempre diverso e casuale
+  \item
+    Le persone che rispondono sono salvate in un array, ogni volta casuale. Evita che ci possano essere ripetizioni
+  \item
+    Aggiunge un numero n di risposte e, per ognuna, se enable\_init\_question è negativo, decide casualmente se aggiungere o meno di ripetere la domanda dopo la domanda iniziale
+  \end{itemize}
+\item
+  sounds
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Taglia nel punto in cui dovrebbe esserci un suono e lo inserisce (se il suono ha già il rumore di fondo, concatena, altrimenti sovrappone?)
+  \end{itemize}
+\item
+  handle\_sounds:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Il suono non deve essere presente nella stessa parte in cui parla la medesima persona
+  \item
+    Il suono non dev'essere vicino a punti in cui cambia il parlante
+  \end{itemize}
+\item
+  silence\_generator:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    genera una pausa lunga, una pausa corta o un silenzio
+  \end{itemize}
+\end{itemize}
+
+E il volume?
+
+\section{DOMANDE:}\label{domande}
+
+\begin{itemize}
+\tightlist
+\item
+  Le persone devono usare dei nomi? Perché se usiamo dei nomi, si differenziano tra maschi e femmine. Potrebbe essere interessante vedere anche la correlazione tra nomi e pronunce (gli ascoltatori potrebbero venire ingannati per alcune caratteristiche della persona e non il livello vocale).
+\item
+  come capiamo i tempi di risposta, visto che dipendono dal tipo di domanda e dalla reazione?
+\item
+  sarebbe utile generare dialoghi in base a:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    voci femminili?
+  \item
+    voci maschili?
+  \item
+    random?
+  \item
+    quante domande e risposte?
+  \item
+    Pause irrealistiche?
+  \end{itemize}
+\item
+  correlazione tra pause, complessità delle domande e velocità di parlato
+\item
+  possiamo porre le domande in cuffia e osservarne i tempi di risposta.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{musica}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Qual è il tuo genere di musica preferita?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: What is your favorite music genre?
+    \end{itemize}
+  \item
+    (Generica, corta) Qual è la tua canzone preferita?
+  \item
+    (Generica, lunga) Lo scorso mese sono andato a vedere il concerto Soul del bassista Marcus Miller. Qual è invece l'ultimo concerto a cui hai assistito te?
+  \end{itemize}
+\item
+  \textbf{cucina}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, lunga) Ti piace cucinare? Hai un tuo piatto preferito?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: Do you like to cook? Do you have a favorite dish?
+    \end{itemize}
+  \item
+    (Specifica, lunga) Es. L'altra settimana sono stato in un all You Can Eat cinese, ma non mi è piaciuta la cucina. A te piacciono?
+  \end{itemize}
+\item
+  \textbf{Hobbies}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, lunga) Qual è l'ultimo progetto o hobbie che hai completato? Quanto tempo dedichi al tuo hobby ogni settimana?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: What is the last project or hobby you completed? How much time do you dedicate to your hobby each week?
+    \end{itemize}
+  \item
+    (Generica, lunga, Alto-Requivocabile) L'altro giorno mi hanno regalato un modellino della Rokr di legno da costruire: ne sto facendo la collezione. Anche te hai qualche hobbie?
+  \item
+    (Generica, lunga, Basso-Requivocabile) Io è da qualche mese che mi sto approccia do ai giochi da tavolo oltre ai videogiochi. Te hai qualche Hobbie o passione?
+  \end{itemize}
+\item
+  \textbf{Viaggi}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Qual è il luogo più bello che hai visitato o in cui ti piacerebbe andare in vacanza?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: What is the most beautiful place you have visited or where would you like to go on vacation?
+    \end{itemize}
+  \item
+    (Generica, lunga, Basso-Requivocabile) Il prossimo inverno voglio andare in vacanza sciare a Temu. Te andrai in vacanza da qualche parte questo inverno?
+  \item
+    (generica, lunga, Basso-Requivocabile) La prossima estate vorrei andare a Cuba a farmi un bel giro per visitare i posti locali e per stare in mezzo alla musica. Quali sono i generi di vacanza che ti piacciono di più?
+  \end{itemize}
+\item
+  \textbf{Programma/serie TV}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Qual è l'ultimo film o serie che hai visto?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: What is the last movie or series you watched?
+    \end{itemize}
+  \item
+    (Generica, corta, debole) Qual è il tuo attore preferito?
+  \item
+    (Generica, lunga, Basso-Requivocabile) Ieri hanno pubblicato l'ultimo episodio di Orville e mi è piaciuto molto. Quali sono invece le tue serie preferite?
+  \item
+    (Specifica, lunga) Questa estate c'è stato lo scontro Barbie vs Openheimer. Ti è piaciuto più uno o l'altro?
+  \end{itemize}
+\item
+  \textbf{Occupazione}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Che lavoro o studi fai? Cosa ti piace del tuo lavoro o studio?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: What is your job or study? What do you like about your job or study?
+    \end{itemize}
+  \item
+    (Generica, lunga, Basso-Requivocabile) L'altra estate ho lavorato come fattorino per le pizze. E' stata una bella esperienza. Te lavori o studi?
+  \end{itemize}
+\item
+  \textbf{Sport}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Pratichi qualche sport?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: Do you practice any sports?
+    \end{itemize}
+  \item
+    (Generica, corta) Quale squadra tifi?
+  \item
+    (Specifica, lunga, Basso-Requivocabile) Ieri c'è stata la partita dell'Italia, hai visto la partita o non ti interessano gli sport?\\
+  \end{itemize}
+\item
+  \textbf{Natura}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Ti piacciono gli animali? Parla un po' del tuo animale domestico?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: Do you like animals? Do you have a pet and what is its name?
+    \end{itemize}
+  \item
+    (Corta, generica) Qual è il tuo rapporto con la natura? Ti piace stare all'aperto o preferisci stare in casa?
+  \item
+    (Generica, lunga, Basso-equivocabile) Ieri ho visto una lince in TV bellissima, sembrava un gattone gigante. Che tipi di animali ti piacciono?
+  \end{itemize}
+\item
+  \textbf{Social media}: (TECNOLOGIA???)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Usi molto i social media e quali?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: Do you use social media a lot and which ones?
+    \end{itemize}
+  \item
+    (Specifica, lunga, scottante) Ormai moltissime persone influenti stanno sempre più usando i social media per parlare col proprio pubblico. Cosa ne pensi di questa contaminazione tra TV e social media?
+  \item
+    (Specifica, lunga) Hai visto che Elon Musk ha cambiato Twitter in X? Pensi che le persone possano avere un cambio di idea su qualcosa semplicemente cambiandone il nome?
+  \end{itemize}
+\item
+  \textbf{Trivia/parla di quello che vuoi (su un argomento, per esempio la giornata di ieri)}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Hai fatto qualcosa di interessante durante la settimana?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: Did you do anything interesting during the week?
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{Educazione}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Generica, corta) Qual è stata la tua materia scolastica preferita a scuola?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: What was your favorite school subject?
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{lingue}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (specifica, corta) Quante lingue parli e quale lingua straniera vorresti imparare?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: How many languages do you speak and which foreign language would you like to learn?
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{futuro}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (generica, corta) Dove ti vedi in futuro?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: Where do you see yourself in the future?ù
+    \end{itemize}
+  \end{itemize}
+\item
+  \textbf{musei/arte}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    (Specifica, lunga, Alto-Requivocabile) Ho sentito che a Milano c'è una mostra di Van Gogh con effetti speciali, ti piacerebbe andare a vederla?
+
+    \begin{itemize}
+    \tightlist
+    \item
+      \emph{ENG}: I heard that there is a Van Gogh exhibition with special effects in Milan. Would you like to go see it?
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\phantomsection\label{refs}
+\begin{CSLReferences}{0}{1}
+\end{CSLReferences}
+
+\end{document}
