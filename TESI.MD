@@ -25,7 +25,7 @@ Protocollo sperimentale per le registrazioni
 Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi).
 La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
 La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni.
-E' stata usata inoltre usata una scheda audio Motu M3 con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
+E' stata usata inoltre usata una scheda audio [Motu Ultralite-mk3 Hybrid](https://motu.com/products/motuaudio/ultralite-mk3/i-o.html) con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
 La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
 Il software usato per la registrazione è la DAW Reaper.
 E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
