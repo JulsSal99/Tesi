@@ -50,6 +50,19 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -109,151 +122,86 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\section{Tesi: Registrazioni e generazione linee di dialogo}\label{tesi-registrazioni-e-generazione-linee-di-dialogo}
-
-Il numero tra ogni \_ deve essere corto e uguale per tutti
-
-\section{MAIN:}\label{main}
+\section{Introduzione}\label{introduzione}
 
 Serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
 
 Protocollo sperimentale per le registrazioni - Spiegazione iniziale a ogni soggetto -\textgreater{} Obiettivi della registrazione -\textgreater{} Come bisogna parlare durante la registrazione: non sovrapporti,
 
-\section{Procedimento:}\label{procedimento}
+\section{Stato dell'arte}\label{stato-dellarte}
 
-\subsection{Attrezzatura e locazione:}\label{attrezzatura-e-locazione}
+\section{Tecnologie utilizzate}\label{tecnologie-utilizzate}
 
-Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi). La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine. La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni. E' stata usata inoltre usata una scheda audio Motu M3 con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra. La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz. Il software usato per la registrazione è la DAW Reaper. E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
+Per quanto concerne la registrazione in stanza insonorizzata, è stato scelto come software per la registrazione la DAW \href{https://www.reaper.fm/}{Reaper}. E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
+
+Si è scelto di realizzare il codice per la generazione dei dialoghi in Python per la sua semplicità e flessibilità. La versione utilizzata è Python 3.11.6.
+
+Nello specifico è stato fatto uso di diverse librerie tra cui: - \textbf{soundfile}: per la lettura dei files da disco - \textbf{numpy}: per gestire i vari array di files sia per la concatenazione degli stessi, sia per - \textbf{random}: per la generazione randomica\\
+- \textbf{configparser} e \textbf{json}: per permettere all'utente la scelta la personalizzazione e i settaggi migliori per configurare l'esecuzione del codice. Va comunque sottolineato che il codice può funzionare anche senza i suddetti files, quindi con valori predefiniti.
+
+Va sottolineato che comunque il software, una volta installata la versione corretta di python, nel caso in cui le librerie non siano già presenti, chiede all'utente se procederne all'installazione.
+
+\begin{figure}
+\centering
+\includegraphics{img/1.jpg}
+\caption{Uno screenshot di un caso in cui è stato necessario ripetere domanda e prompt}
+\end{figure}
+
+\section{Le registrazioni}\label{le-registrazioni}
+
+\subsection{Attrezzatura e setup:}\label{attrezzatura-e-setup}
+
+Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi). La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine. La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni. E' stata usata inoltre usata una scheda audio \href{https://motu.com/products/motuaudio/ultralite-mk3/i-o.html}{Motu Ultralite-mk3 Hybrid} con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra. La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
+
+Per aumentare il rendimento acustico della stanza sono stati inoltre aggiunti alcuni pannelli forniti dal LIM, come si vede nell'immagine sottostante.
+
+\begin{figure}
+\centering
+\includegraphics{img/2room.jpg}
+\caption{setup}
+\end{figure}
+
+Nota: Nell'immagine sottostante un microfono è posto su una mensola, quando, a seguito di misurazioni, è stato invece spostato su un treppiede che poggia sul pavimento per ridurre interferenze a bassa frequenza.
 
 \subsection{Procedimento in stanza con i partecipanti}\label{procedimento-in-stanza-con-i-partecipanti}
 
-Uno dei problemi principali nell'esecuzione del nostro test è stata l'identificazione delle metodologie di registrazione in modo che: - Non ci fossero \textbf{sovrapposizioni} tra audio dell'intervistatore e dell'intervistato (dalle ricerche \hyperref[analisi-dei-tempi-di-risposta]{Analisi dei tempi di risposta} è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta) - Non ci fosse ritorno, se non isolabile, nel microfono di ulteriori possibili suoni (al di fuori del partecipante all'esperimento) - Le risposte fossero realistiche - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati
+Uno dei problemi principali nell'esecuzione del nostro test è stata l'identificazione delle metodologie di registrazione in modo che: - Le risposte fossero il più realistiche possibili all'interno dei limiti della concatenazione casuale - Non ci fossero \textbf{sovrapposizioni} tra audio dell'intervistatore e dell'intervistato - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati per la generazione di dialoghi tra più persone
 
-Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato.
+\subsubsection{L'ordine}\label{lordine}
 
-\begin{itemize}
-\tightlist
-\item
-  \emph{problema 1}: possibile sovrapposizione di voci
+Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato. Questa struttura però comportava un mancato mantenimento della tonalità di voce e tra ogni singola domanda e risposta, poichè spesso in un discorso, chi fa la domanda è colui che risponde a tale. Inoltre le domande registrate potrebbero risultare tutte troppo uguali tra i vari partecipanti poiché l'intervistato sarà tentato di ripetere parola per parola la domanda originale.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{soluzione 1}: far attendere un tempo in secondi alll'intervistato prima di dare una risposta;
+La \textbf{soluzione} è quindi di ripetere la domanda \emph{dopo} aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta; l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente. Sta all'operatore \emph{eventualmente} intervenire valutandone la coerenza con la domanda originale. La scelta delle domande non deve quindi essere \textbf{equivocabili} e \textbf{semplici}.
 
-    \begin{itemize}
-    \tightlist
-    \item
-      problema: non si possono osservare i tempi di risposta.
-    \end{itemize}
-  \item
-    \emph{soluzione 2}: utilizzare delle cuffie in-ear/aperte/chiuse;
+Inoltre, per rendere le domande più simili a dialoghi tra più persone, si è scelto di inserire dei connettivi che potessero essere usate anche come domande iniziali.
 
-    \begin{itemize}
-    \tightlist
-    \item
-      \emph{problema 1}: l'ascoltatore tenderà ad avere un volume di voce errato perché non si sentirà correttamente: questo è l'\hyperref[Effetto-Lombard-e-la-cuffia-nel-doppiaggio-per-una-voce-naturale]{effetto Lombard};
-    \item
-      \emph{problema 2}: le latenze del DAW devono essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale;
+Si è scelta quindi la formula: - risposta alla domanda n - attesa di 5 secondi indicata dall'operatore - connettivo alla domanda n - attesa di 5 secondi indicata dall'operatore - domanda n
 
-      \begin{itemize}
-      \tightlist
-      \item
-        \emph{soluzione 3}: è stata una tecnica più ``manuale'' in cui è l'operatore ad accorgersi dei tempi di pausa ed eventualmente interrompere il partecipante.
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
-\item
-  \emph{problema 2}: le domande registrate potrebbero risultare tutte troppo uguali poiché l'intervistato sarà tentato a ripetere parola per parola la domanda originale;
+\subsubsection{Tempi di pausa}\label{tempi-di-pausa}
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{soluzione 1}: L'intervistato ripete la domanda \textbf{dopo} aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta;
+Dalle ricerche \hyperref[analisi-dei-tempi-di-risposta]{Analisi dei tempi di risposta} è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta.
 
-    \begin{itemize}
-    \tightlist
-    \item
-      \emph{problema 1}: l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente;
+Ai fini della registrazione, è sorto però un \textbf{problema}: è strettamente necessario che sussista almeno mezzo secondo di pausa tra la domanda dell'operatore e la risposta del partecipante. Una possibile soluzione è far attendere un tempo in secondi all'intervistato prima di dare una risposta, ma questo comporta l'impossibilità di osservare i tempi di pausa. Un'ulteriore soluzione è utilizzare delle cuffie in-ear/aperte/chiuse, ma queste potrebbero portare l'ascoltatore ad avere un volume di voce errato perché non si sentirà correttamente: questo è l'\hyperref[Effetto-Lombard-e-la-cuffia-nel-doppiaggio-per-una-voce-naturale]{effetto Lombard}; non solo: le latenze del DAW dovrebbero essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale La \textbf{soluzione} meno invasiva è stata la scelta di una tecnica più ``manuale'' in cui è l'operatore ad accorgersi dei tempi di pausa ed eventualmente interrompere il partecipante.
 
-      \begin{itemize}
-      \tightlist
-      \item
-        \emph{Soluzione}: sta all'operatore \emph{eventualmente} intervenire valutandone la coerenza con la domanda originale.
-      \item
-        \emph{Soluzione 2}: Le domande non devono essere equivocabili: vengon ipotizzati diversi tipi di domande
-      \end{itemize}
-    \end{itemize}
-  \item
-    \emph{soluzione 2}: viene dato all'intervistato un \textbf{prompt generico} il più lontano possibile dalla domanda originale e verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni (dopo una durata in secondi prestabilita)
-  \end{itemize}
-\item
-  \emph{Problema 3}: Il soggetto potrebbe produrre risposte troppo lunghe o troppo corte:
+Un ulteriore problema è la possibilità di scene mute, che vanificherebbe la misurazione dei tempi di pausa. Sono state quindi applicate due misure: - sono state forniti in anticipo gli argomenti delle domande, ma non le effettive domande. - spesso è utile all'intervistato fornire l'argomento della domanda appena prima di pronunciare la domanda, in modo da metterlo a suo agio. Questa tecnica ha trovato particolare successo.
 
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{Soluzione 1}: vengono forniti in anticipo gli argomenti delle domande, ma non le domande in se'.
-  \item
-    \emph{Soluzione 2}: Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. Le regole da seguire:
+\subsubsection{Durata delle risposte}\label{durata-delle-risposte}
 
-    \begin{itemize}
-    \tightlist
-    \item
-      sotto i 15 secondi: viene considerata errata e viene chiesto di ripetere
-    \item
-      tra i 15 e i 30: viene considerata buona ma il partecipante viene esortato a parlare di più alla domanda seguente
-    \item
-      tra 30 e 50: va bene
-    \item
-      sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
-    \end{itemize}
-  \item
-    \emph{Problema 1}: E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta.
+Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea.
 
-    \begin{itemize}
-    \tightlist
-    \item
-      \emph{Soluzione 1}: è stato posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
-    \end{itemize}
-  \end{itemize}
-\end{itemize}
+Le regole da seguire: - sotto i 15 secondi: viene considerata errata e viene chiesto di ripetere - tra i 15 e i 30: viene considerata buona ma il partecipante viene esortato a parlare di più alla domanda seguente - tra 30 e 50: va bene - sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
 
-Aggiungiamo inoltre che l'operatore dovrà stare frontale e guardare il tester.
+E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta. Per risolvere il problema, è stato così posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
 
-\begin{itemize}
-\tightlist
-\item
-  \emph{Problema 1}: Deve essere possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda
-
-  \begin{itemize}
-  \tightlist
-  \item
-    \emph{soluzione 1}: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un ``e tu?''.
-
-    \begin{itemize}
-    \tightlist
-    \item
-      \emph{problema 1}: così facendo la prima domanda del ciclo avrà sempre un'interrogazione come se fosse la seconda domanda
-    \end{itemize}
-  \item
-    \emph{soluzione 2}: conoscendo i \hyperref[tempi-di-pausa]{tempi di pausa}, far registrare alla fine, assieme ai suoni non verbali, diverse frasi come \textbf{``e tu?'', ``invece te?'', ``quindi?'', ``Allora'', ``eee\ldots{}''} con diverso \emph{portamento}.
-
-    \begin{itemize}
-    \tightlist
-    \item
-      \emph{problema 1}: il tono può variare?
-
-      \begin{itemize}
-      \tightlist
-      \item
-        \emph{soluzione 2}: il partecipante dopo aver risposto conta 5 secondi con le dita e poi legge la domanda introduttiva (``eh tu?''), poi conta 5 secondi e dopo pronuncia la domanda effettiva (``come è stata la tua giornata?'')
-      \end{itemize}
-    \end{itemize}
-  \end{itemize}
-\end{itemize}
+\subsubsection{Suoni non verbali}\label{suoni-non-verbali}
 
 E' stato inoltre chiesto al partecipante di pronunciare alcuni suoni non verbali basandosi modelli prestabiliti come \textbf{``a-hem, coff, a-ha, aah!, hm-hm, ecc.''}. Sarà poi l'operatore in seguito a controllarne la validità e selezionarne i casi migliori. Questi suoni verranno pronunciati dopo le varie domande, sia perché così nella registrazione, costituiscono un elemento di pausa tra il primo e il secondo ciclo di domanda, sia perché questi suoni andranno registrati senza cuffia poiché costituiranno dei suoni di sottofondo e quindi a portamento basso.
+
+\subsubsection{Portamento}\label{portamento}
+
+Il test è stato inoltre svolto una seconda volta con delle cuffie isolanti per poter simulare un portamento di voce più alto. Dai primi test, abbiamo però notato come i partecipanti hanno una buona capacità di ricordarsi le parole delle risposte a domande già poste. Per aumentare la variabilità, è stato così deciso di porre le domande con un ordine diverso.
+
+Caso di studio Software realizzato Capitolo sui test effettuati Conclusioni e sviluppi futuri Bibliografia e Sitografia Eventuali appendici (ad esempio, listati completi di codice, manuale utente, dimostrazioni, ecc.)
 
 \subsection{Il programma}\label{il-programma}
 
@@ -348,7 +296,7 @@ In generale per domande personali, i tempi di risposta di allungano: \textgreate
 
 Inoltre contribuisce la complessità della domanda ed il contesto in cui viene posta: \textgreater{} ``There have also been reports that gap durations tend to increase with cognitive load (see e.g.~Cappella (1979), and references mentioned therein). Within the Map Task domain, it has been shown that more complex tasks, lack of familiarity with tasks, and presence of conversational game boundaries results in longer gaps (Bull \& Aylett, 1998). Several studies have furthermore observed longer gaps in dialogues where the participants have eye contact than in dialogues without eye contact (Beattie \& Barnard, 1979; Bull \& Aylett, 1998; Jaffe \& Feldstein, 1970; ten Bosch, Oostdijk, \& de Ruiter, 2004a). The opposite result, faster speaker changes to the extent that average switching times are negative (or overlapping) have also been observed in eye contact vs.~no eye contact comparisons (Sellen, 1995). From analyses of pairs of speakers it has also been suggested that speakers adapt the duration of gaps to those of the other participants, that is a form ofaccommodation or interlocutor similarity with respect to gap duration (e.g.~Edlund, Heldner, \& Hirschberg, 2009; Jaffe \& Feldstein, 1970; Kousidis \& Dorran, 2009; ten Bosch et al., 2005). Finally, it has been observed that the language differences with respect to gap durations seem to be minor (cf.~Weilhammer \& Rabold, 2003).'' \footnote{\href{DOC/1-s2.0-S0095447010000628-main.pdf}{Vedi, ``\emph{Pauses, gaps and overlaps in conversations}'' di ``\emph{Mattias Heldner, Jens Edlund}'', \emph{2010}}} \textgreater{} ``Dispreferred second pair parts, such as request refusal, are structurally complex; they tend to have a complete grammatical format and make use of a variety of hedging elements, which serve to minimize the threat of disaffiliation (Heritage 1984). These include the following: Delays, e.g., insertion sequences; Prefaces, e.g., markers or announcers of dispreferreds, such as ``Uh'' and ``Well''; Politeness markers, e.g., appreciation markers and apologies; Hesitations, e.g., self-editing; Accounts: carefully formulated explanations for why the (dispreferred) act is being performed (Levinson 1983, pp.~334--35).'' \footnote{\href{\%22DOC/languages-08-00026.pdf}{``Article Pause Length and Differences in Cognitive State Attribution in Native and Non-Native Speakers'', Theresa Matzinger 1,2, Michael Pleyer and Przemysław ˙Zywiczy ´nski}}
 
-\section{Tempi di Pausa:}\label{tempi-di-pausa}
+\section{Tempi di Pausa:}\label{tempi-di-pausa-1}
 
 Riguardo ai periodi di pausa in un discorso: - Nel testo di Pavese et al è stata analizzato il tempo di pausa e professionisti è composto da 5 docenti universitari madre lingua inglesi della London South Bank University e 6 soggetti madre lingua italiani monitorati in stanze con diverse condizioni di riverberazione. \textgreater{} ``I risultati mostrano che la distribuzione dei periodi di pausa non varia nelle diverse camere; in particolare, il maggior numero di occorrenze si ha per periodi della durata pari a 90 ms. Viceversa, il tipo di camera influenza la durata dei periodi di voce. Nel caso dei monitoraggi in camera anecoica (figura 1A), il maggior numero di occorrenze si ha per tratti di lunghezza pari a 90 ms; tale valore aumenta con la riverberazione della camera: il picco di occorrenze è a 120 ms per la camera semi riverberante (figura 1B) e a 150 ms per la camera riverberante (figura 1C).'' \footnote{\href{DOC/aia2014_pavese_et_al.pdf}{/////////////////////////Vedi, \emph{pp.~3-4}, ``\emph{Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.}'', \emph{Lorenzo Pavese} e \emph{Giuseppina Emma Puglisi}, \emph{Giugno 2014}}} \textgreater{} ``per i non professionisti della voce {[}\ldots{]} i picchi delle occorrenze medie si attestano a \emph{60 ms per i tratti di pausa} e a \emph{90 ms per la voce}.'' e ``\emph{50 ms per i tratti di pausa} e a \emph{100 ms per la voce}.'' con un ``periodo base dei due dispositivi, che è pari a 30 ms e 50 ms rispettivamente.'' \footnote{\href{DOC/aia2014_pavese_et_al.pdf}{Vedi, \emph{pp.~6-7}, ``\emph{Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.}'', \emph{Lorenzo Pavese} e \emph{Giuseppina Emma Puglisi}, \emph{Giugno 2014}}}
 

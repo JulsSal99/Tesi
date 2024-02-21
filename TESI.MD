@@ -4,12 +4,8 @@ bibliography: biblio.bib
 link-citations: true
 ---
 
-# Tesi: Registrazioni e generazione linee di dialogo 
 
-Il numero tra ogni _ deve essere corto e uguale per tutti
-
-MAIN:
-============
+# Introduzione
 
 Serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
 
@@ -18,66 +14,109 @@ Protocollo sperimentale per le registrazioni
    -> Obiettivi della registrazione
    -> Come bisogna parlare durante la registrazione: non sovrapporti,
 
-# Procedimento:
+# Stato dell'arte
 
-## Attrezzatura e locazione:
+# Tecnologie utilizzate
+Per quanto concerne la registrazione in stanza insonorizzata, è stato scelto come software per la registrazione la DAW [Reaper](https://www.reaper.fm/).
+E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
+
+Si è scelto di realizzare il codice per la generazione dei dialoghi in Python per la sua semplicità e flessibilità.
+La versione utilizzata è Python 3.11.6.
+
+Nello specifico è stato fatto uso di diverse librerie tra cui:
+ - **soundfile**: per la lettura dei files da disco
+ - **numpy**: per gestire i vari array di files sia per la concatenazione degli stessi, sia per 
+ - **random**: per la generazione randomica  
+ - **configparser** e **json**: per permettere all'utente la scelta la personalizzazione e i settaggi migliori per configurare l'esecuzione del codice. Va comunque sottolineato che il codice può funzionare anche senza i suddetti files, quindi con valori predefiniti.
+
+Va sottolineato che comunque il software, una volta installata la versione corretta di python, nel caso in cui le librerie non siano già presenti, chiede all'utente se procederne all'installazione.
+
+![Uno screenshot di un caso in cui è stato necessario ripetere domanda e prompt](img/1.jpg)
+
+# Le registrazioni
+## Attrezzatura e setup:
 
 Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi).
 La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
 La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni.
 E' stata usata inoltre usata una scheda audio [Motu Ultralite-mk3 Hybrid](https://motu.com/products/motuaudio/ultralite-mk3/i-o.html) con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
 La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
-Il software usato per la registrazione è la DAW Reaper.
-E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
+
+Per aumentare il rendimento acustico della stanza sono stati inoltre aggiunti alcuni pannelli forniti dal LIM, come si vede nell'immagine sottostante.
+
+![setup](img/2room.jpg)
+
+Nota: Nell'immagine sottostante un microfono è posto su una mensola, quando, a seguito di misurazioni, è stato invece spostato su un treppiede che poggia sul pavimento per ridurre interferenze a bassa frequenza.
 
 ## Procedimento in stanza con i partecipanti
 
 Uno dei problemi principali nell'esecuzione del nostro test è stata l'identificazione delle metodologie di registrazione in modo che: 
- - Non ci fossero **sovrapposizioni** tra audio dell'intervistatore e dell'intervistato (dalle ricerche [Analisi dei tempi di risposta](#analisi-dei-tempi-di-risposta) è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta) 
- - Non ci fosse ritorno, se non isolabile, nel microfono di ulteriori possibili suoni (al di fuori del partecipante all'esperimento)
- - Le risposte fossero realistiche
- - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati
+ - Le risposte fossero il più realistiche possibili all'interno dei limiti della concatenazione casuale
+ - Non ci fossero **sovrapposizioni** tra audio dell'intervistatore e dell'intervistato
+ - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati per la generazione di dialoghi tra più persone 
 
-<br> 
+### L'ordine
+
 Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato. 
+Questa struttura però comportava un mancato mantenimento della tonalità di voce e tra ogni singola domanda e risposta, poichè spesso in un discorso, chi fa la domanda è colui che risponde a tale.
+Inoltre le domande registrate potrebbero risultare tutte troppo uguali tra i vari partecipanti poiché l'intervistato sarà tentato di ripetere parola per parola la domanda originale.
 
-   - *problema 1*: possibile sovrapposizione di voci
-     - *soluzione 1*: far attendere un tempo in secondi alll'intervistato prima di dare una risposta;
-       - problema: non si possono osservare i tempi di risposta.
-     - *soluzione 2*: utilizzare delle cuffie in-ear/aperte/chiuse;
-       - *problema 1*: l'ascoltatore tenderà ad avere un volume di voce errato perché non si sentirà correttamente: questo è l'[effetto Lombard](#Effetto-Lombard-e-la-cuffia-nel-doppiaggio-per-una-voce-naturale);
-       - *problema 2*: le latenze del DAW devono essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale;
-         - *soluzione 3*: è stata una tecnica più "manuale" in cui è l'operatore ad accorgersi dei tempi di pausa ed eventualmente interrompere il partecipante. 
-   - *problema 2*: le domande registrate potrebbero risultare tutte troppo uguali poiché l'intervistato sarà tentato a ripetere parola per parola la domanda originale;
-     - *soluzione 1*: L'intervistato ripete la domanda **dopo** aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta;
-       - *problema 1*: l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente;
-         - *Soluzione*: sta all'operatore *eventualmente* intervenire valutandone la coerenza con la domanda originale.
-         - *Soluzione 2*: Le domande non devono essere equivocabili: vengon ipotizzati diversi tipi di domande 
-     - *soluzione 2*: viene dato all'intervistato un **prompt generico** il più lontano possibile dalla domanda originale e verrà fatto un cenno gestuale per indicare di procedere alla risposta in modo da non generare sovrapposizioni (dopo una durata in secondi prestabilita)
-   - *Problema 3*: Il soggetto potrebbe produrre risposte troppo lunghe o troppo corte:
-     - *Soluzione 1*: vengono forniti in anticipo gli argomenti delle domande, ma non le domande in se'.
-     - *Soluzione 2*: Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. 
-     Le regole da seguire:
-        - sotto i 15 secondi: viene considerata errata e viene chiesto di ripetere
-        - tra i 15 e i 30: viene considerata buona ma il partecipante viene esortato a parlare di più alla domanda seguente
-        - tra 30 e 50: va bene
-        - sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
-     - *Problema 1*: E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta.
-       - *Soluzione 1*: è stato posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
+La **soluzione** è quindi di ripetere la domanda *dopo* aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta; l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente. Sta all'operatore *eventualmente* intervenire valutandone la coerenza con la domanda originale.
+La scelta delle domande non deve quindi essere **equivocabili** e **semplici**. 
 
-Aggiungiamo inoltre che l'operatore dovrà stare frontale e guardare il tester.
+Inoltre, per rendere le domande più simili a dialoghi tra più persone, si è scelto di inserire dei connettivi che potessero essere usate anche come domande iniziali. 
 
- - *Problema 1*: Deve essere possibile registrare una serie di domande introduttive in modo che si possano generare dialoghi con più risposte per una medesima domanda 
-    - *soluzione 1*: dopo aver fatto registrare la domanda, gli viene chiesto di ripeterla interamente aggiungendoci all'inizio un "e tu?".
-        - *problema 1*: così facendo la prima domanda del ciclo avrà sempre un'interrogazione come se fosse la seconda domanda
-    - *soluzione 2*: conoscendo i [tempi di pausa](#tempi-di-pausa), far registrare alla fine, assieme ai suoni non verbali, diverse frasi come **"e tu?", "invece te?", "quindi?", "Allora", "eee..."** con diverso *portamento*.
-      - *problema 1*: il tono può variare?
-        - *soluzione 2*: il partecipante dopo aver risposto conta 5 secondi con le dita e poi legge la domanda introduttiva ("eh tu?"), poi conta 5 secondi e dopo pronuncia la domanda effettiva ("come è stata la tua giornata?")
- 
+Si è scelta quindi la formula:
+ - risposta alla domanda n
+ - attesa di 5 secondi indicata dall'operatore
+ - connettivo alla domanda n
+ - attesa di 5 secondi indicata dall'operatore
+ - domanda n
 
+### Tempi di pausa
+Dalle ricerche [Analisi dei tempi di risposta](#analisi-dei-tempi-di-risposta) è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta. 
+
+Ai fini della registrazione, è sorto però un **problema**: è strettamente necessario che sussista almeno mezzo secondo di pausa tra la domanda dell'operatore e la risposta del partecipante.
+Una possibile soluzione è far attendere un tempo in secondi all'intervistato prima di dare una risposta, ma questo comporta l'impossibilità di osservare i tempi di pausa.
+Un'ulteriore soluzione è utilizzare delle cuffie in-ear/aperte/chiuse, ma queste potrebbero portare l'ascoltatore ad avere un volume di voce errato perché non si sentirà correttamente: questo è l'[effetto Lombard](#Effetto-Lombard-e-la-cuffia-nel-doppiaggio-per-una-voce-naturale);
+non solo: le latenze del DAW dovrebbero essere irrisorie poiché per misurare il tempo di attesa bisogna che l'audio in cuffia sia in tempo reale
+La **soluzione** meno invasiva è stata la scelta di una tecnica più "manuale" in cui è l'operatore ad accorgersi dei tempi di pausa ed eventualmente interrompere il partecipante.
+
+Un ulteriore problema è la possibilità di scene mute, che vanificherebbe la misurazione dei tempi di pausa.
+Sono state quindi applicate due misure:
+ - sono state forniti in anticipo gli argomenti delle domande, ma non le effettive domande.
+ - spesso è utile all'intervistato fornire l'argomento della domanda appena prima di pronunciare la domanda, in modo da metterlo a suo agio. Questa tecnica ha trovato particolare successo.
+
+### Durata delle risposte
+Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata delle risposte per non influenzare le modalità di risposta, ma lo scopo è raggiungere la durata complessiva omogenea. 
+
+Le regole da seguire:
+  - sotto i 15 secondi: viene considerata errata e viene chiesto di ripetere
+  - tra i 15 e i 30: viene considerata buona ma il partecipante viene esortato a parlare di più alla domanda seguente
+  - tra 30 e 50: va bene
+  - sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
+
+E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta. 
+Per risolvere il problema, è stato così posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
+
+### Suoni non verbali
 E' stato inoltre chiesto al partecipante di pronunciare alcuni suoni non verbali basandosi modelli prestabiliti come **"a-hem, coff, a-ha, aah!, hm-hm, ecc."**. 
 Sarà poi l'operatore in seguito a controllarne la validità e selezionarne i casi migliori.
 Questi suoni verranno pronunciati dopo le varie domande, sia perché così nella registrazione, costituiscono un elemento di pausa tra il primo e il secondo ciclo di domanda, sia perché questi suoni andranno registrati senza cuffia poiché costituiranno dei suoni di sottofondo e quindi a portamento basso.
+
+### Portamento
+Il test è stato inoltre svolto una seconda volta con delle cuffie isolanti per poter simulare un portamento di voce più alto.
+Dai primi test, abbiamo però notato come i partecipanti hanno una buona capacità di ricordarsi le parole delle risposte a domande già poste. 
+Per aumentare la variabilità, è stato così deciso di porre le domande con un ordine diverso.
+
+Caso di studio
+Software realizzato
+Capitolo sui test effettuati
+Conclusioni e sviluppi futuri
+Bibliografia e Sitografia
+Eventuali appendici (ad esempio, listati completi di codice, manuale utente, dimostrazioni, ecc.)
+
+
 
 ## Il programma
 Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
