@@ -7,17 +7,18 @@ link-citations: true
 
 # Introduzione
 
-Serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
+Nella ricerca nel campo dell'Informatica Musicale, la creazione di dataset audio per fini scientifici riveste un ruolo cruciale. 
+Questa tesi si propone di delineare il processo di realizzazione di un dataset di files audio adoperati per scopi di ricerca presso il Laboratorio di Informatica Musicale (LIM) [^14]. 
 
-Protocollo sperimentale per le registrazioni
- - Spiegazione iniziale a ogni soggetto
-   -> Obiettivi della registrazione
-   -> Come bisogna parlare durante la registrazione: non sovrapporti,
+Il dataset sarà composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM. 
+Saranno rilevati inoltre dalle registrazioni i tempi di risposta dei vari partecipanti al test, che verranno quindi confrontati con quelli riportati nella letteratura specializzata, al fine di valutarne la coerenza e l'aderenza alle dinamiche comunicative reali. 
+
+Inoltre, si svilupperà un software ad hoc per la combinazione efficiente dei dialoghi, mirato a ottimizzare i tempi di produzione delle tracce audio e a soddisfare specifiche esigenze o requisiti. Il protocollo sperimentale per le registrazioni sarà rigorosamente definito, includendo una spiegazione dettagliata degli obiettivi della registrazione e delle istruzioni per una partecipazione coerente e consistente, al fine di garantire la coerenza e l'affidabilità dei dati raccolti.
 
 # Stato dell'arte
 
 # Tecnologie utilizzate
-Per quanto concerne la registrazione in stanza insonorizzata, è stato scelto come software per la registrazione la DAW [Reaper](https://www.reaper.fm/).
+Per quanto concerne la registrazione in stanza insonorizzata, è stato scelto come software per la registrazione la DAW [^15].
 E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
 
 Si è scelto di realizzare il codice per la generazione dei dialoghi in Python per la sua semplicità e flessibilità.
@@ -39,7 +40,7 @@ Va sottolineato che comunque il software, una volta installata la versione corre
 Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi).
 La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
 La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni.
-E' stata usata inoltre usata una scheda audio [Motu Ultralite-mk3 Hybrid](https://motu.com/products/motuaudio/ultralite-mk3/i-o.html) con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
+E' stata usata inoltre usata una scheda audio [^16] con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
 La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
 
 Per aumentare il rendimento acustico della stanza sono stati inoltre aggiunti alcuni pannelli forniti dal LIM, come si vede nell'immagine sottostante.
@@ -64,14 +65,14 @@ Inoltre le domande registrate potrebbero risultare tutte troppo uguali tra i var
 La **soluzione** è quindi di ripetere la domanda *dopo* aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta; l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente. Sta all'operatore *eventualmente* intervenire valutandone la coerenza con la domanda originale.
 La scelta delle domande non deve quindi essere **equivocabili** e **semplici**. 
 
-Inoltre, per rendere le domande più simili a dialoghi tra più persone, si è scelto di inserire dei connettivi che potessero essere usate anche come domande iniziali. 
+Inoltre, per rendere le domande più simili a dialoghi tra più persone, si è scelto di inserire dei connettivi che potessero essere usate anche come domande iniziali (Prompt). 
 
 Si è scelta quindi la formula:
- - risposta alla domanda n
+ - Answer n: risposta alla domanda n
  - attesa di 5 secondi indicata dall'operatore
- - connettivo alla domanda n
+ - Prompt n: connettivo alla domanda n
  - attesa di 5 secondi indicata dall'operatore
- - domanda n
+ - Question n: domanda
 
 ### Tempi di pausa
 Dalle ricerche [Analisi dei tempi di risposta](#analisi-dei-tempi-di-risposta) è stato appurato che il tempo di pausa tra domanda e risposta può ridursi fino a generare una sovrapposizione tra domanda e risposta. 
@@ -138,6 +139,20 @@ Per meglio spiegare l'organizzazione dei files stabiliamo:
  - **V** = *Volume del parlato, o Portamento: Normale o Alto* [N/A]
  - **T** = "tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale" [G/Q/A/I/S] (a singola cifra)
  - **N** = *numero della domanda o risposta* (a due cifre)
+
+
+Nome file: ID_SEX_VOL_Q/A/P/B_#.wav
+
+ - ID: 2
+ - SEX: 1 (M/F)
+ - VOL: 1 (H/L)
+ - Q/A/P/B: 1
+ - #: 2
+
+Ad esempio:
+persona 3, maschio, senza cuffia, risposta alla domanda 7: 03_M_L_A_07.wav
+persona 5, femmina, con cuffia, incalza (prompt) la domanda 5: 05_F_H_P_05.wav (anche se i prompt dovrebbero essere intercambiabili)
+persona 0, femmina, senza cuffia, suono impulsivo (burst) 3: 00_F_L_B_03.wav
 
 ### Nomi dei files durante la registrazione
 Verranno generati un audio per ogni speaker:
@@ -367,6 +382,9 @@ DOMANDE:
 [^11]:[The NXT-format Switchboard Corpus: a rich resource for investigating the syntax, semantics, pragmatics and prosody of dialogue](DOC/The_NXT_format_Switchboard_Corpus_a_rich_resource_for_investigating_the_syntax_semantics_pragmatics_and_prosody_of_dialogue.pdf)
 [^12]:[Lane H, Tranel B, The Lombard sign and the role of hearing in speech, in J Speech Hear Res, vol. 14, n. 4, 1971, pp. 677-709.]
 [^13]:["Article Pause Length and Differences in Cognitive State Attribution in Native and Non-Native Speakers", Theresa Matzinger 1,2, Michael Pleyer and Przemysław ˙Zywiczy ´nski]("DOC/languages-08-00026.pdf)
+[^14]:["Laboratorio di Informatica Musicale"](https://www.lim.di.unimi.it/)
+[^15]:["Reaper"](https://www.reaper.fm/)
+[^16]:["Motu Ultralite-mk3 Hybrid"](https://motu.com/products/motuaudio/ultralite-mk3/i-o.html)
 
 [^p1]:[/////////////////////////Vedi, *pp. 3-4*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
 [^p2]:[Vedi, *pp. 6-7*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
