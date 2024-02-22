@@ -124,15 +124,17 @@
 }
 \section{Introduzione}\label{introduzione}
 
-Serve un survey sui dataset di registrazioni vocali (più sono simili alla nostra idea meglio è) e una ricerca di lavori che parlino dei tempi di risposta in dialoghi realistici, per quest'ultimo punto forse il prof Avanzini aveva dei riferimenti, ma in generale mi appoggerei a google scholar per la ricerca di articoli riguardanti entrambi gli argomenti.
+Nella ricerca nel campo dell'Informatica Musicale, la creazione di dataset audio per fini scientifici riveste un ruolo cruciale. Questa tesi si propone di delineare il processo di realizzazione di un dataset di files audio adoperati per scopi di ricerca presso il Laboratorio di Informatica Musicale (LIM) \footnote{\href{https://www.lim.di.unimi.it/}{``Laboratorio di Informatica Musicale''}}.
 
-Protocollo sperimentale per le registrazioni - Spiegazione iniziale a ogni soggetto -\textgreater{} Obiettivi della registrazione -\textgreater{} Come bisogna parlare durante la registrazione: non sovrapporti,
+Il dataset sarà composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM. Saranno rilevati inoltre dalle registrazioni i tempi di risposta dei vari partecipanti al test, che verranno quindi confrontati con quelli riportati nella letteratura specializzata, al fine di valutarne la coerenza e l'aderenza alle dinamiche comunicative reali.
+
+Inoltre, si svilupperà un software ad hoc per la combinazione efficiente dei dialoghi, mirato a ottimizzare i tempi di produzione delle tracce audio e a soddisfare specifiche esigenze o requisiti. Il protocollo sperimentale per le registrazioni sarà rigorosamente definito, includendo una spiegazione dettagliata degli obiettivi della registrazione e delle istruzioni per una partecipazione coerente e consistente, al fine di garantire la coerenza e l'affidabilità dei dati raccolti.
 
 \section{Stato dell'arte}\label{stato-dellarte}
 
 \section{Tecnologie utilizzate}\label{tecnologie-utilizzate}
 
-Per quanto concerne la registrazione in stanza insonorizzata, è stato scelto come software per la registrazione la DAW \href{https://www.reaper.fm/}{Reaper}. E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
+Per quanto concerne la registrazione in stanza insonorizzata, è stato scelto come software per la registrazione la DAW \footnote{\href{https://www.reaper.fm/}{``Reaper''}}. E' stata quindi registrata per ogni partecipante una unica traccia contenente tutte le domande e le risposte.
 
 Si è scelto di realizzare il codice per la generazione dei dialoghi in Python per la sua semplicità e flessibilità. La versione utilizzata è Python 3.11.6.
 
@@ -151,7 +153,7 @@ Va sottolineato che comunque il software, una volta installata la versione corre
 
 \subsection{Attrezzatura e setup:}\label{attrezzatura-e-setup}
 
-Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi). La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine. La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni. E' stata usata inoltre usata una scheda audio \href{https://motu.com/products/motuaudio/ultralite-mk3/i-o.html}{Motu Ultralite-mk3 Hybrid} con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra. La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
+Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi). La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine. La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni. E' stata usata inoltre usata una scheda audio \footnote{\href{https://motu.com/products/motuaudio/ultralite-mk3/i-o.html}{``Motu Ultralite-mk3 Hybrid''}} con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra. La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
 
 Per aumentare il rendimento acustico della stanza sono stati inoltre aggiunti alcuni pannelli forniti dal LIM, come si vede nell'immagine sottostante.
 
@@ -173,9 +175,9 @@ Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte
 
 La \textbf{soluzione} è quindi di ripetere la domanda \emph{dopo} aver dato la risposta, così facendo l'intervistato probabilmente non si ricorderà l'esatta domanda, ma la deducerà dalla sua risposta; l'intervistato potrebbe non ricordarsi la domanda originale o potrebbe produrre una risposta non coerente. Sta all'operatore \emph{eventualmente} intervenire valutandone la coerenza con la domanda originale. La scelta delle domande non deve quindi essere \textbf{equivocabili} e \textbf{semplici}.
 
-Inoltre, per rendere le domande più simili a dialoghi tra più persone, si è scelto di inserire dei connettivi che potessero essere usate anche come domande iniziali.
+Inoltre, per rendere le domande più simili a dialoghi tra più persone, si è scelto di inserire dei connettivi che potessero essere usate anche come domande iniziali (Prompt).
 
-Si è scelta quindi la formula: - risposta alla domanda n - attesa di 5 secondi indicata dall'operatore - connettivo alla domanda n - attesa di 5 secondi indicata dall'operatore - domanda n
+Si è scelta quindi la formula: - Answer n: risposta alla domanda n - attesa di 5 secondi indicata dall'operatore - Prompt n: connettivo alla domanda n - attesa di 5 secondi indicata dall'operatore - Question n: domanda
 
 \subsubsection{Tempi di pausa}\label{tempi-di-pausa}
 
@@ -214,6 +216,24 @@ A queste si aggiungono le pause e i silenzi \textgreater{} Domanda\_P\_N → \em
 \subsection{Numenclatura dei files}\label{numenclatura-dei-files}
 
 Per meglio spiegare l'organizzazione dei files stabiliamo: - \textbf{P} = \emph{identificativo del partecipante al test: viene associato un numero per ogni partecipante, riportato in nel file csv} (a due cifre) - \textbf{S} = \emph{sesso del partecipante al test} {[}M/F{]} - \textbf{V} = \emph{Volume del parlato, o Portamento: Normale o Alto} {[}N/A{]} - \textbf{T} = ``tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale'' {[}G/Q/A/I/S{]} (a singola cifra) - \textbf{N} = \emph{numero della domanda o risposta} (a due cifre)
+
+Nome file: ID\_SEX\_VOL\_Q/A/P/B\_\#.wav
+
+\begin{itemize}
+\tightlist
+\item
+  ID: 2
+\item
+  SEX: 1 (M/F)
+\item
+  VOL: 1 (H/L)
+\item
+  Q/A/P/B: 1
+\item
+  \#: 2
+\end{itemize}
+
+Ad esempio: persona 3, maschio, senza cuffia, risposta alla domanda 7: 03\_M\_L\_A\_07.wav persona 5, femmina, con cuffia, incalza (prompt) la domanda 5: 05\_F\_H\_P\_05.wav (anche se i prompt dovrebbero essere intercambiabili) persona 0, femmina, senza cuffia, suono impulsivo (burst) 3: 00\_F\_L\_B\_03.wav
 
 \subsubsection{Nomi dei files durante la registrazione}\label{nomi-dei-files-durante-la-registrazione}
 
