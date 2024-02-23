@@ -40,16 +40,6 @@
 \newcommand{\passthrough}[1]{#1}
 \lstset{defaultdialect=[5.3]Lua}
 \lstset{defaultdialect=[x86masm]Assembler}
-\usepackage{longtable,booktabs,array}
-\usepackage{calc} % for calculating minipage widths
-% Correct order of tables after \paragraph or \subparagraph
-\usepackage{etoolbox}
-\makeatletter
-\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
-\makeatother
-% Allow footnotes in longtable head/foot
-\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
-\makesavenoteenv{longtable}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -122,11 +112,15 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\section{Introduzione}\label{introduzione}
+\section{Caso di studio}\label{caso-di-studio}
 
 Nella ricerca nel campo dell'Informatica Musicale, la creazione di dataset audio per fini scientifici riveste un ruolo cruciale. Questa tesi si propone di delineare il processo di realizzazione di un dataset di files audio adoperati per scopi di ricerca presso il Laboratorio di Informatica Musicale (LIM) \footnote{\href{https://www.lim.di.unimi.it/}{``Laboratorio di Informatica Musicale''}}.
 
-Il dataset sarà composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM. Saranno rilevati inoltre dalle registrazioni i tempi di risposta dei vari partecipanti al test, che verranno quindi confrontati con quelli riportati nella letteratura specializzata, al fine di valutarne la coerenza e l'aderenza alle dinamiche comunicative reali.
+\section{Introduzione}\label{introduzione}
+
+Il dataset sarà composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM.
+
+Saranno rilevati inoltre dalle registrazioni i tempi di risposta dei vari partecipanti al test, che verranno quindi confrontati con quelli riportati nella letteratura specializzata, al fine di valutarne la coerenza e l'aderenza alle dinamiche comunicative reali.
 
 Inoltre, si svilupperà un software ad hoc per la combinazione efficiente dei dialoghi, mirato a ottimizzare i tempi di produzione delle tracce audio e a soddisfare specifiche esigenze o requisiti. Il protocollo sperimentale per le registrazioni sarà rigorosamente definito, includendo una spiegazione dettagliata degli obiettivi della registrazione e delle istruzioni per una partecipazione coerente e consistente, al fine di garantire la coerenza e l'affidabilità dei dati raccolti.
 
@@ -169,6 +163,8 @@ Nota: Nell'immagine sottostante un microfono è posto su una mensola, quando, a 
 
 Uno dei problemi principali nell'esecuzione del nostro test è stata l'identificazione delle metodologie di registrazione in modo che: - Le risposte fossero il più realistiche possibili all'interno dei limiti della concatenazione casuale - Non ci fossero \textbf{sovrapposizioni} tra audio dell'intervistatore e dell'intervistato - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati per la generazione di dialoghi tra più persone
 
+Sono stati così selezionati 8 partecipanti: 4 maschi e 4 femmine, nessuno dei quali è madrelingua. Ad ogni partecipante è stato fatto firmare un modulo per il trattamento dei dati personali. Il numero di domande scelte è 10 di argomenti generici. Si è scelto inoltre di fare un'ulteriore registrazione a un portamento diverso per ogni partecipante.
+
 \subsubsection{L'ordine}\label{lordine}
 
 Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato. Questa struttura però comportava un mancato mantenimento della tonalità di voce e tra ogni singola domanda e risposta, poichè spesso in un discorso, chi fa la domanda è colui che risponde a tale. Inoltre le domande registrate potrebbero risultare tutte troppo uguali tra i vari partecipanti poiché l'intervistato sarà tentato di ripetere parola per parola la domanda originale.
@@ -193,7 +189,7 @@ Dai primi test abbiamo stabilito che: non bisogna indicare al soggetto la durata
 
 Le regole da seguire: - sotto i 15 secondi: viene considerata errata e viene chiesto di ripetere - tra i 15 e i 30: viene considerata buona ma il partecipante viene esortato a parlare di più alla domanda seguente - tra 30 e 50: va bene - sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
 
-E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta. Per risolvere il problema, è stato così posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
+E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta. Per risolvere il problema è stato così posto un orologio non visibile posteriormente al partecipante in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata. Effetto analogo è stato osservato con la luminosità dello schermo del computer: se questo risulta visibile, il partecipante sentirà la necessità di cercare di adattarsi al cursore della registrazione ed inoltre tenderà a guardare di lato, provocando un ulteriore rischio di una registrazione in una posizione errata. La soluzione è stata di porre la luminosità al minimo e dirigere lo schermo il più possibile verso l'operatore.
 
 \subsubsection{Suoni non verbali}\label{suoni-non-verbali}
 
@@ -203,66 +199,41 @@ E' stato inoltre chiesto al partecipante di pronunciare alcuni suoni non verbali
 
 Il test è stato inoltre svolto una seconda volta con delle cuffie isolanti per poter simulare un portamento di voce più alto. Dai primi test, abbiamo però notato come i partecipanti hanno una buona capacità di ricordarsi le parole delle risposte a domande già poste. Per aumentare la variabilità, è stato così deciso di porre le domande con un ordine diverso.
 
-Caso di studio Software realizzato Capitolo sui test effettuati Conclusioni e sviluppi futuri Bibliografia e Sitografia Eventuali appendici (ad esempio, listati completi di codice, manuale utente, dimostrazioni, ecc.)
+Capitolo sui test effettuati Conclusioni e sviluppi futuri Bibliografia e Sitografia Eventuali appendici (ad esempio, listati completi di codice, manuale utente, dimostrazioni, ecc.)
 
-\subsection{Il programma}\label{il-programma}
+\section{Il dataset}\label{il-dataset}
 
-Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo. I files audio singoli manterranno le pause e anche il silenzio quando parlano gli altri partecipanti.
+Si è scelto di non allegare ai vari files un file CSV esplicativo, poiché si è ritenuto che i nomi dei files fossero già autoesplicativi.
+
+\subsection{La numenclatura dei files}\label{la-numenclatura-dei-files}
+
+Per meglio spiegare l'organizzazione dei files nel dataset stabiliamo: - \textbf{ID} = \emph{identificativo del partecipante al test: viene associato un numero per ogni partecipante, riportato in nel file csv} (due cifre numeriche) - \textbf{SEX} = \emph{sesso del partecipante al test} {[}M/F{]} (una singola lettera) - \textbf{VOL} = \emph{Volume del parlato, o Portamento: Normale o Alto} {[}L/H{]} (una singola lettera) - \textbf{TYPE} = ``tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale'' {[}Q/A/P/B{]} (una singola lettera) - \textbf{NUM} = \emph{numero della domanda o risposta} (due cifre numeriche partendo da 00)
+
+\subsection{le registrazioni e nomi dei files}\label{le-registrazioni-e-nomi-dei-files}
+
+Dalle registrazioni originali è stata effettuata una prima fase di \textbf{pre-taglio} eliminando elementi che possano rientrare nel doxing\footnote{\href{\%5Bhttps://www.}{``the action of finding or publishing private information about someone on the internet without their permission, especially in a way that reveals their name, address, etc.:'', Cambridge Dictionary}{]}(https://dictionary.cambridge.org/us/dictionary/english/doxing)}
+
+E' stata poi eseguita una fase di pulizia per eliminare un eventuale rumore di fondo.
+
+I files ``totali'' sono stati così salvati con nomenclatura: Nome file: TYPE\_NUM\_SEX.wav
+
+Un esempio: - ``T\_01\_M'': file generale per la persona 1 di sesso maschio.
+
+\subsection{I files singoli finali}\label{i-files-singoli-finali}
+
+E' stata quindi eseguita una procedura di taglio per i files finali che verranno usati per il codice: sono state isolate solo le domande, le risposte, le domande incalzanti e i suoni impulsivi riducendo al minimo i silenzi in entrata ed uscita.
+
+I files finali avranno il seguente formato: Nome file: ID\_SEX\_VOL\_TYPE\_NUM.wav
+
+Ad esempio: - ``03\_M\_L\_A\_07.wav'': persona 3, maschio, senza cuffia, risposta alla domanda 7 - ``05\_F\_H\_P\_05.wav'': persona 5, femmina, con cuffia, incalza (prompt) la domanda 5 - ``00\_F\_L\_B\_03.wav'': persona 0, femmina, senza cuffia, suono impulsivo (burst) 3
+
+\section{Software realizzato}\label{software-realizzato}
+
+Verranno realizzati diversi files, uno per ogni parlante ed uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo. I files audio singoli manterranno le pause e anche il silenzio quando parlano gli altri partecipanti.
 
 Le componenti che comporranno le linee di dialogo sono: le \textbf{domande}, le \textbf{risposte}, le \textbf{domande iniziali} (eg. ``e tu?''), le \textbf{pause} e il \textbf{silenzio} antecedente a ogni risposta. Le domande, le risposte e le pause saranno organizzati in modo da seguire una struttura \textgreater{} Domanda\_P\_N → Risposta\_P+1\_N → DomandaIniziale\_P+2\_N → Domanda\_P+2\_N → Risposta\_P+3\_N → \ldots{} → Risposta\_P+K\_N → \textbf{si ripete il ciclo per N domande}
 
 A queste si aggiungono le pause e i silenzi \textgreater{} Domanda\_P\_N → \emph{Pausa} → Risposta\_P+1\_N → \emph{Pausa} → DomandaIniziale\_P+2\_N → \emph{Silenzio} → Domanda\_P+2\_N → \emph{Pausa} → Risposta\_P+3\_N → \ldots{} → Risposta\_P+K\_N → \emph{Pausa} → \textbf{si ripete il ciclo per N domande}
-
-\subsection{Numenclatura dei files}\label{numenclatura-dei-files}
-
-Per meglio spiegare l'organizzazione dei files stabiliamo: - \textbf{P} = \emph{identificativo del partecipante al test: viene associato un numero per ogni partecipante, riportato in nel file csv} (a due cifre) - \textbf{S} = \emph{sesso del partecipante al test} {[}M/F{]} - \textbf{V} = \emph{Volume del parlato, o Portamento: Normale o Alto} {[}N/A{]} - \textbf{T} = ``tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale'' {[}G/Q/A/I/S{]} (a singola cifra) - \textbf{N} = \emph{numero della domanda o risposta} (a due cifre)
-
-Nome file: ID\_SEX\_VOL\_Q/A/P/B\_\#.wav
-
-\begin{itemize}
-\tightlist
-\item
-  ID: 2
-\item
-  SEX: 1 (M/F)
-\item
-  VOL: 1 (H/L)
-\item
-  Q/A/P/B: 1
-\item
-  \#: 2
-\end{itemize}
-
-Ad esempio: persona 3, maschio, senza cuffia, risposta alla domanda 7: 03\_M\_L\_A\_07.wav persona 5, femmina, con cuffia, incalza (prompt) la domanda 5: 05\_F\_H\_P\_05.wav (anche se i prompt dovrebbero essere intercambiabili) persona 0, femmina, senza cuffia, suono impulsivo (burst) 3: 00\_F\_L\_B\_03.wav
-
-\subsubsection{Nomi dei files durante la registrazione}\label{nomi-dei-files-durante-la-registrazione}
-
-Verranno generati un audio per ogni speaker: - Per le domande e risposte: \textgreater{} \emph{P\_S\_V\_T.wav}
-
-Esempio: \textgreater{} \emph{01\_M\_N\_T.wav} → indica la traccia generale con tutte le domande, le risposte e i suoni con portamento normale della persona ``01'', di sesso maschile.
-
-\subsubsection{Nomi dei files nel programma}\label{nomi-dei-files-nel-programma}
-
-Le tracce verranno poi tagliati con Reaper per suddividere singolarmente le domande, le risposte, le domande iniziali e i suoni. I nomi dei files da dare in input al programma saranno così organizzati: \textgreater{} \emph{P\_S\_V\_T\_N.wav}
-
-Esempio dei nomi dei files in input:
-
-\begin{longtable}[]{@{}lrcll@{}}
-\toprule\noalign{}
-cartella & T\_P\_N & \_S & \_PORTAMENTO & .wav \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-\INPUT & Giovanni\_1 & \_M & \_ALTO & .wav \\
-\INPUT & A\_Giovanni\_1 & \_M & \_ALTO & .wav \\
-\INPUT & QI\_Giovanni\_1 & \_M & \_ALTO & .wav \\
-\INPUT & S\_Giovanni & \_M & & .wav \\
-& & & & \\
-\OUTPUT & Q\_Elena\_1 & \_F & \_ALTO & .wav \\
-\OUTPUT & A\_Elena\_1 & \_F & \_BASSO & .wav \\
-\OUTPUT & S\_Mario & \_M & & .wav \\
-\end{longtable}
 
 \section{Cos'è Ambisonic?}\label{cosuxe8-ambisonic}
 

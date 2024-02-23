@@ -4,13 +4,15 @@ bibliography: biblio.bib
 link-citations: true
 ---
 
-
-# Introduzione
+# Caso di studio
 
 Nella ricerca nel campo dell'Informatica Musicale, la creazione di dataset audio per fini scientifici riveste un ruolo cruciale. 
 Questa tesi si propone di delineare il processo di realizzazione di un dataset di files audio adoperati per scopi di ricerca presso il Laboratorio di Informatica Musicale (LIM) [^14]. 
 
+# Introduzione
+ 
 Il dataset sarà composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM. 
+
 Saranno rilevati inoltre dalle registrazioni i tempi di risposta dei vari partecipanti al test, che verranno quindi confrontati con quelli riportati nella letteratura specializzata, al fine di valutarne la coerenza e l'aderenza alle dinamiche comunicative reali. 
 
 Inoltre, si svilupperà un software ad hoc per la combinazione efficiente dei dialoghi, mirato a ottimizzare i tempi di produzione delle tracce audio e a soddisfare specifiche esigenze o requisiti. Il protocollo sperimentale per le registrazioni sarà rigorosamente definito, includendo una spiegazione dettagliata degli obiettivi della registrazione e delle istruzioni per una partecipazione coerente e consistente, al fine di garantire la coerenza e l'affidabilità dei dati raccolti.
@@ -56,6 +58,9 @@ Uno dei problemi principali nell'esecuzione del nostro test è stata l'identific
  - Non ci fossero **sovrapposizioni** tra audio dell'intervistatore e dell'intervistato
  - Fosse possibile osservarne anche i tempi di risposta per confermarne la veridicità o alla fine di una più completa raccolta dati per la generazione di dialoghi tra più persone 
 
+Sono stati così selezionati 8 partecipanti: 4 maschi e 4 femmine, nessuno dei quali è madrelingua. Ad ogni partecipante è stato fatto firmare un modulo per il trattamento dei dati personali.
+Il numero di domande scelte è 10 di argomenti generici. Si è scelto inoltre di fare un'ulteriore registrazione a un portamento diverso per ogni partecipante.
+
 ### L'ordine
 
 Inizialmente abbiamo ipotizzato una struttura in cui venissero poste prima tutte le domande dall'intervistatore all'intervistato e che solo alla fine di tutto il ciclo di domande si proseguisse a far registrare le domande singole all'intervistato. 
@@ -98,7 +103,9 @@ Le regole da seguire:
   - sopra il minuto: viene esortato a parlare un po' meno alla domanda successiva
 
 E' stato osservato che, se l'operatore controlla l'orologio, il partecipante tende ad accorciare la sua risposta. 
-Per risolvere il problema, è stato così posto un orologio posteriormente al partecipante non visibile in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
+Per risolvere il problema è stato così posto un orologio non visibile posteriormente al partecipante in modo da non distogliere con evidenza l'attenzione dal dialogo per controllarne la durata.
+Effetto analogo è stato osservato con la luminosità dello schermo del computer: se questo risulta visibile, il partecipante sentirà la necessità di cercare di adattarsi al cursore della registrazione ed inoltre tenderà a guardare di lato, provocando un ulteriore rischio di una registrazione in una posizione errata.
+La soluzione è stata di porre la luminosità al minimo e dirigere lo schermo il più possibile verso l'operatore.
 
 ### Suoni non verbali
 E' stato inoltre chiesto al partecipante di pronunciare alcuni suoni non verbali basandosi modelli prestabiliti come **"a-hem, coff, a-ha, aah!, hm-hm, ecc."**. 
@@ -110,17 +117,48 @@ Il test è stato inoltre svolto una seconda volta con delle cuffie isolanti per 
 Dai primi test, abbiamo però notato come i partecipanti hanno una buona capacità di ricordarsi le parole delle risposte a domande già poste. 
 Per aumentare la variabilità, è stato così deciso di porre le domande con un ordine diverso.
 
-Caso di studio
-Software realizzato
+
 Capitolo sui test effettuati
 Conclusioni e sviluppi futuri
 Bibliografia e Sitografia
 Eventuali appendici (ad esempio, listati completi di codice, manuale utente, dimostrazioni, ecc.)
 
+# Il dataset
 
+Si è scelto di non allegare ai vari files un file CSV esplicativo, poiché si è ritenuto che i nomi dei files fossero già autoesplicativi.
 
-## Il programma
-Verranno realizzati diversi files, uno per ogni parlante + uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
+## La numenclatura dei files
+Per meglio spiegare l'organizzazione dei files nel dataset stabiliamo:
+ - **ID** = *identificativo del partecipante al test: viene associato un numero per ogni partecipante, riportato in nel file csv* (due cifre numeriche)
+ - **SEX** = *sesso del partecipante al test* [M/F] (una singola lettera)
+ - **VOL** = *Volume del parlato, o Portamento: Normale o Alto* [L/H] (una singola lettera)
+ - **TYPE** = "tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale" [Q/A/P/B] (una singola lettera)
+ - **NUM** = *numero della domanda o risposta* (due cifre numeriche partendo da 00)
+
+## le registrazioni e nomi dei files
+Dalle registrazioni originali è stata effettuata una prima fase di **pre-taglio** eliminando elementi che possano rientrare nel doxing[^17]
+
+E' stata poi eseguita una fase di pulizia per eliminare un eventuale rumore di fondo.
+
+I files "totali" sono stati così salvati con nomenclatura: 
+Nome file: TYPE_NUM_SEX.wav
+
+Un esempio: 
+ - "T_01_M": file generale per la persona 1 di sesso maschio.
+
+## I files singoli finali
+E' stata quindi eseguita una procedura di taglio per i files finali che verranno usati per il codice: sono state isolate solo le domande, le risposte, le domande incalzanti e i suoni impulsivi riducendo al minimo i silenzi in entrata ed uscita.
+
+I files finali avranno il seguente formato:
+Nome file: ID_SEX_VOL_TYPE_NUM.wav
+
+Ad esempio:
+ - "03_M_L_A_07.wav": persona 3, maschio, senza cuffia, risposta alla domanda 7
+ - "05_F_H_P_05.wav": persona 5, femmina, con cuffia, incalza (prompt) la domanda 5
+ - "00_F_L_B_03.wav": persona 0, femmina, senza cuffia, suono impulsivo (burst) 3
+
+# Software realizzato
+Verranno realizzati diversi files, uno per ogni parlante ed uno unico in cui ci sarà la somma di tutti i partecipanti al dialogo.
 I files audio singoli manterranno le pause e anche il silenzio quando parlano gli altri partecipanti.
 
 Le componenti che comporranno le linee di dialogo sono: le **domande**, le **risposte**, le **domande iniziali** (eg. "e tu?"), le **pause** e il **silenzio** antecedente a ogni risposta.
@@ -132,54 +170,6 @@ A queste si aggiungono le pause e i silenzi
 
 
 
-## Numenclatura dei files
-Per meglio spiegare l'organizzazione dei files stabiliamo:
- - **P** = *identificativo del partecipante al test: viene associato un numero per ogni partecipante, riportato in nel file csv* (a due cifre)
- - **S** = *sesso del partecipante al test* [M/F]
- - **V** = *Volume del parlato, o Portamento: Normale o Alto* [N/A]
- - **T** = "tipologia: generale, domanda, risposta, domanda iniziale, suono non verbale" [G/Q/A/I/S] (a singola cifra)
- - **N** = *numero della domanda o risposta* (a due cifre)
-
-
-Nome file: ID_SEX_VOL_Q/A/P/B_#.wav
-
- - ID: 2
- - SEX: 1 (M/F)
- - VOL: 1 (H/L)
- - Q/A/P/B: 1
- - #: 2
-
-Ad esempio:
-persona 3, maschio, senza cuffia, risposta alla domanda 7: 03_M_L_A_07.wav
-persona 5, femmina, con cuffia, incalza (prompt) la domanda 5: 05_F_H_P_05.wav (anche se i prompt dovrebbero essere intercambiabili)
-persona 0, femmina, senza cuffia, suono impulsivo (burst) 3: 00_F_L_B_03.wav
-
-### Nomi dei files durante la registrazione
-Verranno generati un audio per ogni speaker:
-- Per le domande e risposte: 
-> *P_S_V_T.wav*
-
-Esempio:
-> *01_M_N_T.wav*
-&rarr; indica la traccia generale con tutte le domande, le risposte e i suoni con portamento normale della persona "01", di sesso maschile.
-
-### Nomi dei files nel programma
-Le tracce verranno poi tagliati con Reaper per suddividere singolarmente le domande, le risposte, le domande iniziali e i suoni.
-I nomi dei files da dare in input al programma saranno così organizzati:
-> *P_S_V_T_N.wav*
-
-Esempio dei nomi dei files in input:
-
-| cartella      | T_P_N               | _S  | _PORTAMENTO | .wav |
-| ------        | -:                  | :-: | :-          | :-   |
-| \INPUT        | Giovanni_1          | _M  | _ALTO       | .wav |
-| \INPUT        | A_Giovanni_1        | _M  | _ALTO       | .wav |
-| \INPUT        | QI_Giovanni_1       | _M  | _ALTO       | .wav |
-| \INPUT        | S_Giovanni          | _M  |             | .wav |
-| | | | | |
-| \OUTPUT       | Q_Elena_1           | _F  | _ALTO       | .wav |
-| \OUTPUT       | A_Elena_1           | _F  | _BASSO      | .wav |
-| \OUTPUT       | S_Mario             | _M  |             | .wav |
 
 <br>
 
@@ -385,6 +375,7 @@ DOMANDE:
 [^14]:["Laboratorio di Informatica Musicale"](https://www.lim.di.unimi.it/)
 [^15]:["Reaper"](https://www.reaper.fm/)
 [^16]:["Motu Ultralite-mk3 Hybrid"](https://motu.com/products/motuaudio/ultralite-mk3/i-o.html)
+[^17]:["the action of finding or publishing private information about someone on the internet without their permission, especially in a way that reveals their name, address, etc.:", Cambridge Dictionary]([https://www.)](https://dictionary.cambridge.org/us/dictionary/english/doxing)
 
 [^p1]:[/////////////////////////Vedi, *pp. 3-4*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
 [^p2]:[Vedi, *pp. 6-7*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)

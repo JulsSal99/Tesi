@@ -19,14 +19,17 @@ Should work on both Python 3.x (tested on Python 3.11.6)
 This collection is based upon the following packages (auto-installation):
   - numpy
   - pysoundfile
+  - random
 
 ------------------------
-YOU CAN MODIFY THESE VALUES:
 '''
 
 __version__ = "0.01"
 __author__  = "G.Salada"
 
+'''
+------------------------
+'''
 # import cfg file
 config = configparser.ConfigParser()
 config.read('PYgenerator.cfg')
@@ -221,6 +224,7 @@ def shape_fixer(mono_array, shape):
     return stereo_array
 
 def noise(raw_file):
+    '''just adds a background user chosen noise'''
     raw_noise, sample_rate = sf.read(dir_path + "/" + noise_file)
     temp_channels = get_channels(raw_noise)
     check_SR_CH(noise_file, sample_rate, temp_channels)
@@ -287,8 +291,8 @@ def concatenate_fade(audio1, audio2, shape):
     return OUTPUT
 
 def concatenate(data1, data2, pause_length):
-    '''generate 2 audio files, one with the first audio muted,'''
-    ''' the second with the second audio muted.'''
+    '''join 2 audio files data1, data2 and adds a pause between them'''
+    '''handles noises or fade-in/fade-out'''
     n_sample_silence = int(sample_rate * pause_length)
     shape = len(data1.shape)
 
@@ -336,7 +340,7 @@ def file_complete(file_names, silences):
         if j == 0:
             OUTPUT = file_names[0]['data']
         else:
-            # aggiunge pausa e concatena elementi pieni o vuoti in base al valore di i.
+            # add pause and join elements full or empty base on i value
             OUTPUT = concatenate(OUTPUT, file_names[j]['data'], silences[j - 1])
     logging.info(f"file_complete \t\t - SUCCESS.")
     return OUTPUT
@@ -490,6 +494,7 @@ def handle_sounds(sound_files, file_names, max_duration, silences, tmp_participa
     return OUTPUT
 
 def sounds(file_names, audio_no_s, silences):
+    '''core function called to add burst into the dialogue'''
     _, _, _, _, sound_files, _, _ = folder_info(os.path.join(dir_path, input_folder))
     output = []
     if s_quantity == 0:
@@ -610,6 +615,8 @@ def merge_arrays(arr1, arr2):
 
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
+    '''Core function of the programm: '''
+    '''creates a dictionary of random file names from your chosen folder'''
     _, count_a, count_q, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
     logging.info(f"{count_a, count_q, initial_questions}")
     # create 3D array for questions
@@ -709,6 +716,9 @@ def handle_auto_files(dir_path):
     return file_names
 
 def auto_files(dir_path):
+    '''Generates a dict for every file randomly chosen'''
+    '''if a custom settings was found, reads it and returns'''
+    '''call handle_auto_files and saves the dict with every file name into __pycache__'''
     import json
     if os.path.exists(import_name1) and save_name1!=import_name1:
         print("\t found custom audio settings file...")
@@ -763,11 +773,6 @@ def custom_files():
     logging.info(f"user_ask_files \t - SUCCESS: {file_names}")
     return file_names
 
-def find_element_value(dictionary, array, element):
-    for key, value in dictionary.items():
-        if key == element and value == 1:
-            return array[array.index(key)]
-
 def write_files(OUTPUT):
     print("\t writing files into the hard drive...")
     for i in OUTPUT:
@@ -781,10 +786,8 @@ def write_files(OUTPUT):
     print("\n COMPLETED! (folder opened)")
 
 if __name__ == '__main__':
-    '''Important path of input files'''
-    print("\n\tGeneratore di dialoghi realistici.\n")
-    
     try:
+        print("\n\tGeneratore di dialoghi realistici.\n")
         file_names = auto_files(dir_path)
         '''Create output array [data, person] and silences/pauses values'''
         OUTPUT, silences = read_write_file(file_names)
