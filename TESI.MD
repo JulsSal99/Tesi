@@ -40,7 +40,7 @@ Va sottolineato che comunque il software, una volta installata la versione corre
 ## Attrezzatura e setup:
 
 Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi).
-La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni con risposta piatta, di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
+La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni beyerdynamic MM1[^18], di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
 La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni.
 E' stata usata inoltre usata una scheda audio [^16] con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
 La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
@@ -376,6 +376,7 @@ DOMANDE:
 [^15]:["Reaper"](https://www.reaper.fm/)
 [^16]:["Motu Ultralite-mk3 Hybrid"](https://motu.com/products/motuaudio/ultralite-mk3/i-o.html)
 [^17]:["the action of finding or publishing private information about someone on the internet without their permission, especially in a way that reveals their name, address, etc.:", Cambridge Dictionary]([https://www.)](https://dictionary.cambridge.org/us/dictionary/english/doxing)
+[^18]:["beyerdynamic mm1"](beyerdynamic mm1)
 
 [^p1]:[/////////////////////////Vedi, *pp. 3-4*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
 [^p2]:[Vedi, *pp. 6-7*, "*Durata dei periodi di voce e di pausa nel parlato continuo in diverse condizioni di riverberazione per professionisti e non professionisti della voce.*", *Lorenzo Pavese* e *Giuseppina Emma Puglisi*, *Giugno 2014*](DOC/aia2014_pavese_et_al.pdf)
