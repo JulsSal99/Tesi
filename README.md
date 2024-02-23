@@ -31,7 +31,9 @@ Users can declare various values for dialogue generation. If absent, default val
 
 
 Below is an example of the configuration file code.
+
 Comments provide explanations for each parameter.
+
 Commands, when uncommented and marked with "Example:", represent the program's default values.
 
 ```cfg
