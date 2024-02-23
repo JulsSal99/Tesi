@@ -29,7 +29,7 @@ Users can declare various values for dialogue generation. If absent, default val
 
 [Settings](PYGenerator.cfg)
 
-```json
+```cfg
 [global]
 # if True, question order is random
 random_q_order = False
