@@ -30,7 +30,6 @@ Users can declare various values for dialogue generation. If absent, default val
 [Settings](PYGenerator.cfg)
 
 ```json
-{
 [global]
 # if True, question order is random
 random_q_order = False
@@ -101,4 +100,4 @@ fade_length = 0.1
 # length fade-in/-out in seconds for bandade. if noise is <, value is half noise
 noise_fade = 0.2
 
-}```
+```
