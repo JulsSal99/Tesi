@@ -9,6 +9,9 @@ link-citations: true
 Nella ricerca nel campo dell'Informatica Musicale, la creazione di dataset audio per fini scientifici riveste un ruolo cruciale. 
 Questa tesi si propone di delineare il processo di realizzazione di un dataset di files audio adoperati per scopi di ricerca presso il Laboratorio di Informatica Musicale (LIM) [^14]. 
 
+Attraverso una combinazione di dati misurati e riferimenti alla letteratura, il dataset viene curato con attenzione per garantire la sua validità scientifica e la sua utilità per futuri studi. 
+Inoltre, il programma sviluppato sulla base di questi dati offre un approccio integrato per l’analisi e la sintesi audio, contribuendo così alla crescita della conoscenza nel campo della musica digitale.
+
 # Introduzione
  
 Il dataset sarà composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM. 
