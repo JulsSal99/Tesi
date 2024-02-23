@@ -107,3 +107,17 @@ enable_noise = False
 # Example: noise_file = noise.wav
 
 ```
+
+custom_path file shoud have one of these formats:
+```json
+["03_M_Q_01_L.wav", "01_M_A_01_L", "03_M_Q_02_L", "01_M_A_02_L", "01_M_Q_02_L"]
+```
+```json
+[{"path": "C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_01_L.wav", "data": 0, "name": "03_M_Q_01_L", "person": "03", "duplicated": false}, {"path": "C:/Users/giuli/Music/Edit\\INPUT/01_M_A_01_L.wav", "data": 0, "name": "01_M_A_01_L", "person": "01", "duplicated": false}, {"path": "C:/Users/giuli/Music/Edit\\INPUT/03_M_Q_02_L.wav", "data": 0, "name": "03_M_Q_02_L", "person": "03", "duplicated": true}, {"path": "C:/Users/giuli/Music/Edit\\INPUT/01_M_A_02_L.wav", "data": 0, "name": "01_M_A_02_L", "person": "01", "duplicated": true}, {"path": "C:/Users/giuli/Music/Edit\\INPUT/01_M_Q_02_L.wav", "data": 0, "name": "01_M_Q_02_L", "person": "01", "duplicated": true}, {"path": "C:/Users/giuli/Music/Edit\\INPUT/07_M_A_02_L.wav", "data": 0, "name": "07_M_A_02_L", "person": "07", "duplicated": false}, {"path": "C:/Users/giuli/Music/Edit\\INPUT/07_M_I_02_L.wav", "data": 0, "name": "07_M_I_02_L", "person": "07", "duplicated": true}, {"path": "C:/Users/giuli/Music/Edit\\INPUT/03_M_A_02_L.wav", "data": 0, "name": "03_M_A_02_L", "person": "03", "duplicated": true}]
+```
+if you want to specify a different position for a generation with ND volume, you can create a file with the same custom_path name, but, it needs to end with "_pos.json". ù
+Example: if custom_path is output_files.json, your positions file should be output_files_pos.json .
+Inside that file, format should be:
+```json
+ {"01": 1, "02": 1, "03": 1, "04": 0}
+```
