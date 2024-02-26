@@ -52,6 +52,8 @@ prob_question = 0.5
 prob_i_q = 0.8
 # volume of answers. "ND" if NOT DEFINED, "L" if LOW volume, "H" if HIGH volume
 volume = ND
+# proportion between male and female, in case there are not enough male or female to accomplish this task, the higher number will be reduced
+limit_male_female = 0:0
 
 [files]
 # file name format: *IDname_SESSO_volume_tipo_ndomanda". eg. 01_M_H_A_01 The number identifies the position

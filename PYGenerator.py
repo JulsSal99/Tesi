@@ -34,6 +34,7 @@ __author__  = "G.Salada"
 config = configparser.ConfigParser()
 config.read('PYgenerator.cfg')
 
+# global
 random_q_order = config.getboolean('global', 'random_q_order', fallback=True)
 n_questions = config.getint('global', 'n_questions', fallback=0)
 n_answers = config.getint('global', 'n_answers', fallback=0)
@@ -41,20 +42,28 @@ prob_question = config.getfloat('global', 'prob_question', fallback=0.5)
 prob_init_question = config.getfloat('global', 'prob_init_question', fallback=0.5)
 prob_i_q = config.getfloat('global', 'prob_i_q', fallback=0.8)
 volume = config.get('global', 'volume', fallback="ND")
+limit_male_female = config.get('global', 'limit_male_female', fallback="0:0")
+# files
 name_format = (config.get('files', 'name_format')).split("_")
 dir_path = config.get('files', 'dir_path', fallback=os.path.dirname(os.path.realpath(__file__)))
 input_folder = config.get('files', 'input_folder', fallback="INPUT")
 output_folder = config.get('files', 'output_folder', fallback="OUTPUT")
 import_name1 = os.path.join("__pycache__", config.get('files', 'custom_path', fallback="output_files.json"))
+# fade
 fade_length = config.getfloat('fade', 'fade_length', fallback=0)
+# noise
 enable_noise = config.getboolean('noise', 'enable_noise', fallback=False)
 noise_file = config.get('noise', 'noise_file', fallback="")
+# silences
 s_min = config.getfloat('silences', 'min', fallback=0.05)
 s_max = config.getfloat('silences', 'max', fallback=0.120)
+# long pauses
 lp_min = config.getfloat('long pauses', 'min', fallback=0.9)
 lp_max = config.getfloat('long pauses', 'max', fallback=1.2)
+# pauses
 p_min = config.getfloat('pauses', 'min', fallback=0.7)
 p_max = config.getfloat('pauses', 'max', fallback=0.9)
+# sounds
 s_quantity = config.getfloat('sounds', 's_quantity', fallback=0.5)
 min_s_distance = config.getfloat('sounds', 'min_s_distance', fallback=5)
 cut_redundancy = config.getfloat('sounds', 'cut_redundancy', fallback=1.5)
@@ -63,6 +72,7 @@ sound_amp_fact = config.getfloat('sounds', 'sound_amp_fact', fallback=1)
 end_tollerance = config.getfloat('sounds', 'end_tollerance', fallback=3)
 cycle_limit = config.getint('sounds', 'cycle_limit', fallback=10)
 
+# data
 sample_rate = config.getint('data', 'sample_rate', fallback=0)
 channels = config.getint('data', 'sample_rate', fallback=0)
 pop_tollerance = sample_rate * 1
@@ -75,10 +85,22 @@ def cfg_check(count_answers, count_questions):
     if (n_questions>count_questions):
         raise Exception(f"cfg_check - n_answers in configuration file must be <= {count_answers} or -1 for random.")
     if enable_noise == True and noise_file == "":
-        raise Exception("noise file should not be empty")
+        raise Exception("cfg_check - noise file should not be empty")
     if volume != "ND" or volume != "H" or volume != "L":
-         raise Exception("volume should be ND, H or L")
+         raise Exception("cfg_check - volume should be ND, H or L")
     logging.info(f"cfg_check \t - SUCCESS")
+
+def check_limits():
+    try:
+        limit = limit_male_female.split(":")
+        if len(limit) != 2:
+            raise Exception("check_limits - limit_male_female should be 'number1:number2'.")
+        limit_male, limit_female = map(int, limit)
+        if limit_male < 0 or limit_female < 0:
+            raise Exception("check_limits - limit_male_female numbers must be positives")
+        return limit_male, limit_female
+    except ValueError:
+        raise Exception(f"check_limits - limit_male_female should be 'number1:number2'.")
 
 def audio_file(path: str, data: bin, name: str, person: str, duplicated: bool):
     file = {}
@@ -137,7 +159,7 @@ def add_file(file_names, file):
 def find_file(name, path):
     '''Search for the file by its name with and without the extension'''
     '''and return the first file found with the exact path of the file.'''
-    for root, dirs, files in os.walk(path):
+    for root, _, files in os.walk(path):
         for file in files:
             if name in file and (file.lower().endswith(".wav")):
                 logging.info(f"find_file \t\t - SUCCESS.")
@@ -587,7 +609,7 @@ def matr_to_dict1(matr1, list2):
                 dict1.setdefault(n, []).append(p)
     return dict1
 
-def volume_handler(pos_participants, p1, p2):
+def volume_handler(p1, p2):
     if volume == "ND":
         if pos_participants.get(p1) == pos_participants.get(p2):
             tmp_volume = "L"
@@ -595,13 +617,6 @@ def volume_handler(pos_participants, p1, p2):
             tmp_volume = "H"
         return tmp_volume
     else: return volume
-
-def position_handler(q_participants, a_participants):
-    global pos_participants
-    if volume == "ND":
-        participants = merge_arrays(q_participants, a_participants)
-        pos_participants = {item: random.choice([0, 1]) for item in participants}
-    else: return {}
 
 def merge_arrays(arr1, arr2):
     merged_array = []
@@ -612,6 +627,71 @@ def merge_arrays(arr1, arr2):
         if item not in merged_array:
             merged_array.append(item)
     return merged_array
+
+def find_gender(participants):
+    '''Search for the file by its name with and without the extension'''
+    '''and return the first file found with the exact path of the file.'''
+    gen_participants = {}
+    path = os.path.join(dir_path, input_folder)
+    for _, _, files in os.walk(path):
+        for file in files:
+            if len(participants) == 0:
+                return gen_participants
+            if file.lower().endswith(".wav"):
+                file_person = get_person(file)
+                if file_person in participants:
+                    gen_participants[file_person] = get_gender(file)
+                    participants.remove(file_person)
+                    logging.info(f"find_gender \t\t - SUCCESS.")
+    return gen_participants
+
+def handle_M_F(dist_answerers, limit_male, limit_female, M_F_percentage, tmp_n_answers, gen_participants):
+    if tmp_n_answers == 1:
+        return tmp_n_answers, [random.choice(dist_answerers)]
+    n_male = 0 # because the interrogator can answer the question
+    n_female = 0 # because the interrogator can answer the question
+    if limit_male != 1:
+        limit_male = round(float(tmp_n_answers) * M_F_percentage)
+    if limit_male == len(dist_answerers) and limit_female == 1:
+        limit_male -= 1
+    else:
+        limit_female = round(float(tmp_n_answers) - limit_male)
+    # handle if there are not enough elements in the list
+    real_limit_male = 0; real_limit_female = 0
+    for i in dist_answerers:
+        if gen_participants[i] == "M":
+            real_limit_male += 1
+        elif gen_participants[i] == "F":
+            real_limit_female += 1
+    diff_female = real_limit_female - limit_female
+    diff_male = real_limit_male - limit_male
+    if diff_male < 0: 
+        limit_male = real_limit_male
+        tmp_n_answers += diff_male
+        logging.info(f"handle_M_F \t - WARNING: limit_male_male is too high. Value will be reduced.")
+    if diff_female < 0: 
+        limit_female = real_limit_female
+        tmp_n_answers += diff_female
+        logging.info(f"handle_M_F \t - WARNING: limit_male_female is too high. Value will be reduced.")
+    # create answerers array
+    answerers = []
+    while True:
+        if len(dist_answerers) == 0 or len(answerers) == tmp_n_answers:
+            break
+        if n_male == limit_male and n_female == limit_female:
+            break
+        random.shuffle(dist_answerers)
+        if gen_participants[dist_answerers[0]] == "M" and n_male < limit_male:
+            n_male += 1
+            answerers.append(dist_answerers[0])
+            dist_answerers.pop(0)
+        elif gen_participants[dist_answerers[0]] == "F" and n_female < limit_female:
+            n_female += 1
+            answerers.append(dist_answerers[0])
+            dist_answerers.pop(0)
+    if len(answerers) != tmp_n_answers:
+        raise Exception("generated length is wrong")
+    return tmp_n_answers, answerers
 
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
@@ -639,25 +719,28 @@ def handle_auto_files(dir_path):
         if interrogator in a_participants:
             a_participants.remove(interrogator)
 
+    participants = merge_arrays(q_participants, a_participants)
+
+    if volume == "ND":
+        global pos_participants
+        pos_participants = {item: random.choice([0, 1]) for item in participants}
+
+    if limit_male_female != "0:0":
+        limit_male, limit_female = check_limits()
+        M_F_percentage = float(limit_male) / float(limit_female)
+        gen_participants = find_gender(participants)
+        
     # max number of participants to answers
     list_questions = matr_to_list1(matr_questions, n_questions)
     dict_answers = matr_to_dict1(matr_questions, list_questions)
 
-    position_handler(q_participants, a_participants)
-
     tmp_n_answers = 0
     file_names = []
     for j in list_questions:
-        print(f"\t chosen question n: {j}", end=" ")
         # choose random interrogator
         interrogator = random.choice(q_participants)
-
-        # shuffle answerers 
-        while True:
-            answerers = dict_answers.get(j)
-            random.shuffle(answerers)
-            if answerers[0] != interrogator:
-                break
+        answerers = dict_answers.get(j)
+        answerers = list(set(answerers))
 
         # handle number of answers also if negative 
         if n_answers == 0:
@@ -666,8 +749,20 @@ def handle_auto_files(dir_path):
             tmp_n_answers = random.randint(1, min((abs(n_answers)-1), len(answerers)))
         else:
             tmp_n_answers = n_answers
-        answerers = answerers[:tmp_n_answers]
-        tmp_volume = volume_handler(pos_participants, answerers[0], interrogator)
+
+        if limit_male_female == "0:0":
+            # shuffle answerers 
+            while True:
+                random.shuffle(answerers)
+                if answerers[0] != interrogator:
+                    break
+            answerers = answerers[:tmp_n_answers]
+        else:
+            tmp_n_answers, answerers = handle_M_F(answerers, limit_male, limit_female, M_F_percentage, tmp_n_answers, gen_participants)
+        
+        print(f"\t chosen question n: {j}", end=" ")
+
+        tmp_volume = volume_handler(answerers[0], interrogator)
 
         # add first person to ask X each question
         for i in matr_questions:
@@ -682,7 +777,7 @@ def handle_auto_files(dir_path):
             print(answerers[i_a], end=" ")
             err_check = 0
             if i_a != 0:
-                tmp_volume = volume_handler(pos_participants, responder, answerers[i_a])
+                tmp_volume = volume_handler(responder, answerers[i_a])
                 if (random.random() < prob_init_question) == True:
                     for i in matr_initquest:
                         if responder == str(i[1]) and j == i[2]:
@@ -786,15 +881,15 @@ def write_files(OUTPUT):
     print("\n COMPLETED! (folder opened)")
 
 if __name__ == '__main__':
-    try:
-        print("\n\tGeneratore di dialoghi realistici.\n")
-        file_names = auto_files(dir_path)
-        '''Create output array [data, person] and silences/pauses values'''
-        OUTPUT, silences = read_write_file(file_names)
-        '''Create output array [data, person]: add silences/pauses to output data'''
-        OUTPUT = sounds(file_names, OUTPUT, silences)
-        write_files(OUTPUT)
-        os.startfile(os.path.join(dir_path, output_folder))
-    except Exception as e:
-        print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
-        exit()
+    #try:
+    print("\n\tGeneratore di dialoghi realistici.\n")
+    file_names = auto_files(dir_path)
+    '''Create output array [data, person] and silences/pauses values'''
+    OUTPUT, silences = read_write_file(file_names)
+    '''Create output array [data, person]: add silences/pauses to output data'''
+    OUTPUT = sounds(file_names, OUTPUT, silences)
+    write_files(OUTPUT)
+    os.startfile(os.path.join(dir_path, output_folder))
+    #except Exception as e:
+        #print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
+        #exit()
