@@ -42,7 +42,9 @@ prob_question = config.getfloat('global', 'prob_question', fallback=0.5)
 prob_init_question = config.getfloat('global', 'prob_init_question', fallback=0.5)
 prob_i_q = config.getfloat('global', 'prob_i_q', fallback=0.8)
 volume = config.get('global', 'volume', fallback="ND")
-limit_male_female = config.get('global', 'limit_male_female', fallback="0:0")
+# gender
+gender_fixed_quantity = config.getboolean('gender', 'fixed_quantity', fallback=False)
+limit_male_female = config.get('gender', 'limit_male_female', fallback="0:0")
 # files
 name_format = (config.get('files', 'name_format')).split("_")
 dir_path = config.get('files', 'dir_path', fallback=os.path.dirname(os.path.realpath(__file__)))
@@ -88,6 +90,8 @@ def cfg_check(count_answers, count_questions):
         raise Exception("cfg_check - noise file should not be empty")
     if volume != "ND" or volume != "H" or volume != "L":
          raise Exception("cfg_check - volume should be ND, H or L")
+    if gender_fixed_quantity != False and limit_male_female == "0:0":
+        raise Exception("cfg_check - fixed_quantity should not be False if limit_male_female is empty")
     logging.info(f"cfg_check \t - SUCCESS")
 
 def check_limits():
@@ -645,13 +649,13 @@ def find_gender(participants):
                     logging.info(f"find_gender \t\t - SUCCESS.")
     return gen_participants
 
-def handle_M_F(dist_answerers, limit_male, limit_female, M_F_percentage, tmp_n_answers, gen_participants):
+def handle_M_F(dist_answerers, limit_male, limit_female, tmp_n_answers, gen_participants):
     if tmp_n_answers == 1:
-        return tmp_n_answers, [random.choice(dist_answerers)]
+        return [random.choice(dist_answerers)]
     n_male = 0 # because the interrogator can answer the question
     n_female = 0 # because the interrogator can answer the question
     if limit_male != 1:
-        limit_male = round(float(tmp_n_answers) * M_F_percentage)
+        limit_male = int(float(tmp_n_answers) / (limit_male + limit_female) * limit_male)
     if limit_male == len(dist_answerers) and limit_female == 1:
         limit_male -= 1
     else:
@@ -668,11 +672,11 @@ def handle_M_F(dist_answerers, limit_male, limit_female, M_F_percentage, tmp_n_a
     if diff_male < 0: 
         limit_male = real_limit_male
         tmp_n_answers += diff_male
-        logging.info(f"handle_M_F \t - WARNING: limit_male_male is too high. Value will be reduced.")
+        logging.info(f"handle_M_F \t - WARNING: limit_male is too high. Value will be reduced.")
     if diff_female < 0: 
         limit_female = real_limit_female
         tmp_n_answers += diff_female
-        logging.info(f"handle_M_F \t - WARNING: limit_male_female is too high. Value will be reduced.")
+        logging.info(f"handle_M_F \t - WARNING: limit_female is too high. Value will be reduced.")
     # create answerers array
     answerers = []
     while True:
@@ -691,7 +695,38 @@ def handle_M_F(dist_answerers, limit_male, limit_female, M_F_percentage, tmp_n_a
             dist_answerers.pop(0)
     if len(answerers) != tmp_n_answers:
         raise Exception("generated length is wrong")
-    return tmp_n_answers, answerers
+    return answerers
+
+def handle_M_F2(dist_answerers, limit_male, limit_female, tmp_n_answers, gen_participants):
+    max_n_answers = tmp_n_answers
+    real_limit_male = 0; real_limit_female = 0
+    for i in dist_answerers:
+        if gen_participants[i] == "M":
+            real_limit_male += 1
+        elif gen_participants[i] == "F":
+            real_limit_female += 1
+    if (real_limit_female - limit_female) < 0: 
+        raise Exception("handle_M_F2 - Not enough female Files in the folder")
+    if (real_limit_male - limit_male) < 0: 
+        raise Exception("handle_M_F2 - Not enough male Files in the folder")
+    answerers = []
+    while True:
+        random.shuffle(dist_answerers)
+        M_F_selector = ["M", "F"]
+        random.shuffle(M_F_selector)
+        for _ in range(2):
+            if len(answerers) == max_n_answers:
+                return answerers
+            if limit_male == 0 and limit_female == 0:
+                return answerers
+            if (M_F_selector[0] == "M" and limit_male > 0) or (M_F_selector[0] == "F" and limit_female > 0) :
+                for i in range(len(dist_answerers)):
+                    if gen_participants[dist_answerers[i]] == M_F_selector[0]:
+                        answerers.append(dist_answerers[i])
+                        dist_answerers.pop(i)
+                        if M_F_selector[0] == "M": limit_male -= 1
+                        else: limit_female -= 1
+                        break
 
 def handle_auto_files(dir_path):
     '''CREATE FILE_NAMES'''
@@ -727,7 +762,6 @@ def handle_auto_files(dir_path):
 
     if limit_male_female != "0:0":
         limit_male, limit_female = check_limits()
-        M_F_percentage = float(limit_male) / float(limit_female)
         gen_participants = find_gender(participants)
         
     # max number of participants to answers
@@ -758,7 +792,12 @@ def handle_auto_files(dir_path):
                     break
             answerers = answerers[:tmp_n_answers]
         else:
-            tmp_n_answers, answerers = handle_M_F(answerers, limit_male, limit_female, M_F_percentage, tmp_n_answers, gen_participants)
+            if gender_fixed_quantity != True: 
+                answerers = handle_M_F(answerers, limit_male, limit_female, tmp_n_answers, gen_participants)
+            else:
+                tmp_n_answers = limit_male + limit_female
+                answerers = handle_M_F2(answerers, limit_male, limit_female, tmp_n_answers, gen_participants)
+            tmp_n_answers = len(answerers)
         
         print(f"\t chosen question n: {j}", end=" ")
 

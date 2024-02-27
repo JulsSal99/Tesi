@@ -52,6 +52,10 @@ prob_question = 0.5
 prob_i_q = 0.8
 # volume of answers. "ND" if NOT DEFINED, "L" if LOW volume, "H" if HIGH volume
 volume = ND
+
+[gender]
+# if you want the output quantity to be this exact value, set True. Warning: it can cause errors if here are not enough participants in the folder
+fixed_quantity = False
 # proportion between male and female, in case there are not enough male or female to accomplish this task, the higher number will be reduced
 limit_male_female = 0:0
 
