@@ -44,7 +44,7 @@ prob_i_q = config.getfloat('global', 'prob_i_q', fallback=0.8)
 volume = config.get('global', 'volume', fallback="ND")
 # gender
 gender_fixed_quantity = config.getboolean('gender', 'fixed_quantity', fallback=False)
-limit_male_female = config.get('gender', 'limit_male_female', fallback="0:0")
+limit_male_female = config.get('gender', 'male_female_ratio', fallback="0:0")
 # files
 name_format = (config.get('files', 'name_format')).split("_")
 dir_path = config.get('files', 'dir_path', fallback=os.path.dirname(os.path.realpath(__file__)))
@@ -650,72 +650,46 @@ def find_gender(participants):
     return gen_participants
 
 def handle_M_F(dist_answerers, limit_male, limit_female, tmp_n_answers, gen_participants):
-    if tmp_n_answers == 1:
-        return [random.choice(dist_answerers)]
-    n_male = 0 # because the interrogator can answer the question
-    n_female = 0 # because the interrogator can answer the question
-    if limit_male != 1:
-        limit_male = int(float(tmp_n_answers) / (limit_male + limit_female) * limit_male)
-    if limit_male == len(dist_answerers) and limit_female == 1:
-        limit_male -= 1
-    else:
-        limit_female = round(float(tmp_n_answers) - limit_male)
+    real_limit_male = 0; real_limit_female = 0
+    if gender_fixed_quantity != True: 
+        if tmp_n_answers == 1:
+            return [random.choice(dist_answerers)]
+        if limit_male != 1:
+            limit_male = int(float(tmp_n_answers) / (limit_male + limit_female) * limit_male)
+        if limit_male == len(dist_answerers) and limit_female == 1:
+            limit_male -= 1
+        else:
+            limit_female = round(float(tmp_n_answers) - limit_male)
     # handle if there are not enough elements in the list
-    real_limit_male = 0; real_limit_female = 0
     for i in dist_answerers:
         if gen_participants[i] == "M":
             real_limit_male += 1
         elif gen_participants[i] == "F":
             real_limit_female += 1
-    diff_female = real_limit_female - limit_female
-    diff_male = real_limit_male - limit_male
-    if diff_male < 0: 
-        limit_male = real_limit_male
-        tmp_n_answers += diff_male
-        logging.info(f"handle_M_F \t - WARNING: limit_male is too high. Value will be reduced.")
-    if diff_female < 0: 
-        limit_female = real_limit_female
-        tmp_n_answers += diff_female
-        logging.info(f"handle_M_F \t - WARNING: limit_female is too high. Value will be reduced.")
+    if gender_fixed_quantity != True: 
+        diff_female = real_limit_female - limit_female
+        diff_male = real_limit_male - limit_male
+        if diff_male < 0: 
+            limit_male = real_limit_male
+            tmp_n_answers += diff_male
+            logging.info(f"handle_M_F \t - WARNING: limit_male is too high. Value will be reduced.")
+        if diff_female < 0: 
+            limit_female = real_limit_female
+            tmp_n_answers += diff_female
+            logging.info(f"handle_M_F \t - WARNING: limit_female is too high. Value will be reduced.")
+    else:
+        if (real_limit_female - limit_female) < 0: 
+            raise Exception("handle_M_F2 - Not enough female Files in the folder")
+        if (real_limit_male - limit_male) < 0: 
+                raise Exception("handle_M_F2 - Not enough male Files in the folder")
     # create answerers array
-    answerers = []
-    while True:
-        if len(dist_answerers) == 0 or len(answerers) == tmp_n_answers:
-            break
-        if n_male == limit_male and n_female == limit_female:
-            break
-        random.shuffle(dist_answerers)
-        if gen_participants[dist_answerers[0]] == "M" and n_male < limit_male:
-            n_male += 1
-            answerers.append(dist_answerers[0])
-            dist_answerers.pop(0)
-        elif gen_participants[dist_answerers[0]] == "F" and n_female < limit_female:
-            n_female += 1
-            answerers.append(dist_answerers[0])
-            dist_answerers.pop(0)
-    if len(answerers) != tmp_n_answers:
-        raise Exception("generated length is wrong")
-    return answerers
-
-def handle_M_F2(dist_answerers, limit_male, limit_female, tmp_n_answers, gen_participants):
-    max_n_answers = tmp_n_answers
-    real_limit_male = 0; real_limit_female = 0
-    for i in dist_answerers:
-        if gen_participants[i] == "M":
-            real_limit_male += 1
-        elif gen_participants[i] == "F":
-            real_limit_female += 1
-    if (real_limit_female - limit_female) < 0: 
-        raise Exception("handle_M_F2 - Not enough female Files in the folder")
-    if (real_limit_male - limit_male) < 0: 
-        raise Exception("handle_M_F2 - Not enough male Files in the folder")
     answerers = []
     while True:
         random.shuffle(dist_answerers)
         M_F_selector = ["M", "F"]
         random.shuffle(M_F_selector)
         for _ in range(2):
-            if len(answerers) == max_n_answers:
+            if len(dist_answerers) == 0 or len(answerers) == tmp_n_answers:
                 return answerers
             if limit_male == 0 and limit_female == 0:
                 return answerers
@@ -792,11 +766,9 @@ def handle_auto_files(dir_path):
                     break
             answerers = answerers[:tmp_n_answers]
         else:
-            if gender_fixed_quantity != True: 
-                answerers = handle_M_F(answerers, limit_male, limit_female, tmp_n_answers, gen_participants)
-            else:
+            if gender_fixed_quantity == True:
                 tmp_n_answers = limit_male + limit_female
-                answerers = handle_M_F2(answerers, limit_male, limit_female, tmp_n_answers, gen_participants)
+            answerers = handle_M_F(answerers, limit_male, limit_female, tmp_n_answers, gen_participants)
             tmp_n_answers = len(answerers)
         
         print(f"\t chosen question n: {j}", end=" ")
@@ -920,15 +892,15 @@ def write_files(OUTPUT):
     print("\n COMPLETED! (folder opened)")
 
 if __name__ == '__main__':
-    #try:
-    print("\n\tGeneratore di dialoghi realistici.\n")
-    file_names = auto_files(dir_path)
-    '''Create output array [data, person] and silences/pauses values'''
-    OUTPUT, silences = read_write_file(file_names)
-    '''Create output array [data, person]: add silences/pauses to output data'''
-    OUTPUT = sounds(file_names, OUTPUT, silences)
-    write_files(OUTPUT)
-    os.startfile(os.path.join(dir_path, output_folder))
-    #except Exception as e:
-        #print(f"\n ! ERRORE: \n\tOperazione interrotta per un errore interno: {e}")
-        #exit()
+    try:
+        print("\n\tGeneratore di dialoghi realistici.\n")
+        file_names = auto_files(dir_path)
+        '''Create output array [data, person] and silences/pauses values'''
+        OUTPUT, silences = read_write_file(file_names)
+        '''Create output array [data, person]: add silences/pauses to output data'''
+        OUTPUT = sounds(file_names, OUTPUT, silences)
+        write_files(OUTPUT)
+        os.startfile(os.path.join(dir_path, output_folder))
+    except Exception as e:
+        print(f"\n ! ERRORE ! \n\tOperation aborted due to internal error: {e}")
+        exit()

@@ -53,11 +53,12 @@ prob_i_q = 0.8
 # volume of answers. "ND" if NOT DEFINED, "L" if LOW volume, "H" if HIGH volume
 volume = ND
 
+# Ratio number of male and female 
 [gender]
 # if you want the output quantity to be this exact value, set True. Warning: it can cause errors if here are not enough participants in the folder
 fixed_quantity = False
 # proportion between male and female, in case there are not enough male or female to accomplish this task, the higher number will be reduced
-limit_male_female = 0:0
+male_female_ratio = 0:0
 
 [files]
 # file name format: *IDname_SESSO_volume_tipo_ndomanda". eg. 01_M_H_A_01 The number identifies the position
