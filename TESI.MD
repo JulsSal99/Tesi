@@ -14,13 +14,21 @@ Inoltre, il programma sviluppato sulla base di questi dati offre un approccio in
 
 # Introduzione
  
-Il dataset sarà composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM. 
+Il dataset è composto da dialoghi strutturati in forma di domande e risposte, interpretate da diversi partecipanti, con l'obiettivo di generare tracce di dialogo di lunghezza variabile il più verosimili possibile tra più individui. Tali tracce saranno impiegate per condurre esperimenti futuri presso il LIM. 
 
 Saranno rilevati inoltre dalle registrazioni i tempi di risposta dei vari partecipanti al test, che verranno quindi confrontati con quelli riportati nella letteratura specializzata, al fine di valutarne la coerenza e l'aderenza alle dinamiche comunicative reali. 
 
 Inoltre, si svilupperà un software ad hoc per la combinazione efficiente dei dialoghi, mirato a ottimizzare i tempi di produzione delle tracce audio e a soddisfare specifiche esigenze o requisiti. Il protocollo sperimentale per le registrazioni sarà rigorosamente definito, includendo una spiegazione dettagliata degli obiettivi della registrazione e delle istruzioni per una partecipazione coerente e consistente, al fine di garantire la coerenza e l'affidabilità dei dati raccolti.
 
 # Stato dell'arte
+Nel campo della ricerca, l’uso di dataset preesistenti di dominio pubblico è una pratica comune. 
+Abbiamo quindi voluto realizzare un dataset realizzato ed utilizzabile all'interno del LIM [^14] che meglio si adattino ai futuri esperimenti.
+
+Un altro problema comune di molti dataset di registrazioni è l'utilizzo di un singolo microfono frontale.
+Abbiamo fatto registrazioni con due microfoni posizionati verticalmente per dare una più definita rappresentazione spaziale: uno puntato frontalmente verso il parlante ("avanti") e un altro posizionato di lato ("a destra") rispetto al parlante. 
+Inoltre, abbiamo fornito una risposta all’impulso IIR della stanza, che rappresenta un ulteriore contributo alla comprensione dell’ambiente di registrazione.
+
+Un aspetto distintivo del nostro lavoro è l’uso di un protocollo di registrazione specifico. Questo protocollo ci ha permesso di combinare varie registrazioni per formare dialoghi. Questo metodo di combinazione si distingue dalla generazione classica, poiché permette una combinazione più macroscopica e specifica. Inoltre, la generazione di dialoghi offre all’utente diversi settaggi facili da usare per la generazione multipla di diversi contenuti.
 
 # Tecnologie utilizzate
 Per quanto concerne la registrazione in stanza insonorizzata, è stato scelto come software per la registrazione la DAW [^15].
@@ -43,7 +51,7 @@ Va sottolineato che comunque il software, una volta installata la versione corre
 ## Attrezzatura e setup:
 
 Come luogo di registrazione è stata scelta la stanza insonorizzata anecoica di celoria 22 (Malcangi).
-La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni beyerdynamic MM1[^18], di cui uno frontale e l'altro angolato di 90° e posizionati entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
+La posizione del partecipante all'esperimento è nel centro della stanza. Sono stati usati due microfoni beyerdynamic MM1[^18] entrambi verticalmente, di cui uno frontale e l'altro angolato di 90° e posizionati, entrambi a mezzo metro di distanza all'altezza della bocca per ricreare una impostazione ambisonic del secondo ordine.
 La distanza dei microfoni è stata scelta per esigenze di distanza: ad un metro il partecipante sarebbe stato troppo vicino a due pareti e in una posizione che poteva ostruire il passaggio in ucita e quindi causare il movimento dei microfoni.
 E' stata usata inoltre usata una scheda audio [^16] con gain a +26 e due microfoni a distanza di mezzo metro dal viso, uno frontale e uno laterale destra.
 La registrazione dei due microfoni avviene in formato stereo. Con come uscita un file wav a 24bit e frequenza di campionamento 192khz.
