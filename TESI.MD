@@ -21,7 +21,7 @@ Saranno rilevati inoltre dalle registrazioni i tempi di risposta dei vari partec
 Inoltre, si svilupperà un software ad hoc per la combinazione efficiente dei dialoghi, mirato a ottimizzare i tempi di produzione delle tracce audio e a soddisfare specifiche esigenze o requisiti. Il protocollo sperimentale per le registrazioni sarà rigorosamente definito, includendo una spiegazione dettagliata degli obiettivi della registrazione e delle istruzioni per una partecipazione coerente e consistente, al fine di garantire la coerenza e l'affidabilità dei dati raccolti.
 
 # Stato dell'arte
-Nel campo della ricerca, l’uso di dataset preesistenti di dominio pubblico è una pratica comune. 
+Nel campo della ricerca, l’uso di dataset preesistenti di dominio pubblico è una pratica comune con come fonti usuali Freesound.org, YouTube e Aigei, ma sono rari dataset specializzati nella ricerca, se non per casistiche particolari di analisi dati.
 Abbiamo quindi voluto realizzare un dataset realizzato ed utilizzabile all'interno del LIM [^14] che meglio si adattino ai futuri esperimenti.
 
 Un altro problema comune di molti dataset di registrazioni è l'utilizzo di un singolo microfono frontale.

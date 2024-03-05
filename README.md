@@ -104,9 +104,12 @@ end_tollerance = 3
 cycle_limit = 10
 # background noise for silences and pauses
 
+# apply fade in- and fade-out to each sample
 [fade]
-# apply fade in- and fade-out to each sample. Value is in seconds
+# lenght of the fade. Value is in seconds
 fade_length = 0
+# fade type. There are 2 values: 0 for logarithmic, 1 for linear 
+fade_type = 0
 
 [noise]
 # You can add a background noise to the audio file that will be overlaid

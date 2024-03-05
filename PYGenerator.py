@@ -53,6 +53,7 @@ output_folder = config.get('files', 'output_folder', fallback="OUTPUT")
 import_name1 = os.path.join("__pycache__", config.get('files', 'custom_path', fallback="output_files.json"))
 # fade
 fade_length = config.getfloat('fade', 'fade_length', fallback=0)
+fade_type = config.getint('fade', 'fade_type', fallback=0)
 # noise
 enable_noise = config.getboolean('noise', 'enable_noise', fallback=False)
 noise_file = config.get('noise', 'noise_file', fallback="")
@@ -288,7 +289,10 @@ def concatenate_fade(audio1, audio2, shape):
         logging.info(f"concatenate_fade \t\t - WARNING: audio2 ({len(audio1)} samples) smaller than fade ({fade} samples)!! fade will set to 0.05!!!")
         fade = int(0.05 * sample_rate)
     # applica il fade-out al primo file audio
-    fade_out = np.logspace(np.log10(0.15), np.log10(1.05), fade)
+    if fade_type == 0:
+        fade_out = np.logspace(np.log10(0.15), np.log10(1.05), fade)
+    elif fade_type == 1:
+        fade_out = np.linspace(np.log10(0.15), np.log10(1.05), fade)
     #fade_out = np.linspace(0.15, 1.05, fade)
     fade_out = shape_fixer(np.subtract(1.1, fade_out), shape)
     fade_in = np.flip(fade_out)
