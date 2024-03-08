@@ -348,6 +348,7 @@ def concatenate(data1, data2, pause_length):
 
 def silence_generator(file_names):
     '''Generate long pause, short pause or silence in seconds'''
+    print("\t adding pauses and silences...")
     silences = []
     length = len(file_names) - 1
     for i in range(length):
@@ -375,8 +376,8 @@ def file_complete(file_names, silences):
     logging.info(f"file_complete \t\t - SUCCESS.")
     return OUTPUT
 
-def data_creator(file_names):
-    '''Read each single file and add raw data to file_names'''
+def data_reader(file_names):
+    '''Read each single audio file and add raw data to file_names'''
     '''and check sample rate and channels with check_SR_CH'''
     global channels, sample_rate
     if channels == 0 or sample_rate == 0:
@@ -390,18 +391,15 @@ def data_creator(file_names):
         file_names[i]['data'], rate_temp = sf.read(file_names[i]['path'])
         channels_temp = get_channels(file_names[i]['data'])
         check_SR_CH(file_names[i]['name'], rate_temp, channels_temp)
-    logging.info(f"data_creator \t\t - SUCCESS.")
+    logging.info(f"data_reader \t\t - SUCCESS.")
 
-def read_write_file(file_names):
+def dialogs_join(file_names:list, silences:list):
     ''' MAIN FUNCTION: create the ending file'''
     ''' create the class inside file_names and return to concatenate()'''
     ''' check channels, sample_rate'''
 
-    # Get sampled data from files and check sample rate and channels
-    data_creator(file_names)
-    
-    # create an array of pause_length for each (between) file
-    silences = silence_generator(file_names)
+    # Add audio data and check sample rate and channels
+    data_reader(file_names)
     
     print("\t creating data...")
     OUTPUT2 = []
@@ -435,7 +433,7 @@ def read_write_file(file_names):
                             file_silence = noise(file_silence)
                         OUTPUT = concatenate(OUTPUT, file_silence, silences[j - 1])
             OUTPUT2.append([OUTPUT, print_name])
-            logging.info(f"read_write_file \t - SUCCESS for: {print_name}")
+            logging.info(f"dialogs_join \t - SUCCESS for: {print_name}")
     OUTPUT = file_complete(file_names, silences)
     OUTPUT2.append([OUTPUT, "COMPLETE"])
     return OUTPUT2, silences
@@ -578,23 +576,23 @@ def sounds(file_names, audio_no_s, silences):
 
 # /////////////////////////////////// SOUNDS //////////////////////////////////
 
-def participants_lists(q_letters, a_letters):
+def participants_lists(q_letters:dict, a_letters:dict):
     q_participants = list(q_letters.keys())
     a_participants = list(a_letters.keys())
     logging.info(f"participants_lists \t - SUCCESS")
     return q_participants, a_participants
 
-def list_to_3Dlist(dict):
+def list_to_3Dlist(list1:list):
     # create 3D list for dicts
-    arr = []
-    for filename in dict:
+    arr1 = []
+    for filename in list1:
         person = get_person(filename)
         n_question = get_nquestion(filename)
-        arr.append([os.path.join(dir_path, input_folder+"/"+filename), person, n_question])
+        arr1.append([os.path.join(dir_path, input_folder+"/"+filename), person, n_question])
     logging.info(f"list_to_3Dlist \t\t - SUCCESS")
-    return arr
+    return arr1
 
-def matr_to_list1(matr1, value1):
+def questions_shuffler(matr1:list, value1:list):
     list1 = []
     for _, _, n in matr1:
         if n not in list1:
@@ -609,15 +607,15 @@ def matr_to_list1(matr1, value1):
         list1 = list1[:(value1-1)]
     return list1
 
-def matr_to_dict1(matr1, list2):
+def matr_to_dict1(matr1:list, list1:list):
     dict1 = {}
-    for j in list2:
+    for j in list1:
         for _, p, n in matr1:
             if j == n:
                 dict1.setdefault(n, []).append(p)
     return dict1
 
-def volume_handler(p1, p2):
+def volume_handler(p1:str, p2:str):
     if volume == "ND":
         if pos_participants.get(p1) == pos_participants.get(p2):
             tmp_volume = "L"
@@ -626,7 +624,7 @@ def volume_handler(p1, p2):
         return tmp_volume
     else: return volume
 
-def merge_arrays(arr1, arr2):
+def merge_arrays(arr1:list, arr2:list):
     merged_array = []
     for item in arr1:
         if item not in merged_array:
@@ -636,7 +634,7 @@ def merge_arrays(arr1, arr2):
             merged_array.append(item)
     return merged_array
 
-def find_gender(participants):
+def find_gender(participants:list):
     '''Search for the file by its name with and without the extension'''
     '''and return the first file found with the exact path of the file.'''
     gen_participants = {}
@@ -653,7 +651,7 @@ def find_gender(participants):
                     logging.info(f"find_gender \t\t - SUCCESS.")
     return gen_participants
 
-def handle_M_F(dist_answerers, limit_male, limit_female, tmp_n_answers, gen_participants):
+def handle_M_F(dist_answerers:list, limit_male:int, limit_female:int, tmp_n_answers:int, gen_participants:dict):
     real_limit_male = 0; real_limit_female = 0
     if gender_fixed_quantity != True: 
         if tmp_n_answers == 1:
@@ -706,12 +704,22 @@ def handle_M_F(dist_answerers, limit_male, limit_female, tmp_n_answers, gen_part
                         else: limit_female -= 1
                         break
 
-def handle_auto_files(dir_path):
+def search_person(matrice:list, person:str, tmp_volume:str, tmp_question:str):
+    '''Search the person related to the question with a specific volume inside the matrix'''
+    for i in matrice:
+        if person == str(i[1]) and tmp_question == i[2]:
+            if volume != "ND" or (get_volume(i[0]) == tmp_volume):                
+                logging.info(f"search_person \t - SUCCESS")
+                return i[0]
+    logging.info(f"search_person \t - ERROR: No found file")
+    return None
+
+def dialogs_handler(dir_path:str):
     '''CREATE FILE_NAMES'''
     '''Core function of the programm: '''
     '''creates a dictionary of random file names from your chosen folder'''
     _, count_a, count_q, initial_questions, _, a_letters, q_letters = folder_info(os.path.join(dir_path, input_folder))
-    logging.info(f"{count_a, count_q, initial_questions}")
+    logging.info(f"dialogs_handler - \t - INFO: {count_a, count_q, initial_questions}")
     # create 3D array for questions
     matr_questions = list_to_3Dlist(count_q)
     matr_answers = list_to_3Dlist(count_a)
@@ -743,7 +751,7 @@ def handle_auto_files(dir_path):
         gen_participants = find_gender(participants)
         
     # max number of participants to answers
-    list_questions = matr_to_list1(matr_questions, n_questions)
+    list_questions = questions_shuffler(matr_questions, n_questions)
     dict_answers = matr_to_dict1(matr_questions, list_questions)
 
     tmp_n_answers = 0
@@ -780,11 +788,9 @@ def handle_auto_files(dir_path):
         tmp_volume = volume_handler(answerers[0], interrogator)
 
         # add first person to ask X each question
-        for i in matr_questions:
-            if str(interrogator) == str(i[1]) and int(j) == int(i[2]):
-                if volume != "ND" or (get_volume(i[0]) == tmp_volume):
-                    file_names = add_file(file_names, i[0])
-                    break
+        tmp_questions = search_person(matr_questions, interrogator, tmp_volume, j)
+        if tmp_questions != None:
+            file_names = add_file(file_names, tmp_questions)
         
         print(f"with n{tmp_n_answers} answers from:", end=" ")
 
@@ -794,38 +800,32 @@ def handle_auto_files(dir_path):
             if i_a != 0:
                 tmp_volume = volume_handler(responder, answerers[i_a])
                 if (random.random() < prob_init_question) == True:
-                    for i in matr_initquest:
-                        if responder == str(i[1]) and j == i[2]:
-                            if volume != "ND" or (get_volume(i[0]) == tmp_volume):
-                                file_names = add_file(file_names, i[0])
-                                err_check += 1
-                                break
+                    tmp_initquest = search_person(matr_initquest, responder, tmp_volume, j)
+                    if tmp_initquest != None:
+                        file_names = add_file(file_names, tmp_initquest)
+                        err_check += 1
                 else:
                     err_check += 1
                 if ((random.random() < prob_question) == True) and ((random.random() < prob_i_q) == True):
-                    for i in matr_questions:
-                        if responder == str(i[1]) and j == i[2]:
-                            if volume != "ND" or (get_volume(i[0]) == tmp_volume):
-                                file_names = add_file(file_names, i[0])
-                                err_check += 1
-                                break
+                    tmp_questions = search_person(matr_questions, responder, tmp_volume, j)
+                    if tmp_questions != None:
+                        file_names = add_file(file_names, tmp_questions)
+                        err_check += 1
                 else:
                     err_check += 1
             responder = answerers[i_a]
-            for i in matr_answers:
-                if responder == str(i[1]) and j == i[2]:
-                    if volume != "ND" or (get_volume(i[0]) == tmp_volume):
-                        file_names = add_file(file_names, i[0])
-                        err_check += 1
-                        break
+            tmp_answers = search_person(matr_answers, responder, tmp_volume, j)
+            if tmp_answers != None:
+                file_names = add_file(file_names, tmp_answers)
+                err_check += 1
             if not (err_check == 3 or (i_a == 0 and err_check == 1)):
-                logging.info(f"handle_auto_files \t - ERROR: {matr_answers}, responder: {responder}, j: {j}, i_a: {i_a}, {volume, tmp_volume}")
+                logging.info(f"dialogs_handler \t - ERROR: {matr_answers}, responder: {responder}, j: {j}, i_a: {i_a}, {volume, tmp_volume}")
                 raise Exception(f"Wrong Setting: Can't find the right file responder {responder}, question {j} and volume {tmp_volume}")
         print("")
-    logging.info(f"handle_auto_files \t - SUCCESS: {file_names}")
+    logging.info(f"dialogs_handler \t - SUCCESS: {file_names}")
     return file_names
 
-def auto_files(dir_path):
+def dialogs_list(dir_path:str):
     '''Generates a dict for every file randomly chosen'''
     '''if a custom settings was found, reads it and returns'''
     '''call handle_auto_files and saves the dict with every file name into __pycache__'''
@@ -835,7 +835,7 @@ def auto_files(dir_path):
         return custom_files()
     else:
         print("\t chosing new files and pauses...")
-        file_names = handle_auto_files(dir_path)
+        file_names = dialogs_handler(dir_path)
         with open((save_name1), 'w') as file:
             json.dump(file_names, file)
         if volume == "ND":
@@ -855,10 +855,10 @@ def custom_files():
             data = json.load(file_json)
             if isinstance(data, list):
                 if all(isinstance(item, dict) for item in data):
-                    logging.info(f"user_ask_files \t - INFO: found dict")
+                    logging.info(f"custom_files \t - INFO: found dict")
                     file_names = data
                 elif all(isinstance(item, str) for item in data):
-                    logging.info(f"user_ask_files \t - INFO: found list")
+                    logging.info(f"custom_files \t - INFO: found list")
                     max_participants, _, _, _, _, _, _ = folder_info(os.path.join(dir_path, input_folder))
                     if len(data) > 1 and len(data) <= max_participants:
                         for tmp_file in data:
@@ -876,14 +876,14 @@ def custom_files():
                 global pos_participants
                 data2 = json.load(file_json)
                 if all(isinstance(item2, dict) for item2 in data2):
-                    logging.info(f"user_ask_files \t - INFO: found pos_participants file")
+                    logging.info(f"custom_files \t - INFO: found pos_participants file")
                     pos_participants = data2
     except FileNotFoundError:
         print(f"file {import_name1} not found.")
-    logging.info(f"user_ask_files \t - SUCCESS: {file_names}")
+    logging.info(f"custom_files \t - SUCCESS: {file_names}")
     return file_names
 
-def write_files(OUTPUT):
+def write_files(OUTPUT:list):
     print("\t writing files into the hard drive...")
     for i in OUTPUT:
         if volume == "ND" and i[1] in pos_participants:
@@ -898,9 +898,11 @@ def write_files(OUTPUT):
 if __name__ == '__main__':
     try:
         print("\n\tGeneratore di dialoghi realistici.\n")
-        file_names = auto_files(dir_path)
+        file_names = dialogs_list(dir_path)
         '''Create output array [data, person] and silences/pauses values'''
-        OUTPUT, silences = read_write_file(file_names)
+        silences = silence_generator(file_names)
+        '''create an array of pause_length for each (between) file'''
+        OUTPUT, silences = dialogs_join(file_names, silences)
         '''Create output array [data, person]: add silences/pauses to output data'''
         OUTPUT = sounds(file_names, OUTPUT, silences)
         write_files(OUTPUT)
