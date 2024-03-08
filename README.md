@@ -1,3 +1,5 @@
+<img src="img/lim.png" alt="drawing" width="200"/>
+
 # Procedural Dialogue Generation
 
 This is a thesis project carried out at the **Laboratory of Musical Informatics (LIM)**. The purpose of the thesis is to create an audio dataset from various participants in a soundproof room and then have these individual dialogues interact to construct a discourse involving multiple people. 
