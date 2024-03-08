@@ -42,6 +42,7 @@ prob_question = config.getfloat('global', 'prob_question', fallback=0.5)
 prob_init_question = config.getfloat('global', 'prob_init_question', fallback=0.5)
 prob_i_q = config.getfloat('global', 'prob_i_q', fallback=0.8)
 volume = config.get('global', 'volume', fallback="ND")
+first_question = config.getboolean('global', 'first_question', fallback=True)
 # gender
 gender_fixed_quantity = config.getboolean('gender', 'fixed_quantity', fallback=False)
 limit_male_female = config.get('gender', 'male_female_ratio', fallback="0:0")
@@ -789,7 +790,7 @@ def dialogs_handler(dir_path:str):
 
         # add first person to ask X each question
         tmp_questions = search_person(matr_questions, interrogator, tmp_volume, j)
-        if tmp_questions != None:
+        if tmp_questions != None and first_question:
             file_names = add_file(file_names, tmp_questions)
         
         print(f"with n{tmp_n_answers} answers from:", end=" ")

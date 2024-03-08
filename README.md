@@ -52,6 +52,8 @@ prob_question = 0.5
 prob_i_q = 0.8
 # volume of answers. "ND" if NOT DEFINED, "L" if LOW volume, "H" if HIGH volume
 volume = ND
+# decide if a dialogue will start with a question or an answer. It doesn't apply to each question, but just the first question
+first_question = True
 
 # Ratio number of male and female 
 [gender]
